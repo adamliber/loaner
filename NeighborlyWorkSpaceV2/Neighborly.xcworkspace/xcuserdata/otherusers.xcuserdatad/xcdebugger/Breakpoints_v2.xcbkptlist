@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Neighborly/AccountViewController.swift"
+            timestampString = "545199559.874078"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "AccountViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "variable initialization expression of Neighborly.AccountViewController.borrowedItems : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "Neighborly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/otherusers/Documents/USC/Spring_2018/CSCI_201/NeighborlyGit/Neighborly/Neighborly/AccountViewController.swift"
+                  timestampString = "545191773.433234"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Neighborly.AccountViewController.borrowedItems.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "Neighborly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/otherusers/Documents/USC/Spring_2018/CSCI_201/NeighborlyGit/Neighborly/Neighborly/AccountViewController.swift"
+                  timestampString = "545191773.4363559"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "109">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Neighborly.AccountViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Neighborly.AccountViewController"
+                  moduleName = "Neighborly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/otherusers/Documents/USC/Spring_2018/CSCI_201/NeighborlyGit/Neighborly/Neighborly/AccountViewController.swift"
+                  timestampString = "545191773.4403239"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "349">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Neighborly.AccountViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Neighborly.AccountViewController&gt;"
+                  moduleName = "Neighborly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/otherusers/Documents/USC/Spring_2018/CSCI_201/NeighborlyGit/Neighborly/Neighborly/AccountViewController.swift"
+                  timestampString = "545191773.445303"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "280">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
