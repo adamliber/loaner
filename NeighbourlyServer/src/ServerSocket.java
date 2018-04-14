@@ -20,12 +20,13 @@ public class ServerSocket {
 	}
 	
 	@OnMessage
-	public void onMessage(String message, Session sesion) {
+	public void onMessage(Message message) {
 		System.out.println(message);
 		try {
 			for(Session s: sessionVector)
 			{
-				s.getBasicRemote().sendText(message);
+				if(s.getUserProperties().get(userId) == message.getId()) 
+				message.sendMessage(s);
 			}
 		}catch(IOException ioe)
 		{
