@@ -25,9 +25,10 @@ public class ServerSocket {
 		try {
 			for(Session s: sessionVector)
 			{
-				if(s.getUserProperties().get(userId) == message.getId()) 
-				message.sendMessage(s);
-				break;
+				if(s.getUserProperties().get(userId) == message.getId()) {
+					message.sendMessage(s);
+					break;
+				}
 			}
 		}catch(IOException ioe)
 		{
