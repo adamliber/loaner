@@ -27,6 +27,7 @@ public class ServerSocket {
 			{
 				if(s.getUserProperties().get(userId) == message.getId()) 
 				message.sendMessage(s);
+				break;
 			}
 		}catch(IOException ioe)
 		{
