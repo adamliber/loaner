@@ -24,7 +24,9 @@ public class ServerSocket {
 	}
 	
 	@OnMessage
+
 	public void onMessage(String message, Session session) {
+
 		System.out.println(message);
 		ArrayList<Item> myItems = database.searchItems(2, "camera", -150, 150, -150, 150);
 		System.out.println("made it to line 29 ");
@@ -33,10 +35,12 @@ public class ServerSocket {
 		System.out.println("made it to line 31 ");
 		
 		try {
+
 			session.getBasicRemote().sendText(toSend);
 		} catch (IOException e) {
 			System.out.println("IOException in sending the gson");
 			System.out.println(e.getMessage());
+
 		}
 		
 	}
