@@ -14,22 +14,24 @@ class ViewController: UIViewController , WebSocketDelegate {
     
     
     func websocketDidConnect(socket: WebSocketClient) {
-        
+        print("web socket is connected")
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        
+        print("web socket is disconnected: \(String(describing: error?.localizedDescription))")
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        
+        print("got some text: \(text)")
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        
+        print("got some data: \(data.count)")
     }
     
-    var socket = WebSocket(url: URL(string: "ws://localhost:8080/")!,protocols: ["chat"] )
+    
+    
+    public var socket = WebSocket(url: URL(string: "ws://localhost:8080/NeighbourlyServer/ws")!,protocols: ["chat"] )
     
     
     override func viewDidLoad() {
