@@ -10,14 +10,14 @@
 		0AE837A23631774FB1F93EF624D078B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		42FAC18EEEDDF2276048E518060D5389 /* Pods-NeighborlyUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6740475BCF78E4BB9CE40F97778411 /* Pods-NeighborlyUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B748131941F2487C0B205EA727EC522 /* Pods-Neighborly-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 292CCC455817B7A2102C568A43687304 /* Pods-Neighborly-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		70D90DAC2A3267AEFC29F1F5ACAED3C3 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55365038245EB43AE2A59C80C01FD23 /* SSLSecurity.swift */; };
+		70D90DAC2A3267AEFC29F1F5ACAED3C3 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1BAD8EB0FBDED41A284963E21C48D9 /* SSLSecurity.swift */; };
 		74B156185BDCC9B9540B008585321C94 /* Pods-NeighborlyTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F11CB90C31F35C4A7837B119BD15903F /* Pods-NeighborlyTests-dummy.m */; };
 		8FAA73A3C110B34FD55DD3876C0F02AE /* Pods-Neighborly-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F4E4425A6298CB09FA266C1DE229C3 /* Pods-Neighborly-dummy.m */; };
 		9A61587FCA807E20EE73CD5BFCB40E82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		9AD8D87795457F478EDA42669D692C08 /* Starscream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1661B72F0A274473D9147AAE8A3E06F1 /* Starscream-dummy.m */; };
-		AFAF4548C411E44E9EF919788D6B042F /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04D8C3C1516E1A02A46FCEB72236FA /* Compression.swift */; };
-		C6B885F1C78F891B588B11CD31C9E781 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF79A3A1C6FEF108CF16DE0537B0431 /* WebSocket.swift */; };
-		E5884E19A6A273D14414F70A2AB04A6A /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D996E17FD79A681D5829532F50CF07C /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AD8D87795457F478EDA42669D692C08 /* Starscream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7F7081E806C3F4A77F4FD7CE509003 /* Starscream-dummy.m */; };
+		AFAF4548C411E44E9EF919788D6B042F /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA41DC163D1B057968FFF8391D545CC /* Compression.swift */; };
+		C6B885F1C78F891B588B11CD31C9E781 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58053292F3426BE2B6461E75BE16CF30 /* WebSocket.swift */; };
+		E5884E19A6A273D14414F70A2AB04A6A /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DBDB2E26A4F0910C19C89C7433B3ADF2 /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7D2F0831888D670F94AA7E19ED9EC0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		ED3C7AB6947043CF82ED79DF15CE8545 /* Pods-NeighborlyTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 91072062754142793916CA5C5A975299 /* Pods-NeighborlyTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F0BD32F912690C6216D2065F4D795092 /* Pods-NeighborlyUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A175FED1906FF46E75E743B2CCC22 /* Pods-NeighborlyUITests-dummy.m */; };
@@ -50,24 +50,24 @@
 
 /* Begin PBXFileReference section */
 		034FE0C2C1C1E0AC0731BB83D18B408D /* Pods-NeighborlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeighborlyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		09EA6251D3A104E0E0D95E2C1B731FA7 /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
 		0C1CBF4A4FCA5957F0AAA2732FCAB810 /* Pods-NeighborlyTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NeighborlyTests.modulemap"; sourceTree = "<group>"; };
 		158F254B14BD76CB99F2EE9817DB28F6 /* Pods-NeighborlyTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NeighborlyTests-resources.sh"; sourceTree = "<group>"; };
-		1661B72F0A274473D9147AAE8A3E06F1 /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
 		17B1F2EC3B66A6D835503FAD3E8D21AF /* Pods-Neighborly-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Neighborly-frameworks.sh"; sourceTree = "<group>"; };
 		1C6A175FED1906FF46E75E743B2CCC22 /* Pods-NeighborlyUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NeighborlyUITests-dummy.m"; sourceTree = "<group>"; };
 		1FF0D757765E6941D83AED7E9ED7E291 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21ED75884216C07978E7A2956A63F502 /* Pods_NeighborlyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NeighborlyUITests.framework; path = "Pods-NeighborlyUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24CD1CF8C67430D7697078621E8DFD65 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Starscream.modulemap; sourceTree = "<group>"; };
 		2665793DB204BF6BC3BF8979DD22E996 /* Pods-NeighborlyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeighborlyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		271C1DC66C7C29FDC450E22285D9EE3F /* Pods-NeighborlyUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeighborlyUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		2789CF1F42DABE27C02F4A1FD33B202F /* Pods-NeighborlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeighborlyTests.release.xcconfig"; sourceTree = "<group>"; };
 		292CCC455817B7A2102C568A43687304 /* Pods-Neighborly-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Neighborly-umbrella.h"; sourceTree = "<group>"; };
 		2EAC196415B5E43479A165E4661E4531 /* Pods-Neighborly-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Neighborly-resources.sh"; sourceTree = "<group>"; };
 		37B6005B847ABAA55A5ABB70CDB6FA19 /* Pods_NeighborlyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NeighborlyTests.framework; path = "Pods-NeighborlyTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A89F29E62024F23802960B4656EAB90 /* Starscream.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.xcconfig; sourceTree = "<group>"; };
-		3BF79A3A1C6FEF108CF16DE0537B0431 /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Sources/WebSocket.swift; sourceTree = "<group>"; };
 		4A9574E6698337208B0557C3E4B81737 /* Pods-Neighborly.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Neighborly.modulemap"; sourceTree = "<group>"; };
+		58053292F3426BE2B6461E75BE16CF30 /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Sources/WebSocket.swift; sourceTree = "<group>"; };
+		591E458E1DCFABB2622FA28E899AFF32 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59BBDA653611E6E4EE62A046976A3076 /* Pods_Neighborly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Neighborly.framework; path = "Pods-Neighborly.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C1BAD8EB0FBDED41A284963E21C48D9 /* SSLSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = Sources/SSLSecurity.swift; sourceTree = "<group>"; };
 		62F4E4425A6298CB09FA266C1DE229C3 /* Pods-Neighborly-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Neighborly-dummy.m"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6965E562C32152BDC700D1CFFB998EF9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,19 +75,20 @@
 		6D808E004C1D59BEB396544DFB7F3DDB /* Pods-NeighborlyUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NeighborlyUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		75AC8AC8FF60808250F514727A16BCE7 /* Pods-NeighborlyUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NeighborlyUITests-frameworks.sh"; sourceTree = "<group>"; };
 		7872C6260023DC01EB3313A3AB081250 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BA41DC163D1B057968FFF8391D545CC /* Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Compression.swift; sourceTree = "<group>"; };
+		7E736760550EC2601F79BED81CB3AFA1 /* Starscream.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.xcconfig; sourceTree = "<group>"; };
 		841BFBD61BF00C972439A9C809DDAA3B /* Pods-Neighborly-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Neighborly-acknowledgements.plist"; sourceTree = "<group>"; };
-		8A04D8C3C1516E1A02A46FCEB72236FA /* Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Compression.swift; sourceTree = "<group>"; };
 		91072062754142793916CA5C5A975299 /* Pods-NeighborlyTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NeighborlyTests-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9D996E17FD79A681D5829532F50CF07C /* Starscream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-umbrella.h"; sourceTree = "<group>"; };
-		A55365038245EB43AE2A59C80C01FD23 /* SSLSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = Sources/SSLSecurity.swift; sourceTree = "<group>"; };
+		9F7F7081E806C3F4A77F4FD7CE509003 /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
 		B49140905272DC7B732DC5B85343563F /* Pods-NeighborlyTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NeighborlyTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B6A238EF8E01EAC9A828A284D047D885 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Starscream.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE45E4228F80B7A67DDB50F7FE401258 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Starscream.modulemap; sourceTree = "<group>"; };
+		C7C9F2CF65F2FB6D38915F19ABADA72D /* SendBirdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SendBirdSDK.framework; sourceTree = "<group>"; };
 		CBE21AFBB535C3E4CF193BA0DE734D8E /* Pods-NeighborlyUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NeighborlyUITests-resources.sh"; sourceTree = "<group>"; };
 		CCDB8F83A00CE40C642EBD7E1C66FC13 /* Pods-NeighborlyTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NeighborlyTests-frameworks.sh"; sourceTree = "<group>"; };
-		D81F63893E234525A4008CE1A18359F7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBDB2E26A4F0910C19C89C7433B3ADF2 /* Starscream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-umbrella.h"; sourceTree = "<group>"; };
 		DCCB61B5697C806B7FE1E7C5AF9DF0C4 /* Pods-Neighborly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Neighborly.release.xcconfig"; sourceTree = "<group>"; };
-		E30CD6AEB67F8F272DEAB957F7021909 /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
 		EC6740475BCF78E4BB9CE40F97778411 /* Pods-NeighborlyUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NeighborlyUITests-umbrella.h"; sourceTree = "<group>"; };
 		F0A03B3D361841FA1ADB300604493F6F /* Pods-NeighborlyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeighborlyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F11CB90C31F35C4A7837B119BD15903F /* Pods-NeighborlyTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NeighborlyTests-dummy.m"; sourceTree = "<group>"; };
@@ -132,6 +133,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03CF29C621B0FB2F9DFF7653118E99AA /* Starscream */ = {
+			isa = PBXGroup;
+			children = (
+				7BA41DC163D1B057968FFF8391D545CC /* Compression.swift */,
+				5C1BAD8EB0FBDED41A284963E21C48D9 /* SSLSecurity.swift */,
+				58053292F3426BE2B6461E75BE16CF30 /* WebSocket.swift */,
+				3AFB61A79686138DBC95E937D01B9857 /* Support Files */,
+			);
+			name = Starscream;
+			path = Starscream;
+			sourceTree = "<group>";
+		};
 		17146EC453A1382FFDA00E61122BC98D /* Pods-NeighborlyTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,12 +163,18 @@
 			path = "Target Support Files/Pods-NeighborlyTests";
 			sourceTree = "<group>";
 		};
-		3472A81D0DB31608B2D83C2463248903 /* Pods */ = {
+		3AFB61A79686138DBC95E937D01B9857 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CB62A5E4B3983660FF962BD54E1FC6E7 /* Starscream */,
+				591E458E1DCFABB2622FA28E899AFF32 /* Info.plist */,
+				BE45E4228F80B7A67DDB50F7FE401258 /* Starscream.modulemap */,
+				7E736760550EC2601F79BED81CB3AFA1 /* Starscream.xcconfig */,
+				9F7F7081E806C3F4A77F4FD7CE509003 /* Starscream-dummy.m */,
+				09EA6251D3A104E0E0D95E2C1B731FA7 /* Starscream-prefix.pch */,
+				DBDB2E26A4F0910C19C89C7433B3ADF2 /* Starscream-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/Starscream";
 			sourceTree = "<group>";
 		};
 		46983284960F4F612CD957019362A77B /* Pods-NeighborlyUITests */ = {
@@ -191,10 +210,27 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				3472A81D0DB31608B2D83C2463248903 /* Pods */,
+				9B00F7CB5F277798FFB396388D79CFAE /* Pods */,
 				B67C5FEAF97A7C10498B5E9B18CAFBE7 /* Products */,
 				70A053B4571D708ABD86E196FB21C924 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		9B00F7CB5F277798FFB396388D79CFAE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE0F5E7625A525A4DDBE5E127C645D98 /* SendBirdSDK */,
+				03CF29C621B0FB2F9DFF7653118E99AA /* Starscream */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4DFC8D51F0552CD26C54C0A7CD2414E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7C9F2CF65F2FB6D38915F19ABADA72D /* SendBirdSDK.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B67C5FEAF97A7C10498B5E9B18CAFBE7 /* Products */ = {
@@ -216,6 +252,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE0F5E7625A525A4DDBE5E127C645D98 /* SendBirdSDK */ = {
+			isa = PBXGroup;
+			children = (
+				A4DFC8D51F0552CD26C54C0A7CD2414E /* Frameworks */,
+			);
+			name = SendBirdSDK;
+			path = SendBirdSDK;
+			sourceTree = "<group>";
+		};
 		C01082A3E99D3ADD178FE62CDD4E9146 /* Pods-Neighborly */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,38 +279,12 @@
 			path = "Target Support Files/Pods-Neighborly";
 			sourceTree = "<group>";
 		};
-		CB62A5E4B3983660FF962BD54E1FC6E7 /* Starscream */ = {
-			isa = PBXGroup;
-			children = (
-				8A04D8C3C1516E1A02A46FCEB72236FA /* Compression.swift */,
-				A55365038245EB43AE2A59C80C01FD23 /* SSLSecurity.swift */,
-				3BF79A3A1C6FEF108CF16DE0537B0431 /* WebSocket.swift */,
-				E54986408F60ECB036498154E2A5488B /* Support Files */,
-			);
-			name = Starscream;
-			path = Starscream;
-			sourceTree = "<group>";
-		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		E54986408F60ECB036498154E2A5488B /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				D81F63893E234525A4008CE1A18359F7 /* Info.plist */,
-				24CD1CF8C67430D7697078621E8DFD65 /* Starscream.modulemap */,
-				3A89F29E62024F23802960B4656EAB90 /* Starscream.xcconfig */,
-				1661B72F0A274473D9147AAE8A3E06F1 /* Starscream-dummy.m */,
-				E30CD6AEB67F8F272DEAB957F7021909 /* Starscream-prefix.pch */,
-				9D996E17FD79A681D5829532F50CF07C /* Starscream-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Starscream";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -600,7 +619,7 @@
 		};
 		6ABD4B72A3C79CD5EC800D49387C2D3F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A89F29E62024F23802960B4656EAB90 /* Starscream.xcconfig */;
+			baseConfigurationReference = 7E736760550EC2601F79BED81CB3AFA1 /* Starscream.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -702,7 +721,7 @@
 		};
 		CDBE55D8F0C654D18A8AC9C50ED7852F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A89F29E62024F23802960B4656EAB90 /* Starscream.xcconfig */;
+			baseConfigurationReference = 7E736760550EC2601F79BED81CB3AFA1 /* Starscream.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

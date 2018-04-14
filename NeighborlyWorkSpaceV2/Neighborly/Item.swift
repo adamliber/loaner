@@ -8,15 +8,29 @@
 
 import Foundation
 
-class Item: NSObject {
+class Item: NSObject,Codable {
     
     public var itemName:String
-    public var itemDescription:String
- 
-    init(name: String, description: String){
-        
+    public var itemID: NSInteger
+    public var availibility: NSInteger
+    public var imageURL: String
+    public var itemDescription:String?
+    public var latitude:Double
+    public var longitude:Double
+    public var ownerID: NSInteger
+    public var borrowerID: NSInteger
+    
+    init(name: String,itemID: NSInteger, availibility:NSInteger,imageURL:String, description: String,longitude:Double,latitude:Double, ownerID: NSInteger, borrowerID: NSInteger){
         self.itemName = name
+        self.itemID = itemID
+        self.availibility = availibility
         self.itemDescription = description
+        self.imageURL = imageURL
+        self.latitude = latitude
+        self.longitude = longitude
+        self.ownerID = ownerID
+        self.borrowerID = borrowerID
+        
         
     }
 }

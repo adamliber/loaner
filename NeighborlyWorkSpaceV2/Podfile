@@ -9,7 +9,7 @@ target 'Neighborly' do
 
 source 'https://github.com/CocoaPods/Specs.git'
 pod 'Starscream', '~> 3.0.2'
-
+pod 'SendBirdSDK'
   target 'NeighborlyTests' do
     inherit! :search_paths
     # Pods for testing
@@ -19,5 +19,9 @@ pod 'Starscream', '~> 3.0.2'
     inherit! :search_paths
     # Pods for testing
   end
+  
 
 end
+
+
+

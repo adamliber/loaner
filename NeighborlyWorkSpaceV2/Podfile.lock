@@ -1,16 +1,20 @@
 PODS:
+  - SendBirdSDK (3.0.93)
   - Starscream (3.0.5)
 
 DEPENDENCIES:
+  - SendBirdSDK
   - Starscream (~> 3.0.2)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - SendBirdSDK
     - Starscream
 
 SPEC CHECKSUMS:
+  SendBirdSDK: d42b5b3483c6b86578e1677f2a5947e78d049f8a
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
 
-PODFILE CHECKSUM: 085cbb88dbc207bae78e16043236ce6b9544c8c5
+PODFILE CHECKSUM: 6d33ba3cb1d47744f3f29beb1b5795990672499a
 
 COCOAPODS: 1.5.0

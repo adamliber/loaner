@@ -17,8 +17,11 @@ class ItemsModel{
     public init(){
         borrowedItems = [Item]()
         myItems = [Item]()
-        borrowedItems.append(Item(name: "Camera", description: "Nikon for days my brother, this is the thing you. Relax snaphshot every dream you've ever had or ever will have"))
-        myItems.append(Item(name: "Drill", description: "This is the best Drill you will ever see in your entire life if you don't borrow this drill your life will never be complete"))
+       
+        borrowedItems.append(Item(name: "Camera", itemID: 1, availibility: 1, imageURL: "this", description: "Good Camera", longitude: 6.7, latitude: 7.8, ownerID: 1, borrowerID: 2   ) )
+            
+        myItems.append(Item(name: "drill", itemID: 1, availibility: 1, imageURL: "this", description: "Good Camera", longitude: 6.7, latitude: 7.8, ownerID: 1, borrowerID: 2   ) )
+       
         
     }
 }

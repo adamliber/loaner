@@ -10,6 +10,7 @@
 		0D397911CADC4B434C262780 /* Pods_NeighborlyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF350B9E6F2EBC89747392C /* Pods_NeighborlyUITests.framework */; };
 		6C6B86AA239F09F14B5C2292 /* Pods_Neighborly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688989A1CB9F7985D659AF77 /* Pods_Neighborly.framework */; };
 		6E1BF1ED55BF13583DEA182D /* Pods_NeighborlyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0124338C8A5344BD3FCEEF /* Pods_NeighborlyTests.framework */; };
+		BC3328DA2082B3E500756829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328D92082B3E500756829 /* LoginViewController.swift */; };
 		BC745BEC207EEB2400C56844 /* ItemCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC745BEB207EEB2400C56844 /* ItemCardTableViewCell.swift */; };
 		BC745BEE207F056700C56844 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC745BED207F056700C56844 /* Item.swift */; };
 		BC745BF0207F0D4000C56844 /* ItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC745BEF207F0D4000C56844 /* ItemsModel.swift */; };
@@ -58,6 +59,7 @@
 		8FF350B9E6F2EBC89747392C /* Pods_NeighborlyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeighborlyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AFAA056FEC3DA62A509211 /* Pods-Neighborly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighborly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Neighborly/Pods-Neighborly.debug.xcconfig"; sourceTree = "<group>"; };
 		9A41D09AD31CE4BC854CD371 /* Pods-NeighborlyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeighborlyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeighborlyUITests/Pods-NeighborlyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BC3328D92082B3E500756829 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC745BEB207EEB2400C56844 /* ItemCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardTableViewCell.swift; sourceTree = "<group>"; };
 		BC745BED207F056700C56844 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		BC745BEF207F0D4000C56844 /* ItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsModel.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				BC93462A207C73A80050F81A /* AccountViewController.swift */,
 				BC745BEB207EEB2400C56844 /* ItemCardTableViewCell.swift */,
 				BC745BF12081963600C56844 /* Socket.swift */,
+				BC3328D92082B3E500756829 /* LoginViewController.swift */,
 			);
 			path = Neighborly;
 			sourceTree = "<group>";
@@ -369,10 +372,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Neighborly/Pods-Neighborly-frameworks.sh",
+				"${PODS_ROOT}/SendBirdSDK/SendBirdSDK.framework",
+				"${PODS_ROOT}/SendBirdSDK/SendBirdSDK.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SendBirdSDK.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/SendBirdSDK.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +461,7 @@
 				BCD2DBA9207AE1150088B36B /* MenuTableViewCell.swift in Sources */,
 				BC745BEC207EEB2400C56844 /* ItemCardTableViewCell.swift in Sources */,
 				BCD2DBA320733DAB0088B36B /* UIViewController+MMDrawerController.m in Sources */,
+				BC3328DA2082B3E500756829 /* LoginViewController.swift in Sources */,
 				BCD2DB692071FD640088B36B /* ViewController.swift in Sources */,
 				BCD2DB672071FD640088B36B /* AppDelegate.swift in Sources */,
 				BC934627207BFF100050F81A /* PostViewController.swift in Sources */,

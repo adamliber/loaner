@@ -13,21 +13,7 @@ import Starscream
 class ViewController: UIViewController , WebSocketDelegate {
     
     
-    func websocketDidConnect(socket: WebSocketClient) {
-        print("web socket is connected")
-    }
     
-    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("web socket is disconnected: \(String(describing: error?.localizedDescription))")
-    }
-    
-    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("got some text: \(text)")
-    }
-    
-    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        print("got some data: \(data.count)")
-    }
     
     
     
@@ -47,6 +33,49 @@ class ViewController: UIViewController , WebSocketDelegate {
         socket.delegate = nil
     }
    
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("web socket is connected")
+        socket.write(string: "Hi server!")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("web socket is disconnected: \(String(describing: error?.localizedDescription))")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        struct AItem: Codable {
+            
+              var itemName:String
+              var itemID: NSInteger
+              var availibility: NSInteger
+              var imageURL: String
+              var itemDescription:String?
+            var latitude:Double
+              var longitude:Double
+            
+              var ownerID: NSInteger
+              var borrowerID: NSInteger
+            
+        }
+        print("got some text: \(text)")
+        let trunc = String(text.dropLast(1).dropFirst(1) )
+        print(trunc)
+        let jsonText = trunc.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        
+             let item = try? decoder.decode(Item.self, from: jsonText)
+        
+        print(item?.itemName)
+    
+    
+        
+        
+        
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("got some data: \(data.count)")
+    }
    
     
    
