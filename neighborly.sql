@@ -8,7 +8,9 @@ CREATE TABLE Users (
     email VARCHAR(100) UNIQUE NOT NULL,
     name VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
-    image MEDIUMBLOB
+    image MEDIUMBLOB,
+    borrow BOOL NOT NULL
+    
 );
 
 CREATE TABLE Items (	
@@ -22,8 +24,12 @@ CREATE TABLE Items (
     categories VARCHAR(300),
 	latitude DOUBLE(20,16) NOT NULL,
     longitude DOUBLE(20,16) NOT NULL,
+    available INT(1) NOT NULL,
+    request INT(1) NOT NULL,
+    requestorID INT(11) NULL,
     FOREIGN KEY fk1(ownerID) REFERENCES Users(userID),
-    FOREIGN KEY fk2(borrowerID) REFERENCES Users(userID)
+    FOREIGN KEY fk2(borrowerID) REFERENCES Users(userID),
+    FOREIGN KEY fk3(requestorID) REFERENCES Users(userID)
 );
 
 CREATE TABLE Categories(
