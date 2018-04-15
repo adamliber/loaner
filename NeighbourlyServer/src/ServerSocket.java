@@ -59,7 +59,6 @@ public class ServerSocket {
 		}
 		else if(messageID.trim().equals("login"))
 		{
-			System.out.println("In here");
 			m = gson.fromJson(message,LoginMessage.class);
 			String email = ((LoginMessage) m).getEmail();
 			String password = ((LoginMessage) m).getPassword();
@@ -82,6 +81,23 @@ public class ServerSocket {
 			} catch (IOException e) {
 				System.out.println("IOException in signup");
 			}
+		}
+		else if(messageID.trim().equals("searchItems"))
+		{
+			
+		}
+		else if(messageID.trim().equals("userPhotoUpload"))
+		{
+			m = gson.fromJson(message,PhotoUploadMessage.class);
+			String str = ((PhotoUploadMessage) m).getImageAsString();
+			
+			
+			  try {
+                byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(str); 
+			  }
+			  catch(ArrayIndexOutOfBoundsException aioe){ 
+				System.out.println("Array Index Out of Bounds Exception in userPhotoUpload");
+			  }
 		}
 		
 	}

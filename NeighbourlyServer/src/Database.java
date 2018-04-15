@@ -231,9 +231,6 @@ public class Database {
 		// send message to ownerID that item wants to be returned
 	}
 
-	// static String returnAcceptSQL = "UPDATE Items " + "SET returnRequest = ?,
-	// borrowerID = ?, available = ? "
-	// + "WHERE itemID=?";
 	public void returnRequestAccept(int itemID) {
 
 		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
@@ -444,4 +441,6 @@ public class Database {
 		
 		return toReturn;
 	}
+
+	
 }

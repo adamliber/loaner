@@ -8,7 +8,7 @@ CREATE TABLE Users (
     email VARCHAR(100) UNIQUE NOT NULL,
     name VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
-    image MEDIUMBLOB,
+    imageURL VARCHAR(300),
     borrow BOOL NOT NULL
     
 );
