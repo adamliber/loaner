@@ -9,4 +9,7 @@
 import Foundation
 import Starscream
 
+public var socket = WebSocket(url: URL(string: "ws://localhost:8080/NeighbourlyServer/ws")!,protocols: ["chat"] )
+
+
 

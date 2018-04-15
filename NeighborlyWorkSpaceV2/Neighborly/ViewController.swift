@@ -17,8 +17,7 @@ class ViewController: UIViewController , WebSocketDelegate {
     
     
     
-    public var socket = WebSocket(url: URL(string: "ws://localhost:8080/NeighbourlyServer/ws")!,protocols: ["chat"] )
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,47 +33,30 @@ class ViewController: UIViewController , WebSocketDelegate {
     }
    
     func websocketDidConnect(socket: WebSocketClient) {
-        print("web socket is connected")
-        socket.write(string: "Hi server!")
+        print("viewController socket is connected")
+       
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("web socket is disconnected: \(String(describing: error?.localizedDescription))")
+        print("viewController socket is disconnected: \(String(describing: error?.localizedDescription))")
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        struct AItem: Codable {
-            
-              var itemName:String
-              var itemID: NSInteger
-              var availibility: NSInteger
-              var imageURL: String
-              var itemDescription:String?
-            var latitude:Double
-              var longitude:Double
-            
-              var ownerID: NSInteger
-              var borrowerID: NSInteger
-            
-        }
-        print("got some text: \(text)")
+        
+        print("viewController some text: \(text)")
         let trunc = String(text.dropLast(1).dropFirst(1) )
         print(trunc)
         let jsonText = trunc.data(using: .utf8)!
         let decoder = JSONDecoder()
         
-             let item = try? decoder.decode(Item.self, from: jsonText)
+        let item = try? decoder.decode(Item.self, from: jsonText)
         
         print(item?.itemName)
     
-    
-        
-        
-        
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        print("got some data: \(data.count)")
+        print("viewController got some data: \(data.count)")
     }
    
     

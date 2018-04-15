@@ -7,19 +7,91 @@
 //
 
 import UIKit
+import Starscream
 import SendBirdSDK
 
-class LoginViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegate {
+    
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("Login Socket connected")
     }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("Login Socket disconnected")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("Login received text: \(text)")
+       
+        let jsonText = text.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        let userInfo = try? decoder.decode(UserInfoMessage.self, from: jsonText)
+        print("userID received:  \(userInfo?.userId)" )
+        
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("login received data: \(data)")
+    }
+    
+    
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordTextfield: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    override func viewDidLoad() {
+         super.viewDidLoad()
+        socket.connect()
+        socket.delegate = self
+       
+        loginButton.isEnabled = false
+        self.emailField.delegate = self
+        self.passwordTextfield.delegate = self
+        // Do any additional setup after loading the view.
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        self.view.addGestureRecognizer(singleTap)
+        
+    }
+    @objc func dismissKeyboard(){
+        self.view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    @IBAction func loginClicked(_ sender: Any) {
+        emailField.isEnabled = false
+        passwordTextfield.isEnabled = false
+        loginButton.isEnabled = false
+      
+        let loginMessage = LoginMessage(message: "", email: emailField.text!, password: passwordTextfield.text!)
+        let encoder = JSONEncoder()
+       
+        do{
+            let data = try encoder.encode(loginMessage)
+            socket.write(string: String(data: data, encoding: .utf8)!)
+          
+        }catch{
+            
+        }
+        
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if(emailField.text != "" && passwordTextfield.text != ""){
+            loginButton.isEnabled = true
+        }else{
+            loginButton.isEnabled = false
+        }
     }
     
 

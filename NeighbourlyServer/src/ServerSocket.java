@@ -37,11 +37,11 @@ public class ServerSocket {
 			
 			if(database.signUp(email, name, password))
 			{
-				session.getBasicRemote().sendText();
+				//session.getBasicRemote().sendText();
 			}
 			else //sign up was unsuccessful
 			{
-				session.getBasicRemote().sendText();
+				//session.getBasicRemote().sendText();
 			}
 			
 		}
@@ -53,11 +53,11 @@ public class ServerSocket {
 			int userID =  database.login(email, password);
 			if(userID == -1) //means login was unsuccessfull
 			{
-				session.getBasicRemote().sendText();
+				//session.getBasicRemote().sendText();
 			}
 			else //means login was successful
 			{
-				session.getUserProperties()
+				//session.getUserProperties()
 			}
 		}
 		

@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView;
         centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView;
         
-        window?.rootViewController = centerContainer
+        //window?.rootViewController = centerContainer
         window?.makeKeyAndVisible()
         
         

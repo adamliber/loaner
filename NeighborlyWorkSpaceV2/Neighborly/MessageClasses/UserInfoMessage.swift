@@ -1,0 +1,19 @@
+//
+//  UserInfoMessage.swift
+//  Neighborly
+//
+//  Created by Other users on 4/14/18.
+//  Copyright © 2018 Adam Liber. All rights reserved.
+//
+
+import Foundation
+
+struct UserInfoMessage:Codable{
+    var message:String
+    var userID:NSInteger
+    var name:String
+    //var photo:
+    var email:String
+    var myItems:[Item]
+    var borrowedItems:[Item]
+}
