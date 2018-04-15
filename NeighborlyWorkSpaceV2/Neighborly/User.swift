@@ -23,5 +23,6 @@ class User: SBDUser{
         self.email = email
         self.myItems = myItems
         self.borrowedItems = borrowedItems
+        super.init()
     }
 }

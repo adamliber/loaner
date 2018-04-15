@@ -1,6 +1,4 @@
-import java.io.EOFException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Vector;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
@@ -30,13 +28,7 @@ public class ServerSocket {
 
 		System.out.println(message);
 		Message m = null;
-		try {
-			m = gson.fromJson(message,Message.class);
-		}
-		catch(EOFException eofe)
-		{
-			System.out.println(eofe.getMessage());
-		}
+		m = gson.fromJson(message,LoginMessage.class);
 		if(m instanceof SignUpMessage)
 		{
 			String name = ((SignUpMessage) m).getName();
@@ -55,18 +47,31 @@ public class ServerSocket {
 		}
 		else if(m instanceof LoginMessage)
 		{
+			System.out.println("In here");
 			String email = ((LoginMessage) m).getEmail();
 			String password = ((LoginMessage) m).getPassword();
 			
 			int userID =  database.login(email, password);
 			if(userID == -1) //means login was unsuccessfull
 			{
-				//session.getBasicRemote().sendText();
+				String toWrite = gson.toJson(new Message("invalid"));
+				try {
+					session.getBasicRemote().sendText(toWrite);
+				} catch (IOException e) {
+					System.out.println("IOException in sending response of login mesage");
+				}
 			}
 			else //means login was successful
+				
 			{	
 				String toWrite = gson.toJson(new UserInfoMessage(userID,email,database));
-				session.getBasicRemote.sendText(toWrite);
+				System.out.println(toWrite);
+				try {
+					session.getBasicRemote().sendText(toWrite);
+				} catch (IOException e) {
+					System.out.println("IOException in sending response of login mesage");
+				}
+				//session.getBasicRemote().sendText(toWrite);
 
 				//session.getUserProperties()
 			}

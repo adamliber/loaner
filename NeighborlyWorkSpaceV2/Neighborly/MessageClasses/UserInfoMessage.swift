@@ -9,11 +9,14 @@
 import Foundation
 
 struct UserInfoMessage:Codable{
-    var message:String
-    var userID:NSInteger
-    var name:String
+    
+    var userID:NSInteger?
+    
+    var name:String?
     //var photo:
-    var email:String
-    var myItems:[Item]
-    var borrowedItems:[Item]
+    var email:String?
+    var myItems:[Item]?
+    var borrowedItems:[Item]?
+    var message:String
+    
 }

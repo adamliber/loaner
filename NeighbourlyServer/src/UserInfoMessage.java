@@ -9,6 +9,7 @@ public class UserInfoMessage extends Message {
 	
 	UserInfoMessage(int userID,String email, Database database)
 	{
+		super("valid");
 		this.userID = userID;
 		this.name=database.getNameFromID(userID);
 		this.email = email;

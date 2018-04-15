@@ -21,12 +21,18 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("Login received text: \(text)")
+        print("Login received text: \(text) \n")
        
         let jsonText = text.data(using: .utf8)!
         let decoder = JSONDecoder()
         let userInfo = try? decoder.decode(UserInfoMessage.self, from: jsonText)
-        print("userID received:  \(userInfo?.userId)" )
+        print("userID received:  \(userInfo?.userID)" )
+        print("message received:  \(userInfo?.message)" )
+        
+        if(userInfo?.message == "valid"){
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = appDelegate.centerContainer
+        }
         
     }
     
@@ -60,9 +66,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
         return true
     }
     @IBAction func loginClicked(_ sender: Any) {
-        emailField.isEnabled = false
-        passwordTextfield.isEnabled = false
-        loginButton.isEnabled = false
+        
       
         let loginMessage = LoginMessage(message: "", email: emailField.text!, password: passwordTextfield.text!)
         let encoder = JSONEncoder()
