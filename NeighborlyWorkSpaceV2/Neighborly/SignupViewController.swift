@@ -51,7 +51,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate,WebSocketDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        socket.connect()
+        
         socket.delegate = self
         
         submitButton.isEnabled = false

@@ -18,12 +18,12 @@ class ViewController: UIViewController , WebSocketDelegate {
         super.viewDidLoad()
         
         socket.delegate = self
-        socket.connect()
+        
         
     }
     
     deinit {
-        socket.disconnect(forceTimeout: 0)
+        
         socket.delegate = nil
     }
    

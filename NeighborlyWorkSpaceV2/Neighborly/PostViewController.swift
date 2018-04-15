@@ -60,7 +60,6 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        socket.connect()
         socket.delegate = self
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
@@ -111,7 +110,7 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
     @IBAction func PostSubmitted(_ sender: Any) {
         
-        let postItemMessage = PostItemMessage(messageID: "postItem", ownerID: user!.userID , itemName: itemNameField.text!, itemDescription: itemNameField.text!, longitude: 2.18, latitude: 3.14)
+        let postItemMessage = PostItemMessage( ownerID: user!.userID , itemName: itemNameField.text!, itemDescription: itemNameField.text!, longitude: 2.18, latitude: 3.14)
         let encoder = JSONEncoder()
         
         do{

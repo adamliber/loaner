@@ -547,10 +547,10 @@
             </objects>
             <point key="canvasLocation" x="1861.5999999999999" y="821.67487684729065"/>
         </scene>
-        <!--Post-->
+        <!--Search-->
         <scene sceneID="kXp-cG-Scw">
             <objects>
-                <viewController storyboardIdentifier="SearchModal" title="Post" modalPresentationStyle="overCurrentContext" id="vWs-MT-1e4" customClass="SearchViewController" customModule="Neighborly" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchModal" title="Search" modalPresentationStyle="overCurrentContext" id="vWs-MT-1e4" customClass="SearchViewController" customModule="Neighborly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="egi-Tt-yJ6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -662,12 +662,15 @@
                     <connections>
                         <outlet property="distanceLabel" destination="h8n-pu-kxg" id="LeR-CP-G5Z"/>
                         <outlet property="distanceSlider" destination="8vj-r4-Mav" id="ZQr-wa-gyF"/>
+                        <outlet property="itemSearchField" destination="pq5-RD-HM0" id="taQ-nc-Ncq"/>
+                        <outlet property="searchButton" destination="XWE-UJ-1Ak" id="rVp-Yd-QIv"/>
+                        <outlet property="searchLocationField" destination="410-Dk-WZE" id="y6J-zi-9Y1"/>
                         <outlet property="searchModalView" destination="WN8-fS-6vz" id="VmR-YE-ZyR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYD-XS-OFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1697" y="-526"/>
+            <point key="canvasLocation" x="1710" y="-525"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hD6-eT-Yju">
@@ -1008,19 +1011,27 @@
                                 <rect key="frame" x="43" y="392" width="21" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93D-EJ-hfh" userLabel="ErrorMessage">
+                                <rect key="frame" x="72" y="348" width="265" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <color key="textColor" red="0.91866275379999995" green="0.53420261420000004" blue="0.54623212850000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.50588235290000005" green="0.83921568629999999" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="b3f-5s-y3r"/>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="7eY-Mf-hW2" id="v7N-cH-Xj8"/>
+                        <outlet property="errorLabel" destination="93D-EJ-hfh" id="aYc-F5-Prm"/>
                         <outlet property="loginButton" destination="0aw-8v-gV1" id="7Ch-dC-c0R"/>
                         <outlet property="passwordTextfield" destination="YZw-cy-IZ2" id="2MF-wq-CTQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOt-UJ-KDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1276" y="627"/>
+            <point key="canvasLocation" x="-1276" y="626.60098522167493"/>
         </scene>
     </scenes>
     <resources>

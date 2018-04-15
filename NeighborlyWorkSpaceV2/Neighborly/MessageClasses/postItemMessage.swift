@@ -17,9 +17,9 @@ class PostItemMessage:Codable{
     var longitude:Double
     var latitude:Double
     
-    init(messageID:String, ownerID:NSInteger, itemName:String, itemDescription:String, longitude:Double, latitude:Double ){
+    init(ownerID:NSInteger, itemName:String, itemDescription:String, longitude:Double, latitude:Double ){
         
-        self.messageID = messageID
+        self.messageID = "postItem"
         self.ownerID = ownerID
         self.itemName = itemName
         self.itemDescription = itemDescription

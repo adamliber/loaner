@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //window?.rootViewController = centerContainer
         window?.makeKeyAndVisible()
        
+        socket.connect()
         
         
         return true

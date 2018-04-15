@@ -12,6 +12,7 @@ import SendBirdSDK
 
 class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegate {
     
+    @IBOutlet weak var errorLabel: UILabel!
     func websocketDidConnect(socket: WebSocketClient) {
         print("Login Socket connected")
     }
@@ -36,12 +37,18 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
             user.saveUser()
             
         }else{
-            
+            errorLabel.text = "Invalid User. Try Again."
+            emailField.text = ""
+            passwordTextfield.text = ""
         }
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("login received data: \(data)")
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        errorLabel.text = ""
     }
     
     
@@ -50,7 +57,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
     @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
          super.viewDidLoad()
-        socket.connect()
+       
         socket.delegate = self
        
         loginButton.isEnabled = false
