@@ -86,6 +86,12 @@ public class ServerSocket {
 		{
 			
 		}
+		else if(messageID.trim().equals("postItem"))
+		{
+			m = gson.fromJson(message,PostItemMessage.class);
+			
+			
+		}
 		else if(messageID.trim().equals("userPhotoUpload"))
 		{
 			m = gson.fromJson(message,PhotoUploadMessage.class);
