@@ -88,7 +88,31 @@ public class ServerSocket {
 		}
 		else if(messageID.trim().equals("postItem"))
 		{
+			String toWrite = "";
 			m = gson.fromJson(message,PostItemMessage.class);
+			m = (PostItemMessage)m;
+			int ownerID = ((PostItemMessage) m).getOwnerID();
+			String itemName  = ((PostItemMessage) m).getItemName();
+			String description  = ((PostItemMessage) m).getDescription();
+			double latitude = ((PostItemMessage) m).getLatitude();
+			double longitude = ((PostItemMessage) m).getLongitude();
+			
+			int x = database.addItemToDatabase(ownerID, itemName, "", description, latitude, longitude);
+			
+			if(x == 1)
+			{
+				toWrite = gson.toJson(new Message("valid"));
+			}
+			else
+			{
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+			
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in signup");
+			}
 			
 			
 		}

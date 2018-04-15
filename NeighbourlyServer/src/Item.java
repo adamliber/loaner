@@ -95,11 +95,11 @@ public class Item {
 	}
 
 	public String getDescription() {
-		return description;
+		return itemDescription;
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.itemDescription = description;
 	}
 
 	public double getLatitude() {
@@ -140,7 +140,7 @@ public class Item {
 		System.out.println("ItemName: " + itemName);
 		System.out.println("ItemID: " + itemID);
 		System.out.println("Avaliliblity: " + availibility);
-		System.out.println("description: " + description);
+		System.out.println("description: " + itemDescription);
 		System.out.println("ownerID: " + ownerID);
 		System.out.println("Latitude: " + latitude);
 		System.out.println("Longitude: " + longitude);

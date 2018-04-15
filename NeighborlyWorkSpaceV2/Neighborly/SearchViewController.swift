@@ -10,6 +10,16 @@ import UIKit
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var searchModalView: UIView!
+    
+    @IBOutlet weak var distanceSlider: UISlider!
+    @IBOutlet weak var distanceLabel: UILabel!
+    
+    
+    @IBAction func sliderValueChanged(_ sender: Any) {
+        distanceLabel.text = "Max Distance: \(NSInteger(distanceSlider.value))"
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchModalView.layer.cornerRadius = 10

@@ -15,8 +15,6 @@ struct PropertyKey {
     static let userID = "userID"
     static let name = "name"
     static let email = "email"
-    static let myItems = "myItems"
-    static let borrowedItems = "borrowedItems"
 }
 
 
@@ -41,33 +39,28 @@ class User: NSObject, NSCoding{
         aCoder.encode(userID,forKey:PropertyKey.userID)
         aCoder.encode(name, forKey: PropertyKey.name)
         aCoder.encode(email, forKey: PropertyKey.email)
-        aCoder.encode(myItems, forKey: PropertyKey.myItems)
-        aCoder.encode(borrowedItems, forKey: PropertyKey.borrowedItems)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         let userID = aDecoder.decodeInteger(forKey: PropertyKey.userID)
         let name = aDecoder.decodeObject(forKey: PropertyKey.name) as? String
         let email = aDecoder.decodeObject(forKey: PropertyKey.email) as? String
-        let myItems = aDecoder.decodeObject(forKey: PropertyKey.myItems) as? [Item]
-        let borrowedItems = aDecoder.decodeObject(forKey: PropertyKey.borrowedItems) as? [Item]
         
-        self.init(userID: userID, name: name!, email:email!, myItems: myItems!, borrowedItems: borrowedItems!)
+        
+        self.init(userID: userID, name: name!, email:email!)
     }
     
     var userID:NSInteger
     var name:String
     //var photo:
     var email:String
-    var myItems:[Item]
-    var borrowedItems:[Item]
+
     
-    init(userID:NSInteger,name:String,email:String,myItems:[Item],borrowedItems:[Item]){
+    init(userID:NSInteger,name:String,email:String){
         self.userID = userID
         self.name = name
         self.email = email
-        self.myItems = myItems
-        self.borrowedItems = borrowedItems
+       
         super.init()
     }
 }

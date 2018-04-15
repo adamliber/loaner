@@ -1,7 +1,7 @@
 
-public class PostItemMessage {
+public class PostItemMessage extends Message {
 	int ownerID;
-	int itemName;
+	String itemName;
 	String description;
 	double latitude;
 	double longitude;
@@ -15,11 +15,11 @@ public class PostItemMessage {
 		this.ownerID = ownerID;
 	}
 
-	public int getItemName() {
+	public String getItemName() {
 		return itemName;
 	}
 
-	public void setItemName(int itemName) {
+	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
 

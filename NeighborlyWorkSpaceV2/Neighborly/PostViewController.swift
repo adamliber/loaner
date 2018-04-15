@@ -34,7 +34,7 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
         print("message received:  \(message.message)" )
         
         if(message.message == "valid"){
-        
+            print("should dismiss")
             dismiss(animated: true, completion: nil)
     
         }
@@ -60,6 +60,8 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        socket.connect()
+        socket.delegate = self
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
         self.user = loadUser()!
@@ -78,11 +80,15 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     func textViewDidBeginEditing(_ textView: UITextView) {
         if(textView.text == "Description     "){
             textView.text = ""
+            textView.textColor = UIColor.black
         }
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         if(itemNameField.text != "" && descriptionTextView.text != "" && descriptionTextView.text != "Description     "){
             postButton.isEnabled = true
+        }else if(descriptionTextView.text == ""){
+            descriptionTextView.textColor = UIColor.gray
+            descriptionTextView.text = "Description     "
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {

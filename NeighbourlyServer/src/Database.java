@@ -38,12 +38,17 @@ public class Database {
 
 	static String returnAcceptSQL = "UPDATE Items " + "SET returnRequest = ?, borrowerID = ?, available = ? "
 			+ "WHERE itemID=?";
+	static String getNamefromIDSQL = "SELECT * FROM Users Where userID=?";
+	static String getBorrowedItemsSQL = "SELECT * FROM Items Where borrowerID=?";
+	static String getMyItemsSQL = "SELECT * FROM Items WHERE ownerID=?";
+	static String lastAddedUser = "SELECT LAST_INSERT_ID()";
+	
 
 	Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager
-					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=root&useSSL=false");
+					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=jBl45dolphin&useSSL=false");
 			System.out.println("Database connected");
 
 		} catch (ClassNotFoundException e) {
@@ -77,23 +82,23 @@ public class Database {
 		}
 	}
 
-	public boolean signUp(String email, String name, String password) {
+	public int signUp(String email, String name, String password) {
 		try {
 			ps = conn.prepareStatement(signUpInsert);
 			ps.setString(1, email);
 			ps.setString(2, name);
 			ps.setString(3, password);
 			ps.setBoolean(4, false);
-			int x = ps.executeUpdate();
-			if (x > 0)
-				return true; // signup was succesfull
-			else
-				return false; // email address has been already used
+			ps = conn.prepareStatement(lastAddedUser);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				return rs.getInt("LAST_INSERT_ID()");
+			}
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database SignUp");
 			System.out.println(e.getMessage());
-			return false;
 		}
+		return -1;
 	}
 
 	public ArrayList<Item> getUsersItems(int userID) {
@@ -115,7 +120,7 @@ public class Database {
 		return toReturn;
 	}
 
-	public void addItemToDatabase(int ownerID, String itemName, String imageURL, String description, double latitude,
+	public int addItemToDatabase(int ownerID, String itemName, String imageURL, String description, double latitude,
 			double longitude) {
 
 		try {
@@ -131,11 +136,13 @@ public class Database {
 			ps.setInt(9, 0);
 			ps.setInt(10, 0);
 			ps.executeUpdate();
+			return 1;
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database addItem");
 			System.out.println(e.getMessage());
 		}
 
+		return 0;
 	}
 
 	public void requestItem(int itemID, int requestorID) {

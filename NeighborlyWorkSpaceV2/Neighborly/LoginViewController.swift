@@ -32,8 +32,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
         if(userInfo.message == "valid"){
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = appDelegate.centerContainer
-            let user = User(userID: userInfo.userID!, name: userInfo.name!, email: userInfo.email!, myItems: userInfo.myItems!, borrowedItems: userInfo.borrowedItems!)
+            let user = User(userID: userInfo.userID!, name: userInfo.name!, email: userInfo.email!)
             user.saveUser()
+            
+        }else{
             
         }
     }
