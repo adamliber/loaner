@@ -15,6 +15,7 @@ public class ServerSocket {
 	
 	private static Vector<Session> sessionVector = new Vector<Session>();
 	private static Database database = new Database();
+	private static Gson gson = new Gson();
 	
 	
 	@OnOpen
@@ -24,13 +25,45 @@ public class ServerSocket {
 	}
 	
 	@OnMessage
-
 	public void onMessage(String message, Session session) {
 
 		System.out.println(message);
-		ArrayList<Item> myItems = database.searchItems(2, "camera", -150, 150, -150, 150);
+		Message m = gson.fromJson(message,Message.class);
+		if(m instanceof SignUpMessage)
+		{
+			String name = ((SignUpMessage) m).getName();
+			String email = ((SignUpMessage) m).getEmail();
+			String password = ((SignUpMessage) m).getPassword();
+			
+			if(database.signUp(email, name, password))
+			{
+				session.getBasicRemote().sendText();
+			}
+			else //sign up was unsuccessful
+			{
+				session.getBasicRemote().sendText();
+			}
+			
+		}
+		else if(m instanceof LoginMessage)
+		{
+			String email = ((LoginMessage) m).getEmail();
+			String password = ((LoginMessage) m).getPassword();
+			
+			int userID =  database.login(email, password);
+			if(userID == -1) //means login was unsuccessfull
+			{
+				session.getBasicRemote().sendText();
+			}
+			else //means login was successful
+			{
+				session.getUserProperties()
+			}
+		}
+		
+		/*ArrayList<Item> myItems = database.searchItems(2, "camera", -150, 150, -150, 150);
 		System.out.println("made it to line 29 ");
-		Gson gson = new Gson();
+		
 		String toSend = gson.toJson(myItems);
 		System.out.println("made it to line 31 ");
 		
@@ -41,7 +74,7 @@ public class ServerSocket {
 			System.out.println("IOException in sending the gson");
 			System.out.println(e.getMessage());
 
-		}
+		}*/
 		
 	}
 	
