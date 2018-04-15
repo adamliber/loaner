@@ -46,12 +46,12 @@ public class Database {
 			+ "WHERE itemID=?";
 	static String getNamefromIDSQL = "SELECT * FROM Users WHERE userID=?";
 
-	
+	static String lastAddedUser = "SELECT LAST_INSERT_ID()";
 	Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager
-					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=jBl45dolphin&useSSL=false");
+					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=root&useSSL=false");
 			System.out.println("Database connected");
 
 		} catch (ClassNotFoundException e) {
@@ -85,23 +85,26 @@ public class Database {
 		}
 	}
 
-	public boolean signUp(String email, String name, String password) {
+	public int signUp(String email, String name, String password) {
 		try {
 			ps = conn.prepareStatement(signUpInsert);
 			ps.setString(1, email);
 			ps.setString(2, name);
 			ps.setString(3, password);
 			ps.setBoolean(4, false);
-			int x = ps.executeUpdate();
-			if (x > 0)
-				return true; // signup was succesfull
-			else
-				return false; // email address has been already used
+			ps.executeUpdate();
+			ps = conn.prepareStatement(lastAddedUser);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				return rs.getInt("LAST_INSERT_ID()");
+			}
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database SignUp");
 			System.out.println(e.getMessage());
-			return false;
+			
 		}
+		return -1;
 	}
 
 	public ArrayList<Item> getUsersItems(int userID) {
