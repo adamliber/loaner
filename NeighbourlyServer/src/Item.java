@@ -5,7 +5,7 @@ public class Item {
 	private int itemID;
 	private int availibility;
 	private String imageURL;
-	private String description;
+	private String itemDescription;
 	private double latitude;
 	private double longitude;
 	private int ownerID;
@@ -21,7 +21,7 @@ public class Item {
 		this.itemID = itemID;
 		this.availibility = availibility;
 		this.imageURL = imageURL;
-		this.description = description;
+		this.itemDescription = description;
 		this.ownerID = ownerID;
 		this.borrowerID = borrowerID;
 		this.itemName = itemName;
