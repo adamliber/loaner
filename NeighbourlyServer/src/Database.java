@@ -1,6 +1,3 @@
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,9 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Base64;
 
-import javax.imageio.ImageIO;
 
 public class Database {
 	private Connection conn;
@@ -23,8 +18,7 @@ public class Database {
 	static String loginQuery = "SELECT * FROM Users WHERE email=? && password=?";
 	static String ownedItemsQuery = "SELECT * FROM Items WHERE ownerID=?"; // need to install SQL may need to come back
 																			// and change names later
-	static String getMyItemsSQL = "SELECT * FROM Items WHERE ownerID=?";
-	static String getBorrowedItemsSQL = "SELECT * FROM Items WHERE borrowerID=?";
+	static String borrowerQuery = "SELECT * FROM Users WHERE name=?";
 	static String singleItemQuery = "SELECT * FROM Items WHERE itemID=?";
 	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)\r\n" + " VALUES(? , ?, ?, ?);";
 	static String addItemInsert = "INSERT INTO Items(itemName, ownerID, imageURL, description, latitude, longitude,availibility, available, request, returnRequest)"
@@ -44,14 +38,12 @@ public class Database {
 
 	static String returnAcceptSQL = "UPDATE Items " + "SET returnRequest = ?, borrowerID = ?, available = ? "
 			+ "WHERE itemID=?";
-	static String getNamefromIDSQL = "SELECT * FROM Users WHERE userID=?";
 
-	static String lastAddedUser = "SELECT LAST_INSERT_ID()";
 	Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager
-					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=jBl45dolphin&useSSL=false");
+					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=root&useSSL=false");
 			System.out.println("Database connected");
 
 		} catch (ClassNotFoundException e) {
@@ -85,26 +77,23 @@ public class Database {
 		}
 	}
 
-	public int signUp(String email, String name, String password) {
+	public boolean signUp(String email, String name, String password) {
 		try {
 			ps = conn.prepareStatement(signUpInsert);
 			ps.setString(1, email);
 			ps.setString(2, name);
 			ps.setString(3, password);
 			ps.setBoolean(4, false);
-			ps.executeUpdate();
-			ps = conn.prepareStatement(lastAddedUser);
-			ResultSet rs = ps.executeQuery();
-			while(rs.next())
-			{
-				return rs.getInt("LAST_INSERT_ID()");
-			}
+			int x = ps.executeUpdate();
+			if (x > 0)
+				return true; // signup was succesfull
+			else
+				return false; // email address has been already used
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database SignUp");
 			System.out.println(e.getMessage());
-			
+			return false;
 		}
-		return -1;
 	}
 
 	public ArrayList<Item> getUsersItems(int userID) {
@@ -231,6 +220,9 @@ public class Database {
 		// send message to ownerID that item wants to be returned
 	}
 
+	// static String returnAcceptSQL = "UPDATE Items " + "SET returnRequest = ?,
+	// borrowerID = ?, available = ? "
+	// + "WHERE itemID=?";
 	public void returnRequestAccept(int itemID) {
 
 		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
@@ -330,6 +322,34 @@ public class Database {
 		return toReturn;
 	}
 
+	public ArrayList<Item> searchItemsByDistance(int userID, String searchTerm, double latitude, double longitude,
+			int distanceInKM) {
+		ArrayList<Item> toReturn = new ArrayList<Item>();
+
+		String searchString = "SELECT * , 6371.04 * acos( cos( pi( ) /2 - radians( 90 - " + latitude
+				+ ") )* cos( pi( ) /2 - radians( 90 - " + latitude + " ) ) * cos( radians(" + longitude
+				+ ") - radians( " + longitude + " ) ) + sin( pi( ) /2 - radians( 90 -" + latitude
+				+ ") ) * sin( pi( ) /2 - radians( 90 -" + latitude
+				+ ") ) ) AS Distance FROM Items WHERE ( 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) ) *cos( pi( ) /2 - radians( 90 - "
+				+ latitude + " ) ) * cos( radians(" + longitude + ") - radians(" + longitude
+				+ " ) ) + sin( pi( ) /2 - radians( 90-" + latitude + ") ) * sin( pi( ) /2 - radians( 90 -" + latitude
+				+ " ) ) ) < 1 ) GROUP BY itemID HAVING Distance < " + distanceInKM + " BY Distance";
+		ResultSet rs;
+		try {
+			ps = conn.prepareStatement(searchString);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int itemID = rs.getInt("itemID");
+				toReturn.add(getItembyID(itemID));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL exception in Database searchItems");
+			System.out.println(e.getMessage());
+		}
+
+		return toReturn;
+	}
+
 	public void putUserImage() {
 		// String fileName = userID + "_profile_pic.jpeg";
 		File file = new File("images/flowers.jpeg");
@@ -374,73 +394,4 @@ public class Database {
 		}
 	}
 
-	public ArrayList<Item> getMyItems(int userID)
-	{
-		ArrayList<Item> toReturn = new ArrayList<Item>();
-		ResultSet rs;
-		try 
-		{
-			ps = conn.prepareStatement(getMyItemsSQL);
-			ps.setInt(1,userID);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				int itemID = rs.getInt("itemID");
-				toReturn.add(getItembyID(itemID));
-			}
-		}
-		catch (SQLException e) 
-		{
-			System.out.println("SQL exception in Database getMyItems");
-			System.out.println(e.getMessage());
-		}
-		
-		return toReturn;
-	}
-	
-	public ArrayList<Item> getBorrowedItems(int userID)
-	{
-		ArrayList<Item> toReturn = new ArrayList<Item>();
-		ResultSet rs;
-		try 
-		{
-			ps = conn.prepareStatement(getBorrowedItemsSQL);
-			ps.setInt(1,userID);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				int itemID = rs.getInt("itemID");
-				toReturn.add(getItembyID(itemID));
-			}
-		}
-		catch (SQLException e) 
-		{
-			System.out.println("SQL exception in Database getMyItems");
-			System.out.println(e.getMessage());
-		}
-		
-		return toReturn;
-	}
-
-	public String getNameFromID(int userID)
-	{
-		ResultSet rs;
-		String toReturn = "";
-		try 
-		{
-			ps = conn.prepareStatement(getNamefromIDSQL);
-			ps.setInt(1,userID);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				toReturn = rs.getString("userID");
-			}
-		}
-		catch (SQLException e) 
-		{
-			System.out.println("SQL exception in Database getMyItems");
-			System.out.println(e.getMessage());
-		}
-		
-		return toReturn;
-	}
-
-	
 }

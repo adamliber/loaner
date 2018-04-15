@@ -20,7 +20,7 @@ CREATE TABLE Items (
     borrowerID INT(11) , -- foreign key from user table, if its null, means that it is available
     availibility INT(1) NOT NULL,-- 0 its available, 1 it's not
     imageURL VARCHAR(300),
-    description VARCHAR(500),
+    itemDescription VARCHAR(500),
     categories VARCHAR(300),
 	latitude DOUBLE(20,16) NOT NULL,
     longitude DOUBLE(20,16) NOT NULL,
