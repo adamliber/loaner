@@ -140,11 +140,12 @@ public class ServerSocket {
 			int distance = ((SearchQueryMessage) m).getDistance();
 			
 			ArrayList<Item> toReturn = database.searchItemsByDistance(searchTerm, latitude, longitude, distance);
-			toWrite = gson.toJson(new replyToQueryMessage(toReturn));
+			toWrite = gson.toJson(new replyToQueryMessage(toReturn, "valid"));
 			try {
 				session.getBasicRemote().sendText(toWrite);
 			} catch (IOException e) {
-				System.out.println("IOException in signup");
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
 			}
 		}
 		

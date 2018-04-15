@@ -2,8 +2,8 @@ import java.io.IOException;
 import javax.websocket.Session;
 
 public class Message {
-	private String messageID;
-	private String message;
+	protected String messageID;
+	protected String message;
 	
 	Message()
 	{
