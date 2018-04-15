@@ -9,7 +9,13 @@
 import UIKit
 
 class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
-
+    
+    public func loadUser() -> User?{
+        return NSKeyedUnarchiver.unarchiveObject(withFile: User.ArchiveURL.path) as? User
+    }
+    
+    
+    public var user:User?
     var menuItems:[String] = ["Search Items", "Account", "Messages" ,"Groups", "About" ]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,10 +55,13 @@ class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITabl
             
         }
     }
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.user = loadUser()
+        nameLabel.text = user?.name
         // Do any additional setup after loading the view.
     }
 

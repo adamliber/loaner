@@ -22,16 +22,19 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("Login received text: \(text) \n")
-       
+        
         let jsonText = text.data(using: .utf8)!
         let decoder = JSONDecoder()
-        let userInfo = try? decoder.decode(UserInfoMessage.self, from: jsonText)
-        print("userID received:  \(userInfo?.userID)" )
-        print("message received:  \(userInfo?.message)" )
+        let userInfo = try! decoder.decode(UserInfoMessage.self, from: jsonText)
+        print("userID received:  \(String(describing: userInfo.userID))" )
+        print("message received:  \(userInfo.message)" )
         
-        if(userInfo?.message == "valid"){
+        if(userInfo.message == "valid"){
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = appDelegate.centerContainer
+            let user = User(userID: userInfo.userID!, name: userInfo.name!, email: userInfo.email!, myItems: userInfo.myItems!, borrowedItems: userInfo.borrowedItems!)
+            user.saveUser()
+            
         }
     }
     

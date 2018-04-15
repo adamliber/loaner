@@ -16,7 +16,6 @@
 		BC3328E12082D79000756829 /* LoginMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328E02082D79000756829 /* LoginMessage.swift */; };
 		BC3328E32082FCE000756829 /* UserInfoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328E22082FCE000756829 /* UserInfoMessage.swift */; };
 		BC3328E52083046700756829 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328E42083046700756829 /* User.swift */; };
-		BC3328E7208325D800756829 /* currentUser.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC3328E6208325D800756829 /* currentUser.plist */; };
 		BC3328E9208335CD00756829 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328E8208335CD00756829 /* SignupViewController.swift */; };
 		BC745BEC207EEB2400C56844 /* ItemCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC745BEB207EEB2400C56844 /* ItemCardTableViewCell.swift */; };
 		BC745BEE207F056700C56844 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC745BED207F056700C56844 /* Item.swift */; };
@@ -39,6 +38,8 @@
 		BCD2DBA420733DAB0088B36B /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD2DBA020733DAB0088B36B /* MMDrawerController.m */; };
 		BCD2DBA9207AE1150088B36B /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD2DBA8207AE1150088B36B /* MenuTableViewCell.swift */; };
 		BCD2DBAB207AEA760088B36B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD2DBAA207AEA760088B36B /* AboutViewController.swift */; };
+		BCE55A3820834C1B007DB8C6 /* persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE55A3720834C1B007DB8C6 /* persistance.swift */; };
+		BCE55A3A2083DE00007DB8C6 /* postItemMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE55A392083DE00007DB8C6 /* postItemMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,6 @@
 		BC3328E02082D79000756829 /* LoginMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMessage.swift; sourceTree = "<group>"; };
 		BC3328E22082FCE000756829 /* UserInfoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoMessage.swift; sourceTree = "<group>"; };
 		BC3328E42083046700756829 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		BC3328E6208325D800756829 /* currentUser.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = currentUser.plist; sourceTree = "<group>"; };
 		BC3328E8208335CD00756829 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		BC745BEB207EEB2400C56844 /* ItemCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardTableViewCell.swift; sourceTree = "<group>"; };
 		BC745BED207F056700C56844 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -107,6 +107,8 @@
 		BCD2DBA020733DAB0088B36B /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
 		BCD2DBA8207AE1150088B36B /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		BCD2DBAA207AEA760088B36B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		BCE55A3720834C1B007DB8C6 /* persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = persistance.swift; sourceTree = "<group>"; };
+		BCE55A392083DE00007DB8C6 /* postItemMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postItemMessage.swift; sourceTree = "<group>"; };
 		CB0124338C8A5344BD3FCEEF /* Pods_NeighborlyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeighborlyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F9FD86599F82D6E353D10B /* Pods-NeighborlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeighborlyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeighborlyTests/Pods-NeighborlyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,6 +171,7 @@
 				BC3328DE2082D6C400756829 /* SignupMessage.swift */,
 				BC3328E02082D79000756829 /* LoginMessage.swift */,
 				BC3328E22082FCE000756829 /* UserInfoMessage.swift */,
+				BCE55A392083DE00007DB8C6 /* postItemMessage.swift */,
 			);
 			path = MessageClasses;
 			sourceTree = "<group>";
@@ -202,12 +205,12 @@
 				BCD2DB9620733D7C0088B36B /* DrawerController */,
 				BCD2DB662071FD640088B36B /* AppDelegate.swift */,
 				BC745BED207F056700C56844 /* Item.swift */,
+				BC3328E42083046700756829 /* User.swift */,
 				BC745BEF207F0D4000C56844 /* ItemsModel.swift */,
 				BCD2DB682071FD640088B36B /* ViewController.swift */,
 				BCD2DB6A2071FD640088B36B /* Main.storyboard */,
 				BCD2DB6D2071FD640088B36B /* Assets.xcassets */,
 				BCD2DB6F2071FD640088B36B /* LaunchScreen.storyboard */,
-				BCD2DB722071FD640088B36B /* Info.plist */,
 				BCD2DB9420733CE00088B36B /* LeftSideMenuViewController.swift */,
 				BCD2DBA8207AE1150088B36B /* MenuTableViewCell.swift */,
 				BCD2DBAA207AEA760088B36B /* AboutViewController.swift */,
@@ -218,8 +221,8 @@
 				BC745BF12081963600C56844 /* Socket.swift */,
 				BC3328D92082B3E500756829 /* LoginViewController.swift */,
 				BC3328E8208335CD00756829 /* SignupViewController.swift */,
-				BC3328E42083046700756829 /* User.swift */,
-				BC3328E6208325D800756829 /* currentUser.plist */,
+				BCE55A3720834C1B007DB8C6 /* persistance.swift */,
+				BCD2DB722071FD640088B36B /* Info.plist */,
 			);
 			path = Neighborly;
 			sourceTree = "<group>";
@@ -372,7 +375,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD2DB712071FD640088B36B /* LaunchScreen.storyboard in Resources */,
-				BC3328E7208325D800756829 /* currentUser.plist in Resources */,
 				BCD2DB6E2071FD640088B36B /* Assets.xcassets in Resources */,
 				BCD2DB6C2071FD640088B36B /* Main.storyboard in Resources */,
 			);
@@ -479,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC745BF22081963600C56844 /* Socket.swift in Sources */,
+				BCE55A3A2083DE00007DB8C6 /* postItemMessage.swift in Sources */,
 				BC934625207BFC6E0050F81A /* SearchViewController.swift in Sources */,
 				BC3328E32082FCE000756829 /* UserInfoMessage.swift in Sources */,
 				BC745BF0207F0D4000C56844 /* ItemsModel.swift in Sources */,
@@ -499,6 +502,7 @@
 				BCD2DB692071FD640088B36B /* ViewController.swift in Sources */,
 				BCD2DB672071FD640088B36B /* AppDelegate.swift in Sources */,
 				BC934627207BFF100050F81A /* PostViewController.swift in Sources */,
+				BCE55A3820834C1B007DB8C6 /* persistance.swift in Sources */,
 				BC3328E9208335CD00756829 /* SignupViewController.swift in Sources */,
 				BC3328E12082D79000756829 /* LoginMessage.swift in Sources */,
 			);

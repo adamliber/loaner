@@ -433,7 +433,7 @@ public class Database {
 			ps.setInt(1,userID);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				toReturn = rs.getString("userID");
+				toReturn = rs.getString("name");
 			}
 		}
 		catch (SQLException e) 
