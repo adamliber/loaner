@@ -24,73 +24,55 @@ public class ServerSocket {
 	}
 	
 	@OnMessage
-	public void onMessage(String message, Session session) {
-
+	public void onMessage(String message, Session session) {	
 		System.out.println(message);
 		Message m = null;
-		m = gson.fromJson(message,LoginMessage.class);
-		if(m instanceof SignUpMessage)
+		try {
+			m = gson.fromJson(message,Message.class);
+		}
+		catch(EOFException eofe)
 		{
+			System.out.println(eofe.getMessage());
+		}
+		String messageID = m.getMessageID();
+		
+		if(messageID.equals("signUp"))
+		{
+			m = gson.fromJson(message,SignUpMessage.class);
 			String name = ((SignUpMessage) m).getName();
 			String email = ((SignUpMessage) m).getEmail();
 			String password = ((SignUpMessage) m).getPassword();
 			
-			if(database.signUp(email, name, password))
+			int userID = database.signUp(email, name, password);
+			
+			if(userID != -1)
 			{
-				//session.getBasicRemote().sendText();
+				String toWrite = gson.toJson(new UserInfoMessage(userID,email,database));
+				session.getBasicRemote().sendText(toWrite);
 			}
 			else //sign up was unsuccessful
 			{
-				//session.getBasicRemote().sendText();
+				session.getBasicRemote().sendText();
 			}
 			
 		}
-		else if(m instanceof LoginMessage)
+		else if(m.equals("login"))
 		{
-			System.out.println("In here");
 			String email = ((LoginMessage) m).getEmail();
 			String password = ((LoginMessage) m).getPassword();
 			
 			int userID =  database.login(email, password);
 			if(userID == -1) //means login was unsuccessfull
 			{
-				String toWrite = gson.toJson(new Message("invalid"));
-				try {
-					session.getBasicRemote().sendText(toWrite);
-				} catch (IOException e) {
-					System.out.println("IOException in sending response of login mesage");
-				}
+				session.getBasicRemote().sendText();
 			}
 			else //means login was successful
-				
 			{	
 				String toWrite = gson.toJson(new UserInfoMessage(userID,email,database));
-				System.out.println(toWrite);
-				try {
-					session.getBasicRemote().sendText(toWrite);
-				} catch (IOException e) {
-					System.out.println("IOException in sending response of login mesage");
-				}
-				//session.getBasicRemote().sendText(toWrite);
-
+				session.getBasicRemote.sendText(toWrite);
 				//session.getUserProperties()
 			}
 		}
-		
-		/*ArrayList<Item> myItems = database.searchItems(2, "camera", -150, 150, -150, 150);
-		System.out.println("made it to line 29 ");
-		
-		String toSend = gson.toJson(myItems);
-		System.out.println("made it to line 31 ");
-		
-		try {
-
-			session.getBasicRemote().sendText(toSend);
-		} catch (IOException e) {
-			System.out.println("IOException in sending the gson");
-			System.out.println(e.getMessage());
-
-		}*/
 		
 	}
 	
