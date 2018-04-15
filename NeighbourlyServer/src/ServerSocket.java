@@ -1,3 +1,4 @@
+import java.io.EOFException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -28,7 +29,14 @@ public class ServerSocket {
 	public void onMessage(String message, Session session) {
 
 		System.out.println(message);
-		Message m = gson.fromJson(message,Message.class);
+		Message m = null;
+		try {
+			m = gson.fromJson(message,Message.class);
+		}
+		catch(EOFException eofe)
+		{
+			System.out.println(eofe.getMessage());
+		}
 		if(m instanceof SignUpMessage)
 		{
 			String name = ((SignUpMessage) m).getName();
@@ -56,7 +64,10 @@ public class ServerSocket {
 				//session.getBasicRemote().sendText();
 			}
 			else //means login was successful
-			{
+			{	
+				String toWrite = gson.toJson(new UserInfoMessage(userID,email,database));
+				session.getBasicRemote.sendText(toWrite);
+
 				//session.getUserProperties()
 			}
 		}
