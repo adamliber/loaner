@@ -329,7 +329,7 @@ public class Database {
 		return toReturn;
 	}
 
-	public ArrayList<Item> searchItemsByDistance(int userID, String searchTerm, double latitude, double longitude,
+	public ArrayList<Item> searchItemsByDistance(String searchTerm, double latitude, double longitude,
 			int distanceInKM) {
 		ArrayList<Item> toReturn = new ArrayList<Item>();
 
