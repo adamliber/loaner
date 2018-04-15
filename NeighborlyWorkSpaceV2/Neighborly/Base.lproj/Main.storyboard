@@ -753,10 +753,10 @@
             </objects>
             <point key="canvasLocation" x="-2444" y="183"/>
         </scene>
-        <!--View Controller-->
+        <!--Signup View Controller-->
         <scene sceneID="7nl-qZ-lmk">
             <objects>
-                <viewController id="iNa-XJ-Qtz" sceneMemberID="viewController">
+                <viewController id="iNa-XJ-Qtz" customClass="SignupViewController" customModule="Neighborly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mIL-PP-0AL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -770,6 +770,10 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.43529411759999997" green="0.7843137255" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitButton:" destination="iNa-XJ-Qtz" eventType="touchUpInside" id="xO0-kL-gh9"/>
+                                    <action selector="submitButtonClicked:" destination="iNa-XJ-Qtz" eventType="touchUpInside" id="so4-Z6-45n"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Already a User?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tos-85-fIb">
                                 <rect key="frame" x="102" y="612" width="121" height="21"/>
@@ -919,6 +923,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NwH-mp-7c6"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="fxT-lk-ytY" id="1Vw-L3-7g5"/>
+                        <outlet property="nameField" destination="0Nx-fQ-stm" id="zjm-lX-zjq"/>
+                        <outlet property="password1Field" destination="qqB-LA-2M6" id="LgK-P7-rms"/>
+                        <outlet property="password2Field" destination="00V-ZP-8JG" id="GHZ-JL-ImV"/>
+                        <outlet property="submitButton" destination="7A6-3X-D9o" id="ZtO-Zu-dkf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GzA-k7-Q1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

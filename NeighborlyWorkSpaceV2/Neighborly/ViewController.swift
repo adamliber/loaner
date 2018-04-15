@@ -12,11 +12,6 @@ import Starscream
 
 class ViewController: UIViewController , WebSocketDelegate {
     
-    
-    
-    
-    
-    
    
     
     override func viewDidLoad() {

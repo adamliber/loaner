@@ -10,19 +10,19 @@ import UIKit
 import Starscream
 import SendBirdSDK
 
-class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegate {
+class SignupViewController: UIViewController,UITextFieldDelegate,WebSocketDelegate {
     
     func websocketDidConnect(socket: WebSocketClient) {
-        print("Login Socket connected")
+        print("Signup Socket connected")
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("Login Socket disconnected")
+        print("Signup Socket disconnected")
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("Login received text: \(text) \n")
-       
+        print("Signup received text: \(text) \n")
+        
         let jsonText = text.data(using: .utf8)!
         let decoder = JSONDecoder()
         let userInfo = try? decoder.decode(UserInfoMessage.self, from: jsonText)
@@ -40,17 +40,22 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
     }
     
     
+    @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordTextfield: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var password1Field: UITextField!
+    @IBOutlet weak var password2Field: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
+    
+    
     override func viewDidLoad() {
-         super.viewDidLoad()
+        super.viewDidLoad()
         socket.connect()
         socket.delegate = self
-       
-        loginButton.isEnabled = false
-        self.emailField.delegate = self
-        self.passwordTextfield.delegate = self
+        
+        submitButton.isEnabled = false
+        self.nameField.delegate = self
+        self.password1Field.delegate = self
+        self.password2Field.delegate = self
         // Do any additional setup after loading the view.
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
@@ -63,48 +68,50 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
     func textFieldShouldReturn(_ textField:UITextField) -> Bool {
         self.view.endEditing(true)
         return true
-    }
-    @IBAction func loginClicked(_ sender: Any) {
-        
-        let loginMessage = LoginMessage(messageID: "login", message: "", email: emailField.text!, password: passwordTextfield.text!)
-        let encoder = JSONEncoder()
-        
-        do{
-            let data = try encoder.encode(loginMessage)
-            socket.write(string: String(data: data, encoding: .utf8)!)
-          
-        }catch{
-            
-        }
         
         
     }
     
-
+    
+    @IBAction func submitButtonClicked(_ sender: Any) {
+        let encoder = JSONEncoder()
+        let signupMessage = SignupMessage(messageID: "signup", message: "", name: nameField.text!, email: emailField.text!, password: password1Field.text!)
+        do{
+            let data = try encoder.encode(signupMessage)
+            socket.write(string: String(data: data, encoding: .utf8)!)
+            
+        }catch{
+            
+        }
+        
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-
+    
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if(emailField.text != "" && passwordTextfield.text != ""){
-            loginButton.isEnabled = true
+        if(nameField.text != "" && emailField.text != "" && password1Field.text! != "" && password2Field.text! != ""){
+            submitButton.isEnabled = true
         }else{
-            loginButton.isEnabled = false
+            submitButton.isEnabled = false
         }
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
