@@ -27,50 +27,60 @@ public class ServerSocket {
 	public void onMessage(String message, Session session) {	
 		System.out.println(message);
 		Message m = null;
-		try {
-			m = gson.fromJson(message,Message.class);
-		}
-		catch(EOFException eofe)
-		{
-			System.out.println(eofe.getMessage());
-		}
+		m = gson.fromJson(message,Message.class);
 		String messageID = m.getMessageID();
+		System.out.println("messageID: " + messageID);
 		
-		if(messageID.equals("signUp"))
+		if(messageID.trim().equals("signUp"))
 		{
 			m = gson.fromJson(message,SignUpMessage.class);
 			String name = ((SignUpMessage) m).getName();
 			String email = ((SignUpMessage) m).getEmail();
 			String password = ((SignUpMessage) m).getPassword();
+			String toWrite = "";
 			
 			int userID = database.signUp(email, name, password);
 			
 			if(userID != -1)
 			{
-				String toWrite = gson.toJson(new UserInfoMessage(userID,email,database));
-				session.getBasicRemote().sendText(toWrite);
+				toWrite = gson.toJson(new UserInfoMessage(userID,email,database));
 			}
 			else //sign up was unsuccessful
 			{
-				session.getBasicRemote().sendText();
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+			
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in signup");
 			}
 			
 		}
-		else if(m.equals("login"))
+		else if(messageID.trim().equals("login"))
 		{
+			System.out.println("In here");
+			m = gson.fromJson(message,LoginMessage.class);
 			String email = ((LoginMessage) m).getEmail();
 			String password = ((LoginMessage) m).getPassword();
+			String toWrite = "";
 			
 			int userID =  database.login(email, password);
 			if(userID == -1) //means login was unsuccessfull
 			{
-				session.getBasicRemote().sendText();
+				toWrite = gson.toJson(new Message("invalid"));
+				
 			}
 			else //means login was successful
 			{	
-				String toWrite = gson.toJson(new UserInfoMessage(userID,email,database));
-				session.getBasicRemote.sendText(toWrite);
+				toWrite = gson.toJson(new UserInfoMessage(userID,email,database));
 				//session.getUserProperties()
+			}
+			
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in signup");
 			}
 		}
 		

@@ -75,7 +75,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate,WebSocketDelega
     
     @IBAction func submitButtonClicked(_ sender: Any) {
         let encoder = JSONEncoder()
-        let signupMessage = SignupMessage(messageID: "signup", message: "", name: nameField.text!, email: emailField.text!, password: password1Field.text!)
+        let signupMessage = SignupMessage(messageID: "signUp", message: "", name: nameField.text!, email: emailField.text!, password: password1Field.text!)
         do{
             let data = try encoder.encode(signupMessage)
             socket.write(string: String(data: data, encoding: .utf8)!)

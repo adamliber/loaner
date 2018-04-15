@@ -5,6 +5,10 @@ public class Message {
 	private String messageID;
 	private String message;
 	
+	Message()
+	{
+		
+	}
 	Message(String message)
 	{
 		this.message = message;
