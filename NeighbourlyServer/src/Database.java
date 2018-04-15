@@ -23,7 +23,8 @@ public class Database {
 	static String loginQuery = "SELECT * FROM Users WHERE email=? && password=?";
 	static String ownedItemsQuery = "SELECT * FROM Items WHERE ownerID=?"; // need to install SQL may need to come back
 																			// and change names later
-	static String borrowerQuery = "SELECT * FROM Users WHERE name=?";
+	static String getMyItemsSQL = "SELECT * FROM Items WHERE ownerID=?";
+	static String getBorrowedItemsSQL = "SELECT * FROM Items WHERE borrowerID=?";
 	static String singleItemQuery = "SELECT * FROM Items WHERE itemID=?";
 	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)\r\n" + " VALUES(? , ?, ?, ?);";
 	static String addItemInsert = "INSERT INTO Items(itemName, ownerID, imageURL, description, latitude, longitude,availibility, available, request, returnRequest)"
@@ -43,7 +44,9 @@ public class Database {
 
 	static String returnAcceptSQL = "UPDATE Items " + "SET returnRequest = ?, borrowerID = ?, available = ? "
 			+ "WHERE itemID=?";
+	static String getNamefromIDSQL = "SELECT * FROM Users WHERE userID=?";
 
+	
 	Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -371,4 +374,71 @@ public class Database {
 		}
 	}
 
+	public ArrayList<Item> getMyItems(int userID)
+	{
+		ArrayList<Item> toReturn = new ArrayList<Item>();
+		ResultSet rs;
+		try 
+		{
+			ps = conn.prepareStatement(getMyItemsSQL);
+			ps.setInt(1,userID);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int itemID = rs.getInt("itemID");
+				toReturn.add(getItembyID(itemID));
+			}
+		}
+		catch (SQLException e) 
+		{
+			System.out.println("SQL exception in Database getMyItems");
+			System.out.println(e.getMessage());
+		}
+		
+		return toReturn;
+	}
+	
+	public ArrayList<Item> getBorrowedItems(int userID)
+	{
+		ArrayList<Item> toReturn = new ArrayList<Item>();
+		ResultSet rs;
+		try 
+		{
+			ps = conn.prepareStatement(getBorrowedItemsSQL);
+			ps.setInt(1,userID);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int itemID = rs.getInt("itemID");
+				toReturn.add(getItembyID(itemID));
+			}
+		}
+		catch (SQLException e) 
+		{
+			System.out.println("SQL exception in Database getMyItems");
+			System.out.println(e.getMessage());
+		}
+		
+		return toReturn;
+	}
+
+	public String getNameFromID(int userID)
+	{
+		ResultSet rs;
+		String toReturn = "";
+		try 
+		{
+			ps = conn.prepareStatement(getNamefromIDSQL);
+			ps.setInt(1,userID);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				toReturn = rs.getString("userID");
+			}
+		}
+		catch (SQLException e) 
+		{
+			System.out.println("SQL exception in Database getMyItems");
+			System.out.println(e.getMessage());
+		}
+		
+		return toReturn;
+	}
 }
