@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
@@ -128,6 +129,23 @@ public class ServerSocket {
 			  catch(ArrayIndexOutOfBoundsException aioe){ 
 				System.out.println("Array Index Out of Bounds Exception in userPhotoUpload");
 			  }
+		}
+		else if(messageID.trim().equals("searchItem"))
+		{
+			String toWrite = "";
+			m = gson.fromJson(message,SearchQueryMessage.class);
+			String searchTerm = ((SearchQueryMessage) m).getSearchTerm();
+			double latitude = ((SearchQueryMessage) m).getLatitude();
+			double longitude = ((SearchQueryMessage) m).getLongitude();
+			int distance = ((SearchQueryMessage) m).getDistance();
+			
+			ArrayList<Item> toReturn = database.searchItemsByDistance(searchTerm, latitude, longitude, distance);
+			toWrite = gson.toJson(new replyToQueryMessage(toReturn));
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in signup");
+			}
 		}
 		
 	}
