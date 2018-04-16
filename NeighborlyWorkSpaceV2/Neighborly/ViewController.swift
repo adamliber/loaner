@@ -18,8 +18,16 @@ class ViewController: UIViewController , WebSocketDelegate {
         super.viewDidLoad()
         
         socket.delegate = self
+        let searchItemMessage = SearchItemMessage(searchTerm: "", longitude: 1.0, latitude: 1.0, distance: 5 )
+        let encoder = JSONEncoder()
         
-        
+        do{
+            let data = try encoder.encode(searchItemMessage)
+            socket.write(string: String(data: data, encoding: .utf8)!)
+            
+        }catch{
+            
+        }
     }
     
     deinit {

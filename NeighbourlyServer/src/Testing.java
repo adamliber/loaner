@@ -16,8 +16,9 @@ public class Testing {
 		//	myItems.get(i).printItem();
 		//}
 		
-		myDB.signUp("adam", "liber", "liber");
+		//myDB.signUp("adam", "liber", "liber");
 		
+		myDB.searchItemsByDistance("cat", 1, 1, 5);
 		//myDB.putUserImage();
 		//myDB.getUserImage();
 	}

@@ -11,18 +11,18 @@ import Foundation
 class SearchItemMessage:Codable{
     
     var messageID:String
-    var searchString:String
+    var searchTerm:String
     var longitude:Double
     var latitude:Double
-    var distanceMiles:NSInteger
+    var distance:NSInteger
     
-    init( searchString:String, longitude:Double, latitude:Double, distanceMiles: NSInteger){
+    init( searchTerm:String, longitude:Double, latitude:Double, distance: NSInteger){
         
         self.messageID = "searchItem"
-       self.searchString = searchString
+       self.searchTerm = searchTerm
         self.longitude = longitude
         self.latitude = latitude
-        self.distanceMiles = distanceMiles
+        self.distance = distance
     }
     
     

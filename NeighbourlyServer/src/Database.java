@@ -53,7 +53,7 @@ public class Database {
 		    +" cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
 		    +" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
 		    +" - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )"
-		    +" AND MATCH(itemName,itemDescription) AGAINST (?)"
+		    +" AND MATCH(itemName,description) AGAINST (?)"
 		    +"GROUP BY itemID HAVING Distance < ?"
 		    + "ORDER BY Distance";
 	
@@ -358,7 +358,8 @@ public class Database {
 			ps.setDouble(4, latitude );
 			ps.setDouble(5, longitude);
 			ps.setDouble(6, latitude);
-			ps.setDouble(7, distanceInKM);
+			ps.setString(7, searchTerm);
+			ps.setDouble(8, distanceInKM);
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
@@ -367,7 +368,7 @@ public class Database {
 				toReturn.add(getItembyID(itemID));
 			}
 		} catch (SQLException e) {
-			System.out.println("SQL exception in Database searchItems");
+			System.out.println("SQL exception in Database searchItems by distance");
 			System.out.println(e.getMessage());
 		}
 

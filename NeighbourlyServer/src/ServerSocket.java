@@ -138,9 +138,16 @@ public class ServerSocket {
 			double latitude = ((SearchQueryMessage) m).getLatitude();
 			double longitude = ((SearchQueryMessage) m).getLongitude();
 			int distance = ((SearchQueryMessage) m).getDistance();
+			System.out.println("searchTerm: " + searchTerm);
+			System.out.println("latitude: " + latitude);
+			System.out.println("longitude: " + longitude);
+			System.out.println("distance: " + distance);
 			
 			ArrayList<Item> toReturn = database.searchItemsByDistance(searchTerm, latitude, longitude, distance);
 			toWrite = gson.toJson(new replyToQueryMessage(toReturn, "valid"));
+			for(int i = 0; i < toReturn.size();i++) {
+				toReturn.get(i).printItem();
+			}
 			try {
 				session.getBasicRemote().sendText(toWrite);
 			} catch (IOException e) {
