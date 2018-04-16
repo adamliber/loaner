@@ -18,7 +18,6 @@ CREATE TABLE Items (
     itemName VARCHAR(30) NOT NULL,
     ownerID INT(11) NOT NULL,-- foreign key from user table
     borrowerID INT(11) , -- foreign key from user table, if its null, means that it is available
-    availibility INT(1) NOT NULL,-- 0 its available, 1 it's not
     imageURL VARCHAR(300),
     itemDescription VARCHAR(500),
     categories VARCHAR(300),
