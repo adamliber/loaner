@@ -21,8 +21,8 @@ public class Database {
 	static String borrowerQuery = "SELECT * FROM Users WHERE name=?";
 	static String singleItemQuery = "SELECT * FROM Items WHERE itemID=?";
 	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)\r\n" + " VALUES(? , ?, ?, ?);";
-	static String addItemInsert = "INSERT INTO Items(itemName, ownerID, imageURL, description, latitude, longitude,availibility, available, request, returnRequest)"
-			+ " VALUES(? , ?, ?, ? , ?, ?, ?, ?, ?, ?)";
+	static String addItemInsert = "INSERT INTO Items(itemName, ownerID, imageURL, description, latitude, longitude, available, request, returnRequest)"
+			+ " VALUES(? , ?, ?, ? , ?, ?, ?, ?, ?)";
 	static String preppingforSearch = "ALTER TABLE Items" + " ADD FULLTEXT(itemName,description);";
 	static String searchForItems = " SELECT * FROM Items "
 			+ "WHERE MATCH(itemName,description) AGAINST (?)  AND NOT ownerID=? AND latitude BETWEEN ? AND ? AND longitude BETWEEN ? AND ?;";
@@ -43,7 +43,20 @@ public class Database {
 	static String getMyItemsSQL = "SELECT * FROM Items WHERE ownerID=?";
 	static String lastAddedUser = "SELECT LAST_INSERT_ID()";
 	
-
+	static String searchString = "SELECT * , 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) )"
+			+" * cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
+			+" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
+			+" - latitude) ) * sin( pi( ) /2 - radians( 90 - ?) ) ) AS"
+			+" Distance"
+		    +" FROM Items"
+		    +" WHERE ( 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) ) *"
+		    +" cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
+		    +" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
+		    +" - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )"
+		    +" AND MATCH(itemName,itemDescription) AGAINST (?)"
+		    +"GROUP BY itemID HAVING Distance < ?"
+		    + "ORDER BY Distance";
+	
 	Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -332,18 +345,16 @@ public class Database {
 	public ArrayList<Item> searchItemsByDistance(String searchTerm, double latitude, double longitude,
 			int distanceInKM) {
 		ArrayList<Item> toReturn = new ArrayList<Item>();
-
-		String searchString = "SELECT * , 6371.04 * acos( cos( pi( ) /2 - radians( 90 - " + latitude
-				+ ") )* cos( pi( ) /2 - radians( 90 - " + latitude + " ) ) * cos( radians(" + longitude
-				+ ") - radians( " + longitude + " ) ) + sin( pi( ) /2 - radians( 90 -" + latitude
-				+ ") ) * sin( pi( ) /2 - radians( 90 -" + latitude
-				+ ") ) ) AS Distance FROM Items WHERE ( 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) ) *cos( pi( ) /2 - radians( 90 - "
-				+ latitude + " ) ) * cos( radians(" + longitude + ") - radians(" + longitude
-				+ " ) ) + sin( pi( ) /2 - radians( 90-" + latitude + ") ) * sin( pi( ) /2 - radians( 90 -" + latitude
-				+ " ) ) ) < 1 ) GROUP BY itemID HAVING Distance < " + distanceInKM + " BY Distance";
 		ResultSet rs;
 		try {
 			ps = conn.prepareStatement(searchString);
+			ps.setDouble(1, latitude );
+			ps.setDouble(2, longitude);
+			ps.setDouble(3, latitude);
+			ps.setDouble(4, latitude );
+			ps.setDouble(5, longitude);
+			ps.setDouble(6, latitude);
+			ps.setDouble(7, distanceInKM);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				int itemID = rs.getInt("itemID");
