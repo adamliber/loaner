@@ -16,5 +16,14 @@ public class UserInfoMessage extends Message {
 		this.myItems = database.getMyItems(userID);
 		this.borrowedItems = database.getBorrowedItems(userID);
 	}
+	
+	UserInfoMessage(int userID, Database database)
+	{
+		super("valid");
+		this.userID = userID;
+		this.name=database.getNameFromID(userID);
+		this.myItems = database.getMyItems(userID);
+		this.borrowedItems = database.getBorrowedItems(userID);
+	}
 
 }
