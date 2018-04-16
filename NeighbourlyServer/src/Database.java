@@ -20,12 +20,12 @@ public class Database {
 																			// and change names later
 	static String borrowerQuery = "SELECT * FROM Users WHERE name=?";
 	static String singleItemQuery = "SELECT * FROM Items WHERE itemID=?";
-	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)\r\n" + " VALUES(? , ?, ?, ?);";
-	static String addItemInsert = "INSERT INTO Items(itemName, ownerID, imageURL, description, latitude, longitude, available, request, returnRequest)"
+	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)" + " VALUES(?, ?, ?, ?);";
+	static String addItemInsert = "INSERT INTO Items(itemName, ownerID, imageURL, itemDescription, latitude, longitude, available, request, returnRequest)"
 			+ " VALUES(? , ?, ?, ? , ?, ?, ?, ?, ?)";
-	static String preppingforSearch = "ALTER TABLE Items" + " ADD FULLTEXT(itemName,description);";
+	static String preppingforSearch = "ALTER TABLE Items" + " ADD FULLTEXT(itemName,itemDescription);";
 	static String searchForItems = " SELECT * FROM Items "
-			+ "WHERE MATCH(itemName,description) AGAINST (?)  AND NOT ownerID=? AND latitude BETWEEN ? AND ? AND longitude BETWEEN ? AND ?;";
+			+ "WHERE MATCH(itemName,itemDescription) AGAINST (?)  AND NOT ownerID=? AND latitude BETWEEN ? AND ? AND longitude BETWEEN ? AND ?;";
 	static String updateSQL = "UPDATE Users " + "SET image = ? " + "WHERE userID=?";
 	static String updateItemSQL_Request = "UPDATE Items " + "SET available = ?, request = ?, requestorID = ? "
 			+ "WHERE itemID=?";
@@ -53,10 +53,22 @@ public class Database {
 		    +" cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
 		    +" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
 		    +" - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )"
-		    +" AND MATCH(itemName,description) AGAINST (?)"
+		    +" AND MATCH(itemName,itemDescription) AGAINST (?)"
 		    +"GROUP BY itemID HAVING Distance < ?"
 		    + "ORDER BY Distance";
-	static String preppingForSearch2 = "ALTER TABLE Items ADD FULLTEXT(itemName,description);";
+	static String preppingForSearch2 = "ALTER TABLE Items ADD FULLTEXT(itemName,itemDescription);";
+	static String returnAllItemsWithinArea =" SELECT * , 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) )"
+			+" * cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
+			+" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
+			+" - latitude) ) * sin( pi( ) /2 - radians( 90 - ?) ) ) AS"
+			+" Distance"
+		    +" FROM Items"
+		    +" WHERE ( 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) ) *"
+		    +" cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
+		    +" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
+		    +" - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )"
+		    +"GROUP BY itemID HAVING Distance < ?"
+		    + "ORDER BY Distance";
 	
 	Database() {
 		try {
@@ -95,7 +107,9 @@ public class Database {
 			return -1;
 		}
 	}
-
+	
+	
+//	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)" + " VALUES(? , ?, ?, ?);";
 	public int signUp(String email, String name, String password) {
 		try {
 			ps = conn.prepareStatement(signUpInsert);
@@ -103,11 +117,14 @@ public class Database {
 			ps.setString(2, name);
 			ps.setString(3, password);
 			ps.setBoolean(4, false);
+			ps.executeUpdate();
+			
 			ps = conn.prepareStatement(lastAddedUser);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				return rs.getInt("LAST_INSERT_ID()");
 			}
+			
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database SignUp");
 			System.out.println(e.getMessage());
@@ -240,9 +257,6 @@ public class Database {
 		// send message to ownerID that item wants to be returned
 	}
 
-	// static String returnAcceptSQL = "UPDATE Items " + "SET returnRequest = ?,
-	// borrowerID = ?, available = ? "
-	// + "WHERE itemID=?";
 	public void returnRequestAccept(int itemID) {
 
 		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
@@ -294,7 +308,7 @@ public class Database {
 			rs = ps.executeQuery();
 			rs.next();
 			String itemName = rs.getString("itemName");
-			String description = rs.getString("description");
+			String description = rs.getString("itemDescription");
 			String imageURL = rs.getString("imageURL");
 			int ownerID = rs.getInt("ownerID");
 			int borrowerID = rs.getInt("borrowerID");
@@ -343,7 +357,7 @@ public class Database {
 
 	public ArrayList<Item> searchItemsByDistance(String searchTerm, double latitude, double longitude,
 			int distanceInMiles) {
-		System.out.println("In searchItems by distance");
+		
 		ArrayList<Item> toReturn = new ArrayList<Item>();
 		double distanceInKM = (distanceInMiles * 1.60934);
 
@@ -488,4 +502,33 @@ public class Database {
 		return toReturn;
 	}
 
+	public ArrayList<Item> getAllItemsInDatabase(double latitude, double longitude,
+			int distanceInMiles) {
+		ArrayList<Item> toReturn = new ArrayList<Item>();
+		double distanceInKM = (distanceInMiles * 1.60934);
+
+	
+		ResultSet rs;
+		try {
+			ps = conn.prepareStatement(returnAllItemsWithinArea);
+			ps.setDouble(1, latitude );
+			ps.setDouble(2, longitude);
+			ps.setDouble(3, latitude);
+			ps.setDouble(4, latitude );
+			ps.setDouble(5, longitude);
+			ps.setDouble(6, latitude);
+			ps.setDouble(7, distanceInKM);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				int itemID = rs.getInt("itemID");
+				toReturn.add(getItembyID(itemID));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL exception in Database searchItems by distance");
+			System.out.println(e.getMessage());
+		}
+
+		return toReturn;
+	}
 }
