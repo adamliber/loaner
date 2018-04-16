@@ -499,6 +499,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="nameField" destination="L1J-1a-Pcx" id="I4j-Ik-ous"/>
                         <outlet property="segmentControl" destination="L0J-pB-VQJ" id="df5-GI-kkw"/>
                         <outlet property="tableView" destination="NMh-Ta-uv3" id="Acr-m3-e0R"/>
                     </connections>

@@ -47,9 +47,8 @@ class ViewController: UIViewController , WebSocketDelegate {
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         
         print("viewController some text: \(text)")
-        let trunc = String(text.dropLast(1).dropFirst(1) )
-        print(trunc)
-        let jsonText = trunc.data(using: .utf8)!
+        
+        let jsonText = text.data(using: .utf8)!
         let decoder = JSONDecoder()
         
         let item = try? decoder.decode(Item.self, from: jsonText)

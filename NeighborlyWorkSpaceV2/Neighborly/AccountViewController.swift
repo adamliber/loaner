@@ -12,6 +12,7 @@ import Starscream
 class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, WebSocketDelegate{
    
     
+    @IBOutlet weak var nameField: UILabel!
     
     
    
@@ -68,9 +69,10 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.rowHeight = 134
         
         self.user = loadUser()
+        self.nameField.text = user?.name
         let accountInfoMessage = AccountInfoMessage(userID: (user?.userID)!)
         let encoder = JSONEncoder()
-        
+        print("account view did load")
         do{
             let data = try encoder.encode(accountInfoMessage)
             socket.write(string: String(data: data, encoding: .utf8)!)
