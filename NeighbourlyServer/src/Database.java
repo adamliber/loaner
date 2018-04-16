@@ -20,12 +20,12 @@ public class Database {
 																			// and change names later
 	static String borrowerQuery = "SELECT * FROM Users WHERE name=?";
 	static String singleItemQuery = "SELECT * FROM Items WHERE itemID=?";
-	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)" + " VALUES(?, ?, ?, ?);";
-	static String addItemInsert = "INSERT INTO Items(itemName, ownerID, imageURL, itemDescription, latitude, longitude, available, request, returnRequest)"
+	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)\r\n" + " VALUES(? , ?, ?, ?);";
+	static String addItemInsert = "INSERT INTO Items(itemName, ownerID, imageURL, description, latitude, longitude, available, request, returnRequest)"
 			+ " VALUES(? , ?, ?, ? , ?, ?, ?, ?, ?)";
-	static String preppingforSearch = "ALTER TABLE Items" + " ADD FULLTEXT(itemName,itemDescription);";
+	static String preppingforSearch = "ALTER TABLE Items" + " ADD FULLTEXT(itemName,description);";
 	static String searchForItems = " SELECT * FROM Items "
-			+ "WHERE MATCH(itemName,itemDescription) AGAINST (?)  AND NOT ownerID=? AND latitude BETWEEN ? AND ? AND longitude BETWEEN ? AND ?;";
+			+ "WHERE MATCH(itemName,description) AGAINST (?)  AND NOT ownerID=? AND latitude BETWEEN ? AND ? AND longitude BETWEEN ? AND ?;";
 	static String updateSQL = "UPDATE Users " + "SET image = ? " + "WHERE userID=?";
 	static String updateItemSQL_Request = "UPDATE Items " + "SET available = ?, request = ?, requestorID = ? "
 			+ "WHERE itemID=?";
@@ -53,16 +53,16 @@ public class Database {
 		    +" cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
 		    +" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
 		    +" - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )"
-		    +" AND MATCH(itemName,itemDescription) AGAINST (?)"
+		    +" AND MATCH(itemName,description) AGAINST (?)"
 		    +"GROUP BY itemID HAVING Distance < ?"
 		    + "ORDER BY Distance";
-	static String preppingForSearch2 = "ALTER TABLE Items ADD FULLTEXT(itemName,itemDescription);";
+	static String preppingForSearch2 = "ALTER TABLE Items ADD FULLTEXT(itemName,description);";
 	
 	Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager
-					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=jBl45dolphin&useSSL=false");
+					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=root&useSSL=false");
 			System.out.println("Database connected");
 
 		} catch (ClassNotFoundException e) {
@@ -95,31 +95,19 @@ public class Database {
 			return -1;
 		}
 	}
-	
-	
-//	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)" + " VALUES(? , ?, ?, ?);";
+
 	public int signUp(String email, String name, String password) {
 		try {
-			System.out.println("In signUp");
 			ps = conn.prepareStatement(signUpInsert);
-			
 			ps.setString(1, email);
 			ps.setString(2, name);
 			ps.setString(3, password);
 			ps.setBoolean(4, false);
-			System.out.println(email + " " + name + " " + password);
-			System.out.println(ps.toString());
-			ps.executeUpdate();
-			
 			ps = conn.prepareStatement(lastAddedUser);
 			ResultSet rs = ps.executeQuery();
-			System.out.println(rs);
 			while(rs.next()) {
-				
-				System.out.println("id: " + rs.getInt("LAST_INSERT_ID()") );
 				return rs.getInt("LAST_INSERT_ID()");
 			}
-			
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database SignUp");
 			System.out.println(e.getMessage());
@@ -306,7 +294,7 @@ public class Database {
 			rs = ps.executeQuery();
 			rs.next();
 			String itemName = rs.getString("itemName");
-			String description = rs.getString("itemDescription");
+			String description = rs.getString("description");
 			String imageURL = rs.getString("imageURL");
 			int ownerID = rs.getInt("ownerID");
 			int borrowerID = rs.getInt("borrowerID");
