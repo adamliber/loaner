@@ -12,7 +12,7 @@ class Item: NSObject,Codable {
     
     public var itemName:String
     public var itemID: NSInteger
-    public var availibility: NSInteger
+    public var available: NSInteger
     public var imageURL: String
     public var itemDescription:String?
     public var latitude:Double
@@ -20,10 +20,10 @@ class Item: NSObject,Codable {
     public var ownerID: NSInteger
     public var borrowerID: NSInteger
     
-    init(name: String,itemID: NSInteger, availibility:NSInteger,imageURL:String, description: String,longitude:Double,latitude:Double, ownerID: NSInteger, borrowerID: NSInteger){
+    init(name: String,itemID: NSInteger, available:NSInteger,imageURL:String, description: String,longitude:Double,latitude:Double, ownerID: NSInteger, borrowerID: NSInteger){
         self.itemName = name
         self.itemID = itemID
-        self.availibility = availibility
+        self.available = available
         self.itemDescription = description
         self.imageURL = imageURL
         self.latitude = latitude

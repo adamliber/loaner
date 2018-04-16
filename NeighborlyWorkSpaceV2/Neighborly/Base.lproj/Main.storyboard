@@ -436,7 +436,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F61-78-7Xe">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F61-78-7Xe">
                                                     <rect key="frame" x="280" y="14" width="80" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -447,9 +447,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="itemDetails" destination="8Mk-A7-HeW" id="Do4-6c-VtV"/>
-                                            <outlet property="itemDistanceFromCurrentUser" destination="F61-78-7Xe" id="iwM-Hn-OaN"/>
                                             <outlet property="itemName" destination="i8P-OT-X79" id="NaO-7o-ABp"/>
                                             <outlet property="itemPhoto" destination="QdS-Mc-RiG" id="gXv-Cz-Wyb"/>
+                                            <outlet property="itemStatusLabel" destination="F61-78-7Xe" id="OJh-jf-1qx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

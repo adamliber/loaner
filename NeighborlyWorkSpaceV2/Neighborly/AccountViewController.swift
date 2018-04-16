@@ -31,11 +31,11 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         let userInfo = try! decoder.decode(UserInfoMessage.self, from: jsonText)
         print("userID received:  \(String(describing: userInfo.userID))" )
         print("message received:  \(userInfo.message)" )
-        print("\nmy Items received: \(String(describing: userInfo.myItems.first?.itemName))" )
+        print("\nmy Items received: \(String(describing: userInfo.myItems?.first?.itemName))" )
         
         if(userInfo.message == "valid"){
-            model.setMyItems(items: userInfo.myItems)
-            model.setBorrowedItems(items: userInfo.borrowedItems)
+            model.setMyItems(items: userInfo.myItems!)
+            model.setBorrowedItems(items: userInfo.borrowedItems!)
             
             
         }
@@ -115,13 +115,29 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         case 0:
             cell.itemName.text = model.borrowedItems[indexPath.row].itemName
             cell.itemDetails.text = model.borrowedItems[indexPath.row].itemDescription
-            cell.itemDistanceFromCurrentUser.text = "100 miles"
+            if(model.borrowedItems[indexPath.row].available == 1){
+                cell.itemStatusLabel.text = "Available"
+                cell.itemStatusLabel.backgroundColor = UIColor.green
+                cell.itemStatusLabel.textColor = UIColor.white
+            }else{
+                cell.itemStatusLabel.text = "Unavailable"
+                cell.itemStatusLabel.backgroundColor = UIColor.red
+                cell.itemStatusLabel.textColor = UIColor.white
+            }
             cell.itemPhoto.image = UIImage(named:"DefaultItemCamera")
             break
         case 1:
             cell.itemName.text = model.myItems[indexPath.row].itemName
             cell.itemDetails.text = model.myItems[indexPath.row].itemDescription
-            cell.itemDistanceFromCurrentUser.text = "100 miles"
+            if(model.myItems[indexPath.row].available == 1){
+                cell.itemStatusLabel.text = "Available"
+                cell.itemStatusLabel.backgroundColor = UIColor.green
+                cell.itemStatusLabel.textColor = UIColor.white
+            }else{
+                cell.itemStatusLabel.text = "Unavailable"
+                cell.itemStatusLabel.backgroundColor = UIColor.red
+                cell.itemStatusLabel.textColor = UIColor.white
+            }
             cell.itemPhoto.image = UIImage(named:"DefaultItemDrill")
             break
         default:

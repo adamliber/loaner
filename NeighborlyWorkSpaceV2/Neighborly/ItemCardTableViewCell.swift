@@ -12,7 +12,8 @@ class ItemCardTableViewCell: UITableViewCell {
 
     @IBOutlet weak var itemPhoto: UIImageView!
     @IBOutlet weak var itemName: UILabel!
-    @IBOutlet weak var itemDistanceFromCurrentUser: UILabel!
+    @IBOutlet weak var itemStatusLabel: UILabel!
+    
     @IBOutlet weak var itemDetails: UILabel!
     
     override func awakeFromNib() {
