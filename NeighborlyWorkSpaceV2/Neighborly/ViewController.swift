@@ -16,7 +16,7 @@ class ViewController: UIViewController , WebSocketDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = false
         socket.delegate = self
         let searchItemMessage = SearchItemMessage(searchTerm: "", longitude: 1.0, latitude: 1.0, distance: 5 )
         let encoder = JSONEncoder()

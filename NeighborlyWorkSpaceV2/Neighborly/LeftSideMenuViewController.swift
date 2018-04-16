@@ -13,6 +13,12 @@ class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITabl
     public func loadUser() -> User?{
         return NSKeyedUnarchiver.unarchiveObject(withFile: User.ArchiveURL.path) as? User
     }
+  
+    @IBAction func logoutClicked(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "entryViewController") as! ViewController
+        self.present(newViewController, animated: true, completion: nil)
+    }
     
     
     public var user:User?

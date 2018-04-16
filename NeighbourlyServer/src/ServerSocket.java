@@ -83,10 +83,6 @@ public class ServerSocket {
 				System.out.println("IOException in signup");
 			}
 		}
-		else if(messageID.trim().equals("searchItems"))
-		{
-			
-		}
 		else if(messageID.trim().equals("postItem"))
 		{
 			String toWrite = "";
@@ -94,7 +90,8 @@ public class ServerSocket {
 			m = (PostItemMessage)m;
 			int ownerID = ((PostItemMessage) m).getOwnerID();
 			String itemName  = ((PostItemMessage) m).getItemName();
-			String description  = ((PostItemMessage) m).getDescription();
+			String description  = ((PostItemMessage) m).getItemDescription();
+			System.out.println("desc in serversocket: "+description);
 			double latitude = ((PostItemMessage) m).getLatitude();
 			double longitude = ((PostItemMessage) m).getLongitude();
 			
@@ -143,7 +140,14 @@ public class ServerSocket {
 			System.out.println("longitude: " + longitude);
 			System.out.println("distance: " + distance);
 			
-			ArrayList<Item> toReturn = database.searchItemsByDistance(searchTerm, latitude, longitude, distance);
+			ArrayList<Item> toReturn;
+			
+			if(searchTerm.trim().equals("")) {
+				toReturn = database.getAllItemsInDatabase(latitude, longitude, distance);
+			}
+			else {
+				toReturn = database.searchItemsByDistance(searchTerm, latitude, longitude, distance);
+			}
 			toWrite = gson.toJson(new replyToQueryMessage(toReturn, "valid"));
 			for(int i = 0; i < toReturn.size();i++) {
 				toReturn.get(i).printItem();
@@ -161,6 +165,7 @@ public class ServerSocket {
 			m = gson.fromJson(message,requestUserInfobyIDMessage.class);
 			int userID = ((requestUserInfobyIDMessage) m).getUserID();
 			toWrite = gson.toJson(new UserInfoMessage(userID, database));
+			System.out.println("sending: " + toWrite);
 			try {
 				session.getBasicRemote().sendText(toWrite);
 			} catch (IOException e) {

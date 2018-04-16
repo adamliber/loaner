@@ -138,7 +138,7 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
     @IBAction func PostSubmitted(_ sender: Any) {
         
-        let postItemMessage = PostItemMessage( ownerID: user!.userID , itemName: itemNameField.text!, itemDescription: itemNameField.text!, longitude: 1.0, latitude: 1.0)
+        let postItemMessage = PostItemMessage( ownerID: user!.userID , itemName: itemNameField.text!, itemDescription: descriptionTextView.text!, longitude: 1.0, latitude: 1.0)
         let encoder = JSONEncoder()
         
         do{

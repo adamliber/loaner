@@ -74,7 +74,7 @@ public class Database {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager
-					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=root&useSSL=false");
+					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=jBl45dolphin&useSSL=false");
 			System.out.println("Database connected");
 
 		} catch (ClassNotFoundException e) {
@@ -160,6 +160,7 @@ public class Database {
 			ps.setInt(2, ownerID);
 			ps.setString(3, imageURL);
 			ps.setString(4, description);
+			System.out.println("set string: " + description);
 			ps.setDouble(5, latitude);
 			ps.setDouble(6, longitude);
 			ps.setInt(7, 1);
@@ -308,7 +309,7 @@ public class Database {
 			rs = ps.executeQuery();
 			rs.next();
 			String itemName = rs.getString("itemName");
-			String description = rs.getString("itemDescription");
+			String itemDescription = rs.getString("itemDescription");
 			String imageURL = rs.getString("imageURL");
 			int ownerID = rs.getInt("ownerID");
 			int borrowerID = rs.getInt("borrowerID");
@@ -318,7 +319,9 @@ public class Database {
 			int request = rs.getInt("request");
 			int requestorID = rs.getInt("requestorID");
 			int returnRequest = rs.getInt("returnRequest");
-			return new Item(itemID, itemName, description, available, imageURL, ownerID, borrowerID, latitude,
+			System.out.println("description: "+ itemDescription);
+			System.out.println("name: "+ itemName);
+			return new Item(itemID, itemName, itemDescription, available, imageURL, ownerID, borrowerID, latitude,
 					longitude, available, request, requestorID, returnRequest);
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database getItemsbyID");
