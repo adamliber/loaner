@@ -145,9 +145,8 @@ public class Database {
 			ps.setDouble(5, latitude);
 			ps.setDouble(6, longitude);
 			ps.setInt(7, 1);
-			ps.setInt(8, 1);
+			ps.setInt(8, 0);
 			ps.setInt(9, 0);
-			ps.setInt(10, 0);
 			ps.executeUpdate();
 			return 1;
 		} catch (SQLException e) {
