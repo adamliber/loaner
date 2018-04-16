@@ -29,6 +29,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
         let userInfo = try! decoder.decode(UserInfoMessage.self, from: jsonText)
         print("userID received:  \(String(describing: userInfo.userID))" )
         print("message received:  \(userInfo.message)" )
+        print("\nmy Items received: \(String(describing: userInfo.myItems.first?.itemName))" )
         
         if(userInfo.message == "valid"){
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -78,7 +79,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
     }
     @IBAction func loginClicked(_ sender: Any) {
         
-        let loginMessage = LoginMessage(messageID: "login", message: "", email: emailField.text!, password: passwordTextfield.text!)
+        let loginMessage = LoginMessage( message: "", email: emailField.text!, password: passwordTextfield.text!)
         let encoder = JSONEncoder()
         
         do{

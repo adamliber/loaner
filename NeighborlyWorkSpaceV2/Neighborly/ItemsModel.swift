@@ -14,6 +14,13 @@ class ItemsModel{
     public var borrowedItems: [Item]
     public var myItems: [Item]
     
+    public func setBorrowedItems(items: [Item]){
+        self.borrowedItems = items
+    }
+    public func setMyItems(items: [Item]){
+        self.myItems = items
+    }
+    
     public init(){
         borrowedItems = [Item]()
         myItems = [Item]()

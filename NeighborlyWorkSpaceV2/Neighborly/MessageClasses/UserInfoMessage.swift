@@ -15,8 +15,8 @@ struct UserInfoMessage:Codable{
     var name:String?
     //var photo:
     var email:String?
-    var myItems:[Item]?
-    var borrowedItems:[Item]?
+    var myItems:[Item]
+    var borrowedItems:[Item]
     var message:String
     
 }

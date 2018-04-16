@@ -9,12 +9,10 @@
 import Foundation
 
 
-func getPath()->String{
-    let plistFileName = "data.plist"
-    let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-    let documentPath = paths[0] as NSString
-    let plistPath = documentPath.appendingPathComponent(plistFileName)
-    return plistPath
+func loadUser() -> User?{
+    return NSKeyedUnarchiver.unarchiveObject(withFile: User.ArchiveURL.path) as? User
 }
+
+
 
 

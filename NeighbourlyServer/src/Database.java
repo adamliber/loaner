@@ -330,8 +330,10 @@ public class Database {
 	}
 
 	public ArrayList<Item> searchItemsByDistance(String searchTerm, double latitude, double longitude,
-			int distanceInKM) {
+			int distanceInMiles) {
+		System.out.println("In searchItems by distance");
 		ArrayList<Item> toReturn = new ArrayList<Item>();
+		double distanceInKM = (distanceInMiles * 1.60934);
 
 		String searchString = "SELECT * , 6371.04 * acos( cos( pi( ) /2 - radians( 90 - " + latitude
 				+ ") )* cos( pi( ) /2 - radians( 90 - " + latitude + " ) ) * cos( radians(" + longitude
@@ -340,13 +342,15 @@ public class Database {
 				+ ") ) ) AS Distance FROM Items WHERE ( 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) ) *cos( pi( ) /2 - radians( 90 - "
 				+ latitude + " ) ) * cos( radians(" + longitude + ") - radians(" + longitude
 				+ " ) ) + sin( pi( ) /2 - radians( 90-" + latitude + ") ) * sin( pi( ) /2 - radians( 90 -" + latitude
-				+ " ) ) ) < 1 ) GROUP BY itemID HAVING Distance < " + distanceInKM + " BY Distance";
+				+ " ) ) ) < 1 ) GROUP BY itemID HAVING Distance < " + distanceInKM + "ORDER BY Distance";
 		ResultSet rs;
 		try {
 			ps = conn.prepareStatement(searchString);
 			rs = ps.executeQuery();
+			
 			while (rs.next()) {
 				int itemID = rs.getInt("itemID");
+				System.out.println("itemID: " + itemID);
 				toReturn.add(getItembyID(itemID));
 			}
 		} catch (SQLException e) {

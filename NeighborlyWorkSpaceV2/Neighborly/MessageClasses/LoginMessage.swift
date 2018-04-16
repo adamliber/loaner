@@ -15,12 +15,12 @@ class LoginMessage: Codable{
     var messageID:String
     var message:String
     
-    init(messageID:String, message:String, email:String, password:String){
+    init( message:String, email:String, password:String){
         
         self.email = email
         self.password = password
         self.message = message
-        self.messageID = messageID
+        self.messageID = "login"
     }
     
 }

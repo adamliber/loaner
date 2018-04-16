@@ -9,6 +9,7 @@
 import Foundation
 
 struct ItemList:Codable{
+    
+    var itemList:[Item]
     var message:String
-    var items:[Item]
 }

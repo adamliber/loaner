@@ -67,6 +67,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
         socket.delegate = self
         searchModalView.layer.cornerRadius = 10
         searchModalView.layer.masksToBounds = true
+        
+        let searchItemMessage = SearchItemMessage(searchString: itemSearchField.text!, longitude: 1.0, latitude: 1.0, distanceMiles: NSInteger(distanceSlider.value) )
+        let encoder = JSONEncoder()
+        
+        do{
+            let data = try encoder.encode(searchItemMessage)
+            socket.write(string: String(data: data, encoding: .utf8)!)
+            
+        }catch{
+            
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -76,7 +87,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
     }
     
     @IBAction func searchSubmitted(_ sender: Any) {
-        let searchItemMessage = SearchItemMessage(searchString: itemSearchField.text!, longitude: 1.788, latitude: 6.77, distanceMiles: NSInteger(distanceSlider.value) )
+        let searchItemMessage = SearchItemMessage(searchString: itemSearchField.text!, longitude: 1.0, latitude: 1.0, distanceMiles: NSInteger(distanceSlider.value) )
         let encoder = JSONEncoder()
         
         do{

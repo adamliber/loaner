@@ -8,7 +8,7 @@
 
 import UIKit
 import Starscream
-class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate,WebSocketDelegate {
+class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate,WebSocketDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
     
     
@@ -49,6 +49,34 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
     
     
+    @IBOutlet weak var myImageView: UIImageView!
+    
+    
+    @IBAction func importImage(_ sender: Any) {
+        let imagePicked = UIImagePickerController()
+        imagePicked.delegate = self
+        
+        imagePicked.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        imagePicked.allowsEditing = false
+        imagePicked.modalPresentationStyle = .overCurrentContext
+        self.present(imagePicked, animated: true){
+            
+        }
+    }
+    
+    
+        
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            myImageView.image = imagePicked
+        
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var itemNameField: UITextField!
@@ -110,12 +138,13 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
     @IBAction func PostSubmitted(_ sender: Any) {
         
-        let postItemMessage = PostItemMessage( ownerID: user!.userID , itemName: itemNameField.text!, itemDescription: itemNameField.text!, longitude: 2.18, latitude: 3.14)
+        let postItemMessage = PostItemMessage( ownerID: user!.userID , itemName: itemNameField.text!, itemDescription: itemNameField.text!, longitude: 1.0, latitude: 1.0)
         let encoder = JSONEncoder()
         
         do{
             let data = try encoder.encode(postItemMessage)
             socket.write(string: String(data: data, encoding: .utf8)!)
+            //socket.write(data: <#T##Data#>)
             
         }catch{
             

@@ -7,8 +7,47 @@
 //
 
 import UIKit
+import Starscream
 
-class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, WebSocketDelegate{
+   
+    
+    
+    
+   
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("accountinfo socket connected")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("accountinfo socket disconnected")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("account info received text: \(text)")
+        let jsonText = text.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        let userInfo = try! decoder.decode(UserInfoMessage.self, from: jsonText)
+        print("userID received:  \(String(describing: userInfo.userID))" )
+        print("message received:  \(userInfo.message)" )
+        print("\nmy Items received: \(String(describing: userInfo.myItems.first?.itemName))" )
+        
+        if(userInfo.message == "valid"){
+            model.setMyItems(items: userInfo.myItems)
+            model.setBorrowedItems(items: userInfo.borrowedItems)
+            
+            
+        }
+            
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("account info received data: \(data)")
+
+    }
+    
+    
+    public var user:User?
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,9 +63,22 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        socket.delegate = self
         // Do any additional setup after loading the view.
         self.tableView.rowHeight = 134
+        
+        self.user = loadUser()
+        let accountInfoMessage = AccountInfoMessage(userID: (user?.userID)!)
+        let encoder = JSONEncoder()
+        
+        do{
+            let data = try encoder.encode(accountInfoMessage)
+            socket.write(string: String(data: data, encoding: .utf8)!)
+            
+        }catch{
+            
+        }
+        
     }
     
     @IBAction func segmentControlClicked(_ sender: Any) {
