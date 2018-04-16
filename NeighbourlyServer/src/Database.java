@@ -43,7 +43,7 @@ public class Database {
 	static String getMyItemsSQL = "SELECT * FROM Items WHERE ownerID=?";
 	static String lastAddedUser = "SELECT LAST_INSERT_ID()";
 	
-	static String searchString = "SELECT * , 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) )"
+	static String searchString = " SELECT * , 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) )"
 			+" * cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
 			+" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
 			+" - latitude) ) * sin( pi( ) /2 - radians( 90 - ?) ) ) AS"
@@ -56,12 +56,13 @@ public class Database {
 		    +" AND MATCH(itemName,description) AGAINST (?)"
 		    +"GROUP BY itemID HAVING Distance < ?"
 		    + "ORDER BY Distance";
+	static String preppingForSearch2 = "ALTER TABLE Items ADD FULLTEXT(itemName,description);";
 	
 	Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager
-					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=jBl45dolphin&useSSL=false");
+					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=root&useSSL=false");
 			System.out.println("Database connected");
 
 		} catch (ClassNotFoundException e) {
@@ -297,14 +298,13 @@ public class Database {
 			String imageURL = rs.getString("imageURL");
 			int ownerID = rs.getInt("ownerID");
 			int borrowerID = rs.getInt("borrowerID");
-			int availibility = rs.getInt("availibility");
 			double latitude = rs.getDouble("latitude");
 			double longitude = rs.getDouble("longitude");
 			int available = rs.getInt("available");
 			int request = rs.getInt("request");
 			int requestorID = rs.getInt("requestorID");
 			int returnRequest = rs.getInt("returnRequest");
-			return new Item(itemID, itemName, description, availibility, imageURL, ownerID, borrowerID, latitude,
+			return new Item(itemID, itemName, description, available, imageURL, ownerID, borrowerID, latitude,
 					longitude, available, request, requestorID, returnRequest);
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database getItemsbyID");
@@ -345,12 +345,13 @@ public class Database {
 			int distanceInMiles) {
 		System.out.println("In searchItems by distance");
 		ArrayList<Item> toReturn = new ArrayList<Item>();
-
 		double distanceInKM = (distanceInMiles * 1.60934);
 
 	
 		ResultSet rs;
 		try {
+			ps = conn.prepareStatement(preppingForSearch2);
+			ps.executeUpdate();
 			ps = conn.prepareStatement(searchString);
 			ps.setDouble(1, latitude );
 			ps.setDouble(2, longitude);
