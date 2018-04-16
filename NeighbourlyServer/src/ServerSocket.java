@@ -155,6 +155,20 @@ public class ServerSocket {
 				toWrite = gson.toJson(new Message("invalid"));
 			}
 		}
+		else if(messageID.trim().equals("accountInfo"))
+		{
+			String toWrite = "";
+			m = gson.fromJson(message,requestUserInfobyIDMessage.class);
+			int userID = ((requestUserInfobyIDMessage) m).getUserID();
+			toWrite = gson.toJson(new UserInfoMessage(userID, database));
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+		
+		}
 		
 	}
 	
