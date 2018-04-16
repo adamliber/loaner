@@ -13,7 +13,7 @@ struct UserInfoMessage:Codable{
     var userID:NSInteger?
     
     var name:String?
-    //var photo:
+    var image:String?
     var email:String?
     var myItems:[Item]?
     var borrowedItems:[Item]?

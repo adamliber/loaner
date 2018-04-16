@@ -26,6 +26,7 @@ class User: NSObject, NSCoding{
     
     public func saveUser() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(self, toFile: User.ArchiveURL.path)
+        
         if isSuccessfulSave {
             os_log("User successfully saved.", log: OSLog.default, type: .debug)
             print("user succesfully saved")
@@ -34,6 +35,8 @@ class User: NSObject, NSCoding{
             print("Failed to save user")
         }
     }
+    
+   
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(userID,forKey:PropertyKey.userID)

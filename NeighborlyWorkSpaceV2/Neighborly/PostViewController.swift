@@ -67,12 +67,20 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
     
         
-    
+    var encodedImg:String = ""
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
             myImageView.image = imagePicked
+            
+            let data = UIImageJPEGRepresentation(imagePicked, 0.000005)
+            
+            let base64String = data!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+            encodedImg = base64String.addingPercentEncoding(withAllowedCharacters:  .urlQueryAllowed  )!
+            
+            print("Img on line 55" + encodedImg)
+            encodedImg = encodedImg + String("%") // termination char % is added at the end
         
         }
         self.dismiss(animated: true, completion: nil)
@@ -138,13 +146,13 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
     @IBAction func PostSubmitted(_ sender: Any) {
         
-        let postItemMessage = PostItemMessage( ownerID: user!.userID , itemName: itemNameField.text!, itemDescription: descriptionTextView.text!, longitude: 1.0, latitude: 1.0)
+        let postItemMessage = PostItemMessage( ownerID: user!.userID , image:encodedImg, itemName: itemNameField.text!, itemDescription: descriptionTextView.text!, longitude: 1.0, latitude: 1.0)
         let encoder = JSONEncoder()
         
         do{
             let data = try encoder.encode(postItemMessage)
             socket.write(string: String(data: data, encoding: .utf8)!)
-            //socket.write(data: <#T##Data#>)
+            
             
         }catch{
             

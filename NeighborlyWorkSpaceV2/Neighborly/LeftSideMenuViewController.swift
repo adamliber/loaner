@@ -16,8 +16,13 @@ class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITabl
   
     @IBAction func logoutClicked(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "entryViewController") as! ViewController
-        self.present(newViewController, animated: true, completion: nil)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
+       
+        
+        appDelegate.window?.rootViewController = storyBoard.instantiateViewController(withIdentifier: "entryViewController") as! ViewController
+        
+      
     }
     
     

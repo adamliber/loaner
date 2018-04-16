@@ -9,13 +9,59 @@
 import UIKit
 import Starscream
 
-class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, WebSocketDelegate{
+class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, WebSocketDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
    
     
     @IBOutlet weak var nameField: UILabel!
     
+    @IBAction func updatePhotoButtonClicked(_ sender: Any) {
+        let imagePicked = UIImagePickerController()
+        imagePicked.delegate = self
+        
+        imagePicked.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        imagePicked.allowsEditing = false
+        imagePicked.modalPresentationStyle = .overCurrentContext
+        self.present(imagePicked, animated: true){
+            
+        }
+    }
     
+    @IBOutlet weak var myImageView: UIImageView!
+    
+    var encodedImg:String = ""
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            myImageView.image = imagePicked
+            
+            let data = UIImageJPEGRepresentation(imagePicked, 0.000005)
+            
+            let base64String = data!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+            encodedImg = base64String.addingPercentEncoding(withAllowedCharacters:  .urlQueryAllowed  )!
+            
+            print("Img on line 55" + encodedImg)
+            encodedImg = encodedImg + String("%") // termination char % is added at the end
+            
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+        
+        let updateUserPhotoMessage = UpdateUserPhotoMessage(userID: (user?.userID)!, image: encodedImg)
+        let encoder = JSONEncoder()
+        
+        do{
+            let data = try encoder.encode(updateUserPhotoMessage)
+            socket.write(string: String(data: data, encoding: .utf8)!)
+            
+        }catch{
+            
+        }
+        
+    }
    
+    
     func websocketDidConnect(socket: WebSocketClient) {
         print("accountinfo socket connected")
     }

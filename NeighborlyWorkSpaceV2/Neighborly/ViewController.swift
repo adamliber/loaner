@@ -31,7 +31,7 @@ class ViewController: UIViewController , WebSocketDelegate {
     }
     
     deinit {
-        
+        print("viewcontroller deinit called")
         socket.delegate = nil
     }
    

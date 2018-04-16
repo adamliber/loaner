@@ -36,8 +36,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
             appDelegate.window?.rootViewController = appDelegate.centerContainer
             let user = User(userID: userInfo.userID!, name: userInfo.name!, email: userInfo.email!)
             user.saveUser()
-            let viewController = storyboard?.instantiateViewController(withIdentifier: "ViewController")
-            present(viewController!, animated: true, completion: nil)
+        
             
             
         }else{

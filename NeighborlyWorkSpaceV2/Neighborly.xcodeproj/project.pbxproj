@@ -24,6 +24,7 @@
 		BC8C8DCA2083FC72003CBAB5 /* SearchItemMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C8DC92083FC72003CBAB5 /* SearchItemMessage.swift */; };
 		BC8C8DCC2083FE59003CBAB5 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C8DCB2083FE59003CBAB5 /* ItemList.swift */; };
 		BC8C8DCE20845CA4003CBAB5 /* AccountInfoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C8DCD20845CA4003CBAB5 /* AccountInfoMessage.swift */; };
+		BC8C8DD02084C4B2003CBAB5 /* UpdateUserPhotoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C8DCF2084C4B2003CBAB5 /* UpdateUserPhotoMessage.swift */; };
 		BC934625207BFC6E0050F81A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC934624207BFC6E0050F81A /* SearchViewController.swift */; };
 		BC934627207BFF100050F81A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC934626207BFF100050F81A /* PostViewController.swift */; };
 		BC93462B207C73A80050F81A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC93462A207C73A80050F81A /* AccountViewController.swift */; };
@@ -84,6 +85,7 @@
 		BC8C8DC92083FC72003CBAB5 /* SearchItemMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemMessage.swift; sourceTree = "<group>"; };
 		BC8C8DCB2083FE59003CBAB5 /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		BC8C8DCD20845CA4003CBAB5 /* AccountInfoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoMessage.swift; sourceTree = "<group>"; };
+		BC8C8DCF2084C4B2003CBAB5 /* UpdateUserPhotoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserPhotoMessage.swift; sourceTree = "<group>"; };
 		BC934624207BFC6E0050F81A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BC934626207BFF100050F81A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		BC93462A207C73A80050F81A /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				BC8C8DC92083FC72003CBAB5 /* SearchItemMessage.swift */,
 				BC8C8DCB2083FE59003CBAB5 /* ItemList.swift */,
 				BC8C8DCD20845CA4003CBAB5 /* AccountInfoMessage.swift */,
+				BC8C8DCF2084C4B2003CBAB5 /* UpdateUserPhotoMessage.swift */,
 			);
 			path = MessageClasses;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				BC8C8DCC2083FE59003CBAB5 /* ItemList.swift in Sources */,
 				BC3328DD2082D5A800756829 /* Message.swift in Sources */,
 				BCD2DBA220733DAB0088B36B /* MMDrawerVisualState.m in Sources */,
+				BC8C8DD02084C4B2003CBAB5 /* UpdateUserPhotoMessage.swift in Sources */,
 				BC93462B207C73A80050F81A /* AccountViewController.swift in Sources */,
 				BCD2DB9520733CE00088B36B /* LeftSideMenuViewController.swift in Sources */,
 				BC745BEE207F056700C56844 /* Item.swift in Sources */,
