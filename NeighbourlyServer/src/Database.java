@@ -4,15 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Base64;
 
 
 public class Database {
@@ -24,12 +21,12 @@ public class Database {
 	static String borrowerQuery = "SELECT * FROM Users WHERE name=?";
 	static String singleItemQuery = "SELECT * FROM Items WHERE itemID=?";
 	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)" + " VALUES(?, ?, ?, ?);";
-	static String addItemInsert = "INSERT INTO Items(itemName, ownerID, image, itemDescription, latitude, longitude, available, request, returnRequest)"
+	static String addItemInsert = "INSERT INTO Items(itemName, ownerID, imageURL, itemDescription, latitude, longitude, available, request, returnRequest)"
 			+ " VALUES(? , ?, ?, ? , ?, ?, ?, ?, ?)";
 	static String preppingforSearch = "ALTER TABLE Items" + " ADD FULLTEXT(itemName,itemDescription);";
 	static String searchForItems = " SELECT * FROM Items "
 			+ "WHERE MATCH(itemName,itemDescription) AGAINST (?)  AND NOT ownerID=? AND latitude BETWEEN ? AND ? AND longitude BETWEEN ? AND ?;";
-	static String setImageSQL = "UPDATE Users " + "SET image = ? " + "WHERE userID=?";
+	static String updateSQL = "UPDATE Users " + "SET image = ? " + "WHERE userID=?";
 	static String updateItemSQL_Request = "UPDATE Items " + "SET available = ?, request = ?, requestorID = ? "
 			+ "WHERE itemID=?";
 	static String updateItemSQL_Accept = "UPDATE Items " + "SET available = ?, request = ?, borrowerID = ? "
@@ -77,7 +74,7 @@ public class Database {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager
-					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=root&useSSL=false");
+					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=jBl45dolphin&useSSL=false");
 			System.out.println("Database connected");
 
 		} catch (ClassNotFoundException e) {
@@ -111,6 +108,8 @@ public class Database {
 		}
 	}
 	
+	
+//	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)" + " VALUES(? , ?, ?, ?);";
 	public int signUp(String email, String name, String password) {
 		try {
 			ps = conn.prepareStatement(signUpInsert);
@@ -153,15 +152,13 @@ public class Database {
 	}
 
 	public int addItemToDatabase(int ownerID, String itemName, String imageURL, String description, double latitude,
-			double longitude,String image) {
+			double longitude) {
 
 		try {
-			byte[] imageByte = Base64.getDecoder().decode(new String(image).getBytes("UTF-8"));
-			Blob blob = new javax.sql.rowset.serial.SerialBlob(imageByte);
 			ps = conn.prepareStatement(addItemInsert);
 			ps.setString(1, itemName);
 			ps.setInt(2, ownerID);
-			ps.setBlob(3, blob);
+			ps.setString(3, imageURL);
 			ps.setString(4, description);
 			System.out.println("set string: " + description);
 			ps.setDouble(5, latitude);
@@ -178,9 +175,6 @@ public class Database {
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database addItem");
 			System.out.println(e.getMessage());
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 
 		return -1;
@@ -320,11 +314,7 @@ public class Database {
 			rs.next();
 			String itemName = rs.getString("itemName");
 			String itemDescription = rs.getString("itemDescription");
-			
-			Blob imageBlob = rs.getBlob("image");
-			byte[] imageByte = imageBlob.getBytes(1, (int) imageBlob.length());
-			String image = (Base64.getEncoder().encodeToString(imageByte));
-			
+			String imageURL = rs.getString("imageURL");
 			int ownerID = rs.getInt("ownerID");
 			int borrowerID = rs.getInt("borrowerID");
 			double latitude = rs.getDouble("latitude");
@@ -335,7 +325,7 @@ public class Database {
 			int returnRequest = rs.getInt("returnRequest");
 			System.out.println("description: "+ itemDescription);
 			System.out.println("name: "+ itemName);
-			return new Item(itemID, itemName, itemDescription, available, image, ownerID, borrowerID, latitude,
+			return new Item(itemID, itemName, itemDescription, available, imageURL, ownerID, borrowerID, latitude,
 					longitude, available, request, requestorID, returnRequest);
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database getItemsbyID");
@@ -407,55 +397,48 @@ public class Database {
 		return toReturn;
 	}
 
-	public int putUserImage(int userID, String imageAsString) {		
-		try 
-		{
-			byte[] imageByte = Base64.getDecoder().decode(new String(imageAsString).getBytes("UTF-8"));
-			Blob blob = new javax.sql.rowset.serial.SerialBlob(imageByte);
-			PreparedStatement pstmt = conn.prepareStatement(setImageSQL);
-			//FileInputStream input = new FileInputStream(file);
-			pstmt.setBlob(1, blob);
-			pstmt.setInt(2, userID);
+	public void putUserImage() {
+		// String fileName = userID + "_profile_pic.jpeg";
+		File file = new File("images/flowers.jpeg");
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(updateSQL);
+			FileInputStream input = new FileInputStream(file);
+			pstmt.setBinaryStream(1, input);
+			pstmt.setInt(2, 1);
 			pstmt.executeUpdate();
-			return 1;
-		} 
-		catch (SQLException e)
-		{
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found exception in getItemImage");
+		} catch (SQLException e) {
 			System.out.println("SQL exception in getItemImage");
 			System.out.println(e.getMessage());
-		} 
-		catch (UnsupportedEncodingException e) 
-		{
-			System.out.println("UnsupportedEncodingException in put user image");
 		}
-		
-		return 0;
 	}
 
-	public String getUserImage(int userID) {
+	public void getUserImage() {
 		String selectSQL = "SELECT image FROM Users WHERE userID=?";
-		String toReturn = "";
 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(selectSQL);
-			pstmt.setInt(1, userID);
+			pstmt.setInt(1, 1);
 			ResultSet rs = pstmt.executeQuery();
-//			File file = new File("output.jpeg");
-//			FileOutputStream output = new FileOutputStream(file);
+			File file = new File("output.jpeg");
+			FileOutputStream output = new FileOutputStream(file);
 
+			System.out.println("Writing to file " + file.getAbsolutePath());
 			while (rs.next()) {
-				Blob imageBlob = rs.getBlob("image");
-				byte[] imageByte = imageBlob.getBytes(1, (int) imageBlob.length());
-				toReturn = (Base64.getEncoder().encodeToString(imageByte));
+				InputStream input = rs.getBinaryStream("image");
+				byte[] buffer = new byte[1024];
+				while (input.read(buffer) > 0) {
+					output.write(buffer);
+				}
 			}
-		} 
-		catch (SQLException e) 
-		{
-			System.out.println("SQL exception in Database getUserImage");
+		} catch (SQLException e) {
+			System.out.println("SQL exception in Database searchItems");
 			System.out.println(e.getMessage());
-		} 
-		
-		return toReturn;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public ArrayList<Item> getMyItems(int userID)
