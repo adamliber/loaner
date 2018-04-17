@@ -45,6 +45,7 @@ public class ServerSocket {
 			if(userID != -1)
 			{
 				toWrite = gson.toJson(new UserInfoMessage(userID,email,database));
+				session.getUserProperties().put("userID", userID);
 			}
 			else //sign up was unsuccessful
 			{
@@ -74,7 +75,7 @@ public class ServerSocket {
 			else //means login was successful
 			{	
 				toWrite = gson.toJson(new UserInfoMessage(userID,email,database));
-				//session.getUserProperties()
+				session.getUserProperties().put("userID", userID);
 			}
 			
 			try {
@@ -94,16 +95,17 @@ public class ServerSocket {
 			System.out.println("desc in serversocket: "+description);
 			double latitude = ((PostItemMessage) m).getLatitude();
 			double longitude = ((PostItemMessage) m).getLongitude();
+			String image = ((PostItemMessage) m).getImage();
 			
-			int x = database.addItemToDatabase(ownerID, itemName, "", description, latitude, longitude);
+			int itemID = database.addItemToDatabase(ownerID, itemName, "", description, latitude, longitude,image);
 			
-			if(x == 1)
+			if(itemID == -1)
 			{
-				toWrite = gson.toJson(new Message("valid"));
+				toWrite = gson.toJson(new itemInfoMessage(-1,"invalid"));
 			}
 			else
 			{
-				toWrite = gson.toJson(new Message("invalid"));
+				toWrite = gson.toJson(new itemInfoMessage(itemID,"valid"));
 			}
 			
 			try {
@@ -114,18 +116,30 @@ public class ServerSocket {
 			
 			
 		}
-		else if(messageID.trim().equals("userPhotoUpload"))
+		else if(messageID.trim().equals("updateUserPhoto"))
 		{
 			m = gson.fromJson(message,PhotoUploadMessage.class);
 			String str = ((PhotoUploadMessage) m).getImageAsString();
+			int userID = ((PhotoUploadMessage) m).getUserID();
+			String toWrite = "";
+			int x = database.putUserImage(userID, str);
 			
+			if(x == 1 )toWrite = gson.toJson(new UserInfoMessage(userID, database));
+			else toWrite = gson.toJson(new Message("valid"));
 			
-			  try {
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+			
+			 /* try {
                 byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(str); 
 			  }
 			  catch(ArrayIndexOutOfBoundsException aioe){ 
 				System.out.println("Array Index Out of Bounds Exception in userPhotoUpload");
-			  }
+			  }*/
 		}
 		else if(messageID.trim().equals("searchItem"))
 		{
