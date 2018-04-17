@@ -69,6 +69,7 @@ public class Database {
 		    +" - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )"
 		    +"GROUP BY itemID HAVING Distance < ?"
 		    + "ORDER BY Distance";
+	static String getOwnerIDbyItemID = "SELECT ownerID FROM Items WHERE itemID =?";
 	
 	Database() {
 		try {
@@ -180,8 +181,8 @@ public class Database {
 		return -1;
 	}
 
-	public void requestItem(int itemID, int requestorID) {
-		// ResultSet rs;
+	//returns id of the owner
+	public int requestItem(int itemID, int requestorID) {
 		try {
 
 			ps = conn.prepareStatement(updateItemSQL_Request);
@@ -190,12 +191,14 @@ public class Database {
 			ps.setInt(3, requestorID);
 			ps.setInt(4, itemID);
 			ps.executeUpdate();
+			return getOwnerIDfromItemID(itemID);
 
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database requestItem");
 			System.out.println(e.getMessage());
 		}
-
+		
+		return -1;
 		// send a message to frontend for an in-app notification to send a request for
 		// an item
 	}
@@ -440,7 +443,26 @@ public class Database {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public int getOwnerIDfromItemID(int itemID )
+	{
+		ResultSet rs;
+		try {
+			ps = conn.prepareStatement(getOwnerIDbyItemID);
+			ps.setInt(1, itemID);
+			rs = ps.executeQuery();
+			while(rs.next())
+			{
+				return rs.getInt("ownerID");
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception in getOwnerIDfromItemID");
+			System.out.println(e.getMessage());
+		}
+		
+		return -1;
+	}
+	
 	public ArrayList<Item> getMyItems(int userID)
 	{
 		ArrayList<Item> toReturn = new ArrayList<Item>();

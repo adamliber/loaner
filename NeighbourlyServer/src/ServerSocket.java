@@ -95,9 +95,8 @@ public class ServerSocket {
 			System.out.println("desc in serversocket: "+description);
 			double latitude = ((PostItemMessage) m).getLatitude();
 			double longitude = ((PostItemMessage) m).getLongitude();
-			String image = ((PostItemMessage) m).getImage();
 			
-			int itemID = database.addItemToDatabase(ownerID, itemName, "", description, latitude, longitude,image);
+			int itemID = database.addItemToDatabase(ownerID, itemName, "", description, latitude, longitude);
 			
 			if(itemID == -1)
 			{
@@ -116,7 +115,7 @@ public class ServerSocket {
 			
 			
 		}
-		else if(messageID.trim().equals("updateUserPhoto"))
+	/*	else if(messageID.trim().equals("updateUserPhoto"))
 		{
 			m = gson.fromJson(message,PhotoUploadMessage.class);
 			String str = ((PhotoUploadMessage) m).getImageAsString();
@@ -134,13 +133,13 @@ public class ServerSocket {
 				toWrite = gson.toJson(new Message("invalid"));
 			}
 			
-			 /* try {
+			  try {
                 byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(str); 
 			  }
 			  catch(ArrayIndexOutOfBoundsException aioe){ 
 				System.out.println("Array Index Out of Bounds Exception in userPhotoUpload");
-			  }*/
-		}
+			  }
+		}*/
 		else if(messageID.trim().equals("searchItem"))
 		{
 			String toWrite = "";
@@ -187,6 +186,27 @@ public class ServerSocket {
 				toWrite = gson.toJson(new Message("invalid"));
 			}
 		
+		}
+		else if(messageID.trim().equals("requestItem"))
+		{
+			System.out.println("In requestItem");
+			m = gson.fromJson(message, requestItemMessage.class);
+			int requestorID = ((requestItemMessage) m).getRequestorID();
+			int itemID = ((requestItemMessage) m).getItemID();
+			
+			int ownerID =  database.requestItem(itemID, requestorID);
+			//function to send owner pop up notification
+			/*for(Session s : sessionVector) {	
+				if(ownerID == (int)session.getUserProperties().get("userID"))
+				{
+					try 
+					{
+						s.getBasicRemote().sendText(message);
+					} catch (IOException e) { 
+						e.printStackTrace();
+					}
+				}
+			}*/
 		}
 		
 	}
