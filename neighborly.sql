@@ -27,9 +27,7 @@ CREATE TABLE Items (
     request INT(1) NOT NULL,
     requestorID INT(11) NULL,
     returnRequest INT(1) NOT NULL,
-    FOREIGN KEY fk1(ownerID) REFERENCES Users(userID),
-    FOREIGN KEY fk2(borrowerID) REFERENCES Users(userID),
-    FOREIGN KEY fk3(requestorID) REFERENCES Users(userID)
+    FOREIGN KEY fk1(ownerID) REFERENCES Users(userID)
 );
 
 CREATE TABLE Categories(
