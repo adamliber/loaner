@@ -203,7 +203,8 @@ public class Database {
 		// an item
 	}
 
-	public void acceptItem(int itemID, int borrowerID) {
+	 //returns 1 if everything went fine, otherwise -1
+	public int acceptRequest(int itemID, int borrowerID) {
 		// ResultSet rs;
 		try {
 
@@ -213,6 +214,7 @@ public class Database {
 			ps.setInt(3, borrowerID);
 			ps.setInt(4, itemID);
 			ps.executeUpdate();
+			return 1;
 
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database acceptItem");
@@ -221,6 +223,8 @@ public class Database {
 
 		// send a message to frontend for an in-app notification that requestor has
 		// acccepted
+		return -1;
+		
 	}
 
 	public void declineItem(int itemID, int borrowerID) {
@@ -308,7 +312,7 @@ public class Database {
 		// send message to borrowerID that your request to be returned has been denied
 	}
 
-	private Item getItembyID(int itemID) {
+	public Item getItembyID(int itemID) {
 		ResultSet rs;
 		try {
 			ps = conn.prepareStatement(singleItemQuery);
