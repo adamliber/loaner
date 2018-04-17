@@ -167,13 +167,17 @@ public class Database {
 			ps.setInt(8, 0);
 			ps.setInt(9, 0);
 			ps.executeUpdate();
-			return 1;
+			ps = conn.prepareStatement(lastAddedUser);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				return rs.getInt("LAST_INSERT_ID()");
+			}
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database addItem");
 			System.out.println(e.getMessage());
 		}
 
-		return 0;
+		return -1;
 	}
 
 	public void requestItem(int itemID, int requestorID) {

@@ -4,7 +4,7 @@ public class Item {
 	private String itemName;
 	private int itemID;
 	private int availibility;
-	private String imageURL;
+	private String image;
 	private String itemDescription;
 	private double latitude;
 	private double longitude;
@@ -15,12 +15,12 @@ public class Item {
 	private int requestorID;
 	private int returnRequest;
 
-	Item(int itemID, String itemName, String description, int availibility, String imageURL, int ownerID,
+	Item(int itemID, String itemName, String description, int availibility, String image, int ownerID,
 			int borrowerID, double latitude, double longitude, int available, int request, int requestorID,
 			int returnRequest) {
 		this.itemID = itemID;
 		this.availibility = availibility;
-		this.imageURL = imageURL;
+		this.image = image;
 		this.itemDescription = description;
 		this.ownerID = ownerID;
 		this.borrowerID = borrowerID;
@@ -86,12 +86,12 @@ public class Item {
 		this.availibility = availibility;
 	}
 
-	public String getImageURL() {
-		return imageURL;
+	public String getImage() {
+		return image;
 	}
 
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
+	public void setImageURL(String image) {
+		this.image = image;
 	}
 
 	public String getDescription() {

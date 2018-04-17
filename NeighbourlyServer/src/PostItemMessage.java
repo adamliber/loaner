@@ -1,10 +1,12 @@
 
 public class PostItemMessage extends Message {
+	String image;
 	int ownerID;
 	String itemName;
 	String itemDescription;
 	double latitude;
 	double longitude;
+	
 	
 	
 	public int getOwnerID() {
@@ -45,5 +47,12 @@ public class PostItemMessage extends Message {
 
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+	}
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }
