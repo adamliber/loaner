@@ -27,7 +27,7 @@ class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITabl
     
     
     public var user:User?
-    var menuItems:[String] = ["Search Items", "Account", "Messages" ,"Groups", "About" ]
+    var menuItems:[String] = ["Search Items", "Account", "Messages" , "About" ]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
@@ -53,7 +53,7 @@ class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITabl
                 let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.centerContainer!.centerViewController = accountNavController
                 appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
-            case 4:
+            case 3:
                 let aboutViewController = self.storyboard?.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
                 let aboutNavController = UINavigationController(rootViewController: aboutViewController)
                 let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate

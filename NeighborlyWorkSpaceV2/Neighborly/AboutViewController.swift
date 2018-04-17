@@ -21,6 +21,11 @@ class AboutViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func menuButtonClicked(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate  as! AppDelegate
+        appDelegate.centerContainer?.toggle(MMDrawerSide.left, animated: true, completion: nil)
+    }
+    
 
     /*
     // MARK: - Navigation
