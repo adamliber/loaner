@@ -301,7 +301,7 @@ public class ServerSocket {
 	@OnClose
 	public void close(Session session)
 	{
-		System.out.println("Client Disconnected");
+		//System.out.println("Client Disconnected");
 		sessionVector.remove(session);
 	}
 
