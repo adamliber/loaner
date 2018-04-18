@@ -243,13 +243,13 @@
 				BCD2DB682071FD640088B36B /* ViewController.swift */,
 				BCD2DB9420733CE00088B36B /* LeftSideMenuViewController.swift */,
 				BCD2DBA8207AE1150088B36B /* MenuTableViewCell.swift */,
-				BCD2DBAA207AEA760088B36B /* AboutViewController.swift */,
 				BC934624207BFC6E0050F81A /* SearchViewController.swift */,
 				BC934626207BFF100050F81A /* PostViewController.swift */,
 				BC93462A207C73A80050F81A /* AccountViewController.swift */,
 				BC745BEB207EEB2400C56844 /* ItemCardTableViewCell.swift */,
 				BC3328D92082B3E500756829 /* LoginViewController.swift */,
 				BC3328E8208335CD00756829 /* SignupViewController.swift */,
+				BCD2DBAA207AEA760088B36B /* AboutViewController.swift */,
 				BCD2DB722071FD640088B36B /* Info.plist */,
 			);
 			path = Neighborly;

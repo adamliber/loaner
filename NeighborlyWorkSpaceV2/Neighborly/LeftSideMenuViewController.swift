@@ -10,15 +10,37 @@ import UIKit
 
 class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
-    public func loadUser() -> User?{
-        return NSKeyedUnarchiver.unarchiveObject(withFile: User.ArchiveURL.path) as? User
+    public var user:User?
+    var menuItems:[String] =  ["Search Items", "Account", "Messages" , "About" ]
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var menuProfileImage: UIImageView!
+    @IBOutlet weak var menuTableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+       
+        menuProfileImage.layer.cornerRadius = menuProfileImage.frame.size.width/2
+        menuProfileImage.layer.masksToBounds = false
+        menuProfileImage.clipsToBounds = true
+        
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateMenu), name: NSNotification.Name(rawValue: "loadMenu"), object: nil)
+        updateMenu()
+        // Do any additional setup after loading the view.
     }
-  
+    
+    
     @IBAction func logoutClicked(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
-       
+        user? = User(userID: 0, name: "", email: "", image: nil)
+        user?.saveUser()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMenu"), object: nil)
+    
         
         appDelegate.window?.rootViewController = storyBoard.instantiateViewController(withIdentifier: "entryViewController") as! ViewController
         
@@ -26,34 +48,34 @@ class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITabl
     }
     
     
-    public var user:User?
-    var menuItems:[String] = ["Search Items", "Account", "Messages" , "About" ]
-    
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuTableViewCell
+        
         cell.menuItemLabel.text = menuItems[indexPath.row]
         return cell
     }
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        switch(indexPath.row){
-            case 0:
+        var pageSelected = menuItems[indexPath.row]
+        switch(pageSelected){
+            case "Search Items":
                 let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                 let mainNavController = UINavigationController(rootViewController: mainViewController)
                 let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.centerContainer!.centerViewController = mainNavController
                 appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
                 break;
-            case 1:
+            case "Account":
                 let accountViewController = self.storyboard?.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
                 let accountNavController = UINavigationController(rootViewController: accountViewController)
                 let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.centerContainer!.centerViewController = accountNavController
                 appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
-            case 3:
+            case "About":
                 let aboutViewController = self.storyboard?.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
                 let aboutNavController = UINavigationController(rootViewController: aboutViewController)
                 let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -66,24 +88,19 @@ class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITabl
             
         }
     }
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var menuProfileImage: UIImageView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        menuProfileImage.layer.cornerRadius = menuProfileImage.frame.size.width/2
-        menuProfileImage.layer.masksToBounds = false
-        menuProfileImage.clipsToBounds = true
-        
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateMenu), name: NSNotification.Name(rawValue: "loadMenu"), object: nil)
-        updateMenu()
-        // Do any additional setup after loading the view.
-    }
     
     @objc public func updateMenu(){
         self.user = loadUser()
+        user? = loadUser()!
+        
+        if(user?.email == "guest"){
+            menuItems =  ["Search Items" , "About" ]
+        }else{
+            menuItems =  ["Search Items", "Account", "Messages" , "About" ]
+        }
+        
+         menuTableView.reloadData()
+        
         nameLabel.text = user?.name
         print("\n menu updated and image is \(String(describing: user?.image))")
         

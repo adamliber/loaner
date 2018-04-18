@@ -143,10 +143,9 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
             print("account profile image upload error:  \(String(describing: error))")
             print("account profile image result: \(String(describing: result?.publicId))")
             
-            let randomLat = 1.0 + CGFloat(Float(arc4random_uniform(100) + 1  ) ) / 10000000.0
-            let randomLon = 1.0 + CGFloat(Float(arc4random_uniform(100) + 1  ) ) / 10000000.0
+          
             
-            let postItemMessage = PostItemMessage( ownerID: self.user!.userID , imageURL: imageURL!, itemName: self.itemNameField.text!, itemDescription: self.descriptionTextView.text!, longitude: Double(randomLon), latitude: Double(randomLat))
+            let postItemMessage = PostItemMessage( ownerID: self.user!.userID , imageURL: imageURL!, itemName: self.itemNameField.text!, itemDescription: self.descriptionTextView.text!, longitude: 1.0, latitude: 1.0)
             let encoder = JSONEncoder()
             
             do{

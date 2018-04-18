@@ -121,6 +121,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
             profileImageView.image = imagePicked
             user?.setImage(image: imagePicked)
             user?.saveUser()
+            
             updateAccount()
             
             imageData = UIImageJPEGRepresentation(imagePicked, 0.000005)!
@@ -133,8 +134,17 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         cloudinary.createUploader().upload(data: imageData, uploadPreset: "szxnywdo"){
             result, error in
             print("account profile image upload error:  \(String(describing: error))")
-            print("account profile image result: \(String(describing: result?.publicId))")
+            let imageURL = result?.url
             
+        
+            
+            let userUpdatePhoto = UpdateUserPhotoMessage(userID: self.user!.userID, imageURL: imageURL!)
+            let encoder = JSONEncoder()
+            
+            do{
+                let data = try encoder.encode(userUpdatePhoto)
+                socket.write(string: String(data: data, encoding: .utf8)!)
+            }catch{ }
         }
      
         
@@ -186,11 +196,9 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         switch(segmentControl.selectedSegmentIndex){
         case 0:
             item = model.borrowedItems[indexPath.row]
-            cell.itemPhoto.image = UIImage(named:"DefaultItemCamera")
             break
         case 1:
             item = model.myItems[indexPath.row]
-            cell.itemPhoto.image = UIImage(named:"DefaultItemDrill")
             break
         default:
             break
@@ -204,14 +212,16 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.itemPhoto.image =  UIImage(data: data!)
         }
         
+        cell.itemStatusLabel.textColor = UIColor.white
+        cell.itemStatusLabel.layer.cornerRadius = 6
+        cell.itemStatusLabel.layer.masksToBounds = true
+        
         if(item?.available == 1){
             cell.itemStatusLabel.text = "Available"
             cell.itemStatusLabel.backgroundColor = UIColor.green
-            cell.itemStatusLabel.textColor = UIColor.white
         }else{
             cell.itemStatusLabel.text = "Unavailable"
             cell.itemStatusLabel.backgroundColor = UIColor.red
-            cell.itemStatusLabel.textColor = UIColor.white
         }
         
         return cell

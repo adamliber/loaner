@@ -12,7 +12,9 @@ import SendBirdSDK
 
 class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegate {
     
+    @IBOutlet weak var guestLoginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    
     func websocketDidConnect(socket: WebSocketClient) {
         print("Login Socket connected")
     }
@@ -40,10 +42,16 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
             
             let mainNavController = UINavigationController(rootViewController: mainViewController)
             appDelegate.centerContainer!.centerViewController = mainNavController
+            var profileImage = UIImage(named: "DefaultUserIcon")
+            if(userInfo.imageURL != ""){
+                let url = URL(string: (userInfo.imageURL)!)
+                let data = try? Data(contentsOf: url!)
+                profileImage =  UIImage(data: data!)
+            }
+            let user = User(userID: userInfo.userID!, name: userInfo.name!, email: userInfo.email!, image: profileImage)
             
-            let user = User(userID: userInfo.userID!, name: userInfo.name!, email: userInfo.email!, image:nil)
             user.saveUser()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadAccount"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMenu"), object: nil)
         
             
             
@@ -71,7 +79,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
          super.viewDidLoad()
        
         socket.delegate = self
-       
+        guestLoginButton.layer.borderColor = UIColor.white.cgColor
         loginButton.isEnabled = false
         self.emailField.delegate = self
         self.passwordTextfield.delegate = self
@@ -98,10 +106,18 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
             let data = try encoder.encode(loginMessage)
             socket.write(string: String(data: data, encoding: .utf8)!)
           
-        }catch{
-            
-        }
+        }catch{}
         
+        
+    }
+    @IBAction func guestLoginClicked(_ sender: Any) {
+        let loginMessage = LoginMessage( message: "", email: "guest", password: "guest")
+        let encoder = JSONEncoder()
+        
+        do{
+            let data = try encoder.encode(loginMessage)
+            socket.write(string: String(data: data, encoding: .utf8)!)
+        }catch{}
         
     }
     

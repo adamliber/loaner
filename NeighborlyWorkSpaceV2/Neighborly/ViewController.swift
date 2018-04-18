@@ -14,11 +14,16 @@ import Cloudinary
 class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource, WebSocketDelegate {
     
     private var model = ItemsModel.shared
-    
+    public var user:User?
     @IBOutlet weak var searchResultTableView: UITableView!
+    @IBOutlet weak var addPostButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        user = loadUser()
+        if(user?.email == "guest" && addPostButton != nil){
+            addPostButton.isEnabled = false
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(updateResults), name: NSNotification.Name(rawValue: "loadSearchResults"), object: nil)
         
         
@@ -49,12 +54,15 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
         
         let jsonText = text.data(using: .utf8)!
         let decoder = JSONDecoder()
-        
+        let message = try! decoder.decode(Message.self, from: jsonText)
+        if(message.message == "invalid"){
+            return
+        }
         let itemList = try! decoder.decode(ItemList.self, from: jsonText)
         print("view controller received:  \(itemList.message)" )
         
         if(itemList.message == "valid"){
-            print("should dismiss")
+            
             model.setSearchResultItems(items: itemList.itemList)
             for item in itemList.itemList{
                 print("\n\n\nitem url:   \(item.imageURL) ")
@@ -94,8 +102,11 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
             let userCoordinate = CLLocation(latitude: 1.0, longitude: 1.0)
             let itemCoordinate = CLLocation(latitude: item.latitude, longitude: item.longitude)
         
+        
             let distanceInMeters = userCoordinate.distance(from: itemCoordinate)
-            let distanceInMiles = distanceInMeters/1609
+            var distanceInMiles:NSInteger = NSInteger(distanceInMeters/1609)
+        
+            distanceInMiles = item.ownerID
         
             cell.itemStatusLabel.text = String(distanceInMiles) + " miles"
         
@@ -107,6 +118,15 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
             }
         
         
+            if(item.ownerID == user?.userID){
+                let label = cell.itemStatusLabel
+                label?.text = "My Item"
+                label?.backgroundColor = UIColor.blue
+                label?.textColor = UIColor.white
+                label?.layer.cornerRadius = 6
+                label?.layer.masksToBounds = true
+                
+            }
         
         
         

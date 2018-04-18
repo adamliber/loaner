@@ -12,6 +12,13 @@ import SendBirdSDK
 
 class SignupViewController: UIViewController,UITextFieldDelegate,WebSocketDelegate {
     
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var password1Field: UITextField!
+    @IBOutlet weak var password2Field: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
+    
     func websocketDidConnect(socket: WebSocketClient) {
         print("Signup Socket connected")
     }
@@ -33,7 +40,11 @@ class SignupViewController: UIViewController,UITextFieldDelegate,WebSocketDelega
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = appDelegate.centerContainer
             let user = User(userID: userInfo.userID!, name: userInfo.name!, email: userInfo.email!,image:nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadAccount"), object: nil)
             user.saveUser()
+        }else if (userInfo.message == "invalid"){
+            errorLabel.text = "Email is Taken"
+            emailField.text = ""
         }
     }
     
@@ -42,11 +53,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate,WebSocketDelega
     }
     
     
-    @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var password1Field: UITextField!
-    @IBOutlet weak var password2Field: UITextField!
-    @IBOutlet weak var submitButton: UIButton!
+   
     
     
     override func viewDidLoad() {
@@ -95,11 +102,21 @@ class SignupViewController: UIViewController,UITextFieldDelegate,WebSocketDelega
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        errorLabel.text = ""
+    }
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if(nameField.text != "" && emailField.text != "" && password1Field.text! != "" && password2Field.text! != ""){
-            submitButton.isEnabled = true
+            if(password1Field.text == password2Field.text){
+                submitButton.isEnabled = true
+            }else{
+                errorLabel.text = "Passwords Did Not Match"
+                password1Field.text = ""
+                password2Field.text = ""
+            }
+            
         }else{
             submitButton.isEnabled = false
         }
