@@ -70,8 +70,11 @@ public class Database {
 		    +"GROUP BY itemID HAVING Distance < ?"
 		    + "ORDER BY Distance";
 	static String getOwnerIDbyItemID = "SELECT ownerID FROM Items WHERE itemID =?";
+	static String updateUserImageURL = "UPDATE Users " + 
+										"SET imageURL = ? WHERE userID = ?;";
+	static String getUserImageURL = "SELECT imageURL FROM Users Where userID=?";
 	
-	Database() {
+ 	Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager
@@ -108,7 +111,6 @@ public class Database {
 			return -1;
 		}
 	}
-	
 	
 //	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)" + " VALUES(? , ?, ?, ?);";
 	public int signUp(String email, String name, String password) {
@@ -519,6 +521,47 @@ public class Database {
 			System.out.println(e.getMessage());
 		}
 
+		return toReturn;
+	}
+
+	public int updateUserPhoto(int userID, String imageURL)
+	{
+		try 
+		{
+			ps = conn.prepareStatement(updateUserImageURL);
+			ps.setString(1,imageURL);
+			ps.setInt(2, userID);
+			ps.executeUpdate();
+			return 1;
+		}
+		catch (SQLException e) 
+		{
+			System.out.println("SQL exception in Database updateUserPhoto");
+			System.out.println(e.getMessage());
+		}
+		
+		return -1;
+	}
+	
+	public String getUserImageURLfromUserID(int userID)
+	{
+		ResultSet rs;
+		String toReturn = "";
+		try 
+		{
+			ps = conn.prepareStatement(getUserImageURL);
+			ps.setInt(1,userID);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				toReturn = rs.getString("imageURL");
+			}
+		}
+		catch (SQLException e) 
+		{
+			System.out.println("SQL exception in Database getUserImageURLfromUserID");
+			System.out.println(e.getMessage());
+		}
+		
 		return toReturn;
 	}
 }

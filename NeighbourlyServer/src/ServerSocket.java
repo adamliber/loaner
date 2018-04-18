@@ -230,6 +230,31 @@ public class ServerSocket {
 			}
 			
 		}
+		else if(messageID.trim().equals("updateUserPhoto"))
+		{
+			System.out.println("In update user photo");
+			String toWrite = "";
+			m = gson.fromJson(message, UserUpdatePhotoMessage.class);
+			int userID = ((UserUpdatePhotoMessage) m).getUserID();
+			String imageURL = ((UserUpdatePhotoMessage) m).getImageURL();
+			
+			int x = database.updateUserPhoto(userID, imageURL);
+			
+			if(x == -1)
+			{
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+			else
+			{
+				toWrite = gson.toJson(new UserInfoMessage(userID,database));
+			}
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+		}
 		else if(messageID.trim().equals("acceptRequest"))
 		{
 			System.out.println("In acceptRequest");
