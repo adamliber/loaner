@@ -9,47 +9,21 @@
 import UIKit
 import Starscream
 import CoreLocation
+import Cloudinary
 
 class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource, WebSocketDelegate {
     
-    private var model = ItemsModel()
+    private var model = ItemsModel.shared
     
     @IBOutlet weak var searchResultTableView: UITableView!
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("table view rows")
-        return model.searchResultItems.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let item = model.searchResultItems[indexPath.row]
-        let cell =  tableView.dequeueReusableCell( withIdentifier: "itemCard", for: indexPath) as! ItemCardTableViewCell
-       
-            cell.itemName.text = item.itemName
-            cell.itemDetails.text = item.itemDescription
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateResults), name: NSNotification.Name(rawValue: "loadSearchResults"), object: nil)
         
         
-        
-        let userCoordinate = CLLocation(latitude: 1.0, longitude: 1.0)
-        let itemCoordinate = CLLocation(latitude: item.latitude, longitude: item.longitude)
-        
-        let distanceInMeters = userCoordinate.distance(from: itemCoordinate)
-        let distanceInMiles = distanceInMeters/1609
-        
-            cell.itemStatusLabel.text = String(distanceInMiles) + " miles"
-        
-            
-        
-            cell.itemPhoto.image = UIImage(named:"DefaultItemCamera")
-            print("table view cell")
-            return cell
-    }
-   
-    
-    @objc func updateResults(){
-        
+        socket.delegate = self
+        self.searchResultTableView?.rowHeight = 134
         let searchItemMessage = SearchItemMessage(searchTerm: "", longitude: 1.0, latitude: 1.0, distance: 5 )
         let encoder = JSONEncoder()
         
@@ -57,28 +31,12 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
             let data = try encoder.encode(searchItemMessage)
             socket.write(string: String(data: data, encoding: .utf8)!)
         }catch{}
-        
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-         NotificationCenter.default.addObserver(self, selector: #selector(updateResults), name: NSNotification.Name(rawValue: "loadSearchResults"), object: nil)
-        
-    
-        socket.delegate = self
-        searchResultTableView?.rowHeight = 134
         updateResults()
     }
     
-    deinit {
-        print("viewcontroller deinit called")
-        socket.delegate = nil
-    }
-   
     func websocketDidConnect(socket: WebSocketClient) {
         print("viewController socket is connected")
-       
+        
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
@@ -98,17 +56,74 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
         if(itemList.message == "valid"){
             print("should dismiss")
             model.setSearchResultItems(items: itemList.itemList)
+            
             if(searchResultTableView != nil){
                 searchResultTableView.reloadData()
             }
             
             
         }
-    
+        
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("viewController got some data: \(data.count)")
+    }
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("table view rows")
+        return model.searchResultItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+            let item = model.searchResultItems[indexPath.row]
+            let cell =  tableView.dequeueReusableCell( withIdentifier: "itemCard", for: indexPath) as! ItemCardTableViewCell
+       
+            cell.itemName.text = item.itemName
+            cell.itemDetails.text = item.itemDescription
+        
+        
+        
+            let userCoordinate = CLLocation(latitude: 1.0, longitude: 1.0)
+            let itemCoordinate = CLLocation(latitude: item.latitude, longitude: item.longitude)
+        
+            let distanceInMeters = userCoordinate.distance(from: itemCoordinate)
+            let distanceInMiles = distanceInMeters/1609
+        
+            cell.itemStatusLabel.text = String(distanceInMiles) + " miles"
+        
+            let downloader:CLDDownloader = cloudinary.createDownloader()
+        
+        
+            downloader.fetchImage(item.imageURL) { (image, error) in
+                // image is an instance UIImage
+                // error is an instance of NSError
+                cell.itemPhoto.image = image
+            }
+            cell.itemPhoto.image = UIImage(named:"DefaultItemCamera")
+
+        
+        
+            return cell
+    }
+   
+    
+    @objc func updateResults(){
+        print("\n\nupdate results")
+        
+        if(searchResultTableView != nil){
+            searchResultTableView.reloadData()
+        }
+    }
+    
+    
+    deinit {
+        print("viewcontroller deinit called")
+        socket.delegate = nil
     }
    
     

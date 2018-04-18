@@ -12,14 +12,30 @@ import Cloudinary
 
 class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate,WebSocketDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
-    private var model = ItemsModel()
+    private var model = ItemsModel.shared
+    @IBOutlet weak var myImageView: UIImageView!
+    public var user:User?
+    @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var itemNameField: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var postButton: UIButton!
+    var encodedImg:String = ""
+    var imageData:Data?
     
-    public func loadUser() -> User?{
-        return NSKeyedUnarchiver.unarchiveObject(withFile: User.ArchiveURL.path) as? User
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        socket.delegate = self
+        popupView.layer.cornerRadius = 10
+        popupView.layer.masksToBounds = true
+        self.user = loadUser()!
+        itemNameField.delegate = self
+        descriptionTextView.delegate = self
+        postButton.isEnabled = false
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard) )
+        self.view.addGestureRecognizer(singleTap)
+        // Do any additional setup after loading the view.
     }
     
-    
-    public var user:User?
     func websocketDidConnect(socket: WebSocketClient) {
         print("post socket connected")
     }
@@ -32,29 +48,23 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
         print("post received text: \(text)")
         let jsonText = text.data(using: .utf8)!
         let decoder = JSONDecoder()
-        let message = try! decoder.decode(Message.self, from: jsonText)
-        print("message received:  \(message.message)" )
+        let itemList = try! decoder.decode(ItemList.self, from: jsonText)
         
-        if(message.message == "valid"){
+        print("message received:  \(itemList.message)" )
+        if(itemList.message == "valid"){
            
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadSearchResults"), object: nil)
+            model.searchResultItems.append(itemList.itemList.first!)
             dismiss(animated: true, completion: nil)
             
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadSearchResults"), object: nil)
             
     
         }
         
     }
-    
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("post received data \(data)" )
     }
-    
-    
-    
-    
-    
-    @IBOutlet weak var myImageView: UIImageView!
     
     
     @IBAction func importImage(_ sender: Any) {
@@ -71,9 +81,6 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     }
     
     
-        
-    var encodedImg:String = ""
-    var imageData:Data?
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -90,27 +97,6 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
         }
     }
     
-    @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var itemNameField: UITextField!
-    
-    
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var postButton: UIButton!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        socket.delegate = self
-        popupView.layer.cornerRadius = 10
-        popupView.layer.masksToBounds = true
-        self.user = loadUser()!
-        itemNameField.delegate = self
-        descriptionTextView.delegate = self
-        postButton.isEnabled = false
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard) )
-        self.view.addGestureRecognizer(singleTap)
-        // Do any additional setup after loading the view.
-    }
     
     @objc func dismissKeyboard(){
         self.view.endEditing(true)
@@ -140,6 +126,7 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
         self.view.endEditing(true)
         return true
     }
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n"){
             self.view.endEditing(true)
@@ -156,7 +143,10 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
             print("account profile image upload error:  \(String(describing: error))")
             print("account profile image result: \(String(describing: result?.publicId))")
             
-            let postItemMessage = PostItemMessage( ownerID: self.user!.userID , image: imageURL!, itemName: self.itemNameField.text!, itemDescription: self.descriptionTextView.text!, longitude: 1.0, latitude: 1.0)
+            let randomLat = 1.0 + CGFloat(Float(arc4random_uniform(100) + 1  ) ) / 10000000.0
+            let randomLon = 1.0 + CGFloat(Float(arc4random_uniform(100) + 1  ) ) / 10000000.0
+            
+            let postItemMessage = PostItemMessage( ownerID: self.user!.userID , imageURL: imageURL!, itemName: self.itemNameField.text!, itemDescription: self.descriptionTextView.text!, longitude: Double(randomLon), latitude: Double(randomLat))
             let encoder = JSONEncoder()
             
             do{
@@ -164,9 +154,6 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
                 socket.write(string: String(data: data, encoding: .utf8)!)
             }catch{ }
         }
-        
-        
-        
         
         
     }

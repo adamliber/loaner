@@ -290,8 +290,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="cEJ-3a-pdU" id="1TU-KD-vCH"/>
-                                    <outlet property="delegate" destination="cEJ-3a-pdU" id="Jtr-m5-AnC"/>
+                                    <outlet property="dataSource" destination="cEJ-3a-pdU" id="VGC-qG-Yjc"/>
+                                    <outlet property="delegate" destination="cEJ-3a-pdU" id="1ks-GY-u5K"/>
                                 </connections>
                             </tableView>
                         </subviews>

@@ -15,96 +15,16 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
    
         
     @IBOutlet weak var nameField: UILabel!
-    
-    @IBAction func updatePhotoButtonClicked(_ sender: Any) {
-        let imagePicked = UIImagePickerController()
-        imagePicked.delegate = self
-        
-        imagePicked.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
-        imagePicked.allowsEditing = false
-        imagePicked.modalPresentationStyle = .overCurrentContext
-        self.present(imagePicked, animated: true){
-            
-        }
-    }
-    
-   
     @IBOutlet weak var profileImageView: UIImageView!
     
     var encodedImg:String = ""
     var imageData = Data()
-    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profileImageView.image = imagePicked
-            user?.setImage(image: imagePicked)
-            user?.saveUser()
-            updateAccount()
-            
-            imageData = UIImageJPEGRepresentation(imagePicked, 0.000005)!
-            
-        }
-
-        
-        self.dismiss(animated: true, completion: nil)
-        
-        cloudinary.createUploader().upload(data: imageData, uploadPreset: "szxnywdo"){
-            result, error in
-            print("account profile image upload error:  \(String(describing: error))")
-            print("account profile image result: \(String(describing: result?.publicId))")
-            
-        }
-     
-        
-    }
-   
-    
-    func websocketDidConnect(socket: WebSocketClient) {
-        print("accountinfo socket connected")
-    }
-    
-    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("accountinfo socket disconnected")
-    }
-    
-    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("account info received text: \(text)")
-        let jsonText = text.data(using: .utf8)!
-        let decoder = JSONDecoder()
-        let userInfo = try! decoder.decode(UserInfoMessage.self, from: jsonText)
-        print("userID received:  \(String(describing: userInfo.userID))" )
-        print("message received:  \(userInfo.message)" )
-        print("\nmy Items received: \(String(describing: userInfo.myItems?.first?.itemName))" )
-        
-        if(userInfo.message == "valid"){
-            model.setMyItems(items: userInfo.myItems!)
-            model.setBorrowedItems(items: userInfo.borrowedItems!)
-            
-            
-        }
-            
-    }
-    
-    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        print("account info received data: \(data)")
-
-    }
-    
-    
     public var user:User?
-    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    private var model = ItemsModel.shared
     
-    private var model = ItemsModel()
-    
-    
-    @IBAction func menuButtonTapped(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate  as! AppDelegate
-        appDelegate.centerContainer?.toggle(MMDrawerSide.left, animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,6 +53,51 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
+    
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("accountinfo socket connected")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("accountinfo socket disconnected")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("account info received text: \(text)")
+        let jsonText = text.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        let userInfo = try! decoder.decode(UserInfoMessage.self, from: jsonText)
+        print("userID received:  \(String(describing: userInfo.userID))" )
+        print("message received:  \(userInfo.message)" )
+        print("\nmy Items received: \(String(describing: userInfo.myItems?.first?.itemName))" )
+        
+        if(userInfo.message == "valid"){
+            model.setMyItems(items: userInfo.myItems!)
+            model.setBorrowedItems(items: userInfo.borrowedItems!)
+            
+            
+        }
+        
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("account info received data: \(data)")
+        
+    }
+    
+    @IBAction func updatePhotoButtonClicked(_ sender: Any) {
+        let imagePicked = UIImagePickerController()
+        imagePicked.delegate = self
+        
+        imagePicked.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        imagePicked.allowsEditing = false
+        imagePicked.modalPresentationStyle = .overCurrentContext
+        self.present(imagePicked, animated: true){
+            
+        }
+    }
+    
     @objc func updateAccount(){
         self.user = loadUser()
         self.nameField.text = user?.name
@@ -143,6 +108,44 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.reloadData()
         
     }
+    
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            profileImageView.image = imagePicked
+            user?.setImage(image: imagePicked)
+            user?.saveUser()
+            updateAccount()
+            
+            imageData = UIImageJPEGRepresentation(imagePicked, 0.000005)!
+            
+        }
+
+        
+        self.dismiss(animated: true, completion: nil)
+        
+        cloudinary.createUploader().upload(data: imageData, uploadPreset: "szxnywdo"){
+            result, error in
+            print("account profile image upload error:  \(String(describing: error))")
+            print("account profile image result: \(String(describing: result?.publicId))")
+            
+        }
+     
+        
+    }
+   
+    
+    
+    
+   
+    
+    
+    @IBAction func menuButtonTapped(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate  as! AppDelegate
+        appDelegate.centerContainer?.toggle(MMDrawerSide.left, animated: true, completion: nil)
+    }
+    
+    
     
     @IBAction func segmentControlClicked(_ sender: Any) {
         tableView.reloadData();

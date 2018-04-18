@@ -12,7 +12,26 @@ import Starscream
 
 class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDelegate {
     
-    private var model = ItemsModel()
+    private var model = ItemsModel.shared
+    
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchModalView: UIView!
+    @IBOutlet weak var distanceSlider: UISlider!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var itemSearchField: UITextField!
+    @IBOutlet weak var searchLocationField: UITextField!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        socket.delegate = self
+        searchModalView.layer.cornerRadius = 10
+        searchModalView.layer.masksToBounds = true
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    
     
     func websocketDidConnect(socket: WebSocketClient) {
         print("Search Socket connected")
@@ -40,43 +59,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
         }
     }
     
-    @IBOutlet weak var searchButton: UIButton!
+   
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("search Socket received data: \(data)")
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        searchButton.isEnabled = false
-    }
     
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        if( itemSearchField.text != "" && searchLocationField.text != "" ){
-            searchButton.isEnabled = true
-        }
-    }
-    
-    @IBOutlet weak var searchModalView: UIView!
-    
-    @IBOutlet weak var distanceSlider: UISlider!
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var itemSearchField: UITextField!
-    @IBOutlet weak var searchLocationField: UITextField!
-    
-    
-    @IBAction func sliderValueChanged(_ sender: Any) {
-        distanceLabel.text = "Max Distance: \(NSInteger(distanceSlider.value))"
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        socket.delegate = self
-        searchModalView.layer.cornerRadius = 10
-        searchModalView.layer.masksToBounds = true
-        
-        
-        // Do any additional setup after loading the view.
-    }
+  
     
     
     @IBAction func cancelSearch(_ sender: Any) {
@@ -96,12 +86,30 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
         }
     }
     
+  
+    
+
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        searchButton.isEnabled = false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        if( itemSearchField.text != "" && searchLocationField.text != "" ){
+            searchButton.isEnabled = true
+        }
+    }
+
+    
+    @IBAction func sliderValueChanged(_ sender: Any) {
+        distanceLabel.text = "Max Distance: \(NSInteger(distanceSlider.value))"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
