@@ -8,7 +8,7 @@ CREATE TABLE Users (
     email VARCHAR(100) UNIQUE NOT NULL,
     name VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
-    imageURL VARCHAR(300),
+    imageURL VARCHAR(300) default "",
     borrow BOOL NOT NULL
 );
 
