@@ -61,6 +61,7 @@ public class ServerSocket {
 		}
 		else if(messageID.trim().equals("login"))
 		{
+			System.out.println("daniyal is the man login!!!!!!");
 			m = gson.fromJson(message,LoginMessage.class);
 			String email = ((LoginMessage) m).getEmail();
 			String password = ((LoginMessage) m).getPassword();
@@ -79,6 +80,7 @@ public class ServerSocket {
 			}
 			
 			try {
+				System.out.println(toWrite);
 				session.getBasicRemote().sendText(toWrite);
 			} catch (IOException e) {
 				System.out.println("IOException in signup");

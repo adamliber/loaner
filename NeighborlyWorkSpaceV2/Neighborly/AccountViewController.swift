@@ -74,7 +74,13 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         if(userInfo.message == "valid"){
             model.setMyItems(items: userInfo.myItems!)
             model.setBorrowedItems(items: userInfo.borrowedItems!)
-            
+            if(userInfo.imageURL != ""){
+                let url = URL(string: (userInfo.imageURL)!)
+                let data = try? Data(contentsOf: url!)
+                user?.image =  UIImage(data: data!)
+            }
+            user?.saveUser()
+            updateAccount()
             
         }
         
@@ -192,6 +198,11 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         
         cell.itemName.text = item?.itemName
         cell.itemDetails.text = item?.itemDescription
+        if(item?.imageURL != ""){
+            let url = URL(string: (item?.imageURL)!)
+            let data = try? Data(contentsOf: url!)
+            cell.itemPhoto.image =  UIImage(data: data!)
+        }
         
         if(item?.available == 1){
             cell.itemStatusLabel.text = "Available"

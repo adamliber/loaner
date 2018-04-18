@@ -12,10 +12,11 @@ class UpdateUserPhotoMessage:Codable{
     
     var messageID:String
     var userID:NSInteger
-    var image:String
-    init(userID:NSInteger,image:String){
+    var imageURL:String
+    
+    init(userID:NSInteger,imageURL:String){
         self.messageID = "updateUserPhoto"
-        self.image = image
+        self.imageURL = imageURL
         self.userID = userID
     }
 }

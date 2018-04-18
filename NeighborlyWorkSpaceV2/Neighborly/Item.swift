@@ -14,6 +14,7 @@ class Item: NSObject,Codable {
     public var itemID: NSInteger
     public var available: NSInteger
     public var imageURL:String
+  
     public var itemDescription:String?
     public var latitude:Double
     public var longitude:Double
@@ -36,7 +37,8 @@ class Item: NSObject,Codable {
         self.request = request
         self.requestorID = requestorID
         self.returnRequest = returnRequest
-        
+     
         
     }
+    
 }

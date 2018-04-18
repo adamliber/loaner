@@ -15,6 +15,9 @@ class ItemsModel{
     public var myItems: [Item]
     public var searchResultItems: [Item]
     
+
+    
+    
     public func setBorrowedItems(items: [Item]){
         self.borrowedItems = items
     }

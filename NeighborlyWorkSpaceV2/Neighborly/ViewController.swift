@@ -56,7 +56,10 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
         if(itemList.message == "valid"){
             print("should dismiss")
             model.setSearchResultItems(items: itemList.itemList)
-            
+            for item in itemList.itemList{
+                print("\n\n\nitem url:   \(item.imageURL) ")
+                
+            }
             if(searchResultTableView != nil){
                 searchResultTableView.reloadData()
             }
@@ -96,16 +99,15 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
         
             cell.itemStatusLabel.text = String(distanceInMiles) + " miles"
         
-            let downloader:CLDDownloader = cloudinary.createDownloader()
-        
-        
-            downloader.fetchImage(item.imageURL) { (image, error) in
-                // image is an instance UIImage
-                // error is an instance of NSError
-                cell.itemPhoto.image = image
+            
+            if(item.imageURL != ""){
+                let url = URL(string: item.imageURL)
+                let data = try? Data(contentsOf: url!)
+                cell.itemPhoto.image =  UIImage(data: data!)
             }
-            cell.itemPhoto.image = UIImage(named:"DefaultItemCamera")
-
+        
+        
+        
         
         
             return cell

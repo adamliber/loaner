@@ -172,18 +172,34 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BC14667A20873FA600F982C4 /* frontToBack */ = {
+			isa = PBXGroup;
+			children = (
+				BC8C8DCF2084C4B2003CBAB5 /* UpdateUserPhotoMessage.swift */,
+				BC8C8DCD20845CA4003CBAB5 /* AccountInfoMessage.swift */,
+				BC3328E02082D79000756829 /* LoginMessage.swift */,
+				BCE55A392083DE00007DB8C6 /* postItemMessage.swift */,
+				BC3328DE2082D6C400756829 /* SignupMessage.swift */,
+			);
+			path = frontToBack;
+			sourceTree = "<group>";
+		};
+		BC14667B20873FC100F982C4 /* backToFront */ = {
+			isa = PBXGroup;
+			children = (
+				BC3328E22082FCE000756829 /* UserInfoMessage.swift */,
+				BC8C8DCB2083FE59003CBAB5 /* ItemList.swift */,
+				BC8C8DC92083FC72003CBAB5 /* SearchItemMessage.swift */,
+			);
+			path = backToFront;
+			sourceTree = "<group>";
+		};
 		BC3328DB2082D55400756829 /* MessageClasses */ = {
 			isa = PBXGroup;
 			children = (
 				BC3328DC2082D5A800756829 /* Message.swift */,
-				BC3328DE2082D6C400756829 /* SignupMessage.swift */,
-				BC3328E02082D79000756829 /* LoginMessage.swift */,
-				BC3328E22082FCE000756829 /* UserInfoMessage.swift */,
-				BCE55A392083DE00007DB8C6 /* postItemMessage.swift */,
-				BC8C8DC92083FC72003CBAB5 /* SearchItemMessage.swift */,
-				BC8C8DCB2083FE59003CBAB5 /* ItemList.swift */,
-				BC8C8DCD20845CA4003CBAB5 /* AccountInfoMessage.swift */,
-				BC8C8DCF2084C4B2003CBAB5 /* UpdateUserPhotoMessage.swift */,
+				BC14667B20873FC100F982C4 /* backToFront */,
+				BC14667A20873FA600F982C4 /* frontToBack */,
 			);
 			path = MessageClasses;
 			sourceTree = "<group>";
@@ -219,10 +235,12 @@
 				BC745BED207F056700C56844 /* Item.swift */,
 				BC3328E42083046700756829 /* User.swift */,
 				BC745BEF207F0D4000C56844 /* ItemsModel.swift */,
-				BCD2DB682071FD640088B36B /* ViewController.swift */,
+				BCE55A3720834C1B007DB8C6 /* persistance.swift */,
+				BC745BF12081963600C56844 /* Socket.swift */,
 				BCD2DB6A2071FD640088B36B /* Main.storyboard */,
 				BCD2DB6D2071FD640088B36B /* Assets.xcassets */,
 				BCD2DB6F2071FD640088B36B /* LaunchScreen.storyboard */,
+				BCD2DB682071FD640088B36B /* ViewController.swift */,
 				BCD2DB9420733CE00088B36B /* LeftSideMenuViewController.swift */,
 				BCD2DBA8207AE1150088B36B /* MenuTableViewCell.swift */,
 				BCD2DBAA207AEA760088B36B /* AboutViewController.swift */,
@@ -230,10 +248,8 @@
 				BC934626207BFF100050F81A /* PostViewController.swift */,
 				BC93462A207C73A80050F81A /* AccountViewController.swift */,
 				BC745BEB207EEB2400C56844 /* ItemCardTableViewCell.swift */,
-				BC745BF12081963600C56844 /* Socket.swift */,
 				BC3328D92082B3E500756829 /* LoginViewController.swift */,
 				BC3328E8208335CD00756829 /* SignupViewController.swift */,
-				BCE55A3720834C1B007DB8C6 /* persistance.swift */,
 				BCD2DB722071FD640088B36B /* Info.plist */,
 			);
 			path = Neighborly;
