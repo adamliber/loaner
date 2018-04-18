@@ -227,7 +227,7 @@ public class Database {
 		
 	}
 
-	public void declineItem(int itemID, int borrowerID) {
+	public int declineRequest(int itemID, int borrowerID) {
 		// ResultSet rs;
 		try {
 
@@ -238,7 +238,7 @@ public class Database {
 			ps.setInt(4, -1); // requestorID
 			ps.setInt(5, itemID);
 			ps.executeUpdate();
-
+			return 1;
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database declineItem");
 			System.out.println(e.getMessage());
@@ -246,9 +246,10 @@ public class Database {
 
 		// send a message to frontend for an in-app notification that requestor has
 		// declined
+		return -1;
 	}
 
-	public void returnRequest(int itemID) {
+	public int returnRequest(int itemID) {
 		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
 		int ownerID = getItembyID(itemID).getOwnerID();
 
@@ -259,17 +260,18 @@ public class Database {
 			ps.setInt(2, itemID);
 
 			ps.executeUpdate();
-
+			return 1;
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database acceptItem");
 			System.out.println(e.getMessage());
 		}
-
+		
+		return -1;
 		// send message to borrowerID that requestItem has happened
 		// send message to ownerID that item wants to be returned
 	}
 
-	public void returnRequestAccept(int itemID) {
+	public int returnRequestAccept(int itemID) {
 
 		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
 		int ownerID = getItembyID(itemID).getOwnerID();
@@ -283,16 +285,16 @@ public class Database {
 			ps.setInt(4, itemID);
 			System.out.println(ps.toString());
 			ps.executeUpdate();
-
+			return 1;
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database return request accept Item");
 			System.out.println(e.getMessage());
 		}
-
+		return -1;
 		// send message to ownerID and borrowerID that item has been returned
 	}
 
-	public void returnRequestDecline(int itemID) {
+	public int returnRequestDecline(int itemID) {
 
 		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
 
@@ -301,14 +303,13 @@ public class Database {
 			ps = conn.prepareStatement(returnRequestSQL);
 			ps.setInt(1, 0);
 			ps.setInt(2, itemID);
-
 			ps.executeUpdate();
-
+			return 1;
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database acceptItem");
 			System.out.println(e.getMessage());
 		}
-
+		return -1;
 		// send message to borrowerID that your request to be returned has been denied
 	}
 
@@ -404,50 +405,6 @@ public class Database {
 		return toReturn;
 	}
 
-	public void putUserImage() {
-		// String fileName = userID + "_profile_pic.jpeg";
-		File file = new File("images/flowers.jpeg");
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(updateSQL);
-			FileInputStream input = new FileInputStream(file);
-			pstmt.setBinaryStream(1, input);
-			pstmt.setInt(2, 1);
-			pstmt.executeUpdate();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found exception in getItemImage");
-		} catch (SQLException e) {
-			System.out.println("SQL exception in getItemImage");
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public void getUserImage() {
-		String selectSQL = "SELECT image FROM Users WHERE userID=?";
-
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(selectSQL);
-			pstmt.setInt(1, 1);
-			ResultSet rs = pstmt.executeQuery();
-			File file = new File("output.jpeg");
-			FileOutputStream output = new FileOutputStream(file);
-
-			System.out.println("Writing to file " + file.getAbsolutePath());
-			while (rs.next()) {
-				InputStream input = rs.getBinaryStream("image");
-				byte[] buffer = new byte[1024];
-				while (input.read(buffer) > 0) {
-					output.write(buffer);
-				}
-			}
-		} catch (SQLException e) {
-			System.out.println("SQL exception in Database searchItems");
-			System.out.println(e.getMessage());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	public int getOwnerIDfromItemID(int itemID )
 	{
 		ResultSet rs;

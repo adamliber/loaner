@@ -19,5 +19,7 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/AGL/Desktop/neighborly_V2/NeighbourlyServer/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/AGL/Desktop/neighborly_V2/NeighbourlyServer/mysql-connector-java-5.1.46.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

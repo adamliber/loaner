@@ -1,4 +1,3 @@
-import java.io.IOException;
 import javax.websocket.Session;
 
 public class Message {

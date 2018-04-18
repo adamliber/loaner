@@ -4,6 +4,15 @@ public class PostItemMessage extends Message {
 	int ownerID;
 	String itemName;
 	String itemDescription;
+	String imageURL;
+	public String getImageURL() {
+		return imageURL;
+	}
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+
 	double latitude;
 	double longitude;
 	
