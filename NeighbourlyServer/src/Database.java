@@ -234,8 +234,8 @@ public class Database {
 			ps = conn.prepareStatement(updateItemSQL_Decline);
 			ps.setInt(1, 1);
 			ps.setInt(2, 0);
-			ps.setNull(3, java.sql.Types.INTEGER); // borrowerID
-			ps.setNull(4, java.sql.Types.INTEGER); // requestorID
+			ps.setInt(3, -1); // borrowerID
+			ps.setInt(4, -1); // requestorID
 			ps.setInt(5, itemID);
 			ps.executeUpdate();
 
@@ -278,7 +278,7 @@ public class Database {
 
 			ps = conn.prepareStatement(returnAcceptSQL);
 			ps.setInt(1, 0);
-			ps.setNull(2, java.sql.Types.INTEGER); // borrowerID
+			ps.setInt(2, -1); // borrowerID
 			ps.setInt(3, 1);
 			ps.setInt(4, itemID);
 			System.out.println(ps.toString());
@@ -332,7 +332,7 @@ public class Database {
 			int returnRequest = rs.getInt("returnRequest");
 			System.out.println("description: "+ itemDescription);
 			System.out.println("name: "+ itemName);
-			return new Item(itemID, itemName, itemDescription, available, imageURL, ownerID, borrowerID, latitude,
+			return new Item(itemID, itemName, itemDescription, imageURL, ownerID, borrowerID, latitude,
 					longitude, available, request, requestorID, returnRequest);
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database getItemsbyID");

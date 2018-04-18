@@ -3,7 +3,6 @@ public class Item {
 
 	private String itemName;
 	private int itemID;
-	private int availibility;
 	private String imageID;
 	private String itemDescription;
 	private double latitude;
@@ -15,11 +14,10 @@ public class Item {
 	private int requestorID;
 	private int returnRequest;
 
-	Item(int itemID, String itemName, String description, int availibility, String imageID, int ownerID,
+	Item(int itemID, String itemName, String description, String imageID, int ownerID,
 			int borrowerID, double latitude, double longitude, int available, int request, int requestorID,
 			int returnRequest) {
 		this.itemID = itemID;
-		this.availibility = availibility;
 		this.imageID = imageID;
 		this.itemDescription = description;
 		this.ownerID = ownerID;
@@ -58,10 +56,7 @@ public class Item {
 		this.requestorID = requestorID;
 	}
 
-	public int getAvailibility() {
-		return availibility;
-	}
-
+	
 	public int getItemID() {
 		return itemID;
 	}
@@ -78,13 +73,6 @@ public class Item {
 		this.itemName = itemName;
 	}
 
-	public int isAvailibility() {
-		return availibility;
-	}
-
-	public void setAvailibility(int availibility) {
-		this.availibility = availibility;
-	}
 
 	public String getImageID() {
 		return imageID;
@@ -139,7 +127,7 @@ public class Item {
 		System.out.println("----------------------------------------");
 		System.out.println("ItemName: " + itemName);
 		System.out.println("ItemID: " + itemID);
-		System.out.println("Avaliliblity: " + availibility);
+		System.out.println("Avaliliblity: " + available);
 		System.out.println("description: " + itemDescription);
 		System.out.println("ownerID: " + ownerID);
 		System.out.println("Latitude: " + latitude);
