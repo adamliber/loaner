@@ -249,7 +249,7 @@ public class Database {
 		return -1;
 	}
 
-	public void returnRequest(int itemID) {
+	public int returnRequest(int itemID) {
 		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
 		int ownerID = getItembyID(itemID).getOwnerID();
 
@@ -260,17 +260,18 @@ public class Database {
 			ps.setInt(2, itemID);
 
 			ps.executeUpdate();
-
+			return 1;
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database acceptItem");
 			System.out.println(e.getMessage());
 		}
-
+		
+		return -1;
 		// send message to borrowerID that requestItem has happened
 		// send message to ownerID that item wants to be returned
 	}
 
-	public void returnRequestAccept(int itemID) {
+	public int returnRequestAccept(int itemID) {
 
 		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
 		int ownerID = getItembyID(itemID).getOwnerID();
@@ -284,16 +285,16 @@ public class Database {
 			ps.setInt(4, itemID);
 			System.out.println(ps.toString());
 			ps.executeUpdate();
-
+			return 1;
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database return request accept Item");
 			System.out.println(e.getMessage());
 		}
-
+		return -1;
 		// send message to ownerID and borrowerID that item has been returned
 	}
 
-	public void returnRequestDecline(int itemID) {
+	public int returnRequestDecline(int itemID) {
 
 		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
 
@@ -302,14 +303,13 @@ public class Database {
 			ps = conn.prepareStatement(returnRequestSQL);
 			ps.setInt(1, 0);
 			ps.setInt(2, itemID);
-
 			ps.executeUpdate();
-
+			return 1;
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database acceptItem");
 			System.out.println(e.getMessage());
 		}
-
+		return -1;
 		// send message to borrowerID that your request to be returned has been denied
 	}
 

@@ -295,7 +295,69 @@ public class ServerSocket {
 				toWrite = gson.toJson(new Message("invalid"));
 			}
 		}
-		
+		else if(messageID.trim().getClass().equals("returnRequest")) {
+			String toWrite = "";
+			m = gson.fromJson(message, ReturnRequestMessage.class);
+			int itemID = ((ReturnRequestMessage)m).getItemID();
+			int x = database.returnRequest(itemID);
+			
+			if(x == -1)
+			{
+				toWrite = gson.toJson(new itemInfoMessage(-1,"invalid"));
+			}
+			else
+			{
+				toWrite = gson.toJson(new itemInfoMessage(itemID,"valid"));
+			}
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+		}
+		else if(messageID.trim().getClass().equals("returnRequestAccept")) {
+			String toWrite = "";
+			m = gson.fromJson(message, ReturnRequestAcceptMessage.class);
+			int itemID = ((ReturnRequestAcceptMessage)m).getItemID();
+			int x = database.returnRequestAccept(itemID);
+			
+			if(x == -1)
+			{
+				toWrite = gson.toJson(new itemInfoMessage(-1,"invalid"));
+			}
+			else
+			{
+				toWrite = gson.toJson(new itemInfoMessage(itemID,"valid"));
+			}
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+		}
+		else if(messageID.trim().getClass().equals("returnRequestDecline")) {
+			String toWrite = "";
+			m = gson.fromJson(message, ReturnRequestDeclineMessage.class);
+			int itemID = ((ReturnRequestDeclineMessage)m).getItemID();
+			int x = database.returnRequestDecline(itemID);
+			
+			if(x == -1)
+			{
+				toWrite = gson.toJson(new itemInfoMessage(-1,"invalid"));
+			}
+			else
+			{
+				toWrite = gson.toJson(new itemInfoMessage(itemID,"valid"));
+			}
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+		}
 	}
 	
 	@OnClose
