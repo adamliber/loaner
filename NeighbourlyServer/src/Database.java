@@ -227,7 +227,7 @@ public class Database {
 		
 	}
 
-	public void declineItem(int itemID, int borrowerID) {
+	public int declineRequest(int itemID, int borrowerID) {
 		// ResultSet rs;
 		try {
 
@@ -238,7 +238,7 @@ public class Database {
 			ps.setInt(4, -1); // requestorID
 			ps.setInt(5, itemID);
 			ps.executeUpdate();
-
+			return 1;
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database declineItem");
 			System.out.println(e.getMessage());
@@ -246,6 +246,7 @@ public class Database {
 
 		// send a message to frontend for an in-app notification that requestor has
 		// declined
+		return -1;
 	}
 
 	public void returnRequest(int itemID) {

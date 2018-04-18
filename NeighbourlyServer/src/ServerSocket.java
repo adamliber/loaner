@@ -273,7 +273,28 @@ public class ServerSocket {
 				toWrite = gson.toJson(new Message("invalid"));
 			}
 		}
-		
+		else if(messageID.trim().getClass().equals("declineRequest")) {
+			String toWrite = "";
+			m = gson.fromJson(message, DeclineRequestMessage.class);
+			int borrowerID = ((DeclineRequestMessage)m).getBorrowerID();
+			int itemID = ((DeclineRequestMessage)m).getItemID();
+			int x = database.declineRequest(itemID, borrowerID);
+			
+			if(x == -1)
+			{
+				toWrite = gson.toJson(new itemInfoMessage(-1,"invalid"));
+			}
+			else
+			{
+				toWrite = gson.toJson(new itemInfoMessage(itemID,"valid"));
+			}
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+		}
 		
 	}
 	
