@@ -92,19 +92,23 @@ public class ServerSocket {
 			int ownerID = ((PostItemMessage) m).getOwnerID();
 			String itemName  = ((PostItemMessage) m).getItemName();
 			String description  = ((PostItemMessage) m).getItemDescription();
-			System.out.println("desc in serversocket: "+description);
 			double latitude = ((PostItemMessage) m).getLatitude();
 			double longitude = ((PostItemMessage) m).getLongitude();
+			String imageURL = ((PostItemMessage) m).getImageURL();
 			
-			int itemID = database.addItemToDatabase(ownerID, itemName, "", description, latitude, longitude);
+			int itemID = database.addItemToDatabase(ownerID, itemName, imageURL, description, latitude, longitude);
+			ArrayList<Item> toReturn = new ArrayList<Item>();
 			
 			if(itemID == -1)
 			{
-				toWrite = gson.toJson(new itemInfoMessage(-1,"invalid"));
+				toWrite = gson.toJson(new replyToQueryMessage(toReturn, "invalid"));
 			}
 			else
 			{
-				toWrite = gson.toJson(new itemInfoMessage(itemID,"valid"));
+				
+				Item item = database.getItembyID(itemID);
+				toReturn.add(item);
+				toWrite = gson.toJson(new replyToQueryMessage(toReturn, "valid"));
 			}
 			
 			try {
@@ -115,31 +119,6 @@ public class ServerSocket {
 			
 			
 		}
-//		else if(messageID.trim().equals("updateUserPhoto"))
-//		{
-//			m = gson.fromJson(message,PhotoUploadMessage.class);
-//			String str = ((PhotoUploadMessage) m).getImageAsString();
-//			int userID = ((PhotoUploadMessage) m).getUserID();
-//			String toWrite = "";
-//			int x = database.putUserImage(userID, str);
-//			
-//			if(x == 1 )toWrite = gson.toJson(new UserInfoMessage(userID, database));
-//			else toWrite = gson.toJson(new Message("valid"));
-//			
-//			try {
-//				session.getBasicRemote().sendText(toWrite);
-//			} catch (IOException e) {
-//				System.out.println("IOException in searching items in server socket in java");
-//				toWrite = gson.toJson(new Message("invalid"));
-//			}
-//			
-//			 try {
-//                byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(str); 
-//			  }
-//			  catch(ArrayIndexOutOfBoundsException aioe){ 
-//				System.out.println("Array Index Out of Bounds Exception in userPhotoUpload");
-//			  }
-//		}
 		else if(messageID.trim().equals("searchItem"))
 		{
 			String toWrite = "";

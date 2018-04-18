@@ -405,50 +405,6 @@ public class Database {
 		return toReturn;
 	}
 
-	public void putUserImage() {
-		// String fileName = userID + "_profile_pic.jpeg";
-		File file = new File("images/flowers.jpeg");
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(updateSQL);
-			FileInputStream input = new FileInputStream(file);
-			pstmt.setBinaryStream(1, input);
-			pstmt.setInt(2, 1);
-			pstmt.executeUpdate();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found exception in getItemImage");
-		} catch (SQLException e) {
-			System.out.println("SQL exception in getItemImage");
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public void getUserImage() {
-		String selectSQL = "SELECT image FROM Users WHERE userID=?";
-
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(selectSQL);
-			pstmt.setInt(1, 1);
-			ResultSet rs = pstmt.executeQuery();
-			File file = new File("output.jpeg");
-			FileOutputStream output = new FileOutputStream(file);
-
-			System.out.println("Writing to file " + file.getAbsolutePath());
-			while (rs.next()) {
-				InputStream input = rs.getBinaryStream("image");
-				byte[] buffer = new byte[1024];
-				while (input.read(buffer) > 0) {
-					output.write(buffer);
-				}
-			}
-		} catch (SQLException e) {
-			System.out.println("SQL exception in Database searchItems");
-			System.out.println(e.getMessage());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	public int getOwnerIDfromItemID(int itemID )
 	{
 		ResultSet rs;
