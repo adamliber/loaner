@@ -67,13 +67,29 @@ class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITabl
         }
     }
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var menuProfileImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuProfileImage.layer.cornerRadius = menuProfileImage.frame.size.width/2
+        menuProfileImage.layer.masksToBounds = false
+        menuProfileImage.clipsToBounds = true
+        
+        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateMenu), name: NSNotification.Name(rawValue: "loadMenu"), object: nil)
+        updateMenu()
+        // Do any additional setup after loading the view.
+    }
+    
+    @objc public func updateMenu(){
         self.user = loadUser()
         nameLabel.text = user?.name
-        // Do any additional setup after loading the view.
+        print("\n menu updated and image is \(String(describing: user?.image))")
+        
+        if(user?.image != nil){
+            menuProfileImage.image = user?.image
+        }
     }
 
     override func didReceiveMemoryWarning() {

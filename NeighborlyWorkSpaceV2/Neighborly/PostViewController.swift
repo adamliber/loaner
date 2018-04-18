@@ -8,9 +8,11 @@
 
 import UIKit
 import Starscream
+import Cloudinary
+
 class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate,WebSocketDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
-    
+    private var model = ItemsModel()
     
     public func loadUser() -> User?{
         return NSKeyedUnarchiver.unarchiveObject(withFile: User.ArchiveURL.path) as? User
@@ -34,8 +36,11 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
         print("message received:  \(message.message)" )
         
         if(message.message == "valid"){
-            print("should dismiss")
+           
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadSearchResults"), object: nil)
             dismiss(animated: true, completion: nil)
+            
+            
     
         }
         
@@ -68,22 +73,21 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
         
     var encodedImg:String = ""
-    
+    var imageData:Data?
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
             myImageView.image = imagePicked
             
-            let data = UIImageJPEGRepresentation(imagePicked, 0.000005)
+            imageData = UIImageJPEGRepresentation(imagePicked, 0.000005)!
             
-            let base64String = data!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
-            encodedImg = base64String.addingPercentEncoding(withAllowedCharacters:  .urlQueryAllowed  )!
-            
-            print("Img on line 55" + encodedImg)
-            encodedImg = encodedImg + String("%") // termination char % is added at the end
         
         }
+        
         self.dismiss(animated: true, completion: nil)
+        if(itemNameField.text != "" && descriptionTextView.text != "" && descriptionTextView.text != "Description     " && imageData != nil){
+            postButton.isEnabled = true
+        }
     }
     
     @IBOutlet weak var popupView: UIView!
@@ -119,7 +123,7 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
         }
     }
     func textViewDidEndEditing(_ textView: UITextView) {
-        if(itemNameField.text != "" && descriptionTextView.text != "" && descriptionTextView.text != "Description     "){
+        if(itemNameField.text != "" && descriptionTextView.text != "" && descriptionTextView.text != "Description     " && imageData != nil){
             postButton.isEnabled = true
         }else if(descriptionTextView.text == ""){
             descriptionTextView.textColor = UIColor.gray
@@ -127,7 +131,7 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if(itemNameField.text != "" && descriptionTextView.text != "" && descriptionTextView.text != "Description     "){
+        if(itemNameField.text != "" && descriptionTextView.text != "" && descriptionTextView.text != "Description     " && imageData != nil){
             postButton.isEnabled = true
         }
     }
@@ -146,17 +150,23 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
     @IBAction func PostSubmitted(_ sender: Any) {
         
-        let postItemMessage = PostItemMessage( ownerID: user!.userID , image:encodedImg, itemName: itemNameField.text!, itemDescription: descriptionTextView.text!, longitude: 1.0, latitude: 1.0)
-        let encoder = JSONEncoder()
-        
-        do{
-            let data = try encoder.encode(postItemMessage)
-            socket.write(string: String(data: data, encoding: .utf8)!)
+        cloudinary.createUploader().upload(data: imageData!, uploadPreset: "szxnywdo"){
+            result, error in
+            let imageURL = result?.url
+            print("account profile image upload error:  \(String(describing: error))")
+            print("account profile image result: \(String(describing: result?.publicId))")
             
+            let postItemMessage = PostItemMessage( ownerID: self.user!.userID , image: imageURL!, itemName: self.itemNameField.text!, itemDescription: self.descriptionTextView.text!, longitude: 1.0, latitude: 1.0)
+            let encoder = JSONEncoder()
             
-        }catch{
-            
+            do{
+                let data = try encoder.encode(postItemMessage)
+                socket.write(string: String(data: data, encoding: .utf8)!)
+            }catch{ }
         }
+        
+        
+        
         
         
     }

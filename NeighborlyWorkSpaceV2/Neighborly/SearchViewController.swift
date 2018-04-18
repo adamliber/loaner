@@ -11,6 +11,9 @@ import Starscream
 
 
 class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDelegate {
+    
+    private var model = ItemsModel()
+    
     func websocketDidConnect(socket: WebSocketClient) {
         print("Search Socket connected")
     }
@@ -29,7 +32,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
         
         if(itemList.message == "valid"){
             print("should dismiss")
+            model.setSearchResultItems(items: itemList.itemList)
             dismiss(animated: true, completion: nil)
+            
+             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadSearchResults"), object: nil)
             
         }
     }

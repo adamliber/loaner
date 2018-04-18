@@ -39,13 +39,14 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
             profileImageView.image = imagePicked
             user?.setImage(image: imagePicked)
+            user?.saveUser()
+            updateAccount()
             
             imageData = UIImageJPEGRepresentation(imagePicked, 0.000005)!
             
         }
-        let mainStoryBoard: UIStoryboard  = UIStoryboard(name: "Main", bundle: nil)
-        let menuViewController = UIViewController(nibName: "LeftSideMenuViewController", bundle: nil)
-        menuViewController.
+
+        
         self.dismiss(animated: true, completion: nil)
         
         cloudinary.createUploader().upload(data: imageData, uploadPreset: "szxnywdo"){
@@ -110,22 +111,36 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         socket.delegate = self
         // Do any additional setup after loading the view.
         self.tableView.rowHeight = 134
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
         
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
         profileImageView.layer.masksToBounds = false
         profileImageView.clipsToBounds = true
-        self.user = loadUser()
-        self.nameField.text = user?.name
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAccount), name: NSNotification.Name(rawValue: "loadAccount"), object: nil)
+        updateAccount()
+        
+        
         let accountInfoMessage = AccountInfoMessage(userID: (user?.userID)!)
         let encoder = JSONEncoder()
-        print("account view did load")
+        
+        
         do{
             let data = try encoder.encode(accountInfoMessage)
             socket.write(string: String(data: data, encoding: .utf8)!)
             
-        }catch{
-            
+        }catch{}
+        print("account view did load")
+        
+    }
+    
+    @objc func updateAccount(){
+        self.user = loadUser()
+        self.nameField.text = user?.name
+        if(self.user?.image != nil){
+            self.profileImageView.image = self.user?.image
         }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMenu"), object: nil)
+        tableView.reloadData()
         
     }
     
@@ -158,6 +173,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell( withIdentifier: "itemCard", for: indexPath) as! ItemCardTableViewCell
         var item:Item?
+        
         switch(segmentControl.selectedSegmentIndex){
         case 0:
             item = model.borrowedItems[indexPath.row]

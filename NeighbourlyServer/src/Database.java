@@ -69,6 +69,7 @@ public class Database {
 		    +" - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )"
 		    +"GROUP BY itemID HAVING Distance < ?"
 		    + "ORDER BY Distance";
+	static String getOwnerIDbyItemID = "SELECT ownerID FROM Items WHERE itemID =?";
 	
 	Database() {
 		try {
@@ -180,8 +181,8 @@ public class Database {
 		return -1;
 	}
 
-	public void requestItem(int itemID, int requestorID) {
-		// ResultSet rs;
+	//returns id of the owner
+	public int requestItem(int itemID, int requestorID) {
 		try {
 
 			ps = conn.prepareStatement(updateItemSQL_Request);
@@ -190,17 +191,20 @@ public class Database {
 			ps.setInt(3, requestorID);
 			ps.setInt(4, itemID);
 			ps.executeUpdate();
+			return getOwnerIDfromItemID(itemID);
 
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database requestItem");
 			System.out.println(e.getMessage());
 		}
-
+		
+		return -1;
 		// send a message to frontend for an in-app notification to send a request for
 		// an item
 	}
 
-	public void acceptItem(int itemID, int borrowerID) {
+	 //returns 1 if everything went fine, otherwise -1
+	public int acceptRequest(int itemID, int borrowerID) {
 		// ResultSet rs;
 		try {
 
@@ -210,6 +214,7 @@ public class Database {
 			ps.setInt(3, borrowerID);
 			ps.setInt(4, itemID);
 			ps.executeUpdate();
+			return 1;
 
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database acceptItem");
@@ -218,6 +223,8 @@ public class Database {
 
 		// send a message to frontend for an in-app notification that requestor has
 		// acccepted
+		return -1;
+		
 	}
 
 	public void declineItem(int itemID, int borrowerID) {
@@ -227,8 +234,8 @@ public class Database {
 			ps = conn.prepareStatement(updateItemSQL_Decline);
 			ps.setInt(1, 1);
 			ps.setInt(2, 0);
-			ps.setNull(3, java.sql.Types.INTEGER); // borrowerID
-			ps.setNull(4, java.sql.Types.INTEGER); // requestorID
+			ps.setInt(3, -1); // borrowerID
+			ps.setInt(4, -1); // requestorID
 			ps.setInt(5, itemID);
 			ps.executeUpdate();
 
@@ -271,7 +278,7 @@ public class Database {
 
 			ps = conn.prepareStatement(returnAcceptSQL);
 			ps.setInt(1, 0);
-			ps.setNull(2, java.sql.Types.INTEGER); // borrowerID
+			ps.setInt(2, -1); // borrowerID
 			ps.setInt(3, 1);
 			ps.setInt(4, itemID);
 			System.out.println(ps.toString());
@@ -305,7 +312,7 @@ public class Database {
 		// send message to borrowerID that your request to be returned has been denied
 	}
 
-	private Item getItembyID(int itemID) {
+	public Item getItembyID(int itemID) {
 		ResultSet rs;
 		try {
 			ps = conn.prepareStatement(singleItemQuery);
@@ -325,7 +332,7 @@ public class Database {
 			int returnRequest = rs.getInt("returnRequest");
 			System.out.println("description: "+ itemDescription);
 			System.out.println("name: "+ itemName);
-			return new Item(itemID, itemName, itemDescription, available, imageURL, ownerID, borrowerID, latitude,
+			return new Item(itemID, itemName, itemDescription, imageURL, ownerID, borrowerID, latitude,
 					longitude, available, request, requestorID, returnRequest);
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database getItemsbyID");
@@ -440,7 +447,26 @@ public class Database {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public int getOwnerIDfromItemID(int itemID )
+	{
+		ResultSet rs;
+		try {
+			ps = conn.prepareStatement(getOwnerIDbyItemID);
+			ps.setInt(1, itemID);
+			rs = ps.executeQuery();
+			while(rs.next())
+			{
+				return rs.getInt("ownerID");
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception in getOwnerIDfromItemID");
+			System.out.println(e.getMessage());
+		}
+		
+		return -1;
+	}
+	
 	public ArrayList<Item> getMyItems(int userID)
 	{
 		ArrayList<Item> toReturn = new ArrayList<Item>();

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Neighborly/AccountViewController.swift"
-            timestampString = "545645519.12985"
+            timestampString = "545717729.821625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "AccountViewController"
             landmarkType = "3">
          </BreakpointContent>

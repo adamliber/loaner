@@ -187,6 +187,93 @@ public class ServerSocket {
 			}
 		
 		}
+		else if(messageID.trim().equals("requestItem"))
+		{
+			System.out.println("In requestItem");
+			String toWrite = "";
+			m = gson.fromJson(message, requestItemMessage.class);
+			int requestorID = ((requestItemMessage) m).getRequestorID();
+			int itemID = ((requestItemMessage) m).getItemID();
+			
+			int ownerID =  database.requestItem(itemID, requestorID);
+			if(ownerID == -1)
+			{
+				toWrite = gson.toJson(new itemInfoMessage(-1,"invalid"));
+			}
+			else
+			{
+				toWrite = gson.toJson(new itemInfoMessage(itemID,"valid"));
+			}
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+			//function to send owner pop up notification
+			/*for(Session s : sessionVector) {	
+				if(ownerID == (int)session.getUserProperties().get("userID"))
+				{
+					try 
+					{
+						s.getBasicRemote().sendText(message);
+					} catch (IOException e) { 
+						e.printStackTrace();
+					}
+				}
+			}*/
+		}
+		else if(messageID.trim().equals("singleItemQuery"))
+		{
+			System.out.println("in single item query");
+			String toWrite =  "";
+			m = gson.fromJson(message, singleItemQuery.class);
+			int itemID = ((singleItemQuery) m).getItemID();
+			
+			Item item = database.getItembyID(itemID);
+			ArrayList<Item> items = new ArrayList<Item>();
+			if(item != null)
+			{
+				items.add(item);
+				toWrite = gson.toJson(new replyToQueryMessage(items, "valid"));
+			}
+			else
+			{
+				toWrite = gson.toJson(new replyToQueryMessage(items, "invalid"));
+			}
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+			
+		}
+		else if(messageID.trim().equals("acceptRequest"))
+		{
+			System.out.println("In acceptRequest");
+			String toWrite = "";
+			m = gson.fromJson(message, AcceptRequestMessage.class);
+			int itemID = ((AcceptRequestMessage) m).getItemID();
+			int borrowerID = ((AcceptRequestMessage) m).getBorrowerID();
+			int x = database.acceptRequest(itemID, borrowerID);
+			
+			if(x == -1)
+			{
+				toWrite = gson.toJson(new itemInfoMessage(-1,"invalid"));
+			}
+			else
+			{
+				toWrite = gson.toJson(new itemInfoMessage(itemID,"valid"));
+			}
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in searching items in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+		}
+		
 		
 	}
 	

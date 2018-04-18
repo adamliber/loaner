@@ -28,14 +28,22 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
         let decoder = JSONDecoder()
         let userInfo = try! decoder.decode(UserInfoMessage.self, from: jsonText)
         print("userID received:  \(String(describing: userInfo.userID))" )
+        print("userEmail received: \(String(describing: userInfo.email))" )
+        print("userName received: \(String(describing: userInfo.name))" )
         print("message received:  \(userInfo.message)" )
         print("\nmy Items received: \(String(describing: userInfo.myItems?.first?.itemName))" )
         
         if(userInfo.message == "valid"){
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = appDelegate.centerContainer
-            let user = User(userID: userInfo.userID!, name: userInfo.name!, email: userInfo.email!)
+            let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            
+            let mainNavController = UINavigationController(rootViewController: mainViewController)
+            appDelegate.centerContainer!.centerViewController = mainNavController
+            
+            let user = User(userID: userInfo.userID!, name: userInfo.name!, email: userInfo.email!, image:nil)
             user.saveUser()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadAccount"), object: nil)
         
             
             
