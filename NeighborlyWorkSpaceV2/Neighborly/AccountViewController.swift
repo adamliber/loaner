@@ -8,10 +8,12 @@
 
 import UIKit
 import Starscream
+import Cloudinary
+
 
 class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, WebSocketDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
    
-    
+        
     @IBOutlet weak var nameField: UILabel!
     
     @IBAction func updatePhotoButtonClicked(_ sender: Any) {
@@ -27,37 +29,32 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    @IBOutlet weak var myImageView: UIImageView!
+   
+    @IBOutlet weak var profileImageView: UIImageView!
     
     var encodedImg:String = ""
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    var imageData = Data()
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            myImageView.image = imagePicked
+            profileImageView.image = imagePicked
+            user?.setImage(image: imagePicked)
             
-            let data = UIImageJPEGRepresentation(imagePicked, 0.000005)
-            
-            let base64String = data!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
-            encodedImg = base64String.addingPercentEncoding(withAllowedCharacters:  .urlQueryAllowed  )!
-            
-            print("Img on line 55" + encodedImg)
-            encodedImg = encodedImg + String("%") // termination char % is added at the end
+            imageData = UIImageJPEGRepresentation(imagePicked, 0.000005)!
             
         }
-        
+        let mainStoryBoard: UIStoryboard  = UIStoryboard(name: "Main", bundle: nil)
+        let menuViewController = UIViewController(nibName: "LeftSideMenuViewController", bundle: nil)
+        menuViewController.
         self.dismiss(animated: true, completion: nil)
         
-        let updateUserPhotoMessage = UpdateUserPhotoMessage(userID: (user?.userID)!, image: encodedImg)
-        let encoder = JSONEncoder()
-        
-        do{
-            let data = try encoder.encode(updateUserPhotoMessage)
-            socket.write(string: String(data: data, encoding: .utf8)!)
-            
-        }catch{
+        cloudinary.createUploader().upload(data: imageData, uploadPreset: "szxnywdo"){
+            result, error in
+            print("account profile image upload error:  \(String(describing: error))")
+            print("account profile image result: \(String(describing: result?.publicId))")
             
         }
+     
         
     }
    
@@ -113,7 +110,10 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         socket.delegate = self
         // Do any additional setup after loading the view.
         self.tableView.rowHeight = 134
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
         
+        profileImageView.layer.masksToBounds = false
+        profileImageView.clipsToBounds = true
         self.user = loadUser()
         self.nameField.text = user?.name
         let accountInfoMessage = AccountInfoMessage(userID: (user?.userID)!)
@@ -157,37 +157,31 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell( withIdentifier: "itemCard", for: indexPath) as! ItemCardTableViewCell
+        var item:Item?
         switch(segmentControl.selectedSegmentIndex){
         case 0:
-            cell.itemName.text = model.borrowedItems[indexPath.row].itemName
-            cell.itemDetails.text = model.borrowedItems[indexPath.row].itemDescription
-            if(model.borrowedItems[indexPath.row].available == 1){
-                cell.itemStatusLabel.text = "Available"
-                cell.itemStatusLabel.backgroundColor = UIColor.green
-                cell.itemStatusLabel.textColor = UIColor.white
-            }else{
-                cell.itemStatusLabel.text = "Unavailable"
-                cell.itemStatusLabel.backgroundColor = UIColor.red
-                cell.itemStatusLabel.textColor = UIColor.white
-            }
+            item = model.borrowedItems[indexPath.row]
             cell.itemPhoto.image = UIImage(named:"DefaultItemCamera")
             break
         case 1:
-            cell.itemName.text = model.myItems[indexPath.row].itemName
-            cell.itemDetails.text = model.myItems[indexPath.row].itemDescription
-            if(model.myItems[indexPath.row].available == 1){
-                cell.itemStatusLabel.text = "Available"
-                cell.itemStatusLabel.backgroundColor = UIColor.green
-                cell.itemStatusLabel.textColor = UIColor.white
-            }else{
-                cell.itemStatusLabel.text = "Unavailable"
-                cell.itemStatusLabel.backgroundColor = UIColor.red
-                cell.itemStatusLabel.textColor = UIColor.white
-            }
+            item = model.myItems[indexPath.row]
             cell.itemPhoto.image = UIImage(named:"DefaultItemDrill")
             break
         default:
             break
+        }
+        
+        cell.itemName.text = item?.itemName
+        cell.itemDetails.text = item?.itemDescription
+        
+        if(item?.available == 1){
+            cell.itemStatusLabel.text = "Available"
+            cell.itemStatusLabel.backgroundColor = UIColor.green
+            cell.itemStatusLabel.textColor = UIColor.white
+        }else{
+            cell.itemStatusLabel.text = "Unavailable"
+            cell.itemStatusLabel.backgroundColor = UIColor.red
+            cell.itemStatusLabel.textColor = UIColor.white
         }
         
         return cell
