@@ -1,20 +1,28 @@
 PODS:
+  - Alamofire (4.6.0)
+  - Cloudinary (2.3.0):
+    - Alamofire (~> 4.6.0)
   - SendBirdSDK (3.0.93)
   - Starscream (3.0.5)
 
 DEPENDENCIES:
+  - Cloudinary (~> 2.0)
   - SendBirdSDK
   - Starscream (~> 3.0.2)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Cloudinary
     - SendBirdSDK
     - Starscream
 
 SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Cloudinary: fd611d907bd6608f3556c40673b628e466809816
   SendBirdSDK: d42b5b3483c6b86578e1677f2a5947e78d049f8a
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
 
-PODFILE CHECKSUM: 6d33ba3cb1d47744f3f29beb1b5795990672499a
+PODFILE CHECKSUM: 69983e22320d2e8cc1a3a7d246d92cb6b5216fa9
 
 COCOAPODS: 1.5.0

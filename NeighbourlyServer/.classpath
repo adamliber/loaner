@@ -9,7 +9,15 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/AGL/Desktop/neighborly_V2/NeighbourlyServer/gson-2.8.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/AGL/Desktop/neighborly_V2/NeighbourlyServer/mysql-connector-java-5.1.46.jar"/>
+	<classpathentry kind="lib" path="/Users/otherusers/Documents/USC/Spring_2018/CSCI_201/neighborly_V2/NeighbourlyServer/gson-2.8.2.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/otherusers/Documents/USC/Spring_2018/CSCI_201/neighborly_V2/NeighbourlyServer/mysql-connector-java-5.1.46.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
