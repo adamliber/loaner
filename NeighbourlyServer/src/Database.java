@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
 public class Database {
 	private Connection conn;
 	private PreparedStatement ps;
@@ -42,43 +41,36 @@ public class Database {
 	static String getBorrowedItemsSQL = "SELECT * FROM Items Where borrowerID=?";
 	static String getMyItemsSQL = "SELECT * FROM Items WHERE ownerID=?";
 	static String lastAddedUser = "SELECT LAST_INSERT_ID()";
-	
+
 	static String searchString = " SELECT * , 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) )"
-			+" * cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
-			+" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
-			+" - latitude) ) * sin( pi( ) /2 - radians( 90 - ?) ) ) AS"
-			+" Distance"
-		    +" FROM Items"
-		    +" WHERE ( 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) ) *"
-		    +" cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
-		    +" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
-		    +" - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )"
-		    +" AND MATCH(itemName,itemDescription) AGAINST (?)"
-		    +"GROUP BY itemID HAVING Distance < ?"
-		    + "ORDER BY Distance";
+			+ " * cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
+			+ " longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
+			+ " - latitude) ) * sin( pi( ) /2 - radians( 90 - ?) ) ) AS" + " Distance" + " FROM Items"
+			+ " WHERE ( 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) ) *"
+			+ " cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
+			+ " longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
+			+ " - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )"
+			+ " AND MATCH(itemName,itemDescription) AGAINST (?)" + "GROUP BY itemID HAVING Distance < ?"
+			+ "ORDER BY Distance";
 	static String preppingForSearch2 = "ALTER TABLE Items ADD FULLTEXT(itemName,itemDescription);";
-	static String returnAllItemsWithinArea =" SELECT * , 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) )"
-			+" * cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
-			+" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
-			+" - latitude) ) * sin( pi( ) /2 - radians( 90 - ?) ) ) AS"
-			+" Distance"
-		    +" FROM Items"
-		    +" WHERE ( 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) ) *"
-		    +" cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
-		    +" longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
-		    +" - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )"
-		    +"GROUP BY itemID HAVING Distance < ?"
-		    + "ORDER BY Distance";
+	static String returnAllItemsWithinArea = " SELECT * , 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) )"
+			+ " * cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
+			+ " longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
+			+ " - latitude) ) * sin( pi( ) /2 - radians( 90 - ?) ) ) AS" + " Distance" + " FROM Items"
+			+ " WHERE ( 6371.04 * acos( cos( pi( ) /2 - radians( 90 - latitude) ) *"
+			+ " cos( pi( ) /2 - radians( 90 - ? ) ) * cos( radians("
+			+ " longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
+			+ " - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )" + "GROUP BY itemID HAVING Distance < ?"
+			+ "ORDER BY Distance";
 	static String getOwnerIDbyItemID = "SELECT ownerID FROM Items WHERE itemID =?";
-	static String updateUserImageURL = "UPDATE Users " + 
-										"SET imageURL = ? WHERE userID = ?;";
+	static String updateUserImageURL = "UPDATE Users " + "SET imageURL = ? WHERE userID = ?;";
 	static String getUserImageURL = "SELECT imageURL FROM Users Where userID=?";
-	
- 	Database() {
+
+	Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager
-					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=jBl45dolphin&useSSL=false");
+					.getConnection("jdbc:mysql://localhost/Neighborly?user=root&password=root&useSSL=false");
 			System.out.println("Database connected");
 
 		} catch (ClassNotFoundException e) {
@@ -111,8 +103,9 @@ public class Database {
 			return -1;
 		}
 	}
-	
-//	static String signUpInsert = "INSERT INTO Users (email, name, password, borrow)" + " VALUES(? , ?, ?, ?);";
+
+	// static String signUpInsert = "INSERT INTO Users (email, name, password,
+	// borrow)" + " VALUES(? , ?, ?, ?);";
 	public int signUp(String email, String name, String password) {
 		try {
 			ps = conn.prepareStatement(signUpInsert);
@@ -121,13 +114,13 @@ public class Database {
 			ps.setString(3, password);
 			ps.setBoolean(4, false);
 			ps.executeUpdate();
-			
+
 			ps = conn.prepareStatement(lastAddedUser);
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				return rs.getInt("LAST_INSERT_ID()");
 			}
-			
+
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database SignUp");
 			System.out.println(e.getMessage());
@@ -172,7 +165,7 @@ public class Database {
 			ps.executeUpdate();
 			ps = conn.prepareStatement(lastAddedUser);
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				return rs.getInt("LAST_INSERT_ID()");
 			}
 		} catch (SQLException e) {
@@ -183,15 +176,18 @@ public class Database {
 		return -1;
 	}
 
-	//returns id of the owner
+	// returns id of the owner
+	// updateItemSQL_Request = "UPDATE Items " + "SET available = ?, request = ?,
+	// requestorID = ? "
+	// + "WHERE itemID=?";
 	public int requestItem(int itemID, int requestorID) {
 		try {
-
 			ps = conn.prepareStatement(updateItemSQL_Request);
 			ps.setInt(1, 0); // available
 			ps.setInt(2, 1); // request
 			ps.setInt(3, requestorID);
 			ps.setInt(4, itemID);
+			System.out.println(ps.toString());
 			ps.executeUpdate();
 			return getOwnerIDfromItemID(itemID);
 
@@ -199,13 +195,13 @@ public class Database {
 			System.out.println("SQL exception in Database requestItem");
 			System.out.println(e.getMessage());
 		}
-		
+
 		return -1;
 		// send a message to frontend for an in-app notification to send a request for
 		// an item
 	}
 
-	 //returns 1 if everything went fine, otherwise -1
+	// returns 1 if everything went fine, otherwise -1
 	public int acceptRequest(int itemID, int borrowerID) {
 		// ResultSet rs;
 		try {
@@ -226,7 +222,7 @@ public class Database {
 		// send a message to frontend for an in-app notification that requestor has
 		// acccepted
 		return -1;
-		
+
 	}
 
 	public int declineRequest(int itemID, int borrowerID) {
@@ -267,7 +263,7 @@ public class Database {
 			System.out.println("SQL exception in Database acceptItem");
 			System.out.println(e.getMessage());
 		}
-		
+
 		return -1;
 		// send message to borrowerID that requestItem has happened
 		// send message to ownerID that item wants to be returned
@@ -333,10 +329,10 @@ public class Database {
 			int request = rs.getInt("request");
 			int requestorID = rs.getInt("requestorID");
 			int returnRequest = rs.getInt("returnRequest");
-			System.out.println("description: "+ itemDescription);
-			System.out.println("name: "+ itemName);
-			return new Item(itemID, itemName, itemDescription, imageURL, ownerID, borrowerID, latitude,
-					longitude, available, request, requestorID, returnRequest);
+			System.out.println("description: " + itemDescription);
+			System.out.println("name: " + itemName);
+			return new Item(itemID, itemName, itemDescription, imageURL, ownerID, borrowerID, latitude, longitude,
+					available, request, requestorID, returnRequest);
 		} catch (SQLException e) {
 			System.out.println("SQL exception in Database getItemsbyID");
 			System.out.println(e.getMessage());
@@ -374,26 +370,25 @@ public class Database {
 
 	public ArrayList<Item> searchItemsByDistance(String searchTerm, double latitude, double longitude,
 			int distanceInMiles) {
-		
+
 		ArrayList<Item> toReturn = new ArrayList<Item>();
 		double distanceInKM = (distanceInMiles * 1.60934);
 
-	
 		ResultSet rs;
 		try {
 			ps = conn.prepareStatement(preppingForSearch2);
 			ps.executeUpdate();
 			ps = conn.prepareStatement(searchString);
-			ps.setDouble(1, latitude );
+			ps.setDouble(1, latitude);
 			ps.setDouble(2, longitude);
 			ps.setDouble(3, latitude);
-			ps.setDouble(4, latitude );
+			ps.setDouble(4, latitude);
 			ps.setDouble(5, longitude);
 			ps.setDouble(6, latitude);
 			ps.setString(7, searchTerm);
 			ps.setDouble(8, distanceInKM);
 			rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
 				int itemID = rs.getInt("itemID");
 				System.out.println("itemID: " + itemID);
@@ -407,111 +402,95 @@ public class Database {
 		return toReturn;
 	}
 
-	public int getOwnerIDfromItemID(int itemID )
-	{
+	public int getOwnerIDfromItemID(int itemID) {
 		ResultSet rs;
 		try {
 			ps = conn.prepareStatement(getOwnerIDbyItemID);
 			ps.setInt(1, itemID);
 			rs = ps.executeQuery();
-			while(rs.next())
-			{
+			while (rs.next()) {
 				return rs.getInt("ownerID");
 			}
 		} catch (SQLException e) {
 			System.out.println("SQL Exception in getOwnerIDfromItemID");
 			System.out.println(e.getMessage());
 		}
-		
+
 		return -1;
 	}
-	
-	public ArrayList<Item> getMyItems(int userID)
-	{
+
+	public ArrayList<Item> getMyItems(int userID) {
 		ArrayList<Item> toReturn = new ArrayList<Item>();
 		ResultSet rs;
-		try 
-		{
+		try {
 			ps = conn.prepareStatement(getMyItemsSQL);
-			ps.setInt(1,userID);
+			ps.setInt(1, userID);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				int itemID = rs.getInt("itemID");
 				toReturn.add(getItembyID(itemID));
 			}
-		}
-		catch (SQLException e) 
-		{
+		} catch (SQLException e) {
 			System.out.println("SQL exception in Database getMyItems");
 			System.out.println(e.getMessage());
 		}
-		
-		return toReturn;
-	}
-	
-	public ArrayList<Item> getBorrowedItems(int userID)
-	{
-		ArrayList<Item> toReturn = new ArrayList<Item>();
-		ResultSet rs;
-		try 
-		{
-			ps = conn.prepareStatement(getBorrowedItemsSQL);
-			ps.setInt(1,userID);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				int itemID = rs.getInt("itemID");
-				toReturn.add(getItembyID(itemID));
-			}
-		}
-		catch (SQLException e) 
-		{
-			System.out.println("SQL exception in Database getMyItems");
-			System.out.println(e.getMessage());
-		}
-		
+
 		return toReturn;
 	}
 
-	public String getNameFromID(int userID)
-	{
+	public ArrayList<Item> getBorrowedItems(int userID) {
+		ArrayList<Item> toReturn = new ArrayList<Item>();
+		ResultSet rs;
+		try {
+			ps = conn.prepareStatement(getBorrowedItemsSQL);
+			ps.setInt(1, userID);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int itemID = rs.getInt("itemID");
+				toReturn.add(getItembyID(itemID));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL exception in Database getMyItems");
+			System.out.println(e.getMessage());
+		}
+
+		return toReturn;
+	}
+
+	public String getNameFromID(int userID) {
 		ResultSet rs;
 		String toReturn = "";
-		try 
-		{
+		try {
 			ps = conn.prepareStatement(getNamefromIDSQL);
-			ps.setInt(1,userID);
+			ps.setInt(1, userID);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				toReturn = rs.getString("name");
 			}
-		}
-		catch (SQLException e) 
-		{
+		} catch (SQLException e) {
 			System.out.println("SQL exception in Database getMyItems");
 			System.out.println(e.getMessage());
 		}
-		
+
 		return toReturn;
 	}
 
-	public ArrayList<Item> getAllItemsInDatabase(double latitude, double longitude,
-			int distanceInMiles) {
+	public ArrayList<Item> getAllItemsInDatabase(double latitude, double longitude, int distanceInMiles) {
 		ArrayList<Item> toReturn = new ArrayList<Item>();
 		double distanceInKM = (distanceInMiles * 1.60934);
 
-	
 		ResultSet rs;
 		try {
 			ps = conn.prepareStatement(returnAllItemsWithinArea);
-			ps.setDouble(1, latitude );
+			ps.setDouble(1, latitude);
 			ps.setDouble(2, longitude);
 			ps.setDouble(3, latitude);
-			ps.setDouble(4, latitude );
+			ps.setDouble(4, latitude);
 			ps.setDouble(5, longitude);
 			ps.setDouble(6, latitude);
 			ps.setDouble(7, distanceInKM);
 			rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
 				int itemID = rs.getInt("itemID");
 				toReturn.add(getItembyID(itemID));
@@ -524,44 +503,36 @@ public class Database {
 		return toReturn;
 	}
 
-	public int updateUserPhoto(int userID, String imageURL)
-	{
-		try 
-		{
+	public int updateUserPhoto(int userID, String imageURL) {
+		try {
 			ps = conn.prepareStatement(updateUserImageURL);
-			ps.setString(1,imageURL);
+			ps.setString(1, imageURL);
 			ps.setInt(2, userID);
 			ps.executeUpdate();
 			return 1;
-		}
-		catch (SQLException e) 
-		{
+		} catch (SQLException e) {
 			System.out.println("SQL exception in Database updateUserPhoto");
 			System.out.println(e.getMessage());
 		}
-		
+
 		return -1;
 	}
-	
-	public String getUserImageURLfromUserID(int userID)
-	{
+
+	public String getUserImageURLfromUserID(int userID) {
 		ResultSet rs;
 		String toReturn = "";
-		try 
-		{
+		try {
 			ps = conn.prepareStatement(getUserImageURL);
-			ps.setInt(1,userID);
+			ps.setInt(1, userID);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				toReturn = rs.getString("imageURL");
 			}
-		}
-		catch (SQLException e) 
-		{
+		} catch (SQLException e) {
 			System.out.println("SQL exception in Database getUserImageURLfromUserID");
 			System.out.println(e.getMessage());
 		}
-		
+
 		return toReturn;
 	}
 }
