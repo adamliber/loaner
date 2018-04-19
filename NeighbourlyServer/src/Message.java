@@ -1,4 +1,3 @@
-import javax.websocket.Session;
 
 public class Message {
 	protected String messageID;

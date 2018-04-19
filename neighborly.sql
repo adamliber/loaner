@@ -27,3 +27,6 @@ CREATE TABLE Items (
     returnRequest INT(1) NOT NULL,
     FOREIGN KEY fk1(ownerID) REFERENCES Users(userID)
 );
+
+INSERT INTO Users (email, name, password, borrow)
+VALUES("guest", "Guest", "guest", false);
