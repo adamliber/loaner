@@ -24,7 +24,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     private var model = ItemsModel.shared
-    
+    private var selectedItem:Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -226,5 +226,26 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch(segmentControl.selectedSegmentIndex){
+        case 0:
+            self.selectedItem = model.borrowedItems[indexPath.row]
+            break
+        case 1:
+            self.selectedItem = model.myItems[indexPath.row]
+            break
+        default:
+            break
+        }
+        
+        
+        self.performSegue(withIdentifier: "itemDescriptionSegue", sender: self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "itemDescriptionSegue" ){
+            let itemDescriptionVC = segue.destination as! ItemDescriptionViewController
+            itemDescriptionVC.currentItem = selectedItem
+        }
+    }
 }

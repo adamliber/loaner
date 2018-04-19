@@ -14,7 +14,7 @@ class ItemsModel{
     public var borrowedItems: [Item]
     public var myItems: [Item]
     public var searchResultItems: [Item]
-    
+    public var currentItem: Item
 
     
     
@@ -32,10 +32,11 @@ class ItemsModel{
         borrowedItems = [Item]()
         myItems = [Item]()
         searchResultItems = [Item]()
+        
         let camera = Item(name: "Camera", itemID: 1,imageURL: "", available: 1, description: "Sample Camera", longitude: 6.7, latitude: 7.8, ownerID: 1, borrowerID: 2 ,  request: 0, requestorID: 0, returnRequest: 0)
         
         let drill = Item(name: "drill", itemID: 1, imageURL: "", available: 1, description: "Sample Drill", longitude: 6.7, latitude: 7.8, ownerID: 1, borrowerID: 2 , request: 0, requestorID: 0, returnRequest: 0)
-        
+        currentItem = camera
         searchResultItems.append(camera)
         searchResultItems.append(drill)
         borrowedItems.append(drill )

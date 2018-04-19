@@ -10,6 +10,13 @@
 		0D397911CADC4B434C262780 /* Pods_NeighborlyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF350B9E6F2EBC89747392C /* Pods_NeighborlyUITests.framework */; };
 		6C6B86AA239F09F14B5C2292 /* Pods_Neighborly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688989A1CB9F7985D659AF77 /* Pods_Neighborly.framework */; };
 		6E1BF1ED55BF13583DEA182D /* Pods_NeighborlyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0124338C8A5344BD3FCEEF /* Pods_NeighborlyTests.framework */; };
+		BC14667F208813F000F982C4 /* RequestItemMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14667E208813F000F982C4 /* RequestItemMessage.swift */; };
+		BC1466812088147B00F982C4 /* ItemDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1466802088147B00F982C4 /* ItemDescriptionViewController.swift */; };
+		BC1466832088149100F982C4 /* AcceptRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1466822088149100F982C4 /* AcceptRequestMessage.swift */; };
+		BC146685208814A300F982C4 /* ReturnRequestAcceptMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC146684208814A300F982C4 /* ReturnRequestAcceptMessage.swift */; };
+		BC146687208814C900F982C4 /* ReturnRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC146686208814C900F982C4 /* ReturnRequestMessage.swift */; };
+		BC146689208814D600F982C4 /* DeclineRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC146688208814D600F982C4 /* DeclineRequestMessage.swift */; };
+		BC14668B208814DD00F982C4 /* ReturnRequestDeclineMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14668A208814DD00F982C4 /* ReturnRequestDeclineMessage.swift */; };
 		BC3328DA2082B3E500756829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328D92082B3E500756829 /* LoginViewController.swift */; };
 		BC3328DD2082D5A800756829 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328DC2082D5A800756829 /* Message.swift */; };
 		BC3328DF2082D6C400756829 /* SignupMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328DE2082D6C400756829 /* SignupMessage.swift */; };
@@ -71,6 +78,13 @@
 		8FF350B9E6F2EBC89747392C /* Pods_NeighborlyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeighborlyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AFAA056FEC3DA62A509211 /* Pods-Neighborly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighborly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Neighborly/Pods-Neighborly.debug.xcconfig"; sourceTree = "<group>"; };
 		9A41D09AD31CE4BC854CD371 /* Pods-NeighborlyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeighborlyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeighborlyUITests/Pods-NeighborlyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BC14667E208813F000F982C4 /* RequestItemMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestItemMessage.swift; sourceTree = "<group>"; };
+		BC1466802088147B00F982C4 /* ItemDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDescriptionViewController.swift; sourceTree = "<group>"; };
+		BC1466822088149100F982C4 /* AcceptRequestMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptRequestMessage.swift; sourceTree = "<group>"; };
+		BC146684208814A300F982C4 /* ReturnRequestAcceptMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnRequestAcceptMessage.swift; sourceTree = "<group>"; };
+		BC146686208814C900F982C4 /* ReturnRequestMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnRequestMessage.swift; sourceTree = "<group>"; };
+		BC146688208814D600F982C4 /* DeclineRequestMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclineRequestMessage.swift; sourceTree = "<group>"; };
+		BC14668A208814DD00F982C4 /* ReturnRequestDeclineMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnRequestDeclineMessage.swift; sourceTree = "<group>"; };
 		BC3328D92082B3E500756829 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC3328DC2082D5A800756829 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		BC3328DE2082D6C400756829 /* SignupMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupMessage.swift; sourceTree = "<group>"; };
@@ -175,6 +189,7 @@
 		BC14667A20873FA600F982C4 /* frontToBack */ = {
 			isa = PBXGroup;
 			children = (
+				BC14668C208814F800F982C4 /* itemActions */,
 				BC8C8DCF2084C4B2003CBAB5 /* UpdateUserPhotoMessage.swift */,
 				BC8C8DCD20845CA4003CBAB5 /* AccountInfoMessage.swift */,
 				BC3328E02082D79000756829 /* LoginMessage.swift */,
@@ -192,6 +207,19 @@
 				BC8C8DC92083FC72003CBAB5 /* SearchItemMessage.swift */,
 			);
 			path = backToFront;
+			sourceTree = "<group>";
+		};
+		BC14668C208814F800F982C4 /* itemActions */ = {
+			isa = PBXGroup;
+			children = (
+				BC14668A208814DD00F982C4 /* ReturnRequestDeclineMessage.swift */,
+				BC146688208814D600F982C4 /* DeclineRequestMessage.swift */,
+				BC14667E208813F000F982C4 /* RequestItemMessage.swift */,
+				BC1466822088149100F982C4 /* AcceptRequestMessage.swift */,
+				BC146684208814A300F982C4 /* ReturnRequestAcceptMessage.swift */,
+				BC146686208814C900F982C4 /* ReturnRequestMessage.swift */,
+			);
+			path = itemActions;
 			sourceTree = "<group>";
 		};
 		BC3328DB2082D55400756829 /* MessageClasses */ = {
@@ -237,6 +265,7 @@
 				BC745BEF207F0D4000C56844 /* ItemsModel.swift */,
 				BCE55A3720834C1B007DB8C6 /* persistance.swift */,
 				BC745BF12081963600C56844 /* Socket.swift */,
+				BC1466802088147B00F982C4 /* ItemDescriptionViewController.swift */,
 				BCD2DB6A2071FD640088B36B /* Main.storyboard */,
 				BCD2DB6D2071FD640088B36B /* Assets.xcassets */,
 				BCD2DB6F2071FD640088B36B /* LaunchScreen.storyboard */,
@@ -432,12 +461,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Neighborly/Pods-Neighborly-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
 				"${PODS_ROOT}/SendBirdSDK/SendBirdSDK.framework",
 				"${PODS_ROOT}/SendBirdSDK/SendBirdSDK.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SendBirdSDK.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/SendBirdSDK.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -515,7 +548,9 @@
 				BC3328E32082FCE000756829 /* UserInfoMessage.swift in Sources */,
 				BC8C8DCE20845CA4003CBAB5 /* AccountInfoMessage.swift in Sources */,
 				BC745BF0207F0D4000C56844 /* ItemsModel.swift in Sources */,
+				BC146687208814C900F982C4 /* ReturnRequestMessage.swift in Sources */,
 				BC3328DF2082D6C400756829 /* SignupMessage.swift in Sources */,
+				BC146685208814A300F982C4 /* ReturnRequestAcceptMessage.swift in Sources */,
 				BC8C8DCC2083FE59003CBAB5 /* ItemList.swift in Sources */,
 				BC3328DD2082D5A800756829 /* Message.swift in Sources */,
 				BCD2DBA220733DAB0088B36B /* MMDrawerVisualState.m in Sources */,
@@ -524,15 +559,20 @@
 				BCD2DB9520733CE00088B36B /* LeftSideMenuViewController.swift in Sources */,
 				BC745BEE207F056700C56844 /* Item.swift in Sources */,
 				BC3328E52083046700756829 /* User.swift in Sources */,
+				BC1466812088147B00F982C4 /* ItemDescriptionViewController.swift in Sources */,
 				BCD2DBA420733DAB0088B36B /* MMDrawerController.m in Sources */,
 				BCD2DBAB207AEA760088B36B /* AboutViewController.swift in Sources */,
 				BCD2DBA120733DAB0088B36B /* MMDrawerBarButtonItem.m in Sources */,
 				BCD2DBA9207AE1150088B36B /* MenuTableViewCell.swift in Sources */,
 				BC745BEC207EEB2400C56844 /* ItemCardTableViewCell.swift in Sources */,
+				BC146689208814D600F982C4 /* DeclineRequestMessage.swift in Sources */,
 				BCD2DBA320733DAB0088B36B /* UIViewController+MMDrawerController.m in Sources */,
 				BC3328DA2082B3E500756829 /* LoginViewController.swift in Sources */,
 				BCD2DB692071FD640088B36B /* ViewController.swift in Sources */,
+				BC14667F208813F000F982C4 /* RequestItemMessage.swift in Sources */,
+				BC14668B208814DD00F982C4 /* ReturnRequestDeclineMessage.swift in Sources */,
 				BCD2DB672071FD640088B36B /* AppDelegate.swift in Sources */,
+				BC1466832088149100F982C4 /* AcceptRequestMessage.swift in Sources */,
 				BC934627207BFF100050F81A /* PostViewController.swift in Sources */,
 				BCE55A3820834C1B007DB8C6 /* persistance.swift in Sources */,
 				BC3328E9208335CD00756829 /* SignupViewController.swift in Sources */,

@@ -17,6 +17,7 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
     public var user:User?
     @IBOutlet weak var searchResultTableView: UITableView!
     @IBOutlet weak var addPostButton: UIBarButtonItem!
+    private var selectedItem:Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,7 +133,18 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
         
             return cell
     }
-   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         self.selectedItem = model.searchResultItems[indexPath.row]
+        
+            self.performSegue(withIdentifier: "itemDescriptionSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "itemDescriptionSegue" ){
+            let itemDescriptionVC = segue.destination as! ItemDescriptionViewController
+            itemDescriptionVC.currentItem = selectedItem
+        }
+    }
     
     @objc func updateResults(){
         print("\n\nupdate results")
