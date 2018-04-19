@@ -29,4 +29,4 @@ CREATE TABLE Items (
 );
 
 INSERT INTO Users (email, name, password, borrow)
- VALUES("guest", "Guest User", "guest", false);
+VALUES("guest", "Guest", "guest", false);
