@@ -1,9 +1,3 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -65,6 +59,7 @@ public class Database {
 	static String getOwnerIDbyItemID = "SELECT ownerID FROM Items WHERE itemID =?";
 	static String updateUserImageURL = "UPDATE Users " + "SET imageURL = ? WHERE userID = ?;";
 	static String getUserImageURL = "SELECT imageURL FROM Users Where userID=?";
+	static String deleteItemSQL = "DELETE FROM Items WHERE itemID=?;";
 
 	Database() {
 		try {
@@ -248,8 +243,8 @@ public class Database {
 	}
 
 	public int returnRequest(int itemID) {
-		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
-		int ownerID = getItembyID(itemID).getOwnerID();
+		//int currentBorrowerID = getItembyID(itemID).getBorrowerID();
+		//int ownerID = getItembyID(itemID).getOwnerID();
 
 		try {
 
@@ -265,14 +260,12 @@ public class Database {
 		}
 
 		return -1;
-		// send message to borrowerID that requestItem has happened
-		// send message to ownerID that item wants to be returned
 	}
 
 	public int returnRequestAccept(int itemID) {
 
-		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
-		int ownerID = getItembyID(itemID).getOwnerID();
+//		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
+//		int ownerID = getItembyID(itemID).getOwnerID();
 
 		try {
 
@@ -294,7 +287,7 @@ public class Database {
 
 	public int returnRequestDecline(int itemID) {
 
-		int currentBorrowerID = getItembyID(itemID).getBorrowerID();
+		//int currentBorrowerID = getItembyID(itemID).getBorrowerID();
 
 		try {
 
@@ -534,5 +527,20 @@ public class Database {
 		}
 
 		return toReturn;
+	}
+	
+	public int deleteItem(int itemID)
+	{
+		try {
+			ps = conn.prepareStatement(deleteItemSQL);
+			ps.setInt(1, itemID);
+			ps.executeUpdate();
+			return 1;
+		} catch (SQLException e) {
+			System.out.println("SQL exception in Database updateUserPhoto");
+			System.out.println(e.getMessage());
+		}
+
+		return -1;
 	}
 }

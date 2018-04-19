@@ -52,18 +52,11 @@ public class ServerSocket {
 			} catch (IOException e) {
 				System.out.println("IOException in signup");
 			}
-<<<<<<< HEAD
-
-		} else if (messageID.trim().equals("login")) {
-			m = gson.fromJson(message, LoginMessage.class);
-=======
-			
 		}
 		else if(messageID.trim().equals("login"))
 		{
 			System.out.println("daniyal is the man login!!!!!!");
 			m = gson.fromJson(message,LoginMessage.class);
->>>>>>> f6cdd52b6bce607b0ebd71afd3f02d4030451ca8
 			String email = ((LoginMessage) m).getEmail();
 			String password = ((LoginMessage) m).getPassword();
 			String toWrite = "";
@@ -88,7 +81,6 @@ public class ServerSocket {
 		} else if (messageID.trim().equals("postItem")) {
 			String toWrite = "";
 			m = gson.fromJson(message, PostItemMessage.class);
-			m = m;
 			int ownerID = ((PostItemMessage) m).getOwnerID();
 			String itemName = ((PostItemMessage) m).getItemName();
 			String description = ((PostItemMessage) m).getItemDescription();
@@ -315,9 +307,32 @@ public class ServerSocket {
 				System.out.println("IOException in searching items in server socket in java");
 				toWrite = gson.toJson(new Message("invalid"));
 			}
-		} else {
+		} 
+		else if(messageID.trim().equals("deleteItem"))
+		{
+			String toWrite = "";
+			m = gson.fromJson(message, deleteItemMessage.class);
+			int itemID = ((deleteItemMessage)m).getItemID();
+			int x = database.deleteItem(itemID);
+			if(x == -1)
+			{
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+			else
+			{
+				toWrite = gson.toJson(new Message("valid"));
+			}
+			try {
+				session.getBasicRemote().sendText(toWrite);
+			} catch (IOException e) {
+				System.out.println("IOException in deleting item in server socket in java");
+				toWrite = gson.toJson(new Message("invalid"));
+			}
+		}
+		else {
 			System.out.println("wrong messageID");
 		}
+		
 	}
 
 	@OnClose
