@@ -56,6 +56,21 @@ public class Database {
 			+ " longitude) - radians(?) ) + sin( pi( ) /2 - radians( 90"
 			+ " - latitude) ) * sin( pi( ) /2 - radians( 90 - ? ) ) ) <1 )" + "GROUP BY itemID HAVING Distance < ?"
 			+ "ORDER BY Distance";
+	static String searchString2 = "SELECT *," + 
+			"3956 * 2 * ASIN(SQRT(POWER(SIN((?-ABS(latitude)) * PI()/180/2),2) + COS(? * PI()/180) * COS(ABS(latitude) * PI()/180) * POWER(SIN((?-longitude) * PI()/180/2),2))) AS distance" + 
+			" FROM Items AS loc" + 
+			" WHERE longitude BETWEEN (? - ? / ABS(COS(RADIANS(?))*69)) AND (?+? / ABS(COS(RADIANS(?)) * 69))" + 
+			" AND latitude BETWEEN (?-(?/69)) AND (?+(?/69))" + 
+			" AND MATCH(itemName,itemDescription) AGAINST (?)" +
+			" HAVING distance < ?" + 
+			" ORDER BY distance ASC";
+	static String returnAllItemsWithinArea2 = "SELECT *," + 
+			"3956 * 2 * ASIN(SQRT(POWER(SIN((?-ABS(latitude)) * PI()/180/2),2) + COS(? * PI()/180) * COS(ABS(latitude) * PI()/180) * POWER(SIN((?-longitude) * PI()/180/2),2))) AS distance" + 
+			" FROM Items AS loc" + 
+			" WHERE longitude BETWEEN (? - ? / ABS(COS(RADIANS(?))*69)) AND (?+? / ABS(COS(RADIANS(?)) * 69))" + 
+			" AND latitude BETWEEN (?-(?/69)) AND (?+(?/69))" + 
+			" HAVING distance < ?" + 
+			" ORDER BY distance ASC";
 	static String getOwnerIDbyItemID = "SELECT ownerID FROM Items WHERE itemID =?";
 	static String updateUserImageURL = "UPDATE Users " + "SET imageURL = ? WHERE userID = ?;";
 	static String getUserImageURL = "SELECT imageURL FROM Users Where userID=?";
@@ -151,7 +166,6 @@ public class Database {
 			ps.setInt(2, ownerID);
 			ps.setString(3, imageURL);
 			ps.setString(4, description);
-			System.out.println("set string: " + description);
 			ps.setDouble(5, latitude);
 			ps.setDouble(6, longitude);
 			ps.setInt(7, 1);
@@ -322,8 +336,6 @@ public class Database {
 			int request = rs.getInt("request");
 			int requestorID = rs.getInt("requestorID");
 			int returnRequest = rs.getInt("returnRequest");
-			System.out.println("description: " + itemDescription);
-			System.out.println("name: " + itemName);
 			return new Item(itemID, itemName, itemDescription, imageURL, ownerID, borrowerID, latitude, longitude,
 					available, request, requestorID, returnRequest);
 		} catch (SQLException e) {
@@ -365,21 +377,28 @@ public class Database {
 			int distanceInMiles) {
 
 		ArrayList<Item> toReturn = new ArrayList<Item>();
-		double distanceInKM = (distanceInMiles * 1.60934);
 
 		ResultSet rs;
 		try {
 			ps = conn.prepareStatement(preppingForSearch2);
 			ps.executeUpdate();
-			ps = conn.prepareStatement(searchString);
+			ps = conn.prepareStatement(searchString2);
 			ps.setDouble(1, latitude);
-			ps.setDouble(2, longitude);
-			ps.setDouble(3, latitude);
-			ps.setDouble(4, latitude);
-			ps.setDouble(5, longitude);
+			ps.setDouble(2, latitude);
+			ps.setDouble(3, longitude);
+			ps.setDouble(4, longitude);
+			ps.setDouble(5, distanceInMiles);
 			ps.setDouble(6, latitude);
-			ps.setString(7, searchTerm);
-			ps.setDouble(8, distanceInKM);
+			ps.setDouble(7, longitude);
+			ps.setDouble(8, distanceInMiles);
+			ps.setDouble(9, latitude);
+			ps.setDouble(10, latitude);
+			ps.setDouble(11, distanceInMiles);
+			ps.setDouble(12, latitude);
+			ps.setDouble(13, distanceInMiles);
+			ps.setString(14, searchTerm);
+			ps.setDouble(15, distanceInMiles);
+			
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -470,20 +489,27 @@ public class Database {
 
 	public ArrayList<Item> getAllItemsInDatabase(double latitude, double longitude, int distanceInMiles) {
 		ArrayList<Item> toReturn = new ArrayList<Item>();
-		double distanceInKM = (distanceInMiles * 1.60934);
 
 		ResultSet rs;
 		try {
-			ps = conn.prepareStatement(returnAllItemsWithinArea);
+			ps = conn.prepareStatement(returnAllItemsWithinArea2);
 			ps.setDouble(1, latitude);
-			ps.setDouble(2, longitude);
-			ps.setDouble(3, latitude);
-			ps.setDouble(4, latitude);
-			ps.setDouble(5, longitude);
+			ps.setDouble(2, latitude);
+			ps.setDouble(3, longitude);
+			ps.setDouble(4, longitude);
+			ps.setDouble(5, distanceInMiles);
 			ps.setDouble(6, latitude);
-			ps.setDouble(7, distanceInKM);
+			ps.setDouble(7, longitude);
+			ps.setDouble(8, distanceInMiles);
+			ps.setDouble(9, latitude);
+			ps.setDouble(10, latitude);
+			ps.setDouble(11, distanceInMiles);
+			ps.setDouble(12, latitude);
+			ps.setDouble(13, distanceInMiles);
+			ps.setDouble(14, distanceInMiles);
+			System.out.println(ps.toString());
 			rs = ps.executeQuery();
-
+			
 			while (rs.next()) {
 				int itemID = rs.getInt("itemID");
 				toReturn.add(getItembyID(itemID));
