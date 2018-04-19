@@ -221,7 +221,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.itemStatusLabel.backgroundColor = UIColor.green
         }else{
             cell.itemStatusLabel.text = "Unavailable"
-            cell.itemStatusLabel.backgroundColor = UIColor.red
+            cell.itemStatusLabel.backgroundColor = UIColor.orange
         }
         
         return cell

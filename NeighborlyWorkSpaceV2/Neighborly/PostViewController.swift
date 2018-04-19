@@ -28,9 +28,11 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
         self.user = loadUser()!
+        postButton.setTitleColor(UIColor.white, for: .disabled)
         itemNameField.delegate = self
         descriptionTextView.delegate = self
         postButton.isEnabled = false
+        
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard) )
         self.view.addGestureRecognizer(singleTap)
         // Do any additional setup after loading the view.
@@ -59,6 +61,8 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadSearchResults"), object: nil)
             
     
+        }else if(itemList.message == "invalid"){
+            postButton.isEnabled = true
         }
         
     }
@@ -121,7 +125,7 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
             postButton.isEnabled = true
         }
     }
-    
+   
     func textFieldShouldReturn(_ textField:UITextField) -> Bool {
         self.view.endEditing(true)
         return true
@@ -144,7 +148,7 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
             print("account profile image result: \(String(describing: result?.publicId))")
             
           
-            
+            self.postButton.isEnabled = false
             let postItemMessage = PostItemMessage( ownerID: self.user!.userID , imageURL: imageURL!, itemName: self.itemNameField.text!, itemDescription: self.descriptionTextView.text!, longitude: 1.0, latitude: 1.0)
             let encoder = JSONEncoder()
             
@@ -152,6 +156,8 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
                 let data = try encoder.encode(postItemMessage)
                 socket.write(string: String(data: data, encoding: .utf8)!)
             }catch{ }
+            
+            
         }
         
         

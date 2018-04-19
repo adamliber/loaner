@@ -27,7 +27,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
         socket.delegate = self
         searchModalView.layer.cornerRadius = 10
         searchModalView.layer.masksToBounds = true
-        
+        searchButton.setTitleColor(UIColor.white, for: .disabled)
         // Do any additional setup after loading the view.
     }
     
@@ -56,6 +56,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
             
              NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadSearchResults"), object: nil)
             
+        }else if(itemList.message == "invalid"){
+            self.searchButton.isEnabled = true
         }
     }
     
@@ -74,6 +76,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
     }
     
     @IBAction func searchSubmitted(_ sender: Any) {
+        searchButton.isEnabled = false
         let searchItemMessage = SearchItemMessage(searchTerm: itemSearchField.text!, longitude: 1.0, latitude: 1.0, distance: NSInteger(distanceSlider.value) )
         let encoder = JSONEncoder()
         
@@ -81,9 +84,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
             let data = try encoder.encode(searchItemMessage)
             socket.write(string: String(data: data, encoding: .utf8)!)
             
-        }catch{
-            
-        }
+        }catch{}
+        
     }
     
   
