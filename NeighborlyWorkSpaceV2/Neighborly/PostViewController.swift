@@ -241,6 +241,7 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     }
     
     @IBAction func PostSubmitted(_ sender: Any) {
+        self.postButton.isEnabled = false
         
         cloudinary.createUploader().upload(data: imageData!, uploadPreset: "szxnywdo"){
             result, error in
@@ -248,8 +249,6 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
             print("account profile image upload error:  \(String(describing: error))")
             print("account profile image result: \(String(describing: result?.publicId))")
             
-          
-            self.postButton.isEnabled = false
             
             let postItemMessage = PostItemMessage( ownerID: self.user!.userID , imageURL: imageURL!, itemName: self.itemNameField.text!, itemDescription: self.descriptionTextView.text!, longitude: self.locationLongitude, latitude: self.locationLatitude)
             

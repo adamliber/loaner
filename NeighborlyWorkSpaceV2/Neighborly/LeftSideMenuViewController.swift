@@ -37,7 +37,7 @@ class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITabl
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
-        user? = User(userID: 0, name: "", email: "", image: nil)
+        user? = User(userID: 0, name: "", email: "", image: UIImage(named:"DefaultUserIcon") )
         user?.saveUser()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMenu"), object: nil)
     

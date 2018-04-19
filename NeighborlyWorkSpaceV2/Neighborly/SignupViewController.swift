@@ -24,7 +24,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate,WebSocketDelega
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("Signup Socket disconnected")
+        print("Signup Socket disconnected. error: \(error)")
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
@@ -43,6 +43,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate,WebSocketDelega
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadAccount"), object: nil)
             user.saveUser()
         }else if (userInfo.message == "invalid"){
+            submitButton.isEnabled = true
             errorLabel.text = "Email is Taken"
             emailField.text = ""
         }
@@ -84,6 +85,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate,WebSocketDelega
     
     @IBAction func submitButtonClicked(_ sender: Any) {
         let encoder = JSONEncoder()
+        submitButton.isEnabled = false
         let signupMessage = SignupMessage(messageID: "signUp", message: "", name: nameField.text!, email: emailField.text!, password: password1Field.text!)
         do{
             let data = try encoder.encode(signupMessage)

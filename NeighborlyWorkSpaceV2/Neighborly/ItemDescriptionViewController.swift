@@ -89,6 +89,7 @@ class ItemDescriptionViewController: UIViewController, WebSocketDelegate {
          
          }
          */
+    if(user?.email != "guest"){
         if (user?.userID == currentItem?.ownerID)
         {
             requestButton.setTitle("Accept", for: .normal)
@@ -145,55 +146,12 @@ class ItemDescriptionViewController: UIViewController, WebSocketDelegate {
         
         
         
-        //        if (currentItem?.ownerID == user?.userID)
-        //        {
-        //            if(currentItem?.request == 1 || currentItem?.borrowerID != -1){
-        //                requestButton.setTitle("Accept",for: .normal)
-        //                messageButton.setTitle("Decline",for: .normal)
-        //            }
-        //            else{
-        //                requestButton.setTitle("Accepted",for: .normal)
-        //                messageButton.setTitle("Declined",for: .normal)
-        //                requestButton.isEnabled = false
-        //                messageButton.isEnabled = false
-        //                requestButton.backgroundColor = UIColor.lightGray
-        //                messageButton.backgroundColor = UIColor.lightGray
-        //            }
-        //
-        //        }
-        //        else{
-        //            if(currentItem?.borrowerID == -1){
-        //                if(currentItem?.requestorID == -1){
-        //
-        //                }
-        //                else if(currentItem?.requestorID == user?.userID){
-        //                    requestButton.setTitle("Requested",for: .normal)
-        //                    requestButton.isEnabled = false
-        //                    requestButton.backgroundColor = UIColor.lightGray
-        //                }
-        //                else {
-        //                    requestButton.setTitle("Unavailable",for: .normal)
-        //                    requestButton.isEnabled = false
-        //                    requestButton.backgroundColor = UIColor.lightGray
-        //                }
-        //            }
-        //            else if(currentItem?.borrowerID == user?.userID){
-        //                if(currentItem?.returnRequest == 0){
-        //                    requestButton.setTitle("Return",for: .normal)
-        //                }
-        //                else{
-        //                    requestButton.setTitle("Return",for: .normal)
-        //                    requestButton.isEnabled = false
-        //                    requestButton.backgroundColor = UIColor.lightGray
-        //                }
-        //            }
-        //            else{
-        //                requestButton.setTitle("Unavailable",for: .normal)
-        //                requestButton.isEnabled = false
-        //                requestButton.backgroundColor = UIColor.lightGray
-        //            }
         
-        //        }
+    }else{
+        messageButton.isHidden = true
+        requestButton.isHidden = true
+        
+        }
         
     }
     

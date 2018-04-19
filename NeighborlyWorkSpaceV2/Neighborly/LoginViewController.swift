@@ -35,7 +35,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
         print("message received:  \(userInfo.message)" )
         print("\nmy Items received: \(String(describing: userInfo.myItems?.first?.itemName))" )
         
-        if(userInfo.message == "valid"){
+        if(userInfo.message == "valid" && userInfo.userID != nil){
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = appDelegate.centerContainer
             let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
@@ -56,6 +56,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
             
             
         }else{
+            loginButton.isEnabled = true
             errorLabel.text = "Invalid User. Try Again."
             emailField.text = ""
             passwordTextfield.text = ""
@@ -98,7 +99,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
         return true
     }
     @IBAction func loginClicked(_ sender: Any) {
-        
+        loginButton.isEnabled = false
         let loginMessage = LoginMessage( message: "", email: emailField.text!, password: passwordTextfield.text!)
         let encoder = JSONEncoder()
         
