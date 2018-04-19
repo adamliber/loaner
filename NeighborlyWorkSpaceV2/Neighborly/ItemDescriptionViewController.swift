@@ -10,11 +10,11 @@ import UIKit
 import Starscream
 
 class ItemDescriptionViewController: UIViewController, WebSocketDelegate {
-//    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-//
-//    }
-//
-
+    //    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+    //
+    //    }
+    //
+    
     var tempItemID = 1
     public var user:User?
     var currentItem:Item?
@@ -28,12 +28,14 @@ class ItemDescriptionViewController: UIViewController, WebSocketDelegate {
     
     
     
- 
+    
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     @IBOutlet weak var deleteItemLabel: UIButton!
     @IBOutlet weak var itemAvailabiltyLabel: UILabel!
+    @IBOutlet weak var itemDistanceLabel: UILabel!
+    
     
     
     
@@ -42,6 +44,7 @@ class ItemDescriptionViewController: UIViewController, WebSocketDelegate {
         socket.delegate = self
         
         self.user = loadUser()!
+        
         itemNameLabel.text = currentItem?.itemName
         itemDescriptionLabel.text = currentItem?.itemDescription
         if(currentItem?.imageURL != ""){
@@ -62,71 +65,138 @@ class ItemDescriptionViewController: UIViewController, WebSocketDelegate {
             itemAvailabiltyLabel.textColor = UIColor.red
         }
         
-        /*
-        let itemMessage = GetItemInfo(message: "", itemID: tempItemID)
-        let encoder = JSONEncoder()
-        
-        do{
-            let data = try encoder.encode(itemMessage)
-            socket.write(string: String(data: data, encoding: .utf8)!)
-            
-        }catch{
+        if(currentItem?.ownerID == user?.userID){
+            let label = itemDistanceLabel
+            label?.text = "My Item"
+            label?.backgroundColor = UIColor.blue
+            label?.textColor = UIColor.white
+            label?.layer.cornerRadius = 6
+            label?.layer.masksToBounds = true
             
         }
- */
-       
-        if (currentItem?.ownerID == user?.userID)
+        
+        
+        //let itemMessage = GetItemInfo(message: "", itemID: tempItemID)
+        /*
+         let encoder = JSONEncoder()
+         
+         do{
+         let data = try encoder.encode(itemMessage)
+         socket.write(string: String(data: data, encoding: .utf8)!)
+         
+         
+         }catch{
+         
+         }
+         */
+        if (user?.userID == currentItem?.ownerID)
         {
-            if(currentItem?.request == 1 || currentItem?.borrowerID != -1){
-                requestButton.setTitle("Accept",for: .normal)
-                messageButton.setTitle("Decline",for: .normal)
+            requestButton.setTitle("Accept", for: .normal)
+            messageButton.setTitle("Decline", for: .normal)
+            if (currentItem?.requestorID != -1 || (currentItem?.borrowerID != -1 && currentItem?.returnRequest == 1 ))
+            {
+                
             }
-            else{
-                requestButton.setTitle("Accepted",for: .normal)
-                messageButton.setTitle("Declined",for: .normal)
+            else
+            {
                 requestButton.isEnabled = false
                 messageButton.isEnabled = false
                 requestButton.backgroundColor = UIColor.lightGray
                 messageButton.backgroundColor = UIColor.lightGray
             }
-            
         }
-        else{
-            if(currentItem?.borrowerID == -1){
-                if(currentItem?.requestorID == -1){
-                    
-                }
-                else if(currentItem?.requestorID == user?.userID){
-                    requestButton.setTitle("Requested",for: .normal)
-                    requestButton.isEnabled = false
-                    requestButton.backgroundColor = UIColor.lightGray
-                }
-                else {
-                    requestButton.setTitle("Unavailable",for: .normal)
-                    requestButton.isEnabled = false
-                    requestButton.backgroundColor = UIColor.lightGray
-                }
-            }
-            else if(currentItem?.borrowerID == user?.userID){
-                if(currentItem?.returnRequest == 0){
-                    requestButton.setTitle("Return",for: .normal)
-                }
-                else{
-                    requestButton.setTitle("Return",for: .normal)
-                    requestButton.isEnabled = false
-                    requestButton.backgroundColor = UIColor.lightGray
-                }
-            }
-            else{
-                requestButton.setTitle("Unavailable",for: .normal)
-                requestButton.isEnabled = false
+        else if (user?.userID == currentItem?.requestorID)
+        {
+            requestButton.setTitle("Requested", for: .normal)
+            requestButton.isEnabled = false
+            requestButton.backgroundColor = UIColor.lightGray
+            messageButton.isHidden = true
+        }
+        else if (user?.userID == currentItem?.borrowerID)
+        {
+            if (currentItem?.returnRequest == 1)
+            {
+                requestButton.setTitle("Return Requested", for: .normal)
                 requestButton.backgroundColor = UIColor.lightGray
+                requestButton.isEnabled = false
+                messageButton.isHidden = true
             }
-       
+            else
+            {
+                requestButton.setTitle("Request Return", for: .normal)
+                messageButton.isHidden = true
+            }
         }
-    
+        else
+        {
+            if (currentItem?.requestorID != -1 || currentItem?.borrowerID != -1)
+            {
+                requestButton.setTitle("Unavailable", for: .normal)
+                requestButton.backgroundColor = UIColor.lightGray
+                requestButton.isEnabled = false
+                messageButton.isHidden = true
+            }
+            else
+            {
+                requestButton.setTitle("Request", for: .normal)
+                messageButton.isHidden = true
+            }
+        }
+        
+        
+        
+        //        if (currentItem?.ownerID == user?.userID)
+        //        {
+        //            if(currentItem?.request == 1 || currentItem?.borrowerID != -1){
+        //                requestButton.setTitle("Accept",for: .normal)
+        //                messageButton.setTitle("Decline",for: .normal)
+        //            }
+        //            else{
+        //                requestButton.setTitle("Accepted",for: .normal)
+        //                messageButton.setTitle("Declined",for: .normal)
+        //                requestButton.isEnabled = false
+        //                messageButton.isEnabled = false
+        //                requestButton.backgroundColor = UIColor.lightGray
+        //                messageButton.backgroundColor = UIColor.lightGray
+        //            }
+        //
+        //        }
+        //        else{
+        //            if(currentItem?.borrowerID == -1){
+        //                if(currentItem?.requestorID == -1){
+        //
+        //                }
+        //                else if(currentItem?.requestorID == user?.userID){
+        //                    requestButton.setTitle("Requested",for: .normal)
+        //                    requestButton.isEnabled = false
+        //                    requestButton.backgroundColor = UIColor.lightGray
+        //                }
+        //                else {
+        //                    requestButton.setTitle("Unavailable",for: .normal)
+        //                    requestButton.isEnabled = false
+        //                    requestButton.backgroundColor = UIColor.lightGray
+        //                }
+        //            }
+        //            else if(currentItem?.borrowerID == user?.userID){
+        //                if(currentItem?.returnRequest == 0){
+        //                    requestButton.setTitle("Return",for: .normal)
+        //                }
+        //                else{
+        //                    requestButton.setTitle("Return",for: .normal)
+        //                    requestButton.isEnabled = false
+        //                    requestButton.backgroundColor = UIColor.lightGray
+        //                }
+        //            }
+        //            else{
+        //                requestButton.setTitle("Unavailable",for: .normal)
+        //                requestButton.isEnabled = false
+        //                requestButton.backgroundColor = UIColor.lightGray
+        //            }
+        
+        //        }
+        
     }
-
+    
     @IBAction func rightButtonClicked(_ sender: Any) {
         
         print("here")
@@ -162,37 +232,37 @@ class ItemDescriptionViewController: UIViewController, WebSocketDelegate {
         if (currentItem?.ownerID == user?.userID && currentItem?.requestorID != -1 && currentItem?.borrowerID == -1){
             let acceptRequestMessage = AcceptRequestMessage(itemID: (currentItem?.itemID)!, borrowerID: (currentItem?.requestorID)!)
             let encoder = JSONEncoder()
-
+            
             do {
                 let data = try encoder.encode(acceptRequestMessage)
                 socket.write(string: String(data: data, encoding: .utf8)!)
             }catch{
-
+                
             }
         }
-   
+        
         if(currentItem?.borrowerID == user?.userID && currentItem?.returnRequest == 0){
             let returnRequestMessage = ReturnRequestMessage(itemID: (currentItem?.itemID)!)
-                let encoder = JSONEncoder()
+            let encoder = JSONEncoder()
+            
+            do {
+                let data = try encoder.encode(returnRequestMessage)
+                socket.write(string: String(data: data, encoding: .utf8)!)
+            }catch{
                 
-                do {
-                    let data = try encoder.encode(returnRequestMessage)
-                    socket.write(string: String(data: data, encoding: .utf8)!)
-                }catch{
-                    
-                }
+            }
         }
-
+        
         if(currentItem?.ownerID==user?.userID && currentItem?.borrowerID != -1 && currentItem?.returnRequest == 1){
-                let returnRequestAcceptMessage = ReturnRequestAcceptMessage(itemID: (currentItem?.itemID)!)
-                let encoder = JSONEncoder()
+            let returnRequestAcceptMessage = ReturnRequestAcceptMessage(itemID: (currentItem?.itemID)!)
+            let encoder = JSONEncoder()
+            
+            do {
+                let data = try encoder.encode(returnRequestAcceptMessage)
+                socket.write(string: String(data: data, encoding: .utf8)!)
+            }catch{
                 
-                do {
-                    let data = try encoder.encode(returnRequestAcceptMessage)
-                    socket.write(string: String(data: data, encoding: .utf8)!)
-                }catch{
-                    
-                }
+            }
         }
         
         if(currentItem?.ownerID != user?.userID && currentItem?.request == 0 && currentItem?.borrowerID == -1){
@@ -217,7 +287,7 @@ class ItemDescriptionViewController: UIViewController, WebSocketDelegate {
                 
             }
         }
-       
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -280,7 +350,7 @@ class ItemDescriptionViewController: UIViewController, WebSocketDelegate {
             messageButton.isEnabled = false
             messageButton.backgroundColor = UIColor.lightGray
         }
-
+        
         
     }
     
@@ -289,15 +359,15 @@ class ItemDescriptionViewController: UIViewController, WebSocketDelegate {
     }
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

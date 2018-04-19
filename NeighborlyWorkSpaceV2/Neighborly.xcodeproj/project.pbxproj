@@ -17,6 +17,7 @@
 		BC146687208814C900F982C4 /* ReturnRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC146686208814C900F982C4 /* ReturnRequestMessage.swift */; };
 		BC146689208814D600F982C4 /* DeclineRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC146688208814D600F982C4 /* DeclineRequestMessage.swift */; };
 		BC14668B208814DD00F982C4 /* ReturnRequestDeclineMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14668A208814DD00F982C4 /* ReturnRequestDeclineMessage.swift */; };
+		BC14668E208852AA00F982C4 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14668D208852AA00F982C4 /* PlaceViewController.swift */; };
 		BC3328DA2082B3E500756829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328D92082B3E500756829 /* LoginViewController.swift */; };
 		BC3328DD2082D5A800756829 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328DC2082D5A800756829 /* Message.swift */; };
 		BC3328DF2082D6C400756829 /* SignupMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3328DE2082D6C400756829 /* SignupMessage.swift */; };
@@ -85,6 +86,7 @@
 		BC146686208814C900F982C4 /* ReturnRequestMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnRequestMessage.swift; sourceTree = "<group>"; };
 		BC146688208814D600F982C4 /* DeclineRequestMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclineRequestMessage.swift; sourceTree = "<group>"; };
 		BC14668A208814DD00F982C4 /* ReturnRequestDeclineMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnRequestDeclineMessage.swift; sourceTree = "<group>"; };
+		BC14668D208852AA00F982C4 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		BC3328D92082B3E500756829 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC3328DC2082D5A800756829 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		BC3328DE2082D6C400756829 /* SignupMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupMessage.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				BC3328D92082B3E500756829 /* LoginViewController.swift */,
 				BC3328E8208335CD00756829 /* SignupViewController.swift */,
 				BCD2DBAA207AEA760088B36B /* AboutViewController.swift */,
+				BC14668D208852AA00F982C4 /* PlaceViewController.swift */,
 				BCD2DB722071FD640088B36B /* Info.plist */,
 			);
 			path = Neighborly;
@@ -331,6 +334,7 @@
 				BCD2DB602071FD640088B36B /* Frameworks */,
 				BCD2DB612071FD640088B36B /* Resources */,
 				58859E60923FCB9D49051CE6 /* [CP] Embed Pods Frameworks */,
+				D5E7E3BBB49168BD2A43C977 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -534,6 +538,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D5E7E3BBB49168BD2A43C977 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Neighborly/Pods-Neighborly-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Neighborly/Pods-Neighborly-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -558,6 +584,7 @@
 				BC93462B207C73A80050F81A /* AccountViewController.swift in Sources */,
 				BCD2DB9520733CE00088B36B /* LeftSideMenuViewController.swift in Sources */,
 				BC745BEE207F056700C56844 /* Item.swift in Sources */,
+				BC14668E208852AA00F982C4 /* PlaceViewController.swift in Sources */,
 				BC3328E52083046700756829 /* User.swift in Sources */,
 				BC1466812088147B00F982C4 /* ItemDescriptionViewController.swift in Sources */,
 				BCD2DBA420733DAB0088B36B /* MMDrawerController.m in Sources */,

@@ -8,6 +8,8 @@
 
 import UIKit
 import Starscream
+import GooglePlacePicker
+import GoogleMaps
 
 
 class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDelegate {
@@ -22,9 +24,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
     @IBOutlet weak var searchLocationField: UITextField!
     
     
+    var placesClient:GMSPlacesClient!
+    var locationLatitude: Double!
+    var locationLongitude: Double!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         socket.delegate = self
+        placesClient = GMSPlacesClient.shared()
+        locationLatitude = 0
+        locationLongitude = 0
+        getCurrentPlace()
         searchModalView.layer.cornerRadius = 10
         searchModalView.layer.masksToBounds = true
         searchButton.setTitleColor(UIColor.white, for: .disabled)
@@ -75,9 +85,49 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
         dismiss(animated: true, completion: nil)
     }
     
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        searchButton.isEnabled = false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        if( itemSearchField.text != "" && locationLongitude != 0 && locationLatitude != 0 ){
+            searchButton.isEnabled = true
+        }
+    }
+    
+    
+    @IBAction func sliderValueChanged(_ sender: Any) {
+        distanceLabel.text = "Max Distance: \(NSInteger(distanceSlider.value)) miles"
+    }
+    
+    func getCurrentPlace() {
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            
+            if let placeLikelihoodList = placeLikelihoodList {
+                let place = placeLikelihoodList.likelihoods.first?.place
+                if let place = place {
+                    self.locationLatitude = place.coordinate.latitude
+                    self.locationLongitude = place.coordinate.longitude
+                }
+            }
+            if(self.itemSearchField.text != "" && self.locationLongitude != 0 && self.locationLatitude != 0 ){
+                self.searchButton.isEnabled = true
+            }
+        })
+        
+    }
+    
+    
     @IBAction func searchSubmitted(_ sender: Any) {
         searchButton.isEnabled = false
-        let searchItemMessage = SearchItemMessage(searchTerm: itemSearchField.text!, longitude: 1.0, latitude: 1.0, distance: NSInteger(distanceSlider.value) )
+        let searchItemMessage = SearchItemMessage(searchTerm: itemSearchField.text!, longitude: locationLongitude, latitude: locationLatitude, distance: NSInteger(distanceSlider.value) )
         let encoder = JSONEncoder()
         
         do{
@@ -89,23 +139,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, WebSocketDele
     }
     
   
-    
-
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        searchButton.isEnabled = false
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        if( itemSearchField.text != "" && searchLocationField.text != "" ){
-            searchButton.isEnabled = true
-        }
-    }
-
-    
-    @IBAction func sliderValueChanged(_ sender: Any) {
-        distanceLabel.text = "Max Distance: \(NSInteger(distanceSlider.value))"
-    }
+  
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -43,7 +43,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,WebSocketDelegat
             let mainNavController = UINavigationController(rootViewController: mainViewController)
             appDelegate.centerContainer!.centerViewController = mainNavController
             var profileImage = UIImage(named: "DefaultUserIcon")
-            if(userInfo.imageURL != ""){
+            if(userInfo.imageURL != "" && userInfo.imageURL != nil){
                 let url = URL(string: (userInfo.imageURL)!)
                 let data = try? Data(contentsOf: url!)
                 profileImage =  UIImage(data: data!)

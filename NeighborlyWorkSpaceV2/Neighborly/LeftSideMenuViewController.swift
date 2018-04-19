@@ -96,7 +96,7 @@ class LeftSideMenuViewController: UIViewController , UITableViewDelegate, UITabl
         if(user?.email == "guest"){
             menuItems =  ["Search Items" , "About" ]
         }else{
-            menuItems =  ["Search Items", "Account", "Messages" , "About" ]
+            menuItems =  ["Search Items", "Account" , "About" ]
         }
         
          menuTableView.reloadData()

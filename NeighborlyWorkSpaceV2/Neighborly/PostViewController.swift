@@ -9,6 +9,8 @@
 import UIKit
 import Starscream
 import Cloudinary
+import GooglePlacePicker
+import GoogleMaps
 
 class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate,WebSocketDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
@@ -22,16 +24,32 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     var encodedImg:String = ""
     var imageData:Data?
     
+    var placesClient:GMSPlacesClient!
+    
+    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var locationPickerButton: UIButton!
+    
+    var locationLatitude: Double!
+    var locationLongitude: Double!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         socket.delegate = self
+        placesClient = GMSPlacesClient.shared()
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
+        locationLatitude = 0
+        locationLongitude = 0
         self.user = loadUser()!
         postButton.setTitleColor(UIColor.white, for: .disabled)
         itemNameField.delegate = self
         descriptionTextView.delegate = self
         postButton.isEnabled = false
+        
+        currentLocationButton.layer.borderWidth = 0.5
+        locationPickerButton.layer.borderWidth = 0.5
+        currentLocationButton.layer.borderColor = UIColor.clear.cgColor
+        locationPickerButton.layer.borderColor = UIColor.clear.cgColor
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard) )
         self.view.addGestureRecognizer(singleTap)
@@ -72,35 +90,55 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
     
     
     @IBAction func importImage(_ sender: Any) {
-        let imagePicked = UIImagePickerController()
-        imagePicked.delegate = self
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
         
-        imagePicked.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
-        imagePicked.allowsEditing = false
-        imagePicked.modalPresentationStyle = .overCurrentContext
-        self.present(imagePicked, animated: true){
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
+            if (UIImagePickerController.isSourceTypeAvailable(.camera))
+            {
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            }
+            else
+            {
+                print("camera not available")
+            }
             
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+        if(checkComplete() ){
+            postButton.isEnabled = true
         }
     }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            myImageView.image = imagePicked
-            
-            imageData = UIImageJPEGRepresentation(imagePicked, 0.000005)!
-            
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        }
+        myImageView.image = image
+        imageData = UIImageJPEGRepresentation(image, 0.000005)!
         
-        self.dismiss(animated: true, completion: nil)
-        if(itemNameField.text != "" && descriptionTextView.text != "" && descriptionTextView.text != "Description     " && imageData != nil){
+        picker.dismiss(animated: true, completion: nil)
+        
+        
+        if(checkComplete() ){
             postButton.isEnabled = true
         }
     }
     
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     @objc func dismissKeyboard(){
         self.view.endEditing(true)
@@ -112,8 +150,10 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
             textView.textColor = UIColor.black
         }
     }
+    
+    
     func textViewDidEndEditing(_ textView: UITextView) {
-        if(itemNameField.text != "" && descriptionTextView.text != "" && descriptionTextView.text != "Description     " && imageData != nil){
+        if(checkComplete() ){
             postButton.isEnabled = true
         }else if(descriptionTextView.text == ""){
             descriptionTextView.textColor = UIColor.gray
@@ -121,7 +161,7 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if(itemNameField.text != "" && descriptionTextView.text != "" && descriptionTextView.text != "Description     " && imageData != nil){
+        if(checkComplete() ){
             postButton.isEnabled = true
         }
     }
@@ -138,6 +178,67 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
         }
         return true
     }
+
+    
+    
+    
+    @IBAction func getCurrentPlace(_ sender: Any) {
+        currentLocationButton.layer.borderColor = UIColor.blue.cgColor
+        locationPickerButton.layer.borderColor = UIColor.clear.cgColor
+        
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            
+            if let placeLikelihoodList = placeLikelihoodList {
+                let place = placeLikelihoodList.likelihoods.first?.place
+                if let place = place {
+                    self.locationLatitude = place.coordinate.latitude
+                    self.locationLongitude = place.coordinate.longitude
+                }
+            }
+            if(self.checkComplete() ){
+                self.postButton.isEnabled = true
+            }
+        })
+        
+    }
+    
+    @IBAction func pickPlace(_ sender: UIButton) {
+        currentLocationButton.layer.borderColor = UIColor.clear.cgColor
+        locationPickerButton.layer.borderColor = UIColor.blue.cgColor
+        let center = CLLocationCoordinate2D(latitude: 34.0213, longitude: -118.2881)
+        let northEast = CLLocationCoordinate2D(latitude: center.latitude + 0.001, longitude: center.longitude + 0.001)
+        let southWest = CLLocationCoordinate2D(latitude: center.latitude - 0.001, longitude: center.longitude - 0.001)
+        let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
+        let config = GMSPlacePickerConfig(viewport: viewport)
+        let placePicker = GMSPlacePicker(config: config)
+        
+        placePicker.pickPlace(callback: {(place, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let place = place {
+                self.locationLatitude = place.coordinate.latitude
+                self.locationLongitude = place.coordinate.longitude
+               
+            }
+            if(self.checkComplete() ){
+                self.postButton.isEnabled = true
+            }
+        })
+    }
+    func checkComplete() -> Bool{
+        if(itemNameField.text != "" && descriptionTextView.text != "" && descriptionTextView.text != "Description     " && imageData != nil && locationLongitude != 0 && locationLatitude != 0){
+            return true
+        }
+        return false
+    }
     
     @IBAction func PostSubmitted(_ sender: Any) {
         
@@ -149,7 +250,9 @@ class PostViewController: UIViewController, UITextFieldDelegate,UITextViewDelega
             
           
             self.postButton.isEnabled = false
-            let postItemMessage = PostItemMessage( ownerID: self.user!.userID , imageURL: imageURL!, itemName: self.itemNameField.text!, itemDescription: self.descriptionTextView.text!, longitude: 1.0, latitude: 1.0)
+            
+            let postItemMessage = PostItemMessage( ownerID: self.user!.userID , imageURL: imageURL!, itemName: self.itemNameField.text!, itemDescription: self.descriptionTextView.text!, longitude: self.locationLongitude, latitude: self.locationLatitude)
+            
             let encoder = JSONEncoder()
             
             do{

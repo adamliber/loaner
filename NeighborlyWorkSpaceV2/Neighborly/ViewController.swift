@@ -10,6 +10,9 @@ import UIKit
 import Starscream
 import CoreLocation
 import Cloudinary
+import GooglePlacePicker
+
+
 
 class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource, WebSocketDelegate {
     
@@ -18,6 +21,11 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchResultTableView: UITableView!
     @IBOutlet weak var addPostButton: UIBarButtonItem!
     private var selectedItem:Item?
+    private var userCoordinate:CLLocation?
+    var placesClient:GMSPlacesClient!
+    
+    var locationLatitude:Double?
+    var locationLongitude:Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +35,47 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
         }
         NotificationCenter.default.addObserver(self, selector: #selector(updateResults), name: NSNotification.Name(rawValue: "loadSearchResults"), object: nil)
         
+        placesClient = GMSPlacesClient.shared()
+        getCurrentPlace()
         
         socket.delegate = self
         self.searchResultTableView?.rowHeight = 134
-        let searchItemMessage = SearchItemMessage(searchTerm: "", longitude: 1.0, latitude: 1.0, distance: 5 )
-        let encoder = JSONEncoder()
-        
-        do{
-            let data = try encoder.encode(searchItemMessage)
-            socket.write(string: String(data: data, encoding: .utf8)!)
-        }catch{}
+        searchCurrentPlace()
         updateResults()
     }
+    
+    
+    func searchCurrentPlace() {
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            
+            if let placeLikelihoodList = placeLikelihoodList {
+                let place = placeLikelihoodList.likelihoods.first?.place
+                if let place = place {
+                    self.locationLatitude = place.coordinate.latitude
+                    self.locationLongitude = place.coordinate.longitude
+                }
+            }
+            let searchItemMessage = SearchItemMessage(searchTerm: "", longitude: self.locationLongitude!, latitude: self.locationLatitude! , distance: 10 )
+            let encoder = JSONEncoder()
+            
+            do{
+                let data = try encoder.encode(searchItemMessage)
+                socket.write(string: String(data: data, encoding: .utf8)!)
+            }catch{}
+            
+            
+        })
+        
+        
+    }
+    
+    
+    
     
     func websocketDidConnect(socket: WebSocketClient) {
         print("viewController socket is connected")
@@ -82,7 +119,25 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
         print("viewController got some data: \(data.count)")
     }
     
-    
+    func getCurrentPlace() {
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            
+            if let placeLikelihoodList = placeLikelihoodList {
+                let place = placeLikelihoodList.likelihoods.first?.place
+                if let place = place {
+                    self.userCoordinate = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+                    
+                }
+            }
+            
+        })
+        
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,15 +155,14 @@ class ViewController: UIViewController ,UITableViewDelegate, UITableViewDataSour
         
         
         
-            let userCoordinate = CLLocation(latitude: 1.0, longitude: 1.0)
+            
             let itemCoordinate = CLLocation(latitude: item.latitude, longitude: item.longitude)
-        
+            let userCoordinate = CLLocation(latitude: item.latitude, longitude: item.longitude)
         
             let distanceInMeters = userCoordinate.distance(from: itemCoordinate)
-            var distanceInMiles:NSInteger = NSInteger(distanceInMeters/1609)
+            let distanceInMiles:NSInteger = NSInteger(distanceInMeters/1609)
         
-            distanceInMiles = item.ownerID
-        
+            
             cell.itemStatusLabel.text = String(distanceInMiles) + " miles"
         
             

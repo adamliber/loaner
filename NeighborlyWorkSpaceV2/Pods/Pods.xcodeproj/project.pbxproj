@@ -7,139 +7,139 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0067BB4C68F893BAAF2066854C34F85B /* CLDRequestParamsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60506C8779F66E99090A65D1D9A0207D /* CLDRequestParamsHelpers.swift */; };
-		037B2571C23955E5D7CA3E06EF77494F /* CLDTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FC61BBB750438366950C0B5C5D0D88 /* CLDTextLayer.swift */; };
-		0421F7D963712E93282E0AD7C186A704 /* CLDAsyncNetworkUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4949545F2AA2E08975F0DD9B0B69E25 /* CLDAsyncNetworkUploadRequest.swift */; };
-		07C3443DBFF69DB4A6D97FC5E0F40362 /* CLDDefaultUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661D04DC7C24C61E68E2AED9CA912205 /* CLDDefaultUploadRequest.swift */; };
-		082739816302AC8C6BBB5DA3C16FACB6 /* CLDTextRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055E9D3D5F253CFA550E8BF7A6809F59 /* CLDTextRequest.swift */; };
-		0923211D1C9D8A6CE83D076BF05472D8 /* CLDNetworkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84DF607C0946F246587FD944968F589 /* CLDNetworkDelegate.swift */; };
+		0067BB4C68F893BAAF2066854C34F85B /* CLDRequestParamsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D291D55FE6D6695DBC96C46232E5A5 /* CLDRequestParamsHelpers.swift */; };
+		037B2571C23955E5D7CA3E06EF77494F /* CLDTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7850C1CA2F4A3C3D4DEB7CCEEDD55D93 /* CLDTextLayer.swift */; };
+		0421F7D963712E93282E0AD7C186A704 /* CLDAsyncNetworkUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0129C487175AC72C1CEA0EFDA36A9A /* CLDAsyncNetworkUploadRequest.swift */; };
+		07C3443DBFF69DB4A6D97FC5E0F40362 /* CLDDefaultUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336FF3F791BAA4AA9A6CAB3581BA7568 /* CLDDefaultUploadRequest.swift */; };
+		082739816302AC8C6BBB5DA3C16FACB6 /* CLDTextRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70485541884B3EE02354E5310E2223B /* CLDTextRequest.swift */; };
+		0923211D1C9D8A6CE83D076BF05472D8 /* CLDNetworkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04C38B4FA83B378141CB242CB2B7C5 /* CLDNetworkDelegate.swift */; };
 		0AE837A23631774FB1F93EF624D078B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8425F802DF869B8844D9D072CFCE373 /* Foundation.framework */; };
-		0D3078D36E76827C6EA123751DF507C0 /* CLDSpriteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3728E93BE083DAD16A7BF471A8AE /* CLDSpriteRequest.swift */; };
-		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0196B268AB019D150F69BBEADB7C36 /* Timeline.swift */; };
-		13D53834E67BD3D337558DFB6E1757C7 /* Data+HashFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCEAE9EAE99C883CECDD13A74810F0 /* Data+HashFunction.swift */; };
+		0D3078D36E76827C6EA123751DF507C0 /* CLDSpriteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0413BB12BD0FB427D154A851254719 /* CLDSpriteRequest.swift */; };
+		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656F859ECB679BC541B4A70BFFED86CC /* Timeline.swift */; };
+		13D53834E67BD3D337558DFB6E1757C7 /* Data+HashFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D739EBB2A3971A55C9349F33A7CE231 /* Data+HashFunction.swift */; };
 		1617E06A9007FD5359DF3F4F30D816E7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F02A739100B7422F36AE23783BE8C24 /* Alamofire.framework */; };
-		16AC05C3776F756F7DD641759FB0C7AB /* CLDDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A24F4F0297C2DDCB13790FC662C8A /* CLDDetection.swift */; };
-		17128A22C55FEA226D6E0DF52E215211 /* CLDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B24D76AB9B221097361A91D991B7E2 /* CLDError.swift */; };
-		18830924DD08594BEC6D7B2172A40649 /* CLDExplicitRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3DE1ECAB2080F1DCD1456BA5AF0F64 /* CLDExplicitRequestParams.swift */; };
-		1A2A6021686FA2A93A2521DDB8CAA355 /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1402BB40F0C1E4B0A93A10CDBDF00B8 /* SHA1.swift */; };
-		1AAD127E4644522ADB0E5F426F0276A4 /* Cloudinary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A707E84D6887FD0B54C13D2C5A954B /* Cloudinary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DDE32D423794ACD4E929A00E0FFE5FD /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F135AC5F8ABE0C005BD34602702A68D /* CLDNetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94734BA73BFACE4801B24CC11067268 /* CLDNetworkAdapter.swift */; };
-		1F355286491F10DE938236CD65AB5011 /* CLDRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717ADB2F87487813A5638901C8D7DA9 /* CLDRequestParams.swift */; };
-		23541097499F0649B64CABA70CFBD715 /* CLDResponsiveViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2834AD4DDF72B57B93AE984B7E83A /* CLDResponsiveViewHelper.swift */; };
-		252433F50D71C5E1F3B3B9A294710B66 /* CLDStringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA737C710937F252772304F9E049E2C2 /* CLDStringUtils.swift */; };
-		2635727879DF01312C5EA05EA168E447 /* CLDTextRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46492484E3FA78E4F1F62C41AF0845E /* CLDTextRequestParams.swift */; };
-		2A85A63474801945B28C4FB0081C6F52 /* CLDExplicitResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8B327BD09549175F28A186435175B4 /* CLDExplicitResult.swift */; };
-		2DE6CCBF04319B81211D0B3077227676 /* CLDUploadRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50926E0CAEA8BF48FCF9944962F4B2 /* CLDUploadRequestParams.swift */; };
-		2EF86F64BD46B3DCCAD8C18EBA19CC74 /* Data+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C083D4198EB8FA4EC4155C943C0F0B6 /* Data+Int.swift */; };
-		31C02DBE7E886EBA1295060E8F7BD71E /* UIView+Cloudinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE471AA04A2F28029E4E3A5BF166FB7 /* UIView+Cloudinary.swift */; };
-		333938D53F4BA5367E675EE7F7D08996 /* CLDUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0591CE8FEB94BE76D2B1AF869B78A442 /* CLDUploadRequest.swift */; };
-		33591C9E611ECEB3197CA442EE114D97 /* CLDNetworkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E50642D16A3A3728B6F81646EB31FB3 /* CLDNetworkCoordinator.swift */; };
-		33B627929E5879066A3945F860025EFE /* HashAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3326FA98932E2FADBED577E8595DFBF /* HashAlgorithm.swift */; };
-		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9BD3EB81526BC067EC5E8B0FDC30C /* TaskDelegate.swift */; };
+		16AC05C3776F756F7DD641759FB0C7AB /* CLDDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A59928A52BA28A1170FE19853F66D /* CLDDetection.swift */; };
+		17128A22C55FEA226D6E0DF52E215211 /* CLDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF319E266B4CE02BB6F054011AF490C /* CLDError.swift */; };
+		18830924DD08594BEC6D7B2172A40649 /* CLDExplicitRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74BAA92798A4EE77D7BE377232225ED /* CLDExplicitRequestParams.swift */; };
+		1A2A6021686FA2A93A2521DDB8CAA355 /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C98EE660AF0CC600AE95600FA83884 /* SHA1.swift */; };
+		1AAD127E4644522ADB0E5F426F0276A4 /* Cloudinary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 316E156C71662C30E0F831BA504A08F0 /* Cloudinary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 83F8DB0AACAAF0ACF1FDCCF5D55C361E /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F135AC5F8ABE0C005BD34602702A68D /* CLDNetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D157B7B732F5F74321DAE2F24901AE /* CLDNetworkAdapter.swift */; };
+		1F355286491F10DE938236CD65AB5011 /* CLDRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE03B5B1FDBCD4413E512BB6B016B5 /* CLDRequestParams.swift */; };
+		23541097499F0649B64CABA70CFBD715 /* CLDResponsiveViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D59CB103913D739DCFCCFF9844B63B /* CLDResponsiveViewHelper.swift */; };
+		252433F50D71C5E1F3B3B9A294710B66 /* CLDStringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BAB155752FCAE4A424449518487F46 /* CLDStringUtils.swift */; };
+		2635727879DF01312C5EA05EA168E447 /* CLDTextRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363885D94875E8FD20EDDDDC446EB19A /* CLDTextRequestParams.swift */; };
+		2A85A63474801945B28C4FB0081C6F52 /* CLDExplicitResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48089FB716F083A50E51A4BC297D51F /* CLDExplicitResult.swift */; };
+		2DE6CCBF04319B81211D0B3077227676 /* CLDUploadRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE033630570506A08D6FA2CC5CF7FC4 /* CLDUploadRequestParams.swift */; };
+		2EF86F64BD46B3DCCAD8C18EBA19CC74 /* Data+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65407AB7D433F498D5B9D3B0B75DAE91 /* Data+Int.swift */; };
+		31C02DBE7E886EBA1295060E8F7BD71E /* UIView+Cloudinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127A0A4C11FA024F3B08923CAC468851 /* UIView+Cloudinary.swift */; };
+		333938D53F4BA5367E675EE7F7D08996 /* CLDUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0DFE5DD56361689D8AC1FFCED367C /* CLDUploadRequest.swift */; };
+		33591C9E611ECEB3197CA442EE114D97 /* CLDNetworkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75FA87172A760D425D35C1FC536BD22 /* CLDNetworkCoordinator.swift */; };
+		33B627929E5879066A3945F860025EFE /* HashAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ACAFCE1FACA5F139EDBC4A16C8F52C /* HashAlgorithm.swift */; };
+		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE2FCCBCFF60A5B4235976388714E98 /* TaskDelegate.swift */; };
 		375AAAF41AF0C9D43C6A9D3438585DD9 /* Pods-Neighborly-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F4E4425A6298CB09FA266C1DE229C3 /* Pods-Neighborly-dummy.m */; };
-		377CBAE03E0784BFB274D030D27284C6 /* HashFunctionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D98BF14422756E641DCF0898339E2D /* HashFunctionOptions.swift */; };
-		3805AF4EF961EAB1C69DE2BC8EE60B2F /* CLDTextResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D692995E12037CBDEC4730F47B3017F5 /* CLDTextResult.swift */; };
-		3B27E39A8AF7E7B396BCDF0E46DFA6AD /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D273D176245FF4DAC03DA2EEB0946BD /* MD5.swift */; };
-		3C6A417D00A2779FE36F2D04254C49A3 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2BD1BB0D9C9C89B9C26A271450BB25 /* WebSocket.swift */; };
+		377CBAE03E0784BFB274D030D27284C6 /* HashFunctionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088061E93AF2E51386D59326F57BD723 /* HashFunctionOptions.swift */; };
+		3805AF4EF961EAB1C69DE2BC8EE60B2F /* CLDTextResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4BCCFC99113848E7987417093869DB /* CLDTextResult.swift */; };
+		3B27E39A8AF7E7B396BCDF0E46DFA6AD /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD24B5942702AC0F554E915E9C900C78 /* MD5.swift */; };
+		3C6A417D00A2779FE36F2D04254C49A3 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB3CFC8D198BAE8B84F0E3B35001EF /* WebSocket.swift */; };
 		42FAC18EEEDDF2276048E518060D5389 /* Pods-NeighborlyUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6740475BCF78E4BB9CE40F97778411 /* Pods-NeighborlyUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		466117DE68C11F2AC1E8F9CC6F56D81A /* CLDCloudinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518619242BFC84064946EAC9B8A9E28 /* CLDCloudinary.swift */; };
-		49E5257BB86017A558C53FDEDA02A1D1 /* CLDBaseNetworkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB84484A8CE3EA7CA9EF35B19012FED /* CLDBaseNetworkObject.swift */; };
-		4A2B7EB42A4A07C13449B7DA15C745E7 /* EndianRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F449DCE3DF4861C48400FAB2A48AF /* EndianRepresentable.swift */; };
-		4A72D08750B36D19FDA0B7ABBB827C98 /* CLDImagePreprocessChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B7BE59FE1346F7D155BEDC40C81C3 /* CLDImagePreprocessChain.swift */; };
-		4CE4D8BA91A717029287A35454915168 /* HashFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0553A83C64B7FB7C0502AA387B7440DA /* HashFunction.swift */; };
-		4E1860AF5719A55C8291BB9A7B77251A /* CLDBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77E3674A0F2788F11A84E1BEC2BB91 /* CLDBoundingBox.swift */; };
-		511605BE295DDD27D388C041DB8A5579 /* CLDErrorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AE6A344CCAD04D317190C90E5BCD3 /* CLDErrorRequest.swift */; };
-		52D0DD38F58D1F8FF80978506A5381D2 /* CLDDictionaryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127EFBF91C00219DC36195F74C96E /* CLDDictionaryUtils.swift */; };
-		52F1D52CE1A33148A866343C07D461FF /* CLDFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CE7B7889FB3B181710670EB063E308 /* CLDFace.swift */; };
-		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176994889B065D0532395188E42E7D85 /* Request.swift */; };
-		548B4F0146597D38D1899ABB90046680 /* CLDFetchImageRequestImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57615E4BA1DF457F2AE21BFC7ED5E1B0 /* CLDFetchImageRequestImpl.swift */; };
-		54C089ED90DE74B0653C02F443434F76 /* CLDNetworkDataRequestImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA892A423635648EF1B106AB863CFC11 /* CLDNetworkDataRequestImpl.swift */; };
-		5E2A2C1F4F9610D0DD4AA6BA489F7CC5 /* CLDRekognitionFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB469D2F12783B0A360DE48B79AAB27 /* CLDRekognitionFace.swift */; };
-		60DCC0D09BDB20D334DA979350F6757E /* CLDResponsiveParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500275AA3DDD0F313C48154808AD9450 /* CLDResponsiveParams.swift */; };
-		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C56947E06948713B38FA646484347EE /* DispatchQueue+Alamofire.swift */; };
-		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50EF65E20D2B08CD72D88FB34CCF69 /* ServerTrustPolicy.swift */; };
+		466117DE68C11F2AC1E8F9CC6F56D81A /* CLDCloudinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFD1B4910E4F08A070569CBA8E7E426 /* CLDCloudinary.swift */; };
+		49E5257BB86017A558C53FDEDA02A1D1 /* CLDBaseNetworkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F4589F41C91126CFD821EE6DF4103C /* CLDBaseNetworkObject.swift */; };
+		4A2B7EB42A4A07C13449B7DA15C745E7 /* EndianRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2295C37B33FA678F62FFE57420C7A9 /* EndianRepresentable.swift */; };
+		4A72D08750B36D19FDA0B7ABBB827C98 /* CLDImagePreprocessChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700D5F276374386BBC5B6FB76F694F29 /* CLDImagePreprocessChain.swift */; };
+		4CE4D8BA91A717029287A35454915168 /* HashFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE48950CE44F44D49422A79AD45697 /* HashFunction.swift */; };
+		4E1860AF5719A55C8291BB9A7B77251A /* CLDBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3394EBFD176AD00D8DC0F770071365 /* CLDBoundingBox.swift */; };
+		511605BE295DDD27D388C041DB8A5579 /* CLDErrorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20445BF0B3DC3C9F06B3D5BB1E6124FB /* CLDErrorRequest.swift */; };
+		52D0DD38F58D1F8FF80978506A5381D2 /* CLDDictionaryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E0F5759DE5AA62B78C58A0E6B3705 /* CLDDictionaryUtils.swift */; };
+		52F1D52CE1A33148A866343C07D461FF /* CLDFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F46CF25D82ADD07C9CCCEF7CFD370 /* CLDFace.swift */; };
+		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429D3C86AF3FC49EEA597F59E248823E /* Request.swift */; };
+		548B4F0146597D38D1899ABB90046680 /* CLDFetchImageRequestImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F3760CC314E4067952394783E097C /* CLDFetchImageRequestImpl.swift */; };
+		54C089ED90DE74B0653C02F443434F76 /* CLDNetworkDataRequestImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E2898F6F251B4119B1FA7217BBB87 /* CLDNetworkDataRequestImpl.swift */; };
+		5E2A2C1F4F9610D0DD4AA6BA489F7CC5 /* CLDRekognitionFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2947725B5B20779915DFAEABAB5A0D7F /* CLDRekognitionFace.swift */; };
+		60DCC0D09BDB20D334DA979350F6757E /* CLDResponsiveParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8819984585DB1803B1F0C9B8B963685 /* CLDResponsiveParams.swift */; };
+		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9EEA8C3A2D977BED801DFCC9FC6198 /* DispatchQueue+Alamofire.swift */; };
+		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FB2E7A7E8F238DF0109BF46E2C4DE7 /* ServerTrustPolicy.swift */; };
 		641AC629D3FDE70CA2028BF63D42BD50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FA268F7976194C5CD1F9A31D556CB0 /* UIKit.framework */; };
-		641C04A4536CDFA4E632F03907792667 /* CLDSubtitlesLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FE4939F939C766B09BBEAB6FED3B3F /* CLDSubtitlesLayer.swift */; };
-		663661AE35F4BAA8F2AAB570DC036BCA /* CLDTagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A996AF7BD6ED695841B75D44C5137E /* CLDTagRequest.swift */; };
-		663E25FA8C0EDC4121173680C6AB1157 /* CLDTagsRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19744EB2176F585B698D0747E4A4202 /* CLDTagsRequestParams.swift */; };
-		665948116F89B30F49DADEC2321918DE /* CLDExplodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76312B72A6BB7415211948A61B0AF838 /* CLDExplodeRequest.swift */; };
-		6A40B3FC8F638425572D1F2587DFF2B6 /* CLDCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856EE7FE15798C75A1A39BB79591AD8E /* CLDCompatibility.swift */; };
-		6A7759FFB61C4CE215C424F8F319CABB /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD098DFB2A4D5A2C2CD780DC8474C6C1 /* Compression.swift */; };
-		6D509C35B60846062AD3670E0E83BCEF /* CLDTranformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9AE6DFA79131A2BE72BD3A6170B44F /* CLDTranformation.swift */; };
+		641C04A4536CDFA4E632F03907792667 /* CLDSubtitlesLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1F1BA24AFCD057418200E865D45C66 /* CLDSubtitlesLayer.swift */; };
+		663661AE35F4BAA8F2AAB570DC036BCA /* CLDTagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9B58EC57B76C1C468853FCC61BF99D /* CLDTagRequest.swift */; };
+		663E25FA8C0EDC4121173680C6AB1157 /* CLDTagsRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622378CC61FDCA255FE1ACC8CC167471 /* CLDTagsRequestParams.swift */; };
+		665948116F89B30F49DADEC2321918DE /* CLDExplodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C40B9C554BE3DC76581C03F271AC09E /* CLDExplodeRequest.swift */; };
+		6A40B3FC8F638425572D1F2587DFF2B6 /* CLDCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A4FE4529B84B082B44042FB7F6E6A1 /* CLDCompatibility.swift */; };
+		6A7759FFB61C4CE215C424F8F319CABB /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED93CF7CE310F148B86374DBCDB5302B /* Compression.swift */; };
+		6D509C35B60846062AD3670E0E83BCEF /* CLDTranformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A9C61FED1D33D7FF233B1DBB8F34D2 /* CLDTranformation.swift */; };
 		73B9C996AED49ED7CF8EC2A6F1738059 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8425F802DF869B8844D9D072CFCE373 /* Foundation.framework */; };
 		74B156185BDCC9B9540B008585321C94 /* Pods-NeighborlyTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F11CB90C31F35C4A7837B119BD15903F /* Pods-NeighborlyTests-dummy.m */; };
-		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D74AE0BBFA5CA357A27362EA4F7A65 /* SessionDelegate.swift */; };
-		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572538B62D3DE0899FAE25876DCEDBD /* Result.swift */; };
-		7DBF6E62E44DD7E86DA836E55FC35D71 /* CLDLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C0A534870893E2E045B0114ACDCC4E /* CLDLayer.swift */; };
-		804327DB460A89642CF271FF671D6C99 /* CLDExplodeRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DAEAA339FA1F649071EA40AC2A0202 /* CLDExplodeRequestParams.swift */; };
-		8127B7CDB147CA69090F2A7C87D68616 /* RotateOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2B438D817252FDCA78A3D7F417B549 /* RotateOperations.swift */; };
-		83BDB5A816276638A2D56AA30FFA57F4 /* CLDConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4586C7F7C53E4A45E7FDD7D863EAD4D2 /* CLDConfiguration.swift */; };
-		84C75BD21E0F1B957F863369FBA3AA6B /* CLDImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876BE04E4DE34B6BF30167A227FCBE5 /* CLDImageCache.swift */; };
-		85785CA94BD9780122BD6F305A19C7ED /* CLDRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C846D89B5704050723A89421C5246CE8 /* CLDRequest.swift */; };
-		894115B444663110CFA31D4BB14A4449 /* UIButton+Cloudinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E3FF1AAA2D094B0080E5D27A58A2F /* UIButton+Cloudinary.swift */; };
-		8C30DF4FAB09DC90A4999A015C98F4FE /* CLDDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6599B749CBAB84451E74FAE1575FE /* CLDDownloader.swift */; };
-		90D0D7F2EBD7A7376D3F2699C12AFDEE /* CLDUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8C8B27D84F5E925FC1300AD8A7F959 /* CLDUploader.swift */; };
-		95582709D439F55E9BC7AFC5D24E2692 /* MerkleDamgardConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6611C44E62FF4A8C86B467331F01FA9E /* MerkleDamgardConstructor.swift */; };
-		973076BA65523080231D246FCC1A1685 /* CLDUploadRequestWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371BE0619AA0D3F91DBA1FB4A4ACC687 /* CLDUploadRequestWrapper.swift */; };
-		97FF90355F59DDEA5BE44ACBF6D815B0 /* Cloudinary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D376F2895D3AFFA967117BBFC9BC005 /* Cloudinary-dummy.m */; };
-		9819EA2AF8C74CF13B305FDD3405B6CA /* CLDBuildParamsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA478919DD8BDE112E7328918C908F8 /* CLDBuildParamsUtils.swift */; };
-		99BC6F36482EDA62DF7D409CE6D191B3 /* CLDInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB9535B724A238EE6F85160B88DE3E /* CLDInfo.swift */; };
-		9A4D3A04C710407BB13E10B049E8CF08 /* CLDRenameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89C394C0381E0CB85166F6D3C6F06E /* CLDRenameResult.swift */; };
-		9B0D68BB3DD0BBF392B64EF0DE6C7907 /* CLDNetworkDownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECDCAF295CF45FD5E2B235E28D03113 /* CLDNetworkDownloadRequest.swift */; };
-		9C9B692C3B57BA56893117DF7E74815B /* CLDMultiRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B2BA14B05A768417331226B19DAE9 /* CLDMultiRequestParams.swift */; };
-		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC76519EE466272D12754D405DBDFCB /* AFError.swift */; };
-		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4055D5D0345362F9851392BE266CF82 /* NetworkReachabilityManager.swift */; };
-		A521904CA3C008A7947157A98F60194E /* CLDDeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529353403EC360DC48BDFEDCC948A0D9 /* CLDDeleteRequest.swift */; };
-		A59A6225F8D8B00F36DB85A4D948960D /* CLDRenameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DE7F0FC959AF46309B1498F54A5C9C /* CLDRenameRequest.swift */; };
-		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1912D23456C786DCC81D6D2BED0DA3FD /* Alamofire-dummy.m */; };
-		AA13264191A02A7D74BB0BBD0683BEC7 /* CLDMultiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1DC25DD271DAFDF21F20B67B2DA66 /* CLDMultiRequest.swift */; };
-		ACBCA683208523A9B392DB3BB8AAD2BA /* CLDUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC80839F2599D2E098CFEF7C381316A /* CLDUIImageView.swift */; };
-		ACCB2E3DC5B9B77D076E8A5FFD92BD24 /* CLDExplodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BCED3BD3C33FCEC07E7D0CE25859E7 /* CLDExplodeResult.swift */; };
-		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911521E68E2A034127D496243CAB5775 /* SessionManager.swift */; };
-		B05E682383EC87B474BC0D254D21A172 /* CLDNetworkUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D69CD95E9D8D3DC25DB8EBF2B6423 /* CLDNetworkUploadRequest.swift */; };
-		B21251EACCC2E55D2FDAFDA9427D525E /* CLDDeleteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEAEEA3656275D83392B4DED753F9CB /* CLDDeleteResult.swift */; };
-		B2BE3C4A6971B55BB78FB01E069B156C /* CLDFileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277943C581221AA14D0C3D9DA2EBD653 /* CLDFileUtils.swift */; };
-		B34D645DA77B13241710FE2FA5C222C2 /* CommonResultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860D6F578F02F0B30B8F405FC6A1BC0D /* CommonResultKeys.swift */; };
-		B4407191C654A9B71679E5CB300A0B38 /* Starscream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B725411CEF52B96166D08F6E4312818B /* Starscream-dummy.m */; };
-		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51BD5C1AB3AAD216EA930C2B0117C8 /* MultipartFormData.swift */; };
-		BB63CA42B1D75ADE1A9B647D19E37AD3 /* CLDSpriteRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07FDDC62825F856303D1BA20D8307DA /* CLDSpriteRequestParams.swift */; };
-		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB109315919AB5344E85AAF327ACE9 /* Validation.swift */; };
-		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE88205CB362B6E79B43132D676A1BC5 /* ParameterEncoding.swift */; };
+		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E490116A5F70BF184C91DAA7CBCAA /* SessionDelegate.swift */; };
+		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB4B5A8B70F4E3B603C60FF65E64F97 /* Result.swift */; };
+		7DBF6E62E44DD7E86DA836E55FC35D71 /* CLDLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0B34AFE4997167738DE3AB8404322E /* CLDLayer.swift */; };
+		804327DB460A89642CF271FF671D6C99 /* CLDExplodeRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADCB42FF3DB958D4B0CFAED6B89F1 /* CLDExplodeRequestParams.swift */; };
+		8127B7CDB147CA69090F2A7C87D68616 /* RotateOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744B525B83A5ADC0EB6C1CA2B33AF2B8 /* RotateOperations.swift */; };
+		83BDB5A816276638A2D56AA30FFA57F4 /* CLDConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A157B65DF0D00EAB56E4F6CAB9AF82F /* CLDConfiguration.swift */; };
+		84C75BD21E0F1B957F863369FBA3AA6B /* CLDImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E1EFA3EFDF3A0E526C0B791CC829 /* CLDImageCache.swift */; };
+		85785CA94BD9780122BD6F305A19C7ED /* CLDRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90752409F1F50D71AB7F5EDAE7C6AD8 /* CLDRequest.swift */; };
+		894115B444663110CFA31D4BB14A4449 /* UIButton+Cloudinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932BA5DE967498F904C79E8EB2FAF494 /* UIButton+Cloudinary.swift */; };
+		8C30DF4FAB09DC90A4999A015C98F4FE /* CLDDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1D54C1F202C5361E76227CA1047FC /* CLDDownloader.swift */; };
+		90D0D7F2EBD7A7376D3F2699C12AFDEE /* CLDUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB9CD6B7F79A716CF2E46BC42075DD /* CLDUploader.swift */; };
+		95582709D439F55E9BC7AFC5D24E2692 /* MerkleDamgardConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C3A9D37155172CED82C91A3F3D167F /* MerkleDamgardConstructor.swift */; };
+		973076BA65523080231D246FCC1A1685 /* CLDUploadRequestWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D58F13DB1DD0C64E8AE58543A7503D1 /* CLDUploadRequestWrapper.swift */; };
+		97FF90355F59DDEA5BE44ACBF6D815B0 /* Cloudinary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A7924FD5D7ABF39EEFEBED91A14BF6 /* Cloudinary-dummy.m */; };
+		9819EA2AF8C74CF13B305FDD3405B6CA /* CLDBuildParamsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3996943A3641C2A45392908AE52C2F /* CLDBuildParamsUtils.swift */; };
+		99BC6F36482EDA62DF7D409CE6D191B3 /* CLDInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001997E2CAB47EC39A077B6F07B54CCF /* CLDInfo.swift */; };
+		9A4D3A04C710407BB13E10B049E8CF08 /* CLDRenameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B076F025F3E9B3D54FD4502A195E5D5 /* CLDRenameResult.swift */; };
+		9B0D68BB3DD0BBF392B64EF0DE6C7907 /* CLDNetworkDownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F2CA952E057218DC7B327E79F22E2 /* CLDNetworkDownloadRequest.swift */; };
+		9C9B692C3B57BA56893117DF7E74815B /* CLDMultiRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4363FD1A3A709DAFD8EE18E5F9DC99E /* CLDMultiRequestParams.swift */; };
+		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160391539772130FC94A7ECA88DA02CC /* AFError.swift */; };
+		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABFBAEDCCC0E5F0263639905192D4C9 /* NetworkReachabilityManager.swift */; };
+		A521904CA3C008A7947157A98F60194E /* CLDDeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE682E919E26B956756DAC606282632A /* CLDDeleteRequest.swift */; };
+		A59A6225F8D8B00F36DB85A4D948960D /* CLDRenameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E873A6BBB96DEA8EB37491A457B9AEB /* CLDRenameRequest.swift */; };
+		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC1DFC9075AC44837730C4ED7122079 /* Alamofire-dummy.m */; };
+		AA13264191A02A7D74BB0BBD0683BEC7 /* CLDMultiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A018F55E9B6AA6018FC8DF84ECA87 /* CLDMultiRequest.swift */; };
+		ACBCA683208523A9B392DB3BB8AAD2BA /* CLDUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4343E8D4C62123311E6B65BD25F1910 /* CLDUIImageView.swift */; };
+		ACCB2E3DC5B9B77D076E8A5FFD92BD24 /* CLDExplodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A38D665FF2A5726266715B2D6D1D73F /* CLDExplodeResult.swift */; };
+		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FE4030A1DC77C98B2B42CDB42476A7 /* SessionManager.swift */; };
+		B05E682383EC87B474BC0D254D21A172 /* CLDNetworkUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBCD1CFC6F872B51DA97BA3EB1BCB33 /* CLDNetworkUploadRequest.swift */; };
+		B21251EACCC2E55D2FDAFDA9427D525E /* CLDDeleteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F1F1890387FE88FD8623AE6C9292F7 /* CLDDeleteResult.swift */; };
+		B2BE3C4A6971B55BB78FB01E069B156C /* CLDFileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D730513CF9D09C7EAE788B85A9338A /* CLDFileUtils.swift */; };
+		B34D645DA77B13241710FE2FA5C222C2 /* CommonResultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CE417FF6E268D1CB65C8AC732A77BB /* CommonResultKeys.swift */; };
+		B4407191C654A9B71679E5CB300A0B38 /* Starscream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5AD0AC3D93D164CA43BE9130B3F5B /* Starscream-dummy.m */; };
+		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63502292C99E91B945D640B7A34E074 /* MultipartFormData.swift */; };
+		BB63CA42B1D75ADE1A9B647D19E37AD3 /* CLDSpriteRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D955C1D50D4809F52F197C957C888267 /* CLDSpriteRequestParams.swift */; };
+		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF52C98297BE6DB60CB9C9080B32C5E /* Validation.swift */; };
+		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA53928ABBD476C9F5BE7DD06863579 /* ParameterEncoding.swift */; };
 		C1091A340285977EC41B68A5B3257DC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8425F802DF869B8844D9D072CFCE373 /* Foundation.framework */; };
-		C10BDEED869DDD043AD3156A5E844293 /* CLDRenameRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C12CA28F5A824F8D87090BDD2AAAEF /* CLDRenameRequestParams.swift */; };
-		C1380E1B7734C8FF11340EB996CBB1AB /* CLDPreprocessChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70174A876680E059201BD27ECDE6FE7F /* CLDPreprocessChain.swift */; };
-		C194D6F986C6E004DC52B2D5FB33C7B1 /* CLDSpriteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E254927F80644B675EFDF3A46FEC08D /* CLDSpriteResult.swift */; };
-		C3CC8CC213A497CD4345E4229F4832B9 /* CLDGenericNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDC0161F3C04FAD95C452B69B28D2BD /* CLDGenericNetworkRequest.swift */; };
-		C57D43AA8B66F65A983EBC4D0388C51F /* CLDLogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BB3B4A0ACD9F618CD0BE7F31E1565 /* CLDLogManager.swift */; };
-		C5E594517171ADE476B3E8229D2D9408 /* CLDDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A209DD43567AD531BA7FC4E2F1E40939 /* CLDDefinitions.swift */; };
-		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53878B585A615A65162DDED142C7769 /* Response.swift */; };
-		CBBBE26DF391A280E709F1A4E83C961B /* CLDMultiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1230CEEF6C8EE05A1F31803793BB4 /* CLDMultiResult.swift */; };
+		C10BDEED869DDD043AD3156A5E844293 /* CLDRenameRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531A0692338A426A0AF52CD068C9FCD2 /* CLDRenameRequestParams.swift */; };
+		C1380E1B7734C8FF11340EB996CBB1AB /* CLDPreprocessChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4215054794C6D94291AD1FE675A693AD /* CLDPreprocessChain.swift */; };
+		C194D6F986C6E004DC52B2D5FB33C7B1 /* CLDSpriteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80375F34E456AE33F48CA0F7CDBFFAEE /* CLDSpriteResult.swift */; };
+		C3CC8CC213A497CD4345E4229F4832B9 /* CLDGenericNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB99CBBFB150DFAEECDCCAC2A1A2005C /* CLDGenericNetworkRequest.swift */; };
+		C57D43AA8B66F65A983EBC4D0388C51F /* CLDLogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BB56E1915FBD9CC3C73C731B5757D0 /* CLDLogManager.swift */; };
+		C5E594517171ADE476B3E8229D2D9408 /* CLDDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C5CB78B222D233FD20ED031A5EDA2 /* CLDDefinitions.swift */; };
+		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE7879463A4F3165F3EE34994C13F7 /* Response.swift */; };
+		CBBBE26DF391A280E709F1A4E83C961B /* CLDMultiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB53C6020A1F2D0113858801E8E7804D /* CLDMultiResult.swift */; };
 		D20A0D0E805405B4814E147765312A51 /* Pods-Neighborly-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 292CCC455817B7A2102C568A43687304 /* Pods-Neighborly-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D3D507FBF112B43C5E971A9918E93980 /* CLDManagementApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B8B037C5C560A1FE64F1A9EC8B8C7 /* CLDManagementApi.swift */; };
-		D4C9F8350D105B499878051447E391A0 /* CLDTagResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9253E5FD8F07C9E220EAF75DB3ECA8B /* CLDTagResult.swift */; };
-		D522B719E446EC7C3138C5B243DD30C1 /* CLDBaseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA16BF9D1F29DBA9E26AD949992357B1 /* CLDBaseResult.swift */; };
+		D3D507FBF112B43C5E971A9918E93980 /* CLDManagementApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE3C5C4A109EED818D1757C2C5810C /* CLDManagementApi.swift */; };
+		D4C9F8350D105B499878051447E391A0 /* CLDTagResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BEFA1CF624F98A5DE7B21BE4A06FA /* CLDTagResult.swift */; };
+		D522B719E446EC7C3138C5B243DD30C1 /* CLDBaseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E959C1EB66BF69076C9845CA243DB6 /* CLDBaseResult.swift */; };
 		D97210A7ADB8B9F6CFEFAB3E88D74358 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8425F802DF869B8844D9D072CFCE373 /* Foundation.framework */; };
-		DA3927F7F3F74D6CDA031CB98E607ACD /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D941D01762E8C76A98C5B65BC4BB57BD /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DB566E2B357BBF93F9AF17F8FAD5782A /* CLDImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555AE41634D5F16DC80B66FCB467270 /* CLDImageUtils.swift */; };
-		DE0AEDCA68EF0CDADC94B89C0140692F /* CLDCryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD99D3FFDA676F8D46991A5E028FC74 /* CLDCryptoUtils.swift */; };
-		DE168407BF560431C08B18EDA90BAF98 /* CLDExplicitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F6B68F08B0C1F83759DC7224A3AE1 /* CLDExplicitRequest.swift */; };
-		E352A144F481112A281C43155667A864 /* UIImageView+Cloudinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A3240A582EF5AD46AB82492D1DB7B /* UIImageView+Cloudinary.swift */; };
+		DA3927F7F3F74D6CDA031CB98E607ACD /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 509D8AE7363CB7EFA75A76196EFB2AD3 /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB566E2B357BBF93F9AF17F8FAD5782A /* CLDImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A593884C600452D154994AEA235C799 /* CLDImageUtils.swift */; };
+		DE0AEDCA68EF0CDADC94B89C0140692F /* CLDCryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2C0BA7DB7341C7D6F0ECA6C6BABF8 /* CLDCryptoUtils.swift */; };
+		DE168407BF560431C08B18EDA90BAF98 /* CLDExplicitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68C62F718CA2225ABAECDEC94D712A /* CLDExplicitRequest.swift */; };
+		E352A144F481112A281C43155667A864 /* UIImageView+Cloudinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735AB7B5C008F5AD8DAEAC45E646B8C /* UIImageView+Cloudinary.swift */; };
 		E7D2F0831888D670F94AA7E19ED9EC0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8425F802DF869B8844D9D072CFCE373 /* Foundation.framework */; };
-		EB91B53B4F561059F15917DCE53526C0 /* CLDJsonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D87FD3272495C159D31A169D21E432 /* CLDJsonUtils.swift */; };
-		EBA74DD9DA964B8054B03F6C314B722B /* CLDDestroyRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191B06EFF2FF7415CD1B271D18869CA /* CLDDestroyRequestParams.swift */; };
-		EBBDA2658D18E91F996C63F162A9A529 /* CLDUploadResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A91835CA71B36ABD316B4710FA7A1 /* CLDUploadResult.swift */; };
+		EB91B53B4F561059F15917DCE53526C0 /* CLDJsonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DCFD9E77321EA507E8D1AD81D34E27 /* CLDJsonUtils.swift */; };
+		EBA74DD9DA964B8054B03F6C314B722B /* CLDDestroyRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACCA99F5E7B332B9E2E55DCB3D3B83 /* CLDDestroyRequestParams.swift */; };
+		EBBDA2658D18E91F996C63F162A9A529 /* CLDUploadResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5302CC83A34BD07BB254D42EDD41C7 /* CLDUploadResult.swift */; };
 		ED3C7AB6947043CF82ED79DF15CE8545 /* Pods-NeighborlyTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 91072062754142793916CA5C5A975299 /* Pods-NeighborlyTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EF5CD91976B12D55B38C3C3A579B3CE4 /* ExpressibleByInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121DDEA5E4F933B3E44F34E62ECE8D72 /* ExpressibleByInt.swift */; };
-		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57544C35856633E79FF26DF124161C0B /* Notifications.swift */; };
+		EF5CD91976B12D55B38C3C3A579B3CE4 /* ExpressibleByInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B934A08FEFA7235157A40729E86F21 /* ExpressibleByInt.swift */; };
+		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990438BF6458ADDB5F5518BB37D2BDF /* Notifications.swift */; };
 		F0BD32F912690C6216D2065F4D795092 /* Pods-NeighborlyUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A175FED1906FF46E75E743B2CCC22 /* Pods-NeighborlyUITests-dummy.m */; };
-		F0CDDA33BAEB9710B0F47B7BB087F08F /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEF3E2157B316B658059CE8ED7FF24 /* SSLSecurity.swift */; };
+		F0CDDA33BAEB9710B0F47B7BB087F08F /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529123F6911B3865187A51834F631A55 /* SSLSecurity.swift */; };
 		F37BDCB4FEBA7B4F07AFAA7750D70199 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8425F802DF869B8844D9D072CFCE373 /* Foundation.framework */; };
-		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F4D174FD14FBA023958BBDD2D41AC /* ResponseSerialization.swift */; };
-		F8AEFFAE0E9011964CD9911A7EAFC873 /* CLDDeleteByTokenRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6714F0C57BBDCA00FF1A233E8B724556 /* CLDDeleteByTokenRequestParams.swift */; };
-		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA441341787F4BA615B13D28A5FE8E1F /* Alamofire.swift */; };
-		F9E8351FAC8E9972CCE52B2821DB6921 /* CLDUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2575942586E6A9C49C2AF74AD8A5B /* CLDUrl.swift */; };
-		FEFA1825B571C2E9E9BD53DE47741FBB /* CLDPreprocessHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54975146C39D26F68BE61C7CD1357027 /* CLDPreprocessHelpers.swift */; };
+		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CC727BE210D335A3BE95554D58FEB /* ResponseSerialization.swift */; };
+		F8AEFFAE0E9011964CD9911A7EAFC873 /* CLDDeleteByTokenRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9789242FE9B73DDC8E156E36D149B94E /* CLDDeleteByTokenRequestParams.swift */; };
+		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53BA50539F2CB18EE528F0650F8E856 /* Alamofire.swift */; };
+		F9E8351FAC8E9972CCE52B2821DB6921 /* CLDUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4F1E654126F9BBC0CEB32B9A4119 /* CLDUrl.swift */; };
+		FEFA1825B571C2E9E9BD53DE47741FBB /* CLDPreprocessHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28CA2C2A4FA608202977FA9890C94D /* CLDPreprocessHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,178 +188,186 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0084347FAA3B33C9A2FDE8C74E3809E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		028DDC7A7F33009DB09F54F2EF78071E /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		001997E2CAB47EC39A077B6F07B54CCF /* CLDInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDInfo.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CLDInfo.swift; sourceTree = "<group>"; };
+		01D0DFE5DD56361689D8AC1FFCED367C /* CLDUploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUploadRequest.swift; path = Cloudinary/Features/Uploader/Requests/CLDUploadRequest.swift; sourceTree = "<group>"; };
 		034FE0C2C1C1E0AC0731BB83D18B408D /* Pods-NeighborlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeighborlyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		054F4D174FD14FBA023958BBDD2D41AC /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
-		0553A83C64B7FB7C0502AA387B7440DA /* HashFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashFunction.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/HashFunction.swift"; sourceTree = "<group>"; };
-		055E9D3D5F253CFA550E8BF7A6809F59 /* CLDTextRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTextRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDTextRequest.swift; sourceTree = "<group>"; };
-		0591CE8FEB94BE76D2B1AF869B78A442 /* CLDUploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUploadRequest.swift; path = Cloudinary/Features/Uploader/Requests/CLDUploadRequest.swift; sourceTree = "<group>"; };
-		09EB3728E93BE083DAD16A7BF471A8AE /* CLDSpriteRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDSpriteRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDSpriteRequest.swift; sourceTree = "<group>"; };
+		06C5AD0AC3D93D164CA43BE9130B3F5B /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
+		08262006B89064196FDDC8195DBDACD8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		088061E93AF2E51386D59326F57BD723 /* HashFunctionOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashFunctionOptions.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/HashFunctionOptions.swift"; sourceTree = "<group>"; };
+		08B934A08FEFA7235157A40729E86F21 /* ExpressibleByInt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpressibleByInt.swift; path = "Cloudinary/Utils/CryptoKit/Math Protocols/ExpressibleByInt.swift"; sourceTree = "<group>"; };
+		09B2C0BA7DB7341C7D6F0ECA6C6BABF8 /* CLDCryptoUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDCryptoUtils.swift; path = Cloudinary/Utils/CLDCryptoUtils.swift; sourceTree = "<group>"; };
 		0C1CBF4A4FCA5957F0AAA2732FCAB810 /* Pods-NeighborlyTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NeighborlyTests.modulemap"; sourceTree = "<group>"; };
-		0C2BD1BB0D9C9C89B9C26A271450BB25 /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Sources/WebSocket.swift; sourceTree = "<group>"; };
-		0DE471AA04A2F28029E4E3A5BF166FB7 /* UIView+Cloudinary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Cloudinary.swift"; path = "Cloudinary/Features/Extensions/UIView+Cloudinary.swift"; sourceTree = "<group>"; };
-		0DEAEEA3656275D83392B4DED753F9CB /* CLDDeleteResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDeleteResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDDeleteResult.swift; sourceTree = "<group>"; };
-		1019BD0AB2CF8C8B95B0A5C68F07CD17 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		121DDEA5E4F933B3E44F34E62ECE8D72 /* ExpressibleByInt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpressibleByInt.swift; path = "Cloudinary/Utils/CryptoKit/Math Protocols/ExpressibleByInt.swift"; sourceTree = "<group>"; };
-		12D1230CEEF6C8EE05A1F31803793BB4 /* CLDMultiResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDMultiResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDMultiResult.swift; sourceTree = "<group>"; };
+		0CE2FCCBCFF60A5B4235976388714E98 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
+		0D2295C37B33FA678F62FFE57420C7A9 /* EndianRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EndianRepresentable.swift; path = "Cloudinary/Utils/CryptoKit/Math Protocols/EndianRepresentable.swift"; sourceTree = "<group>"; };
+		0F0B34AFE4997167738DE3AB8404322E /* CLDLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDLayer.swift; path = Cloudinary/Features/Helpers/Layers/CLDLayer.swift; sourceTree = "<group>"; };
+		10BB56E1915FBD9CC3C73C731B5757D0 /* CLDLogManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDLogManager.swift; path = Cloudinary/Utils/CLDLogManager.swift; sourceTree = "<group>"; };
+		127A0A4C11FA024F3B08923CAC468851 /* UIView+Cloudinary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Cloudinary.swift"; path = "Cloudinary/Features/Extensions/UIView+Cloudinary.swift"; sourceTree = "<group>"; };
+		12F1F1890387FE88FD8623AE6C9292F7 /* CLDDeleteResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDeleteResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDDeleteResult.swift; sourceTree = "<group>"; };
 		158F254B14BD76CB99F2EE9817DB28F6 /* Pods-NeighborlyTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NeighborlyTests-resources.sh"; sourceTree = "<group>"; };
-		16ED3BB41C0D6AEDF30DA07FACDC8383 /* Starscream.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.xcconfig; sourceTree = "<group>"; };
-		176994889B065D0532395188E42E7D85 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		15A22C70255A589247AB4CD216F1E85C /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		160391539772130FC94A7ECA88DA02CC /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
+		16C98EE660AF0CC600AE95600FA83884 /* SHA1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SHA1.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/Implementations/SHA1.swift"; sourceTree = "<group>"; };
 		17B1F2EC3B66A6D835503FAD3E8D21AF /* Pods-Neighborly-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Neighborly-frameworks.sh"; sourceTree = "<group>"; };
-		18A707E84D6887FD0B54C13D2C5A954B /* Cloudinary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudinary-umbrella.h"; sourceTree = "<group>"; };
-		18EEF3E2157B316B658059CE8ED7FF24 /* SSLSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = Sources/SSLSecurity.swift; sourceTree = "<group>"; };
-		1912D23456C786DCC81D6D2BED0DA3FD /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		1895E1EFA3EFDF3A0E526C0B791CC829 /* CLDImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDImageCache.swift; path = Cloudinary/Utils/CLDImageCache.swift; sourceTree = "<group>"; };
+		1A593884C600452D154994AEA235C799 /* CLDImageUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDImageUtils.swift; path = Cloudinary/Utils/CLDImageUtils.swift; sourceTree = "<group>"; };
 		1C6A175FED1906FF46E75E743B2CCC22 /* Pods-NeighborlyUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NeighborlyUITests-dummy.m"; sourceTree = "<group>"; };
-		1CC80839F2599D2E098CFEF7C381316A /* CLDUIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUIImageView.swift; path = Cloudinary/Features/UIViews/CLDUIImageView.swift; sourceTree = "<group>"; };
-		1F9AE6DFA79131A2BE72BD3A6170B44F /* CLDTranformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTranformation.swift; path = Cloudinary/Features/Helpers/CLDTranformation.swift; sourceTree = "<group>"; };
+		1C9F46CF25D82ADD07C9CCCEF7CFD370 /* CLDFace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDFace.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CLDFace.swift; sourceTree = "<group>"; };
+		1D739EBB2A3971A55C9349F33A7CE231 /* Data+HashFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+HashFunction.swift"; path = "Cloudinary/Utils/CryptoKit/Data Extensions/Data+HashFunction.swift"; sourceTree = "<group>"; };
+		1F3E490116A5F70BF184C91DAA7CBCAA /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		1FF0D757765E6941D83AED7E9ED7E291 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22B24D76AB9B221097361A91D991B7E2 /* CLDError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDError.swift; path = Cloudinary/Utils/CLDError.swift; sourceTree = "<group>"; };
-		235A91835CA71B36ABD316B4710FA7A1 /* CLDUploadResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUploadResult.swift; path = Cloudinary/Features/Uploader/Results/CLDUploadResult.swift; sourceTree = "<group>"; };
+		20445BF0B3DC3C9F06B3D5BB1E6124FB /* CLDErrorRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDErrorRequest.swift; path = Cloudinary/Network/NetworkRequest/CLDErrorRequest.swift; sourceTree = "<group>"; };
+		227ADCB42FF3DB958D4B0CFAED6B89F1 /* CLDExplodeRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplodeRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDExplodeRequestParams.swift; sourceTree = "<group>"; };
 		23FA268F7976194C5CD1F9A31D556CB0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		24FC61BBB750438366950C0B5C5D0D88 /* CLDTextLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTextLayer.swift; path = Cloudinary/Features/Helpers/Layers/CLDTextLayer.swift; sourceTree = "<group>"; };
+		25DCFD9E77321EA507E8D1AD81D34E27 /* CLDJsonUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDJsonUtils.swift; path = Cloudinary/CLDJsonUtils.swift; sourceTree = "<group>"; };
 		2665793DB204BF6BC3BF8979DD22E996 /* Pods-NeighborlyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeighborlyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		271C1DC66C7C29FDC450E22285D9EE3F /* Pods-NeighborlyUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeighborlyUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		277943C581221AA14D0C3D9DA2EBD653 /* CLDFileUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDFileUtils.swift; path = Cloudinary/Utils/CLDFileUtils.swift; sourceTree = "<group>"; };
 		2789CF1F42DABE27C02F4A1FD33B202F /* Pods-NeighborlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeighborlyTests.release.xcconfig"; sourceTree = "<group>"; };
+		27D59CB103913D739DCFCCFF9844B63B /* CLDResponsiveViewHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDResponsiveViewHelper.swift; path = Cloudinary/Features/UIViews/CLDResponsiveViewHelper.swift; sourceTree = "<group>"; };
+		27EE5AE6FF7483FD4D942312A39029D1 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
 		2850A52E4F99C668B046E25C432CF5A6 /* Cloudinary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cloudinary.framework; path = Cloudinary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		286CC727BE210D335A3BE95554D58FEB /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		28832B597E65E3F41DAB99ED82C244C1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28A1D54C1F202C5361E76227CA1047FC /* CLDDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDownloader.swift; path = Cloudinary/Features/Downloader/CLDDownloader.swift; sourceTree = "<group>"; };
 		292CCC455817B7A2102C568A43687304 /* Pods-Neighborly-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Neighborly-umbrella.h"; sourceTree = "<group>"; };
-		2C56947E06948713B38FA646484347EE /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
-		2D3DE1ECAB2080F1DCD1456BA5AF0F64 /* CLDExplicitRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplicitRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDExplicitRequestParams.swift; sourceTree = "<group>"; };
-		2DA478919DD8BDE112E7328918C908F8 /* CLDBuildParamsUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDBuildParamsUtils.swift; path = Cloudinary/Utils/CLDBuildParamsUtils.swift; sourceTree = "<group>"; };
+		2947725B5B20779915DFAEABAB5A0D7F /* CLDRekognitionFace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRekognitionFace.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CLDRekognitionFace.swift; sourceTree = "<group>"; };
+		29E959C1EB66BF69076C9845CA243DB6 /* CLDBaseResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDBaseResult.swift; path = Cloudinary/Features/Helpers/Results/CLDBaseResult.swift; sourceTree = "<group>"; };
+		2A38D665FF2A5726266715B2D6D1D73F /* CLDExplodeResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplodeResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDExplodeResult.swift; sourceTree = "<group>"; };
+		2C40B9C554BE3DC76581C03F271AC09E /* CLDExplodeRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplodeRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDExplodeRequest.swift; sourceTree = "<group>"; };
 		2EAC196415B5E43479A165E4661E4531 /* Pods-Neighborly-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Neighborly-resources.sh"; sourceTree = "<group>"; };
-		33CE7B7889FB3B181710670EB063E308 /* CLDFace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDFace.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CLDFace.swift; sourceTree = "<group>"; };
-		371BE0619AA0D3F91DBA1FB4A4ACC687 /* CLDUploadRequestWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUploadRequestWrapper.swift; path = Cloudinary/Features/Uploader/Requests/CLDUploadRequestWrapper.swift; sourceTree = "<group>"; };
+		30A7924FD5D7ABF39EEFEBED91A14BF6 /* Cloudinary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cloudinary-dummy.m"; sourceTree = "<group>"; };
+		316E156C71662C30E0F831BA504A08F0 /* Cloudinary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudinary-umbrella.h"; sourceTree = "<group>"; };
+		336FF3F791BAA4AA9A6CAB3581BA7568 /* CLDDefaultUploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDefaultUploadRequest.swift; path = Cloudinary/Features/Uploader/Requests/CLDDefaultUploadRequest.swift; sourceTree = "<group>"; };
+		363885D94875E8FD20EDDDDC446EB19A /* CLDTextRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTextRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDTextRequestParams.swift; sourceTree = "<group>"; };
+		37BE48950CE44F44D49422A79AD45697 /* HashFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashFunction.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/HashFunction.swift"; sourceTree = "<group>"; };
 		392635B49E1B99F72A3838535D8AEF4F /* Pods_Neighborly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Neighborly.framework; path = "Pods-Neighborly.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F81736C25E3A0DC6804FE4C0BB1452A /* Cloudinary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cloudinary.xcconfig; sourceTree = "<group>"; };
-		423BB3B4A0ACD9F618CD0BE7F31E1565 /* CLDLogManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDLogManager.swift; path = Cloudinary/Utils/CLDLogManager.swift; sourceTree = "<group>"; };
-		44BCED3BD3C33FCEC07E7D0CE25859E7 /* CLDExplodeResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplodeResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDExplodeResult.swift; sourceTree = "<group>"; };
-		4586C7F7C53E4A45E7FDD7D863EAD4D2 /* CLDConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDConfiguration.swift; path = Cloudinary/CLDConfiguration.swift; sourceTree = "<group>"; };
-		48E334BB80C18CA1100A52BE12B7D2AB /* Cloudinary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudinary-prefix.pch"; sourceTree = "<group>"; };
-		4A50EF65E20D2B08CD72D88FB34CCF69 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		3990438BF6458ADDB5F5518BB37D2BDF /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		3BFD1B4910E4F08A070569CBA8E7E426 /* CLDCloudinary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDCloudinary.swift; path = Cloudinary/CLDCloudinary.swift; sourceTree = "<group>"; };
+		3C0413BB12BD0FB427D154A851254719 /* CLDSpriteRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDSpriteRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDSpriteRequest.swift; sourceTree = "<group>"; };
+		412E2898F6F251B4119B1FA7217BBB87 /* CLDNetworkDataRequestImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkDataRequestImpl.swift; path = Cloudinary/Network/NetworkRequest/CLDNetworkDataRequestImpl.swift; sourceTree = "<group>"; };
+		4215054794C6D94291AD1FE675A693AD /* CLDPreprocessChain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDPreprocessChain.swift; path = Cloudinary/Features/Uploader/Preupload/CLDPreprocessChain.swift; sourceTree = "<group>"; };
+		429D3C86AF3FC49EEA597F59E248823E /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		44BAB155752FCAE4A424449518487F46 /* CLDStringUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDStringUtils.swift; path = Cloudinary/Utils/CLDStringUtils.swift; sourceTree = "<group>"; };
+		488F4F1E654126F9BBC0CEB32B9A4119 /* CLDUrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUrl.swift; path = Cloudinary/Features/Url/CLDUrl.swift; sourceTree = "<group>"; };
 		4A9574E6698337208B0557C3E4B81737 /* Pods-Neighborly.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Neighborly.modulemap"; sourceTree = "<group>"; };
-		4C083D4198EB8FA4EC4155C943C0F0B6 /* Data+Int.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Int.swift"; path = "Cloudinary/Utils/CryptoKit/Data Extensions/Data+Int.swift"; sourceTree = "<group>"; };
-		4C8C8B27D84F5E925FC1300AD8A7F959 /* CLDUploader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUploader.swift; path = Cloudinary/Features/Uploader/CLDUploader.swift; sourceTree = "<group>"; };
-		4D0A24F4F0297C2DDCB13790FC662C8A /* CLDDetection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDetection.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CLDDetection.swift; sourceTree = "<group>"; };
-		4D51BD5C1AB3AAD216EA930C2B0117C8 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		4DC76519EE466272D12754D405DBDFCB /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
-		500275AA3DDD0F313C48154808AD9450 /* CLDResponsiveParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDResponsiveParams.swift; path = Cloudinary/CLDResponsiveParams.swift; sourceTree = "<group>"; };
-		514D69CD95E9D8D3DC25DB8EBF2B6423 /* CLDNetworkUploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkUploadRequest.swift; path = Cloudinary/Network/NetworkRequest/CLDNetworkUploadRequest.swift; sourceTree = "<group>"; };
-		529353403EC360DC48BDFEDCC948A0D9 /* CLDDeleteRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDeleteRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDDeleteRequest.swift; sourceTree = "<group>"; };
-		54975146C39D26F68BE61C7CD1357027 /* CLDPreprocessHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDPreprocessHelpers.swift; path = Cloudinary/Features/Uploader/Preupload/CLDPreprocessHelpers.swift; sourceTree = "<group>"; };
+		4A9EEA8C3A2D977BED801DFCC9FC6198 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
+		4FAE3C5C4A109EED818D1757C2C5810C /* CLDManagementApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDManagementApi.swift; path = Cloudinary/Features/ManagementApi/CLDManagementApi.swift; sourceTree = "<group>"; };
+		509D8AE7363CB7EFA75A76196EFB2AD3 /* Starscream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-umbrella.h"; sourceTree = "<group>"; };
+		51D291D55FE6D6695DBC96C46232E5A5 /* CLDRequestParamsHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRequestParamsHelpers.swift; path = Cloudinary/Features/Helpers/RequestParams/Helpers/CLDRequestParamsHelpers.swift; sourceTree = "<group>"; };
+		529123F6911B3865187A51834F631A55 /* SSLSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = Sources/SSLSecurity.swift; sourceTree = "<group>"; };
+		531A0692338A426A0AF52CD068C9FCD2 /* CLDRenameRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRenameRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDRenameRequestParams.swift; sourceTree = "<group>"; };
 		54D13C8832EA6AF3515AB84E5EB2B5E5 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5572538B62D3DE0899FAE25876DCEDBD /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
-		57544C35856633E79FF26DF124161C0B /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
-		57615E4BA1DF457F2AE21BFC7ED5E1B0 /* CLDFetchImageRequestImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDFetchImageRequestImpl.swift; path = Cloudinary/Network/NetworkRequest/CLDFetchImageRequestImpl.swift; sourceTree = "<group>"; };
-		5AB1DC25DD271DAFDF21F20B67B2DA66 /* CLDMultiRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDMultiRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDMultiRequest.swift; sourceTree = "<group>"; };
-		5BD99D3FFDA676F8D46991A5E028FC74 /* CLDCryptoUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDCryptoUtils.swift; path = Cloudinary/Utils/CLDCryptoUtils.swift; sourceTree = "<group>"; };
-		5C1AE6A344CCAD04D317190C90E5BCD3 /* CLDErrorRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDErrorRequest.swift; path = Cloudinary/Network/NetworkRequest/CLDErrorRequest.swift; sourceTree = "<group>"; };
-		5E50642D16A3A3728B6F81646EB31FB3 /* CLDNetworkCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkCoordinator.swift; path = Cloudinary/Network/CLDNetworkCoordinator.swift; sourceTree = "<group>"; };
-		5ECDCAF295CF45FD5E2B235E28D03113 /* CLDNetworkDownloadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkDownloadRequest.swift; path = Cloudinary/Network/NetworkRequest/CLDNetworkDownloadRequest.swift; sourceTree = "<group>"; };
-		60506C8779F66E99090A65D1D9A0207D /* CLDRequestParamsHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRequestParamsHelpers.swift; path = Cloudinary/Features/Helpers/RequestParams/Helpers/CLDRequestParamsHelpers.swift; sourceTree = "<group>"; };
-		60C0D879F5C62C73AE24C4BEB9BEB2D8 /* Cloudinary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cloudinary.modulemap; sourceTree = "<group>"; };
+		56A9C61FED1D33D7FF233B1DBB8F34D2 /* CLDTranformation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTranformation.swift; path = Cloudinary/Features/Helpers/CLDTranformation.swift; sourceTree = "<group>"; };
+		56CE417FF6E268D1CB65C8AC732A77BB /* CommonResultKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommonResultKeys.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CommonResultKeys.swift; sourceTree = "<group>"; };
+		5AB622AFC4899DE3D1A545FAF4B888ED /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		5BC1DFC9075AC44837730C4ED7122079 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		5C8F9BF5961F8336FE5E2EA5F7ADCE54 /* Cloudinary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cloudinary.xcconfig; sourceTree = "<group>"; };
+		5CF52C98297BE6DB60CB9C9080B32C5E /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		5DBCD1CFC6F872B51DA97BA3EB1BCB33 /* CLDNetworkUploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkUploadRequest.swift; path = Cloudinary/Network/NetworkRequest/CLDNetworkUploadRequest.swift; sourceTree = "<group>"; };
+		622378CC61FDCA255FE1ACC8CC167471 /* CLDTagsRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTagsRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDTagsRequestParams.swift; sourceTree = "<group>"; };
+		62E5C31D6E674358966FE25A319D189B /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		62F4E4425A6298CB09FA266C1DE229C3 /* Pods-Neighborly-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Neighborly-dummy.m"; sourceTree = "<group>"; };
-		64DAEAA339FA1F649071EA40AC2A0202 /* CLDExplodeRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplodeRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDExplodeRequestParams.swift; sourceTree = "<group>"; };
-		6611C44E62FF4A8C86B467331F01FA9E /* MerkleDamgardConstructor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MerkleDamgardConstructor.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/MerkleDamgardConstructor.swift"; sourceTree = "<group>"; };
-		661D04DC7C24C61E68E2AED9CA912205 /* CLDDefaultUploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDefaultUploadRequest.swift; path = Cloudinary/Features/Uploader/Requests/CLDDefaultUploadRequest.swift; sourceTree = "<group>"; };
-		6714F0C57BBDCA00FF1A233E8B724556 /* CLDDeleteByTokenRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDeleteByTokenRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDDeleteByTokenRequestParams.swift; sourceTree = "<group>"; };
-		6717ADB2F87487813A5638901C8D7DA9 /* CLDRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRequestParams.swift; path = Cloudinary/Features/Helpers/RequestParams/CLDRequestParams.swift; sourceTree = "<group>"; };
+		65407AB7D433F498D5B9D3B0B75DAE91 /* Data+Int.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Int.swift"; path = "Cloudinary/Utils/CryptoKit/Data Extensions/Data+Int.swift"; sourceTree = "<group>"; };
+		656F859ECB679BC541B4A70BFFED86CC /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		6965E562C32152BDC700D1CFFB998EF9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D273D176245FF4DAC03DA2EEB0946BD /* MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MD5.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/Implementations/MD5.swift"; sourceTree = "<group>"; };
+		6A157B65DF0D00EAB56E4F6CAB9AF82F /* CLDConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDConfiguration.swift; path = Cloudinary/CLDConfiguration.swift; sourceTree = "<group>"; };
+		6BA02AB85F337886AD5FDAE038726C52 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		6C0129C487175AC72C1CEA0EFDA36A9A /* CLDAsyncNetworkUploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDAsyncNetworkUploadRequest.swift; path = Cloudinary/Network/NetworkRequest/CLDAsyncNetworkUploadRequest.swift; sourceTree = "<group>"; };
+		6C3996943A3641C2A45392908AE52C2F /* CLDBuildParamsUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDBuildParamsUtils.swift; path = Cloudinary/Utils/CLDBuildParamsUtils.swift; sourceTree = "<group>"; };
 		6D7CCFA0EE684F5038A8CD0B5DC02696 /* Pods-NeighborlyUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NeighborlyUITests.modulemap"; sourceTree = "<group>"; };
 		6D808E004C1D59BEB396544DFB7F3DDB /* Pods-NeighborlyUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NeighborlyUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		6F2A9503A59A635395F7E98E17A82F43 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		70174A876680E059201BD27ECDE6FE7F /* CLDPreprocessChain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDPreprocessChain.swift; path = Cloudinary/Features/Uploader/Preupload/CLDPreprocessChain.swift; sourceTree = "<group>"; };
+		6E873A6BBB96DEA8EB37491A457B9AEB /* CLDRenameRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRenameRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDRenameRequest.swift; sourceTree = "<group>"; };
+		6EF319E266B4CE02BB6F054011AF490C /* CLDError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDError.swift; path = Cloudinary/Utils/CLDError.swift; sourceTree = "<group>"; };
+		700D5F276374386BBC5B6FB76F694F29 /* CLDImagePreprocessChain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDImagePreprocessChain.swift; path = Cloudinary/Features/Uploader/Preupload/CLDImagePreprocessChain.swift; sourceTree = "<group>"; };
+		733A018F55E9B6AA6018FC8DF84ECA87 /* CLDMultiRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDMultiRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDMultiRequest.swift; sourceTree = "<group>"; };
+		744B525B83A5ADC0EB6C1CA2B33AF2B8 /* RotateOperations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RotateOperations.swift; path = "Cloudinary/Utils/CryptoKit/Math Protocols/RotateOperations.swift"; sourceTree = "<group>"; };
+		75307869F1C011D042912B9D067798B4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75AC8AC8FF60808250F514727A16BCE7 /* Pods-NeighborlyUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NeighborlyUITests-frameworks.sh"; sourceTree = "<group>"; };
-		76312B72A6BB7415211948A61B0AF838 /* CLDExplodeRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplodeRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDExplodeRequest.swift; sourceTree = "<group>"; };
-		76D87FD3272495C159D31A169D21E432 /* CLDJsonUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDJsonUtils.swift; path = Cloudinary/CLDJsonUtils.swift; sourceTree = "<group>"; };
+		76C3A9D37155172CED82C91A3F3D167F /* MerkleDamgardConstructor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MerkleDamgardConstructor.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/MerkleDamgardConstructor.swift"; sourceTree = "<group>"; };
+		7850C1CA2F4A3C3D4DEB7CCEEDD55D93 /* CLDTextLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTextLayer.swift; path = Cloudinary/Features/Helpers/Layers/CLDTextLayer.swift; sourceTree = "<group>"; };
 		7872C6260023DC01EB3313A3AB081250 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78FCEAE9EAE99C883CECDD13A74810F0 /* Data+HashFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+HashFunction.swift"; path = "Cloudinary/Utils/CryptoKit/Data Extensions/Data+HashFunction.swift"; sourceTree = "<group>"; };
-		7BB84484A8CE3EA7CA9EF35B19012FED /* CLDBaseNetworkObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDBaseNetworkObject.swift; path = Cloudinary/Features/Helpers/CLDBaseNetworkObject.swift; sourceTree = "<group>"; };
-		7BC2575942586E6A9C49C2AF74AD8A5B /* CLDUrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUrl.swift; path = Cloudinary/Features/Url/CLDUrl.swift; sourceTree = "<group>"; };
-		7D376F2895D3AFFA967117BBFC9BC005 /* Cloudinary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cloudinary-dummy.m"; sourceTree = "<group>"; };
-		7DCC47558D4D5EB24C2DE577DDECB280 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DDE32D423794ACD4E929A00E0FFE5FD /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
-		7E2B438D817252FDCA78A3D7F417B549 /* RotateOperations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RotateOperations.swift; path = "Cloudinary/Utils/CryptoKit/Math Protocols/RotateOperations.swift"; sourceTree = "<group>"; };
-		7E5B2BA14B05A768417331226B19DAE9 /* CLDMultiRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDMultiRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDMultiRequestParams.swift; sourceTree = "<group>"; };
-		7F0196B268AB019D150F69BBEADB7C36 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
-		8191B06EFF2FF7415CD1B271D18869CA /* CLDDestroyRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDestroyRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDDestroyRequestParams.swift; sourceTree = "<group>"; };
-		820A9BC8ACBBB6179D92377C19C66837 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		7A28CA2C2A4FA608202977FA9890C94D /* CLDPreprocessHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDPreprocessHelpers.swift; path = Cloudinary/Features/Uploader/Preupload/CLDPreprocessHelpers.swift; sourceTree = "<group>"; };
+		7D58F13DB1DD0C64E8AE58543A7503D1 /* CLDUploadRequestWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUploadRequestWrapper.swift; path = Cloudinary/Features/Uploader/Requests/CLDUploadRequestWrapper.swift; sourceTree = "<group>"; };
+		7D8F3760CC314E4067952394783E097C /* CLDFetchImageRequestImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDFetchImageRequestImpl.swift; path = Cloudinary/Network/NetworkRequest/CLDFetchImageRequestImpl.swift; sourceTree = "<group>"; };
+		80375F34E456AE33F48CA0F7CDBFFAEE /* CLDSpriteResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDSpriteResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDSpriteResult.swift; sourceTree = "<group>"; };
+		80FB7CD774AA3C6A3FBAB974EE0D670A /* Starscream.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.xcconfig; sourceTree = "<group>"; };
+		812BEFA1CF624F98A5DE7B21BE4A06FA /* CLDTagResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTagResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDTagResult.swift; sourceTree = "<group>"; };
+		83F8DB0AACAAF0ACF1FDCCF5D55C361E /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
 		841BFBD61BF00C972439A9C809DDAA3B /* Pods-Neighborly-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Neighborly-acknowledgements.plist"; sourceTree = "<group>"; };
-		856EE7FE15798C75A1A39BB79591AD8E /* CLDCompatibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDCompatibility.swift; path = Cloudinary/CLDCompatibility.swift; sourceTree = "<group>"; };
-		860D6F578F02F0B30B8F405FC6A1BC0D /* CommonResultKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommonResultKeys.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CommonResultKeys.swift; sourceTree = "<group>"; };
-		8C6127EFBF91C00219DC36195F74C96E /* CLDDictionaryUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDictionaryUtils.swift; path = Cloudinary/Utils/CLDDictionaryUtils.swift; sourceTree = "<group>"; };
-		8E254927F80644B675EFDF3A46FEC08D /* CLDSpriteResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDSpriteResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDSpriteResult.swift; sourceTree = "<group>"; };
+		85F5AD6550E25DF2F3A887C9704A8499 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		886F2CA952E057218DC7B327E79F22E2 /* CLDNetworkDownloadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkDownloadRequest.swift; path = Cloudinary/Network/NetworkRequest/CLDNetworkDownloadRequest.swift; sourceTree = "<group>"; };
+		8B4BDFB423B41ABC3879DF1338ED3F31 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Starscream.modulemap; sourceTree = "<group>"; };
+		8EB4B5A8B70F4E3B603C60FF65E64F97 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		8ED8655C77E2B66876035B0E00FF5734 /* Pods_NeighborlyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NeighborlyTests.framework; path = "Pods-NeighborlyTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F89C394C0381E0CB85166F6D3C6F06E /* CLDRenameResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRenameResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDRenameResult.swift; sourceTree = "<group>"; };
+		8F1F1BA24AFCD057418200E865D45C66 /* CLDSubtitlesLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDSubtitlesLayer.swift; path = Cloudinary/Features/Helpers/Layers/CLDSubtitlesLayer.swift; sourceTree = "<group>"; };
 		91072062754142793916CA5C5A975299 /* Pods-NeighborlyTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NeighborlyTests-umbrella.h"; sourceTree = "<group>"; };
-		911521E68E2A034127D496243CAB5775 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
-		935F6B68F08B0C1F83759DC7224A3AE1 /* CLDExplicitRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplicitRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDExplicitRequest.swift; sourceTree = "<group>"; };
+		92EB9CD6B7F79A716CF2E46BC42075DD /* CLDUploader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUploader.swift; path = Cloudinary/Features/Uploader/CLDUploader.swift; sourceTree = "<group>"; };
+		932BA5DE967498F904C79E8EB2FAF494 /* UIButton+Cloudinary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Cloudinary.swift"; path = "Cloudinary/Features/Extensions/UIButton+Cloudinary.swift"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9518619242BFC84064946EAC9B8A9E28 /* CLDCloudinary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDCloudinary.swift; path = Cloudinary/CLDCloudinary.swift; sourceTree = "<group>"; };
-		96D6599B749CBAB84451E74FAE1575FE /* CLDDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDownloader.swift; path = Cloudinary/Features/Downloader/CLDDownloader.swift; sourceTree = "<group>"; };
-		988B8B037C5C560A1FE64F1A9EC8B8C7 /* CLDManagementApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDManagementApi.swift; path = Cloudinary/Features/ManagementApi/CLDManagementApi.swift; sourceTree = "<group>"; };
+		9789242FE9B73DDC8E156E36D149B94E /* CLDDeleteByTokenRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDeleteByTokenRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDDeleteByTokenRequestParams.swift; sourceTree = "<group>"; };
+		99D157B7B732F5F74321DAE2F24901AE /* CLDNetworkAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkAdapter.swift; path = Cloudinary/Network/Adapter/CLDNetworkAdapter.swift; sourceTree = "<group>"; };
+		9AACCA99F5E7B332B9E2E55DCB3D3B83 /* CLDDestroyRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDestroyRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDDestroyRequestParams.swift; sourceTree = "<group>"; };
+		9B076F025F3E9B3D54FD4502A195E5D5 /* CLDRenameResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRenameResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDRenameResult.swift; sourceTree = "<group>"; };
+		9C9E0F5759DE5AA62B78C58A0E6B3705 /* CLDDictionaryUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDictionaryUtils.swift; path = Cloudinary/Utils/CLDDictionaryUtils.swift; sourceTree = "<group>"; };
+		9CD3DF90CEC10D3E23DE6607CF7D5D9F /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		9E5302CC83A34BD07BB254D42EDD41C7 /* CLDUploadResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUploadResult.swift; path = Cloudinary/Features/Uploader/Results/CLDUploadResult.swift; sourceTree = "<group>"; };
 		9F02A739100B7422F36AE23783BE8C24 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1402BB40F0C1E4B0A93A10CDBDF00B8 /* SHA1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SHA1.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/Implementations/SHA1.swift"; sourceTree = "<group>"; };
-		A209DD43567AD531BA7FC4E2F1E40939 /* CLDDefinitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDefinitions.swift; path = Cloudinary/Features/Helpers/CLDDefinitions.swift; sourceTree = "<group>"; };
-		A7A996AF7BD6ED695841B75D44C5137E /* CLDTagRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTagRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDTagRequest.swift; sourceTree = "<group>"; };
-		A9253E5FD8F07C9E220EAF75DB3ECA8B /* CLDTagResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTagResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDTagResult.swift; sourceTree = "<group>"; };
-		A9D74AE0BBFA5CA357A27362EA4F7A65 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
-		AA16BF9D1F29DBA9E26AD949992357B1 /* CLDBaseResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDBaseResult.swift; path = Cloudinary/Features/Helpers/Results/CLDBaseResult.swift; sourceTree = "<group>"; };
-		AAD5D45D625AA0FD8948AFBB7EA2D11D /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Starscream.modulemap; sourceTree = "<group>"; };
-		AE77E3674A0F2788F11A84E1BEC2BB91 /* CLDBoundingBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDBoundingBox.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CLDBoundingBox.swift; sourceTree = "<group>"; };
-		AE88205CB362B6E79B43132D676A1BC5 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
-		B0C12CA28F5A824F8D87090BDD2AAAEF /* CLDRenameRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRenameRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDRenameRequestParams.swift; sourceTree = "<group>"; };
-		B3326FA98932E2FADBED577E8595DFBF /* HashAlgorithm.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashAlgorithm.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/HashAlgorithm.swift"; sourceTree = "<group>"; };
-		B4055D5D0345362F9851392BE266CF82 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		A0FB2E7A7E8F238DF0109BF46E2C4DE7 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		A3ACAFCE1FACA5F139EDBC4A16C8F52C /* HashAlgorithm.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashAlgorithm.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/HashAlgorithm.swift"; sourceTree = "<group>"; };
+		A569D572FD22FF13BA52AE02A3377540 /* SendBirdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SendBirdSDK.framework; sourceTree = "<group>"; };
+		A755FFC9C12A2480F2BFE00005062C06 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		A8FE4030A1DC77C98B2B42CDB42476A7 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
+		AABFBAEDCCC0E5F0263639905192D4C9 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		AC9B58EC57B76C1C468853FCC61BF99D /* CLDTagRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTagRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDTagRequest.swift; sourceTree = "<group>"; };
+		B48089FB716F083A50E51A4BC297D51F /* CLDExplicitResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplicitResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDExplicitResult.swift; sourceTree = "<group>"; };
 		B49140905272DC7B732DC5B85343563F /* Pods-NeighborlyTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NeighborlyTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B4EB109315919AB5344E85AAF327ACE9 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
-		B725411CEF52B96166D08F6E4312818B /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
-		B9C0A534870893E2E045B0114ACDCC4E /* CLDLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDLayer.swift; path = Cloudinary/Features/Helpers/Layers/CLDLayer.swift; sourceTree = "<group>"; };
-		BD098DFB2A4D5A2C2CD780DC8474C6C1 /* Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Compression.swift; sourceTree = "<group>"; };
-		BEDC0161F3C04FAD95C452B69B28D2BD /* CLDGenericNetworkRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDGenericNetworkRequest.swift; path = Cloudinary/Network/NetworkRequest/CLDGenericNetworkRequest.swift; sourceTree = "<group>"; };
-		C07FDDC62825F856303D1BA20D8307DA /* CLDSpriteRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDSpriteRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDSpriteRequestParams.swift; sourceTree = "<group>"; };
-		C22F449DCE3DF4861C48400FAB2A48AF /* EndianRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EndianRepresentable.swift; path = "Cloudinary/Utils/CryptoKit/Math Protocols/EndianRepresentable.swift"; sourceTree = "<group>"; };
-		C4949545F2AA2E08975F0DD9B0B69E25 /* CLDAsyncNetworkUploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDAsyncNetworkUploadRequest.swift; path = Cloudinary/Network/NetworkRequest/CLDAsyncNetworkUploadRequest.swift; sourceTree = "<group>"; };
+		B75FA87172A760D425D35C1FC536BD22 /* CLDNetworkCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkCoordinator.swift; path = Cloudinary/Network/CLDNetworkCoordinator.swift; sourceTree = "<group>"; };
+		BD24B5942702AC0F554E915E9C900C78 /* MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MD5.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/Implementations/MD5.swift"; sourceTree = "<group>"; };
+		C0D730513CF9D09C7EAE788B85A9338A /* CLDFileUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDFileUtils.swift; path = Cloudinary/Utils/CLDFileUtils.swift; sourceTree = "<group>"; };
+		C7A4FE4529B84B082B44042FB7F6E6A1 /* CLDCompatibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDCompatibility.swift; path = Cloudinary/CLDCompatibility.swift; sourceTree = "<group>"; };
 		C8425F802DF869B8844D9D072CFCE373 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		C846D89B5704050723A89421C5246CE8 /* CLDRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRequest.swift; path = Cloudinary/Features/Helpers/Requests/CLDRequest.swift; sourceTree = "<group>"; };
-		CA441341787F4BA615B13D28A5FE8E1F /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
-		CA737C710937F252772304F9E049E2C2 /* CLDStringUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDStringUtils.swift; path = Cloudinary/Utils/CLDStringUtils.swift; sourceTree = "<group>"; };
-		CBCB9535B724A238EE6F85160B88DE3E /* CLDInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDInfo.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CLDInfo.swift; sourceTree = "<group>"; };
+		C8819984585DB1803B1F0C9B8B963685 /* CLDResponsiveParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDResponsiveParams.swift; path = Cloudinary/CLDResponsiveParams.swift; sourceTree = "<group>"; };
+		CB53C6020A1F2D0113858801E8E7804D /* CLDMultiResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDMultiResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDMultiResult.swift; sourceTree = "<group>"; };
+		CB99CBBFB150DFAEECDCCAC2A1A2005C /* CLDGenericNetworkRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDGenericNetworkRequest.swift; path = Cloudinary/Network/NetworkRequest/CLDGenericNetworkRequest.swift; sourceTree = "<group>"; };
+		CBA53928ABBD476C9F5BE7DD06863579 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		CBE21AFBB535C3E4CF193BA0DE734D8E /* Pods-NeighborlyUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NeighborlyUITests-resources.sh"; sourceTree = "<group>"; };
 		CCDB8F83A00CE40C642EBD7E1C66FC13 /* Pods-NeighborlyTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NeighborlyTests-frameworks.sh"; sourceTree = "<group>"; };
-		D0E9BD3EB81526BC067EC5E8B0FDC30C /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
-		D19744EB2176F585B698D0747E4A4202 /* CLDTagsRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTagsRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDTagsRequestParams.swift; sourceTree = "<group>"; };
-		D692995E12037CBDEC4730F47B3017F5 /* CLDTextResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTextResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDTextResult.swift; sourceTree = "<group>"; };
-		D8FE4939F939C766B09BBEAB6FED3B3F /* CLDSubtitlesLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDSubtitlesLayer.swift; path = Cloudinary/Features/Helpers/Layers/CLDSubtitlesLayer.swift; sourceTree = "<group>"; };
-		D941D01762E8C76A98C5B65BC4BB57BD /* Starscream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-umbrella.h"; sourceTree = "<group>"; };
-		D94734BA73BFACE4801B24CC11067268 /* CLDNetworkAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkAdapter.swift; path = Cloudinary/Network/Adapter/CLDNetworkAdapter.swift; sourceTree = "<group>"; };
-		DC8B327BD09549175F28A186435175B4 /* CLDExplicitResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplicitResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDExplicitResult.swift; sourceTree = "<group>"; };
+		CDE033630570506A08D6FA2CC5CF7FC4 /* CLDUploadRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUploadRequestParams.swift; path = Cloudinary/Features/Uploader/RequestParams/CLDUploadRequestParams.swift; sourceTree = "<group>"; };
+		CFCE03B5B1FDBCD4413E512BB6B016B5 /* CLDRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRequestParams.swift; path = Cloudinary/Features/Helpers/RequestParams/CLDRequestParams.swift; sourceTree = "<group>"; };
+		D04F4D44E9363452E23607FADEC36B67 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		D08A59928A52BA28A1170FE19853F66D /* CLDDetection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDetection.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CLDDetection.swift; sourceTree = "<group>"; };
+		D0DE7879463A4F3165F3EE34994C13F7 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		D4343E8D4C62123311E6B65BD25F1910 /* CLDUIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUIImageView.swift; path = Cloudinary/Features/UIViews/CLDUIImageView.swift; sourceTree = "<group>"; };
+		D53BA50539F2CB18EE528F0650F8E856 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		D63502292C99E91B945D640B7A34E074 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		D65A8AB042D154ECF354E3433C2E4B25 /* GooglePlacePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlacePicker.framework; path = Frameworks/GooglePlacePicker.framework; sourceTree = "<group>"; };
+		D70485541884B3EE02354E5310E2223B /* CLDTextRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTextRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDTextRequest.swift; sourceTree = "<group>"; };
+		D90752409F1F50D71AB7F5EDAE7C6AD8 /* CLDRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRequest.swift; path = Cloudinary/Features/Helpers/Requests/CLDRequest.swift; sourceTree = "<group>"; };
+		D955C1D50D4809F52F197C957C888267 /* CLDSpriteRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDSpriteRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDSpriteRequestParams.swift; sourceTree = "<group>"; };
+		DB3394EBFD176AD00D8DC0F770071365 /* CLDBoundingBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDBoundingBox.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CLDBoundingBox.swift; sourceTree = "<group>"; };
+		DB68C62F718CA2225ABAECDEC94D712A /* CLDExplicitRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplicitRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDExplicitRequest.swift; sourceTree = "<group>"; };
+		DC4BCCFC99113848E7987417093869DB /* CLDTextResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTextResult.swift; path = Cloudinary/Features/ManagementApi/Results/CLDTextResult.swift; sourceTree = "<group>"; };
 		DCCB61B5697C806B7FE1E7C5AF9DF0C4 /* Pods-Neighborly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Neighborly.release.xcconfig"; sourceTree = "<group>"; };
+		DF601AA5504DAC27D131182E8679977F /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
 		E0BC0084342F3D120607924A49A6FC62 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Starscream.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3D98BF14422756E641DCF0898339E2D /* HashFunctionOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashFunctionOptions.swift; path = "Cloudinary/Utils/CryptoKit/Hash Algorithms/HashFunctionOptions.swift"; sourceTree = "<group>"; };
-		E46492484E3FA78E4F1F62C41AF0845E /* CLDTextRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDTextRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDTextRequestParams.swift; sourceTree = "<group>"; };
-		E53878B585A615A65162DDED142C7769 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
-		E82E3FF1AAA2D094B0080E5D27A58A2F /* UIButton+Cloudinary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Cloudinary.swift"; path = "Cloudinary/Features/Extensions/UIButton+Cloudinary.swift"; sourceTree = "<group>"; };
-		E84DF607C0946F246587FD944968F589 /* CLDNetworkDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkDelegate.swift; path = Cloudinary/Network/CLDNetworkDelegate.swift; sourceTree = "<group>"; };
-		E876BE04E4DE34B6BF30167A227FCBE5 /* CLDImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDImageCache.swift; path = Cloudinary/Utils/CLDImageCache.swift; sourceTree = "<group>"; };
-		E8DE7F0FC959AF46309B1498F54A5C9C /* CLDRenameRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRenameRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDRenameRequest.swift; sourceTree = "<group>"; };
-		EBB469D2F12783B0A360DE48B79AAB27 /* CLDRekognitionFace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDRekognitionFace.swift; path = Cloudinary/Features/Helpers/Results/Helpers/CLDRekognitionFace.swift; sourceTree = "<group>"; };
+		E33C5CB78B222D233FD20ED031A5EDA2 /* CLDDefinitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDefinitions.swift; path = Cloudinary/Features/Helpers/CLDDefinitions.swift; sourceTree = "<group>"; };
+		E3F4589F41C91126CFD821EE6DF4103C /* CLDBaseNetworkObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDBaseNetworkObject.swift; path = Cloudinary/Features/Helpers/CLDBaseNetworkObject.swift; sourceTree = "<group>"; };
+		E4363FD1A3A709DAFD8EE18E5F9DC99E /* CLDMultiRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDMultiRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDMultiRequestParams.swift; sourceTree = "<group>"; };
+		EB2C6D91DC483002D04735F3610D3D7F /* Cloudinary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudinary-prefix.pch"; sourceTree = "<group>"; };
 		EC6740475BCF78E4BB9CE40F97778411 /* Pods-NeighborlyUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NeighborlyUITests-umbrella.h"; sourceTree = "<group>"; };
-		EF50926E0CAEA8BF48FCF9944962F4B2 /* CLDUploadRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDUploadRequestParams.swift; path = Cloudinary/Features/Uploader/RequestParams/CLDUploadRequestParams.swift; sourceTree = "<group>"; };
-		F02A3240A582EF5AD46AB82492D1DB7B /* UIImageView+Cloudinary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+Cloudinary.swift"; path = "Cloudinary/Features/Extensions/UIImageView+Cloudinary.swift"; sourceTree = "<group>"; };
+		ED93CF7CE310F148B86374DBCDB5302B /* Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Compression.swift; sourceTree = "<group>"; };
+		EE682E919E26B956756DAC606282632A /* CLDDeleteRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDDeleteRequest.swift; path = Cloudinary/Features/ManagementApi/Requests/CLDDeleteRequest.swift; sourceTree = "<group>"; };
 		F0A03B3D361841FA1ADB300604493F6F /* Pods-NeighborlyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeighborlyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F11CB90C31F35C4A7837B119BD15903F /* Pods-NeighborlyTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NeighborlyTests-dummy.m"; sourceTree = "<group>"; };
-		F29B7BE59FE1346F7D155BEDC40C81C3 /* CLDImagePreprocessChain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDImagePreprocessChain.swift; path = Cloudinary/Features/Uploader/Preupload/CLDImagePreprocessChain.swift; sourceTree = "<group>"; };
-		F2A2834AD4DDF72B57B93AE984B7E83A /* CLDResponsiveViewHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDResponsiveViewHelper.swift; path = Cloudinary/Features/UIViews/CLDResponsiveViewHelper.swift; sourceTree = "<group>"; };
+		F2AAC0296A43A833C6402A15EB04BDCB /* Cloudinary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cloudinary.modulemap; sourceTree = "<group>"; };
 		F2D88A260C23DED87B07EEED15E50F62 /* Pods-Neighborly-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Neighborly-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F555AE41634D5F16DC80B66FCB467270 /* CLDImageUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDImageUtils.swift; path = Cloudinary/Utils/CLDImageUtils.swift; sourceTree = "<group>"; };
 		F6A8D2929C362C2313AE237CE344309C /* Pods-NeighborlyTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeighborlyTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		F7220AE1E9956C6F7F308C092B32F1B1 /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
+		F6EB3CFC8D198BAE8B84F0E3B35001EF /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Sources/WebSocket.swift; sourceTree = "<group>"; };
+		F735AB7B5C008F5AD8DAEAC45E646B8C /* UIImageView+Cloudinary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+Cloudinary.swift"; path = "Cloudinary/Features/Extensions/UIImageView+Cloudinary.swift"; sourceTree = "<group>"; };
+		F74BAA92798A4EE77D7BE377232225ED /* CLDExplicitRequestParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDExplicitRequestParams.swift; path = Cloudinary/Features/ManagementApi/RequestsParams/CLDExplicitRequestParams.swift; sourceTree = "<group>"; };
 		F887C0AFF90BF421A6F6BA48EADDE1C1 /* Pods-Neighborly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Neighborly.debug.xcconfig"; sourceTree = "<group>"; };
-		F98DAAC4A024D2905E99D323A5AAB86E /* SendBirdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SendBirdSDK.framework; sourceTree = "<group>"; };
+		F9CBBDF4899A74827710A49D4DA2B43B /* GooglePlacePicker.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlacePicker.bundle; path = Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle; sourceTree = "<group>"; };
+		FA04C38B4FA83B378141CB242CB2B7C5 /* CLDNetworkDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkDelegate.swift; path = Cloudinary/Network/CLDNetworkDelegate.swift; sourceTree = "<group>"; };
 		FA04E24E647529D9BA82AD2698D40E47 /* Pods_NeighborlyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NeighborlyUITests.framework; path = "Pods-NeighborlyUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA892A423635648EF1B106AB863CFC11 /* CLDNetworkDataRequestImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLDNetworkDataRequestImpl.swift; path = Cloudinary/Network/NetworkRequest/CLDNetworkDataRequestImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,27 +442,40 @@
 			path = "Target Support Files/Pods-NeighborlyTests";
 			sourceTree = "<group>";
 		};
-		1A745944610E7EBE6579248F53E69D02 /* SendBirdSDK */ = {
+		1C4A5851AEC7E9D6CA03FCE599A4EC4C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				826C7DBA39507861881ACF4E4C6AE99D /* Frameworks */,
-			);
-			name = SendBirdSDK;
-			path = SendBirdSDK;
-			sourceTree = "<group>";
-		};
-		28A6B5C5456EAFF1064273B6C74E23BA /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				820A9BC8ACBBB6179D92377C19C66837 /* Alamofire.modulemap */,
-				028DDC7A7F33009DB09F54F2EF78071E /* Alamofire.xcconfig */,
-				1912D23456C786DCC81D6D2BED0DA3FD /* Alamofire-dummy.m */,
-				6F2A9503A59A635395F7E98E17A82F43 /* Alamofire-prefix.pch */,
-				7DDE32D423794ACD4E929A00E0FFE5FD /* Alamofire-umbrella.h */,
-				7DCC47558D4D5EB24C2DE577DDECB280 /* Info.plist */,
+				62E5C31D6E674358966FE25A319D189B /* Alamofire.modulemap */,
+				6BA02AB85F337886AD5FDAE038726C52 /* Alamofire.xcconfig */,
+				5BC1DFC9075AC44837730C4ED7122079 /* Alamofire-dummy.m */,
+				85F5AD6550E25DF2F3A887C9704A8499 /* Alamofire-prefix.pch */,
+				83F8DB0AACAAF0ACF1FDCCF5D55C361E /* Alamofire-umbrella.h */,
+				08262006B89064196FDDC8195DBDACD8 /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Alamofire";
+			sourceTree = "<group>";
+		};
+		2BD28C91701417E27E96A6726029DEE8 /* Starscream */ = {
+			isa = PBXGroup;
+			children = (
+				ED93CF7CE310F148B86374DBCDB5302B /* Compression.swift */,
+				529123F6911B3865187A51834F631A55 /* SSLSecurity.swift */,
+				F6EB3CFC8D198BAE8B84F0E3B35001EF /* WebSocket.swift */,
+				4C45F6071A475E564B7CBF831D880924 /* Support Files */,
+			);
+			name = Starscream;
+			path = Starscream;
+			sourceTree = "<group>";
+		};
+		383842A45947BB4BFBA509BC730D59EC /* GooglePlacePicker */ = {
+			isa = PBXGroup;
+			children = (
+				624605FAAA1524BF3EC47789E350448D /* Frameworks */,
+				DED54B5AD6CB5951FF27B06E78D136D1 /* Resources */,
+			);
+			name = GooglePlacePicker;
+			path = GooglePlacePicker;
 			sourceTree = "<group>";
 		};
 		3ECD03AA521A4A175A9969B71E9C3B0F /* iOS */ = {
@@ -464,6 +485,20 @@
 				23FA268F7976194C5CD1F9A31D556CB0 /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		3FAFB7169DA6490B65B702A689B29821 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F2AAC0296A43A833C6402A15EB04BDCB /* Cloudinary.modulemap */,
+				5C8F9BF5961F8336FE5E2EA5F7ADCE54 /* Cloudinary.xcconfig */,
+				30A7924FD5D7ABF39EEFEBED91A14BF6 /* Cloudinary-dummy.m */,
+				EB2C6D91DC483002D04735F3610D3D7F /* Cloudinary-prefix.pch */,
+				316E156C71662C30E0F831BA504A08F0 /* Cloudinary-umbrella.h */,
+				28832B597E65E3F41DAB99ED82C244C1 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Cloudinary";
 			sourceTree = "<group>";
 		};
 		46983284960F4F612CD957019362A77B /* Pods-NeighborlyUITests */ = {
@@ -484,6 +519,28 @@
 			path = "Target Support Files/Pods-NeighborlyUITests";
 			sourceTree = "<group>";
 		};
+		4C45F6071A475E564B7CBF831D880924 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				75307869F1C011D042912B9D067798B4 /* Info.plist */,
+				8B4BDFB423B41ABC3879DF1338ED3F31 /* Starscream.modulemap */,
+				80FB7CD774AA3C6A3FBAB974EE0D670A /* Starscream.xcconfig */,
+				06C5AD0AC3D93D164CA43BE9130B3F5B /* Starscream-dummy.m */,
+				DF601AA5504DAC27D131182E8679977F /* Starscream-prefix.pch */,
+				509D8AE7363CB7EFA75A76196EFB2AD3 /* Starscream-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Starscream";
+			sourceTree = "<group>";
+		};
+		4D4F541295BDEBAB9FCD0E7DAA9EF68D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8926994577310F70C2E6CEDD9088CAF9 /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
 		598BE4AEA9EEA84D015312C9EEC85339 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +554,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		624605FAAA1524BF3EC47789E350448D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D65A8AB042D154ECF354E3433C2E4B25 /* GooglePlacePicker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		70A053B4571D708ABD86E196FB21C924 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,30 +572,14 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		71181215C88A5283841856E41A50CF0E /* Alamofire */ = {
+		716BAAF33EF74AE04120B0D65119ACA2 /* GooglePlaces */ = {
 			isa = PBXGroup;
 			children = (
-				4DC76519EE466272D12754D405DBDFCB /* AFError.swift */,
-				CA441341787F4BA615B13D28A5FE8E1F /* Alamofire.swift */,
-				2C56947E06948713B38FA646484347EE /* DispatchQueue+Alamofire.swift */,
-				4D51BD5C1AB3AAD216EA930C2B0117C8 /* MultipartFormData.swift */,
-				B4055D5D0345362F9851392BE266CF82 /* NetworkReachabilityManager.swift */,
-				57544C35856633E79FF26DF124161C0B /* Notifications.swift */,
-				AE88205CB362B6E79B43132D676A1BC5 /* ParameterEncoding.swift */,
-				176994889B065D0532395188E42E7D85 /* Request.swift */,
-				E53878B585A615A65162DDED142C7769 /* Response.swift */,
-				054F4D174FD14FBA023958BBDD2D41AC /* ResponseSerialization.swift */,
-				5572538B62D3DE0899FAE25876DCEDBD /* Result.swift */,
-				4A50EF65E20D2B08CD72D88FB34CCF69 /* ServerTrustPolicy.swift */,
-				A9D74AE0BBFA5CA357A27362EA4F7A65 /* SessionDelegate.swift */,
-				911521E68E2A034127D496243CAB5775 /* SessionManager.swift */,
-				D0E9BD3EB81526BC067EC5E8B0FDC30C /* TaskDelegate.swift */,
-				7F0196B268AB019D150F69BBEADB7C36 /* Timeline.swift */,
-				B4EB109315919AB5344E85AAF327ACE9 /* Validation.swift */,
-				28A6B5C5456EAFF1064273B6C74E23BA /* Support Files */,
+				EB69856248F4D96F4A735F2D2B6AE6C5 /* Frameworks */,
+				8E92C9D5D27245BECCC4BBE8B0E7E844 /* Resources */,
 			);
-			name = Alamofire;
-			path = Alamofire;
+			name = GooglePlaces;
+			path = GooglePlaces;
 			sourceTree = "<group>";
 		};
 		7B05826141F5DEB7AF13094100054778 /* Frameworks */ = {
@@ -547,160 +596,87 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				7B05826141F5DEB7AF13094100054778 /* Frameworks */,
-				E6144D5733349910391791ED086A9859 /* Pods */,
+				FF69AC743393DFD20FB8713A21D8A783 /* Pods */,
 				598BE4AEA9EEA84D015312C9EEC85339 /* Products */,
 				70A053B4571D708ABD86E196FB21C924 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		826C7DBA39507861881ACF4E4C6AE99D /* Frameworks */ = {
+		80C4ABB7A52354E8A9A04CE497DCF077 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F98DAAC4A024D2905E99D323A5AAB86E /* SendBirdSDK.framework */,
+				5AB622AFC4899DE3D1A545FAF4B888ED /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8926994577310F70C2E6CEDD9088CAF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A755FFC9C12A2480F2BFE00005062C06 /* GoogleMapsBase.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A7149A1AE321E30A685A6F9DCA4E10E0 /* Support Files */ = {
+		8A40FAE3A06CA8FDE0DCF08CB0A0674C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1019BD0AB2CF8C8B95B0A5C68F07CD17 /* Info.plist */,
-				AAD5D45D625AA0FD8948AFBB7EA2D11D /* Starscream.modulemap */,
-				16ED3BB41C0D6AEDF30DA07FACDC8383 /* Starscream.xcconfig */,
-				B725411CEF52B96166D08F6E4312818B /* Starscream-dummy.m */,
-				F7220AE1E9956C6F7F308C092B32F1B1 /* Starscream-prefix.pch */,
-				D941D01762E8C76A98C5B65BC4BB57BD /* Starscream-umbrella.h */,
+				A569D572FD22FF13BA52AE02A3377540 /* SendBirdSDK.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Starscream";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B1A9DC63381A4B5EA6C51AC805C426B5 /* Support Files */ = {
+		8A62E8672F50448A6A279F8720B487AA /* GoogleMaps */ = {
 			isa = PBXGroup;
 			children = (
-				60C0D879F5C62C73AE24C4BEB9BEB2D8 /* Cloudinary.modulemap */,
-				3F81736C25E3A0DC6804FE4C0BB1452A /* Cloudinary.xcconfig */,
-				7D376F2895D3AFFA967117BBFC9BC005 /* Cloudinary-dummy.m */,
-				48E334BB80C18CA1100A52BE12B7D2AB /* Cloudinary-prefix.pch */,
-				18A707E84D6887FD0B54C13D2C5A954B /* Cloudinary-umbrella.h */,
-				0084347FAA3B33C9A2FDE8C74E3809E3 /* Info.plist */,
+				4D4F541295BDEBAB9FCD0E7DAA9EF68D /* Base */,
+				F3DE90E7ACAF079263BAC69AEDC35879 /* Maps */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Cloudinary";
+			name = GoogleMaps;
+			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
-		B87CE36C6733E6BCBF31722B0F7E1149 /* Starscream */ = {
+		8C50084588FB5B5F13211DE1410B7443 /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
-				BD098DFB2A4D5A2C2CD780DC8474C6C1 /* Compression.swift */,
-				18EEF3E2157B316B658059CE8ED7FF24 /* SSLSecurity.swift */,
-				0C2BD1BB0D9C9C89B9C26A271450BB25 /* WebSocket.swift */,
-				A7149A1AE321E30A685A6F9DCA4E10E0 /* Support Files */,
+				160391539772130FC94A7ECA88DA02CC /* AFError.swift */,
+				D53BA50539F2CB18EE528F0650F8E856 /* Alamofire.swift */,
+				4A9EEA8C3A2D977BED801DFCC9FC6198 /* DispatchQueue+Alamofire.swift */,
+				D63502292C99E91B945D640B7A34E074 /* MultipartFormData.swift */,
+				AABFBAEDCCC0E5F0263639905192D4C9 /* NetworkReachabilityManager.swift */,
+				3990438BF6458ADDB5F5518BB37D2BDF /* Notifications.swift */,
+				CBA53928ABBD476C9F5BE7DD06863579 /* ParameterEncoding.swift */,
+				429D3C86AF3FC49EEA597F59E248823E /* Request.swift */,
+				D0DE7879463A4F3165F3EE34994C13F7 /* Response.swift */,
+				286CC727BE210D335A3BE95554D58FEB /* ResponseSerialization.swift */,
+				8EB4B5A8B70F4E3B603C60FF65E64F97 /* Result.swift */,
+				A0FB2E7A7E8F238DF0109BF46E2C4DE7 /* ServerTrustPolicy.swift */,
+				1F3E490116A5F70BF184C91DAA7CBCAA /* SessionDelegate.swift */,
+				A8FE4030A1DC77C98B2B42CDB42476A7 /* SessionManager.swift */,
+				0CE2FCCBCFF60A5B4235976388714E98 /* TaskDelegate.swift */,
+				656F859ECB679BC541B4A70BFFED86CC /* Timeline.swift */,
+				5CF52C98297BE6DB60CB9C9080B32C5E /* Validation.swift */,
+				1C4A5851AEC7E9D6CA03FCE599A4EC4C /* Support Files */,
 			);
-			name = Starscream;
-			path = Starscream;
+			name = Alamofire;
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
-		BB330358585357C982C050C47F721C62 /* Cloudinary */ = {
+		8E92C9D5D27245BECCC4BBE8B0E7E844 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C4949545F2AA2E08975F0DD9B0B69E25 /* CLDAsyncNetworkUploadRequest.swift */,
-				7BB84484A8CE3EA7CA9EF35B19012FED /* CLDBaseNetworkObject.swift */,
-				AA16BF9D1F29DBA9E26AD949992357B1 /* CLDBaseResult.swift */,
-				AE77E3674A0F2788F11A84E1BEC2BB91 /* CLDBoundingBox.swift */,
-				2DA478919DD8BDE112E7328918C908F8 /* CLDBuildParamsUtils.swift */,
-				9518619242BFC84064946EAC9B8A9E28 /* CLDCloudinary.swift */,
-				856EE7FE15798C75A1A39BB79591AD8E /* CLDCompatibility.swift */,
-				4586C7F7C53E4A45E7FDD7D863EAD4D2 /* CLDConfiguration.swift */,
-				5BD99D3FFDA676F8D46991A5E028FC74 /* CLDCryptoUtils.swift */,
-				661D04DC7C24C61E68E2AED9CA912205 /* CLDDefaultUploadRequest.swift */,
-				A209DD43567AD531BA7FC4E2F1E40939 /* CLDDefinitions.swift */,
-				6714F0C57BBDCA00FF1A233E8B724556 /* CLDDeleteByTokenRequestParams.swift */,
-				529353403EC360DC48BDFEDCC948A0D9 /* CLDDeleteRequest.swift */,
-				0DEAEEA3656275D83392B4DED753F9CB /* CLDDeleteResult.swift */,
-				8191B06EFF2FF7415CD1B271D18869CA /* CLDDestroyRequestParams.swift */,
-				4D0A24F4F0297C2DDCB13790FC662C8A /* CLDDetection.swift */,
-				8C6127EFBF91C00219DC36195F74C96E /* CLDDictionaryUtils.swift */,
-				96D6599B749CBAB84451E74FAE1575FE /* CLDDownloader.swift */,
-				22B24D76AB9B221097361A91D991B7E2 /* CLDError.swift */,
-				5C1AE6A344CCAD04D317190C90E5BCD3 /* CLDErrorRequest.swift */,
-				935F6B68F08B0C1F83759DC7224A3AE1 /* CLDExplicitRequest.swift */,
-				2D3DE1ECAB2080F1DCD1456BA5AF0F64 /* CLDExplicitRequestParams.swift */,
-				DC8B327BD09549175F28A186435175B4 /* CLDExplicitResult.swift */,
-				76312B72A6BB7415211948A61B0AF838 /* CLDExplodeRequest.swift */,
-				64DAEAA339FA1F649071EA40AC2A0202 /* CLDExplodeRequestParams.swift */,
-				44BCED3BD3C33FCEC07E7D0CE25859E7 /* CLDExplodeResult.swift */,
-				33CE7B7889FB3B181710670EB063E308 /* CLDFace.swift */,
-				57615E4BA1DF457F2AE21BFC7ED5E1B0 /* CLDFetchImageRequestImpl.swift */,
-				277943C581221AA14D0C3D9DA2EBD653 /* CLDFileUtils.swift */,
-				BEDC0161F3C04FAD95C452B69B28D2BD /* CLDGenericNetworkRequest.swift */,
-				E876BE04E4DE34B6BF30167A227FCBE5 /* CLDImageCache.swift */,
-				F29B7BE59FE1346F7D155BEDC40C81C3 /* CLDImagePreprocessChain.swift */,
-				F555AE41634D5F16DC80B66FCB467270 /* CLDImageUtils.swift */,
-				CBCB9535B724A238EE6F85160B88DE3E /* CLDInfo.swift */,
-				76D87FD3272495C159D31A169D21E432 /* CLDJsonUtils.swift */,
-				B9C0A534870893E2E045B0114ACDCC4E /* CLDLayer.swift */,
-				423BB3B4A0ACD9F618CD0BE7F31E1565 /* CLDLogManager.swift */,
-				988B8B037C5C560A1FE64F1A9EC8B8C7 /* CLDManagementApi.swift */,
-				5AB1DC25DD271DAFDF21F20B67B2DA66 /* CLDMultiRequest.swift */,
-				7E5B2BA14B05A768417331226B19DAE9 /* CLDMultiRequestParams.swift */,
-				12D1230CEEF6C8EE05A1F31803793BB4 /* CLDMultiResult.swift */,
-				D94734BA73BFACE4801B24CC11067268 /* CLDNetworkAdapter.swift */,
-				5E50642D16A3A3728B6F81646EB31FB3 /* CLDNetworkCoordinator.swift */,
-				FA892A423635648EF1B106AB863CFC11 /* CLDNetworkDataRequestImpl.swift */,
-				E84DF607C0946F246587FD944968F589 /* CLDNetworkDelegate.swift */,
-				5ECDCAF295CF45FD5E2B235E28D03113 /* CLDNetworkDownloadRequest.swift */,
-				514D69CD95E9D8D3DC25DB8EBF2B6423 /* CLDNetworkUploadRequest.swift */,
-				70174A876680E059201BD27ECDE6FE7F /* CLDPreprocessChain.swift */,
-				54975146C39D26F68BE61C7CD1357027 /* CLDPreprocessHelpers.swift */,
-				EBB469D2F12783B0A360DE48B79AAB27 /* CLDRekognitionFace.swift */,
-				E8DE7F0FC959AF46309B1498F54A5C9C /* CLDRenameRequest.swift */,
-				B0C12CA28F5A824F8D87090BDD2AAAEF /* CLDRenameRequestParams.swift */,
-				8F89C394C0381E0CB85166F6D3C6F06E /* CLDRenameResult.swift */,
-				C846D89B5704050723A89421C5246CE8 /* CLDRequest.swift */,
-				6717ADB2F87487813A5638901C8D7DA9 /* CLDRequestParams.swift */,
-				60506C8779F66E99090A65D1D9A0207D /* CLDRequestParamsHelpers.swift */,
-				500275AA3DDD0F313C48154808AD9450 /* CLDResponsiveParams.swift */,
-				F2A2834AD4DDF72B57B93AE984B7E83A /* CLDResponsiveViewHelper.swift */,
-				09EB3728E93BE083DAD16A7BF471A8AE /* CLDSpriteRequest.swift */,
-				C07FDDC62825F856303D1BA20D8307DA /* CLDSpriteRequestParams.swift */,
-				8E254927F80644B675EFDF3A46FEC08D /* CLDSpriteResult.swift */,
-				CA737C710937F252772304F9E049E2C2 /* CLDStringUtils.swift */,
-				D8FE4939F939C766B09BBEAB6FED3B3F /* CLDSubtitlesLayer.swift */,
-				A7A996AF7BD6ED695841B75D44C5137E /* CLDTagRequest.swift */,
-				A9253E5FD8F07C9E220EAF75DB3ECA8B /* CLDTagResult.swift */,
-				D19744EB2176F585B698D0747E4A4202 /* CLDTagsRequestParams.swift */,
-				24FC61BBB750438366950C0B5C5D0D88 /* CLDTextLayer.swift */,
-				055E9D3D5F253CFA550E8BF7A6809F59 /* CLDTextRequest.swift */,
-				E46492484E3FA78E4F1F62C41AF0845E /* CLDTextRequestParams.swift */,
-				D692995E12037CBDEC4730F47B3017F5 /* CLDTextResult.swift */,
-				1F9AE6DFA79131A2BE72BD3A6170B44F /* CLDTranformation.swift */,
-				1CC80839F2599D2E098CFEF7C381316A /* CLDUIImageView.swift */,
-				4C8C8B27D84F5E925FC1300AD8A7F959 /* CLDUploader.swift */,
-				0591CE8FEB94BE76D2B1AF869B78A442 /* CLDUploadRequest.swift */,
-				EF50926E0CAEA8BF48FCF9944962F4B2 /* CLDUploadRequestParams.swift */,
-				371BE0619AA0D3F91DBA1FB4A4ACC687 /* CLDUploadRequestWrapper.swift */,
-				235A91835CA71B36ABD316B4710FA7A1 /* CLDUploadResult.swift */,
-				7BC2575942586E6A9C49C2AF74AD8A5B /* CLDUrl.swift */,
-				860D6F578F02F0B30B8F405FC6A1BC0D /* CommonResultKeys.swift */,
-				78FCEAE9EAE99C883CECDD13A74810F0 /* Data+HashFunction.swift */,
-				4C083D4198EB8FA4EC4155C943C0F0B6 /* Data+Int.swift */,
-				C22F449DCE3DF4861C48400FAB2A48AF /* EndianRepresentable.swift */,
-				121DDEA5E4F933B3E44F34E62ECE8D72 /* ExpressibleByInt.swift */,
-				B3326FA98932E2FADBED577E8595DFBF /* HashAlgorithm.swift */,
-				0553A83C64B7FB7C0502AA387B7440DA /* HashFunction.swift */,
-				E3D98BF14422756E641DCF0898339E2D /* HashFunctionOptions.swift */,
-				6D273D176245FF4DAC03DA2EEB0946BD /* MD5.swift */,
-				6611C44E62FF4A8C86B467331F01FA9E /* MerkleDamgardConstructor.swift */,
-				7E2B438D817252FDCA78A3D7F417B549 /* RotateOperations.swift */,
-				A1402BB40F0C1E4B0A93A10CDBDF00B8 /* SHA1.swift */,
-				E82E3FF1AAA2D094B0080E5D27A58A2F /* UIButton+Cloudinary.swift */,
-				F02A3240A582EF5AD46AB82492D1DB7B /* UIImageView+Cloudinary.swift */,
-				0DE471AA04A2F28029E4E3A5BF166FB7 /* UIView+Cloudinary.swift */,
-				B1A9DC63381A4B5EA6C51AC805C426B5 /* Support Files */,
+				9CD3DF90CEC10D3E23DE6607CF7D5D9F /* GooglePlaces.bundle */,
 			);
-			name = Cloudinary;
-			path = Cloudinary;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B67411EAB5D33EC458023FDC057F79F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D04F4D44E9363452E23607FADEC36B67 /* GoogleMaps.framework */,
+				15A22C70255A589247AB4CD216F1E85C /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C01082A3E99D3ADD178FE62CDD4E9146 /* Pods-Neighborly */ = {
@@ -721,13 +697,152 @@
 			path = "Target Support Files/Pods-Neighborly";
 			sourceTree = "<group>";
 		};
-		E6144D5733349910391791ED086A9859 /* Pods */ = {
+		C6114A7F95C63F8C356EE11B3E5AEA08 /* Cloudinary */ = {
 			isa = PBXGroup;
 			children = (
-				71181215C88A5283841856E41A50CF0E /* Alamofire */,
-				BB330358585357C982C050C47F721C62 /* Cloudinary */,
-				1A745944610E7EBE6579248F53E69D02 /* SendBirdSDK */,
-				B87CE36C6733E6BCBF31722B0F7E1149 /* Starscream */,
+				6C0129C487175AC72C1CEA0EFDA36A9A /* CLDAsyncNetworkUploadRequest.swift */,
+				E3F4589F41C91126CFD821EE6DF4103C /* CLDBaseNetworkObject.swift */,
+				29E959C1EB66BF69076C9845CA243DB6 /* CLDBaseResult.swift */,
+				DB3394EBFD176AD00D8DC0F770071365 /* CLDBoundingBox.swift */,
+				6C3996943A3641C2A45392908AE52C2F /* CLDBuildParamsUtils.swift */,
+				3BFD1B4910E4F08A070569CBA8E7E426 /* CLDCloudinary.swift */,
+				C7A4FE4529B84B082B44042FB7F6E6A1 /* CLDCompatibility.swift */,
+				6A157B65DF0D00EAB56E4F6CAB9AF82F /* CLDConfiguration.swift */,
+				09B2C0BA7DB7341C7D6F0ECA6C6BABF8 /* CLDCryptoUtils.swift */,
+				336FF3F791BAA4AA9A6CAB3581BA7568 /* CLDDefaultUploadRequest.swift */,
+				E33C5CB78B222D233FD20ED031A5EDA2 /* CLDDefinitions.swift */,
+				9789242FE9B73DDC8E156E36D149B94E /* CLDDeleteByTokenRequestParams.swift */,
+				EE682E919E26B956756DAC606282632A /* CLDDeleteRequest.swift */,
+				12F1F1890387FE88FD8623AE6C9292F7 /* CLDDeleteResult.swift */,
+				9AACCA99F5E7B332B9E2E55DCB3D3B83 /* CLDDestroyRequestParams.swift */,
+				D08A59928A52BA28A1170FE19853F66D /* CLDDetection.swift */,
+				9C9E0F5759DE5AA62B78C58A0E6B3705 /* CLDDictionaryUtils.swift */,
+				28A1D54C1F202C5361E76227CA1047FC /* CLDDownloader.swift */,
+				6EF319E266B4CE02BB6F054011AF490C /* CLDError.swift */,
+				20445BF0B3DC3C9F06B3D5BB1E6124FB /* CLDErrorRequest.swift */,
+				DB68C62F718CA2225ABAECDEC94D712A /* CLDExplicitRequest.swift */,
+				F74BAA92798A4EE77D7BE377232225ED /* CLDExplicitRequestParams.swift */,
+				B48089FB716F083A50E51A4BC297D51F /* CLDExplicitResult.swift */,
+				2C40B9C554BE3DC76581C03F271AC09E /* CLDExplodeRequest.swift */,
+				227ADCB42FF3DB958D4B0CFAED6B89F1 /* CLDExplodeRequestParams.swift */,
+				2A38D665FF2A5726266715B2D6D1D73F /* CLDExplodeResult.swift */,
+				1C9F46CF25D82ADD07C9CCCEF7CFD370 /* CLDFace.swift */,
+				7D8F3760CC314E4067952394783E097C /* CLDFetchImageRequestImpl.swift */,
+				C0D730513CF9D09C7EAE788B85A9338A /* CLDFileUtils.swift */,
+				CB99CBBFB150DFAEECDCCAC2A1A2005C /* CLDGenericNetworkRequest.swift */,
+				1895E1EFA3EFDF3A0E526C0B791CC829 /* CLDImageCache.swift */,
+				700D5F276374386BBC5B6FB76F694F29 /* CLDImagePreprocessChain.swift */,
+				1A593884C600452D154994AEA235C799 /* CLDImageUtils.swift */,
+				001997E2CAB47EC39A077B6F07B54CCF /* CLDInfo.swift */,
+				25DCFD9E77321EA507E8D1AD81D34E27 /* CLDJsonUtils.swift */,
+				0F0B34AFE4997167738DE3AB8404322E /* CLDLayer.swift */,
+				10BB56E1915FBD9CC3C73C731B5757D0 /* CLDLogManager.swift */,
+				4FAE3C5C4A109EED818D1757C2C5810C /* CLDManagementApi.swift */,
+				733A018F55E9B6AA6018FC8DF84ECA87 /* CLDMultiRequest.swift */,
+				E4363FD1A3A709DAFD8EE18E5F9DC99E /* CLDMultiRequestParams.swift */,
+				CB53C6020A1F2D0113858801E8E7804D /* CLDMultiResult.swift */,
+				99D157B7B732F5F74321DAE2F24901AE /* CLDNetworkAdapter.swift */,
+				B75FA87172A760D425D35C1FC536BD22 /* CLDNetworkCoordinator.swift */,
+				412E2898F6F251B4119B1FA7217BBB87 /* CLDNetworkDataRequestImpl.swift */,
+				FA04C38B4FA83B378141CB242CB2B7C5 /* CLDNetworkDelegate.swift */,
+				886F2CA952E057218DC7B327E79F22E2 /* CLDNetworkDownloadRequest.swift */,
+				5DBCD1CFC6F872B51DA97BA3EB1BCB33 /* CLDNetworkUploadRequest.swift */,
+				4215054794C6D94291AD1FE675A693AD /* CLDPreprocessChain.swift */,
+				7A28CA2C2A4FA608202977FA9890C94D /* CLDPreprocessHelpers.swift */,
+				2947725B5B20779915DFAEABAB5A0D7F /* CLDRekognitionFace.swift */,
+				6E873A6BBB96DEA8EB37491A457B9AEB /* CLDRenameRequest.swift */,
+				531A0692338A426A0AF52CD068C9FCD2 /* CLDRenameRequestParams.swift */,
+				9B076F025F3E9B3D54FD4502A195E5D5 /* CLDRenameResult.swift */,
+				D90752409F1F50D71AB7F5EDAE7C6AD8 /* CLDRequest.swift */,
+				CFCE03B5B1FDBCD4413E512BB6B016B5 /* CLDRequestParams.swift */,
+				51D291D55FE6D6695DBC96C46232E5A5 /* CLDRequestParamsHelpers.swift */,
+				C8819984585DB1803B1F0C9B8B963685 /* CLDResponsiveParams.swift */,
+				27D59CB103913D739DCFCCFF9844B63B /* CLDResponsiveViewHelper.swift */,
+				3C0413BB12BD0FB427D154A851254719 /* CLDSpriteRequest.swift */,
+				D955C1D50D4809F52F197C957C888267 /* CLDSpriteRequestParams.swift */,
+				80375F34E456AE33F48CA0F7CDBFFAEE /* CLDSpriteResult.swift */,
+				44BAB155752FCAE4A424449518487F46 /* CLDStringUtils.swift */,
+				8F1F1BA24AFCD057418200E865D45C66 /* CLDSubtitlesLayer.swift */,
+				AC9B58EC57B76C1C468853FCC61BF99D /* CLDTagRequest.swift */,
+				812BEFA1CF624F98A5DE7B21BE4A06FA /* CLDTagResult.swift */,
+				622378CC61FDCA255FE1ACC8CC167471 /* CLDTagsRequestParams.swift */,
+				7850C1CA2F4A3C3D4DEB7CCEEDD55D93 /* CLDTextLayer.swift */,
+				D70485541884B3EE02354E5310E2223B /* CLDTextRequest.swift */,
+				363885D94875E8FD20EDDDDC446EB19A /* CLDTextRequestParams.swift */,
+				DC4BCCFC99113848E7987417093869DB /* CLDTextResult.swift */,
+				56A9C61FED1D33D7FF233B1DBB8F34D2 /* CLDTranformation.swift */,
+				D4343E8D4C62123311E6B65BD25F1910 /* CLDUIImageView.swift */,
+				92EB9CD6B7F79A716CF2E46BC42075DD /* CLDUploader.swift */,
+				01D0DFE5DD56361689D8AC1FFCED367C /* CLDUploadRequest.swift */,
+				CDE033630570506A08D6FA2CC5CF7FC4 /* CLDUploadRequestParams.swift */,
+				7D58F13DB1DD0C64E8AE58543A7503D1 /* CLDUploadRequestWrapper.swift */,
+				9E5302CC83A34BD07BB254D42EDD41C7 /* CLDUploadResult.swift */,
+				488F4F1E654126F9BBC0CEB32B9A4119 /* CLDUrl.swift */,
+				56CE417FF6E268D1CB65C8AC732A77BB /* CommonResultKeys.swift */,
+				1D739EBB2A3971A55C9349F33A7CE231 /* Data+HashFunction.swift */,
+				65407AB7D433F498D5B9D3B0B75DAE91 /* Data+Int.swift */,
+				0D2295C37B33FA678F62FFE57420C7A9 /* EndianRepresentable.swift */,
+				08B934A08FEFA7235157A40729E86F21 /* ExpressibleByInt.swift */,
+				A3ACAFCE1FACA5F139EDBC4A16C8F52C /* HashAlgorithm.swift */,
+				37BE48950CE44F44D49422A79AD45697 /* HashFunction.swift */,
+				088061E93AF2E51386D59326F57BD723 /* HashFunctionOptions.swift */,
+				BD24B5942702AC0F554E915E9C900C78 /* MD5.swift */,
+				76C3A9D37155172CED82C91A3F3D167F /* MerkleDamgardConstructor.swift */,
+				744B525B83A5ADC0EB6C1CA2B33AF2B8 /* RotateOperations.swift */,
+				16C98EE660AF0CC600AE95600FA83884 /* SHA1.swift */,
+				932BA5DE967498F904C79E8EB2FAF494 /* UIButton+Cloudinary.swift */,
+				F735AB7B5C008F5AD8DAEAC45E646B8C /* UIImageView+Cloudinary.swift */,
+				127A0A4C11FA024F3B08923CAC468851 /* UIView+Cloudinary.swift */,
+				3FAFB7169DA6490B65B702A689B29821 /* Support Files */,
+			);
+			name = Cloudinary;
+			path = Cloudinary;
+			sourceTree = "<group>";
+		};
+		DED54B5AD6CB5951FF27B06E78D136D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F9CBBDF4899A74827710A49D4DA2B43B /* GooglePlacePicker.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E88FAEC9E0B87001AF50CCC9D3B2152C /* SendBirdSDK */ = {
+			isa = PBXGroup;
+			children = (
+				8A40FAE3A06CA8FDE0DCF08CB0A0674C /* Frameworks */,
+			);
+			name = SendBirdSDK;
+			path = SendBirdSDK;
+			sourceTree = "<group>";
+		};
+		EB69856248F4D96F4A735F2D2B6AE6C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27EE5AE6FF7483FD4D942312A39029D1 /* GooglePlaces.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3DE90E7ACAF079263BAC69AEDC35879 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				B67411EAB5D33EC458023FDC057F79F9 /* Frameworks */,
+				80C4ABB7A52354E8A9A04CE497DCF077 /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		FF69AC743393DFD20FB8713A21D8A783 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C50084588FB5B5F13211DE1410B7443 /* Alamofire */,
+				C6114A7F95C63F8C356EE11B3E5AEA08 /* Cloudinary */,
+				8A62E8672F50448A6A279F8720B487AA /* GoogleMaps */,
+				383842A45947BB4BFBA509BC730D59EC /* GooglePlacePicker */,
+				716BAAF33EF74AE04120B0D65119ACA2 /* GooglePlaces */,
+				E88FAEC9E0B87001AF50CCC9D3B2152C /* SendBirdSDK */,
+				2BD28C91701417E27E96A6726029DEE8 /* Starscream */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1131,7 +1246,7 @@
 /* Begin XCBuildConfiguration section */
 		10F7846C8AFF4017E0B341C376E8AFEC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F81736C25E3A0DC6804FE4C0BB1452A /* Cloudinary.xcconfig */;
+			baseConfigurationReference = 5C8F9BF5961F8336FE5E2EA5F7ADCE54 /* Cloudinary.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1330,7 +1445,7 @@
 		};
 		A18C9CC7E37563F2891E7DC87F2DE6CE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 028DDC7A7F33009DB09F54F2EF78071E /* Alamofire.xcconfig */;
+			baseConfigurationReference = 6BA02AB85F337886AD5FDAE038726C52 /* Alamofire.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1363,7 +1478,7 @@
 		};
 		AC29C9C2FF59D7FE9F5F94A796E0FB65 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16ED3BB41C0D6AEDF30DA07FACDC8383 /* Starscream.xcconfig */;
+			baseConfigurationReference = 80FB7CD774AA3C6A3FBAB974EE0D670A /* Starscream.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1395,7 +1510,7 @@
 		};
 		BC2CCF6D5482C51CD339E95E64079E91 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16ED3BB41C0D6AEDF30DA07FACDC8383 /* Starscream.xcconfig */;
+			baseConfigurationReference = 80FB7CD774AA3C6A3FBAB974EE0D670A /* Starscream.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1528,7 +1643,7 @@
 		};
 		EA0ADC75B20BB62958101306980460E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 028DDC7A7F33009DB09F54F2EF78071E /* Alamofire.xcconfig */;
+			baseConfigurationReference = 6BA02AB85F337886AD5FDAE038726C52 /* Alamofire.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1560,7 +1675,7 @@
 		};
 		ED4C7A9436E4024135E29A7D4E6CFF3C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F81736C25E3A0DC6804FE4C0BB1452A /* Cloudinary.xcconfig */;
+			baseConfigurationReference = 5C8F9BF5961F8336FE5E2EA5F7ADCE54 /* Cloudinary.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
